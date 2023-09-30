@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpseferbomb0h"]
+
+[ext_resource type="Script" path="res://componets/player/player.gd" id="1_gtsp0"]
+[ext_resource type="PackedScene" uid="uid://bk01mifklj8ii" path="res://assets/models/Shotgun_SawedOff.fbx" id="2_phksp"]
+[ext_resource type="PackedScene" uid="uid://ci0k20bvqq4pa" path="res://componets/bullets/bullet.tscn" id="2_rxjsc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0pf0p"]
+height = 2.35404
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_gtsp0")
+Left_Barrel = ExtResource("2_rxjsc")
+Right_Barrel = ExtResource("2_rxjsc")
+
+[node name="CameraNeck" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraNeck"]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 0.77703, 2.08165e-12)
+fov = 90.0
+
+[node name="Shotgun_SawedOff" parent="CameraNeck" instance=ExtResource("2_phksp")]
+transform = Transform3D(-1.30463e-08, -1.32519e-09, 0.3, -0.0303169, 0.298464, -1.04636e-16, -0.298464, -0.0303169, -1.31134e-08, 0, 0.438313, 0.0434037)
+
+[node name="ShotingHole" type="Node3D" parent="CameraNeck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476007, -0.957375)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_0pf0p")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+visible = false
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(3.1238e-15, 8.74228e-08, -2, 2, -8.74228e-08, -6.97574e-16, -8.74228e-08, -2, -8.74228e-08, 0, 0.562428, -0.912269)
+target_position = Vector3(2.08165e-12, 10, 2.08165e-12)
