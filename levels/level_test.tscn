@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqakr71a35ba6"]
+[gd_scene load_steps=6 format=3 uid="uid://cqakr71a35ba6"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
+[ext_resource type="PackedScene" uid="uid://dswkpqkb23vtp" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="2_6ywks"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
 
@@ -36,3 +37,10 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.49238, 0)
 transform = Transform3D(1, -2.52648e-16, 3.35275e-16, 3.35275e-16, 0.961262, -0.275637, -2.52648e-16, 0.275637, 0.961262, 0, 0.290469, -13.3511)
 use_collision = true
 size = Vector3(12.035, 1, 9.02667)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.109, 17.0494)
+size = Vector3(26.077, 1, 21.3758)
+
+[node name="nut_ammo" parent="." instance=ExtResource("2_6ywks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27353, 8.7293)
