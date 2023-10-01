@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var Bullet_Speed: int = 50
+@export var Bullet_Speed: int = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

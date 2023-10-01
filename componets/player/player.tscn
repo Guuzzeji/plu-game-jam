@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://componets/player/player.gd" id="1_gtsp0"]
 [ext_resource type="PackedScene" uid="uid://bk01mifklj8ii" path="res://assets/models/Shotgun_SawedOff.fbx" id="2_phksp"]
-[ext_resource type="PackedScene" uid="uid://ci0k20bvqq4pa" path="res://componets/bullets/bullet.tscn" id="2_rxjsc"]
+[ext_resource type="PackedScene" uid="uid://k1t3p4n6vnh6" path="res://componets/bullets/custom_bullet.tscn" id="2_vojcu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0pf0p"]
 height = 2.35404
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_gtsp0")
-Left_Barrel = ExtResource("2_rxjsc")
-Right_Barrel = ExtResource("2_rxjsc")
+Left_Barrel = ExtResource("2_vojcu")
+Right_Barrel = ExtResource("2_vojcu")
 
 [node name="CameraNeck" type="Node3D" parent="."]
 
