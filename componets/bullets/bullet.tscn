@@ -6,6 +6,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_k6xjv"]
 
 [node name="Bullet" type="Area3D"]
+collision_mask = 2
 script = ExtResource("1_64y8e")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
