@@ -21,23 +21,26 @@ func _input(event):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
 		
 	if event is InputEventMouseMotion:
-		print($CameraNeck.rotation.x)
+		# print($CameraNeck.rotation.x)
 		self.rotate_y(-event.relative.x * 0.01)
 		$CameraNeck.rotate_x(-event.relative.y * 0.01)
 		
 	$CameraNeck.rotation.x = clamp($CameraNeck.rotation.x, -1.5, 1.5)
 	
 	if Input.is_action_pressed("Left_Fire"):
-		var bullet = Left_Barrel.instantiate()
-		$CameraNeck/ShotingHole.add_child(bullet)
+		print(Left_Barrel)
+		if Left_Barrel != null:
+			var bullet = Left_Barrel.instantiate()
+			$CameraNeck/ShotingHole.add_child(bullet)
 		
 	if Input.is_action_pressed("Right_Fire"):
-		var bullet = Right_Barrel.instantiate()
-		$CameraNeck/ShotingHole.add_child(bullet)
+		if Right_Barrel != null:
+			var bullet = Right_Barrel.instantiate()
+			$CameraNeck/ShotingHole.add_child(bullet)
 
 
 func _physics_process(delta):
-	print(transform.basis, velocity)
+	# print(transform.basis, velocity)
 	
 	# Add the gravity.
 	if not is_on_floor():
