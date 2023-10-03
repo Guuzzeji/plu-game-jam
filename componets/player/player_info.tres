@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Player_Data" load_steps=2 format=3 uid="uid://ce2n6cf4dqt8m"]
+
+[ext_resource type="Script" path="res://src/player_resource.gd" id="1_2sm1d"]
+
+[resource]
+script = ExtResource("1_2sm1d")
+Name = ""
+Health = 0
+Mania = 0
+Bullet_Inventory = Array[PackedScene]([])
