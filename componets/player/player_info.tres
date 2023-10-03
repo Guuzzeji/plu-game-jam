@@ -4,7 +4,6 @@
 
 [resource]
 script = ExtResource("1_2sm1d")
-Name = ""
-Health = 0
-Mania = 0
+Health = 100
+Mania = 100
 Bullet_Inventory = Array[PackedScene]([])
