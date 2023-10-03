@@ -1,6 +1,7 @@
 extends Area3D
 
-# @export var Bullet_Info : Resource
+@export var Bullet_Info : Bullet_Type
+@export var Ammo_Drop : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,7 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
-	position += -global_transform.basis.z * 50 * delta
+	position += -global_transform.basis.z * Bullet_Info.Speed * delta
 	pass
 
 # Use when ever enemy node goes into body

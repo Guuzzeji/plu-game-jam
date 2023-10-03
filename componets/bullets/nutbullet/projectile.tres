@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="Bullet_Type" load_steps=3 format=3 uid="uid://di37acejeygq6"]
+[gd_resource type="Resource" script_class="Bullet_Type" load_steps=2 format=3 uid="uid://di37acejeygq6"]
 
-[ext_resource type="PackedScene" uid="uid://dswkpqkb23vtp" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="1_4gv2o"]
 [ext_resource type="Script" path="res://src/bullet_resource.gd" id="3_4ds15"]
 
 [resource]
@@ -9,5 +8,3 @@ script = ExtResource("3_4ds15")
 Name = "Nut Bullet"
 Damage = 100
 Speed = 100
-Projectile = ExtResource("1_4gv2o")
-Ammo = ExtResource("1_4gv2o")
