@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpseferbomb0h"]
+[gd_scene load_steps=5 format=3 uid="uid://cpseferbomb0h"]
 
 [ext_resource type="Script" path="res://componets/player/player.gd" id="1_gtsp0"]
 [ext_resource type="PackedScene" uid="uid://bk01mifklj8ii" path="res://assets/models/Shotgun_SawedOff.fbx" id="2_phksp"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_tjgyl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0pf0p"]
 height = 2.35404
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_gtsp0")
+PlayerInfo = ExtResource("2_tjgyl")
 
 [node name="CameraNeck" type="Node3D" parent="."]
 

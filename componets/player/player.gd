@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
-@export var Left_Barrel: PackedScene
-@export var Right_Barrel: PackedScene
+@export var PlayerInfo : Player_Data 
 
 const SPEED = 450.0
 const ACCL = 0.025
@@ -28,14 +27,14 @@ func _input(event):
 	$CameraNeck.rotation.x = clamp($CameraNeck.rotation.x, -1.5, 1.5)
 	
 	if Input.is_action_pressed("Left_Fire"):
-		print(Left_Barrel)
-		if Left_Barrel != null:
-			var bullet = Left_Barrel.instantiate()
+		print(PlayerInfo.Left_Barrel)
+		if PlayerInfo.Left_Barrel != null:
+			var bullet = PlayerInfo.Left_Barrel.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
 		
 	if Input.is_action_pressed("Right_Fire"):
-		if Right_Barrel != null:
-			var bullet = Right_Barrel.instantiate()
+		if PlayerInfo.Right_Barrel != null:
+			var bullet = PlayerInfo.Right_Barrel.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
 
 
