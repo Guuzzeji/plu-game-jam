@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dswkpqkb23vtp"]
+[gd_scene load_steps=10 format=3 uid="uid://dswkpqkb23vtp"]
 
 [ext_resource type="Script" path="res://componets/bullets/nutbullet/nut_ammo.gd" id="1_jbubf"]
 [ext_resource type="PackedScene" uid="uid://k1t3p4n6vnh6" path="res://componets/bullets/nutbullet/custom_bullet.tscn" id="2_cyc0b"]
 [ext_resource type="Texture2D" uid="uid://fmm6it7kb8sg" path="res://assets/images/bullet_nut.jpg" id="2_w4u5t"]
 [ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/nutbullet/projectile.tres" id="3_vpbd5"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="4_v8q31"]
 
 [sub_resource type="Animation" id="Animation_v7tio"]
 length = 0.001
@@ -49,6 +50,7 @@ _data = {
 script = ExtResource("1_jbubf")
 Projectile = ExtResource("2_cyc0b")
 Bullet_Info = ExtResource("3_vpbd5")
+Player_Info = ExtResource("4_v8q31")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
