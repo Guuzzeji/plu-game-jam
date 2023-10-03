@@ -30,10 +30,6 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Top-down-shooter-test"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/CustomBullet_plugin/plugin.cfg", "res://addons/Custom_Bullet_Ammo/plugin.cfg")
-
 [input]
 
 left={
