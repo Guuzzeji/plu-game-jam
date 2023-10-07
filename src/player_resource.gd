@@ -18,3 +18,8 @@ class_name Player_Data
 @export var Bullet_Info_Left_Barrel: Bullet_Type
 
 @export var Barrel_Delay: float = 0.15
+
+@export var SPEED: float = 450.0
+@export var ACCL: float = 0.20
+@export var DE_ACCL: float = 0.08
+@export var JUMP_VELOCITY: float = 5.66 # 4.5

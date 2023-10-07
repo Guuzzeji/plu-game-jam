@@ -1,17 +1,17 @@
 extends CharacterBody3D
 
-@export var PlayerInfo : Player_Data 
+@export var  PlayerInfo : Player_Data 
 
-const SPEED = 450.0
-const ACCL = 0.20
-const DE_ACCL = 0.08
-const JUMP_VELOCITY = 5.66 # 4.5
+@onready var SPEED = PlayerInfo.SPEED
+@onready var ACCL = PlayerInfo.ACCL
+@onready var DE_ACCL = PlayerInfo.DE_ACCL
+@onready var JUMP_VELOCITY = PlayerInfo.JUMP_VELOCITY
 
-var speed_controller = 0.0
-var can_shoot_barrel = true
+@onready var speed_controller = 0.0
+@onready var can_shoot_barrel = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	$AnimationPlayer.play("RESET")
