@@ -3,8 +3,8 @@ extends CharacterBody3D
 @export var PlayerInfo : Player_Data 
 
 const SPEED = 450.0
-const ACCL = 0.025
-const DE_ACCL = 0.15
+const ACCL = 0.20
+const DE_ACCL = 0.08
 const JUMP_VELOCITY = 5.66 # 4.5
 
 var speed_controller = 0.0
