@@ -30,7 +30,7 @@ albedo_texture = ExtResource("2_dchu1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkh6p"]
 albedo_texture = ExtResource("2_dchu1")
 
-[sub_resource type="Resource" id="Resource_hds2m"]
+[sub_resource type="Resource" id="Resource_5ul0q"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -83,4 +83,4 @@ size = Vector3(26.077, 1, 21.3758)
 
 [node name="nut_ammo" parent="." instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_hds2m")
+Bullet_Info = SubResource("Resource_5ul0q")
