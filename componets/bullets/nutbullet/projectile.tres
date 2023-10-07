@@ -8,3 +8,6 @@ script = ExtResource("3_4ds15")
 Name = "Nut Bullet"
 Damage = 100
 Speed = 100
+Mana_Cost = 1
+Timer_Killer = 5
+Enemy_Bullet = true

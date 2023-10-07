@@ -1,24 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://k1t3p4n6vnh6"]
+[gd_scene load_steps=5 format=3 uid="uid://k1t3p4n6vnh6"]
 
 [ext_resource type="Script" path="res://componets/bullets/nutbullet/custom_bullet_projectile.gd" id="1_6hu14"]
 [ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/nutbullet/projectile.tres" id="2_2ja7r"]
 [ext_resource type="Texture2D" uid="uid://fmm6it7kb8sg" path="res://assets/images/bullet_nut.jpg" id="2_t31d4"]
-[ext_resource type="PackedScene" uid="uid://dswkpqkb23vtp" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="3_r80l5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fy7lr"]
 
-[node name="CustomBullet" type="Area3D"]
-collision_mask = 2
+[node name="CustomBullet" type="Area3D" groups=["bullet"]]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_6hu14")
 Bullet_Info = ExtResource("2_2ja7r")
-Ammo_Drop = ExtResource("3_r80l5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_fy7lr")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 billboard = 1
 texture = ExtResource("2_t31d4")
 
+[node name="Life_Time" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Life_Time" to="." method="_on_life_time_timeout"]
