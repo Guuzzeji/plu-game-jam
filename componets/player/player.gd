@@ -8,6 +8,7 @@ const DE_ACCL = 0.15
 const JUMP_VELOCITY = 5.66 # 4.5
 
 var speed_controller = 0.0
+var can_shoot_barrel = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -28,12 +29,16 @@ func _input(event):
 	
 	if Input.is_action_pressed("Left_Fire"):
 		print(PlayerInfo.Left_Barrel)
-		if PlayerInfo.Left_Barrel != null:
+		if PlayerInfo.Left_Barrel != null and can_shoot_barrel:
+			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
+			can_shoot_barrel = false
 			var bullet = PlayerInfo.Left_Barrel.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
-		
-	if Input.is_action_pressed("Right_Fire"):
-		if PlayerInfo.Right_Barrel != null:
+			
+	elif Input.is_action_pressed("Right_Fire"):
+		if PlayerInfo.Right_Barrel != null and can_shoot_barrel:
+			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
+			can_shoot_barrel = false
 			var bullet = PlayerInfo.Right_Barrel.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
 
@@ -63,3 +68,8 @@ func _physics_process(delta):
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
 
 	move_and_slide()
+
+
+func _on_barrel_timer_timeout():
+	can_shoot_barrel = true
+	pass # Replace with function body.
