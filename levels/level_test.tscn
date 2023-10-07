@@ -1,8 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=15 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
+[ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
 [ext_resource type="PackedScene" uid="uid://dswkpqkb23vtp" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="2_6ywks"]
+[ext_resource type="Texture2D" uid="uid://1jfql6svsg7h" path="res://assets/images/test-surface-texture/Purple/texture_01.png" id="2_dchu1"]
 [ext_resource type="Script" path="res://src/bullet_resource.gd" id="3_5ds71"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn2tl"]
+albedo_texture = ExtResource("1_xviyp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbocp"]
+albedo_texture = ExtResource("2_dchu1")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
 
@@ -13,24 +21,35 @@ sky_material = SubResource("ProceduralSkyMaterial_pnspk")
 background_mode = 2
 sky = SubResource("Sky_by5k1")
 
-[sub_resource type="Resource" id="Resource_2dojo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ui677"]
+albedo_texture = ExtResource("2_dchu1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4dt8"]
+albedo_texture = ExtResource("2_dchu1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkh6p"]
+albedo_texture = ExtResource("2_dchu1")
+
+[sub_resource type="Resource" id="Resource_rl5p3"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
 Damage = 100
 Speed = 100
-Mana_Cost = 0
+Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
 
 [node name="LevelTest" type="Node3D"]
 
 [node name="floor" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_kn2tl")
 use_collision = true
 size = Vector3(112.074, 0.148753, 92.8801)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8971, -6.06256, 0)
+material_override = SubResource("StandardMaterial3D_pbocp")
 use_collision = true
 radius = 13.1168
 
@@ -46,19 +65,22 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.49238, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, -2.52648e-16, 3.35275e-16, 3.35275e-16, 0.961262, -0.275637, -2.52648e-16, 0.275637, 0.961262, 0, 0.290469, -13.3511)
+material_override = SubResource("StandardMaterial3D_ui677")
 use_collision = true
 size = Vector3(12.035, 1, 9.02667)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, -2.52648e-16, 3.35275e-16, 4.17182e-16, 0.687265, -0.726407, -4.68979e-17, 0.726407, 0.687266, 17.8704, 0.337941, -13.3511)
+material_override = SubResource("StandardMaterial3D_h4dt8")
 use_collision = true
 size = Vector3(21.917, 1, 27.1067)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.109, 17.0494)
+material_override = SubResource("StandardMaterial3D_jkh6p")
 use_collision = true
 size = Vector3(26.077, 1, 21.3758)
 
 [node name="nut_ammo" parent="." instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_2dojo")
+Bullet_Info = SubResource("Resource_rl5p3")
