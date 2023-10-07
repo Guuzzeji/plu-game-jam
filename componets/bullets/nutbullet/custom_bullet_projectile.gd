@@ -2,6 +2,7 @@ extends Area3D
 
 @export var Bullet_Info : Bullet_Type
 @export var Ammo_Drop : PackedScene
+@export var Player_Info : Player_Data
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,7 +21,6 @@ func _on_body_entered(body):
 		queue_free()
 		print(body.get_groups())
 	pass
-
 
 func _on_life_time_timeout():
 	queue_free()

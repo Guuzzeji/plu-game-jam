@@ -26,25 +26,28 @@ func _input(event):
 		$CameraNeck.rotate_x(-event.relative.y * 0.01)
 		
 	$CameraNeck.rotation.x = clamp($CameraNeck.rotation.x, -1.5, 1.5)
+
+
+func _physics_process(delta):
+	# print(transform.basis, velocity)
+	print("Mana = ", PlayerInfo.Mana)
 	
 	if Input.is_action_pressed("Left_Fire"):
-		print(PlayerInfo.Left_Barrel)
-		if PlayerInfo.Left_Barrel != null and can_shoot_barrel:
+		print(PlayerInfo.Bullet_Info_Left_Barrel.Cost)
+		if PlayerInfo.Left_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Bullet_Info_Left_Barrel.Cost:
+			PlayerInfo.Mana -= PlayerInfo.Bullet_Info_Left_Barrel.Cost
 			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
 			can_shoot_barrel = false
 			var bullet = PlayerInfo.Left_Barrel.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
 			
 	elif Input.is_action_pressed("Right_Fire"):
-		if PlayerInfo.Right_Barrel != null and can_shoot_barrel:
+		if PlayerInfo.Right_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Bullet_Info_Right_Barrel.Cost:
+			PlayerInfo.Mana -= PlayerInfo.Bullet_Info_Right_Barrel.Cost
 			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
 			can_shoot_barrel = false
 			var bullet = PlayerInfo.Right_Barrel.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
-
-
-func _physics_process(delta):
-	# print(transform.basis, velocity)
 	
 	# Add the gravity.
 	if not is_on_floor():

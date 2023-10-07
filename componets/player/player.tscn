@@ -36,4 +36,6 @@ target_position = Vector3(2.08165e-12, 10, 2.08165e-12)
 [node name="Barrel_Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Mana_Inc" type="Timer" parent="."]
+
 [connection signal="timeout" from="Barrel_Timer" to="." method="_on_barrel_timer_timeout"]
