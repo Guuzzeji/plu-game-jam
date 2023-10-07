@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqakr71a35ba6"]
+[gd_scene load_steps=8 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="PackedScene" uid="uid://dswkpqkb23vtp" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="2_6ywks"]
+[ext_resource type="Script" path="res://src/bullet_resource.gd" id="3_5ds71"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
 
@@ -11,6 +12,16 @@ sky_material = SubResource("ProceduralSkyMaterial_pnspk")
 [sub_resource type="Environment" id="Environment_d0ypc"]
 background_mode = 2
 sky = SubResource("Sky_by5k1")
+
+[sub_resource type="Resource" id="Resource_2dojo"]
+resource_local_to_scene = true
+script = ExtResource("3_5ds71")
+Name = "Nut Bullet"
+Damage = 100
+Speed = 100
+Mana_Cost = 0
+Life_Time = 5.0
+Enemy_Bullet = false
 
 [node name="LevelTest" type="Node3D"]
 
@@ -38,9 +49,16 @@ transform = Transform3D(1, -2.52648e-16, 3.35275e-16, 3.35275e-16, 0.961262, -0.
 use_collision = true
 size = Vector3(12.035, 1, 9.02667)
 
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, -2.52648e-16, 3.35275e-16, 4.17182e-16, 0.687265, -0.726407, -4.68979e-17, 0.726407, 0.687266, 17.8704, 0.337941, -13.3511)
+use_collision = true
+size = Vector3(21.917, 1, 27.1067)
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.109, 17.0494)
+use_collision = true
 size = Vector3(26.077, 1, 21.3758)
 
 [node name="nut_ammo" parent="." instance=ExtResource("2_6ywks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27353, 8.7293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
+Bullet_Info = SubResource("Resource_2dojo")
