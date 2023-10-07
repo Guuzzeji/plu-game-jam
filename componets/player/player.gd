@@ -32,8 +32,11 @@ func _physics_process(delta):
 	# print(transform.basis, velocity)
 	print("Mana = ", PlayerInfo.Mana)
 	
+	if (PlayerInfo.Mana != PlayerInfo.Max_Mana and $Mana_Inc.is_stopped()):
+		$Mana_Inc.start(PlayerInfo.Mana_Timer)
+	
 	if Input.is_action_pressed("Left_Fire"):
-		print(PlayerInfo.Bullet_Info_Left_Barrel.Cost)
+		# print(PlayerInfo.Bullet_Info_Left_Barrel.Cost)
 		if PlayerInfo.Left_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Bullet_Info_Left_Barrel.Cost:
 			PlayerInfo.Mana -= PlayerInfo.Bullet_Info_Left_Barrel.Cost
 			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
@@ -75,4 +78,9 @@ func _physics_process(delta):
 
 func _on_barrel_timer_timeout():
 	can_shoot_barrel = true
+	pass # Replace with function body.
+
+
+func _on_mana_inc_timeout():
+	PlayerInfo.Mana += PlayerInfo.Mana_Inc_Sec
 	pass # Replace with function body.
