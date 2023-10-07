@@ -14,6 +14,7 @@ var can_shoot_barrel = true
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
+	$AnimationPlayer.play("RESET")
 	pass
 
 func _input(event):
@@ -30,7 +31,7 @@ func _input(event):
 
 func _physics_process(delta):
 	# print(transform.basis, velocity)
-	print("Mana = ", PlayerInfo.Mana)
+	#print("Mana = ", PlayerInfo.Mana)
 	
 	if (PlayerInfo.Mana != PlayerInfo.Max_Mana and $Mana_Inc.is_stopped()):
 		$Mana_Inc.start(PlayerInfo.Mana_Timer)
@@ -64,15 +65,19 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
+		$AnimationTree.set("parameters/blend_position", speed_controller)
 		speed_controller = lerp(speed_controller, SPEED, ACCL)
 		velocity.x = direction.x * speed_controller * delta
 		velocity.z = direction.z * speed_controller * delta
 	else:
+		$AnimationTree.set("parameters/blend_position", speed_controller)
 		speed_controller = lerp(speed_controller, 0.0, DE_ACCL)
 		velocity.x = lerp(velocity.x, 0.0, DE_ACCL)
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
-
+	
+	print(speed_controller)
 	move_and_slide()
 
 
