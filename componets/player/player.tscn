@@ -100,5 +100,32 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/blend_position = -0.00162077
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Debug_label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 23.0
+text = " = Debug = 
+- Health = 
+- Mana = 
+- Bullet Right = 
+- Bullet Left = "
+
 [connection signal="timeout" from="Barrel_Timer" to="." method="_on_barrel_timer_timeout"]
 [connection signal="timeout" from="Mana_Inc" to="." method="_on_mana_inc_timeout"]

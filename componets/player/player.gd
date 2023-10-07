@@ -33,6 +33,10 @@ func _physics_process(delta):
 	# print(transform.basis, velocity)
 	#print("Mana = ", PlayerInfo.Mana)
 	
+	$Control/Debug_label.set_text("\n= Debug =
+	- Health = " + str(PlayerInfo.Health) +
+	"\n- Mana = " + str(PlayerInfo.Mana))
+	
 	if (PlayerInfo.Mana != PlayerInfo.Max_Mana and $Mana_Inc.is_stopped()):
 		$Mana_Inc.start(PlayerInfo.Mana_Timer)
 	
@@ -77,7 +81,6 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, 0.0, DE_ACCL)
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
 	
-	print(speed_controller)
 	move_and_slide()
 
 
