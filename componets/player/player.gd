@@ -60,8 +60,10 @@ func _input(event):
 func _physics_process(delta):
 	# print(transform.basis, velocity)
 	#print("Mana = ", PlayerInfo.Mana)
-	print("Inv = ", PlayerInfo.Bullet_Inventory)
-	
+	print("== Inv = ", PlayerInfo.Bullet_Inventory)
+	print("== Inv Left Barrel Index = ", Inv_Index_Left_Barrel)
+	print("== Inv Right Barrel Index = ", Inv_Index_Right_Barrel)
+		
 	$Control/Debug_label.set_text("\n= Debug =
 	- Health = " + str(PlayerInfo.Health) +
 	"\n- Mana = " + str(PlayerInfo.Mana))
