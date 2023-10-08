@@ -30,15 +30,18 @@ albedo_texture = ExtResource("2_dchu1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkh6p"]
 albedo_texture = ExtResource("2_dchu1")
 
-[sub_resource type="Resource" id="Resource_5ul0q"]
+[sub_resource type="Resource" id="Resource_17eox"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
+ID = 0
 Damage = 100
 Speed = 100
 Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
+Path_Projectile = "res://componets/bullets/nutbullet/custom_bullet.tscn"
+Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
 
 [node name="LevelTest" type="Node3D"]
 
@@ -83,4 +86,4 @@ size = Vector3(26.077, 1, 21.3758)
 
 [node name="nut_ammo" parent="." instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_5ul0q")
+Bullet_Info = SubResource("Resource_17eox")

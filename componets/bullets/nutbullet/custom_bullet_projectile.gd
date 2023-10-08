@@ -1,7 +1,6 @@
 extends Area3D
 
 @export var Bullet_Info : Bullet_Type
-@export var Ammo_Drop : PackedScene
 @export var Player_Info : Player_Data
 
 # Called when the node enters the scene tree for the first time.

@@ -13,6 +13,9 @@ extends CharacterBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var Inv_Index_Left_Barrel = 0
+var Inv_Index_Right_Barrel = 0
+
 func _ready():
 	$AnimationPlayer.play("RESET")
 	pass
@@ -27,11 +30,37 @@ func _input(event):
 		$CameraNeck.rotate_x(-event.relative.y * 0.01)
 		
 	$CameraNeck.rotation.x = clamp($CameraNeck.rotation.x, -1.5, 1.5)
+	
+	if Input.is_action_pressed("Left_barrel_type"):
+		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			Inv_Index_Left_Barrel = (Inv_Index_Left_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
+		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			Inv_Index_Left_Barrel = (Inv_Index_Left_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
+		
+		if PlayerInfo.Bullet_Inventory.size() != 0:
+			var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Left_Barrel]
+			print(bullet)
+			PlayerInfo.Left_Barrel = bullet
+		pass
+		
+	elif Input.is_action_pressed("Right_barrel_type"):
+		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			Inv_Index_Right_Barrel = (Inv_Index_Right_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
+		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			Inv_Index_Right_Barrel = (Inv_Index_Right_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
+			
+		if PlayerInfo.Bullet_Inventory.size() != 0:
+			var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Right_Barrel]
+			print(bullet)
+			PlayerInfo.Right_Barrel = bullet
+		pass
+		
 
 
 func _physics_process(delta):
 	# print(transform.basis, velocity)
 	#print("Mana = ", PlayerInfo.Mana)
+	print("Inv = ", PlayerInfo.Bullet_Inventory)
 	
 	$Control/Debug_label.set_text("\n= Debug =
 	- Health = " + str(PlayerInfo.Health) +
@@ -42,19 +71,19 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("Left_Fire"):
 		# print(PlayerInfo.Bullet_Info_Left_Barrel.Cost)
-		if PlayerInfo.Left_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Bullet_Info_Left_Barrel.Cost:
-			PlayerInfo.Mana -= PlayerInfo.Bullet_Info_Left_Barrel.Cost
+		if PlayerInfo.Left_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Left_Barrel.Cost:
+			PlayerInfo.Mana -= PlayerInfo.Left_Barrel.Cost
 			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
 			can_shoot_barrel = false
-			var bullet = PlayerInfo.Left_Barrel.instantiate()
+			var bullet = PlayerInfo.Left_Barrel.Projectile.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
 			
 	elif Input.is_action_pressed("Right_Fire"):
-		if PlayerInfo.Right_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Bullet_Info_Right_Barrel.Cost:
-			PlayerInfo.Mana -= PlayerInfo.Bullet_Info_Right_Barrel.Cost
+		if PlayerInfo.Right_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Right_Barrel.Cost:
+			PlayerInfo.Mana -= PlayerInfo.Right_Barrel.Cost
 			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
 			can_shoot_barrel = false
-			var bullet = PlayerInfo.Right_Barrel.instantiate()
+			var bullet = PlayerInfo.Right_Barrel.Projectile.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
 	
 	# Add the gravity.

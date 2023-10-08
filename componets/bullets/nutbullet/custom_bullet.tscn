@@ -14,6 +14,9 @@ script = ExtResource("1_6hu14")
 Bullet_Info = ExtResource("2_2ja7r")
 Player_Info = ExtResource("4_tqa8v")
 
+[node name="Life_Time" type="Timer" parent="."]
+one_shot = true
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_fy7lr")
 
@@ -21,9 +24,6 @@ shape = SubResource("SphereShape3D_fy7lr")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 billboard = 1
 texture = ExtResource("2_t31d4")
-
-[node name="Life_Time" type="Timer" parent="."]
-one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Life_Time" to="." method="_on_life_time_timeout"]

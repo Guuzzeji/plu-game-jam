@@ -6,8 +6,11 @@
 resource_local_to_scene = true
 script = ExtResource("3_4ds15")
 Name = "Nut Bullet"
+ID = 0
 Damage = 100
 Speed = 100
 Cost = 5
 Life_Time = 5.0
-Enemy_Bullet = true
+Enemy_Bullet = false
+Path_Projectile = "res://componets/bullets/nutbullet/custom_bullet.tscn"
+Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
