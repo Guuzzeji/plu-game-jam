@@ -36,25 +36,26 @@ func _input(event):
 			Inv_Index_Left_Barrel = (Inv_Index_Left_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
 		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
 			Inv_Index_Left_Barrel = (Inv_Index_Left_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
-		
-		if PlayerInfo.Bullet_Inventory.size() != 0:
-			var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Left_Barrel]
-			print(bullet)
-			PlayerInfo.Left_Barrel = bullet
-		pass
+			# Inv_Index_Left_Barrel = abs(Inv_Index_Left_Barrel)
+
 		
 	elif Input.is_action_pressed("Right_barrel_type"):
 		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
 			Inv_Index_Right_Barrel = (Inv_Index_Right_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
 		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
 			Inv_Index_Right_Barrel = (Inv_Index_Right_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
+			# Inv_Index_Right_Barrel = abs(Inv_Index_Right_Barrel)
 			
-		if PlayerInfo.Bullet_Inventory.size() != 0:
-			var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Right_Barrel]
-			print(bullet)
-			PlayerInfo.Right_Barrel = bullet
-		pass
+	
+	if PlayerInfo.Bullet_Inventory.size() != 0:
+		var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Right_Barrel]
+		print(bullet)
+		PlayerInfo.Right_Barrel = bullet
 		
+	if PlayerInfo.Bullet_Inventory.size() != 0:
+		var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Left_Barrel]
+		print(bullet)
+		PlayerInfo.Left_Barrel = bullet
 
 
 func _physics_process(delta):
@@ -102,12 +103,12 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
-		$AnimationTree.set("parameters/blend_position", speed_controller)
+		$AnimationTree.set("parameters/blend_position", speed_controller / PlayerInfo.SPEED)
 		speed_controller = lerp(speed_controller, SPEED, ACCL)
 		velocity.x = direction.x * speed_controller * delta
 		velocity.z = direction.z * speed_controller * delta
 	else:
-		$AnimationTree.set("parameters/blend_position", speed_controller)
+		$AnimationTree.set("parameters/blend_position", speed_controller / PlayerInfo.SPEED)
 		speed_controller = lerp(speed_controller, 0.0, DE_ACCL)
 		velocity.x = lerp(velocity.x, 0.0, DE_ACCL)
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
