@@ -16,7 +16,7 @@ var Ammo: PackedScene
 var Projectile: PackedScene
 
 # Load PackSence for both ammo and Projectile
-func _ready():
+func _load():
 	Ammo = load(Path_Ammo)
 	Projectile = load(Path_Projectile)
 	pass
