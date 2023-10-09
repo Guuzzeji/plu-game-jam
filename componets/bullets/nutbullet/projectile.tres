@@ -12,5 +12,5 @@ Speed = 100
 Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
-Path_Projectile = "res://componets/bullets/nutbullet/custom_bullet.tscn"
+Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
 Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
