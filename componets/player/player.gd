@@ -37,7 +37,6 @@ func _input(event):
 		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
 			Inv_Index_Left_Barrel = (Inv_Index_Left_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
 			# Inv_Index_Left_Barrel = abs(Inv_Index_Left_Barrel)
-
 		
 	elif Input.is_action_pressed("Right_barrel_type"):
 		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
@@ -69,32 +68,15 @@ func _physics_process(delta):
 	- Health = " + str(PlayerInfo.Health) +
 	"\n- Mana = " + str(PlayerInfo.Mana))
 	
-	if (PlayerInfo.Mana != PlayerInfo.Max_Mana and $Mana_Inc.is_stopped()):
-		$Mana_Inc.start(PlayerInfo.Mana_Timer)
-	
-	if Input.is_action_pressed("Left_Fire"):
-		# print(PlayerInfo.Bullet_Info_Left_Barrel.Cost)
-		if PlayerInfo.Left_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Left_Barrel.Cost:
-			PlayerInfo.Mana -= PlayerInfo.Left_Barrel.Cost
-			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
-			can_shoot_barrel = false
-			var bullet = PlayerInfo.Left_Barrel.Projectile.instantiate()
-			$CameraNeck/ShotingHole.add_child(bullet)
-			
-	elif Input.is_action_pressed("Right_Fire"):
-		if PlayerInfo.Right_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Right_Barrel.Cost:
-			PlayerInfo.Mana -= PlayerInfo.Right_Barrel.Cost
-			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
-			can_shoot_barrel = false
-			var bullet = PlayerInfo.Right_Barrel.Projectile.instantiate()
-			$CameraNeck/ShotingHole.add_child(bullet)
+	mana_check()
+	barrel_controls()
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -114,6 +96,31 @@ func _physics_process(delta):
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
 	
 	move_and_slide()
+
+func mana_check():
+	if (PlayerInfo.Mana != PlayerInfo.Max_Mana and $Mana_Inc.is_stopped()):
+		$Mana_Inc.start(PlayerInfo.Mana_Timer)
+	pass
+
+	
+func barrel_controls():
+	if Input.is_action_pressed("Left_Fire"):
+		# print(PlayerInfo.Bullet_Info_Left_Barrel.Cost)
+		if PlayerInfo.Left_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Left_Barrel.Cost:
+			PlayerInfo.Mana -= PlayerInfo.Left_Barrel.Cost
+			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
+			can_shoot_barrel = false
+			var bullet = PlayerInfo.Left_Barrel.Projectile.instantiate()
+			$CameraNeck/ShotingHole.add_child(bullet)
+			
+	elif Input.is_action_pressed("Right_Fire"):
+		if PlayerInfo.Right_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Right_Barrel.Cost:
+			PlayerInfo.Mana -= PlayerInfo.Right_Barrel.Cost
+			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
+			can_shoot_barrel = false
+			var bullet = PlayerInfo.Right_Barrel.Projectile.instantiate()
+			$CameraNeck/ShotingHole.add_child(bullet)
+	pass
 
 
 func _on_barrel_timer_timeout():
