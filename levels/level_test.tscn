@@ -30,57 +30,61 @@ albedo_texture = ExtResource("2_dchu1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkh6p"]
 albedo_texture = ExtResource("2_dchu1")
 
-[sub_resource type="Resource" id="Resource_c40ee"]
+[sub_resource type="Resource" id="Resource_ooppd"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
 ID = 0
+Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
+Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
 Damage = 100
 Speed = 100
 Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
-Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
-Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
+Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_wdij6"]
+[sub_resource type="Resource" id="Resource_2prgy"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
 ID = 0
+Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
+Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
 Damage = 100
 Speed = 100
 Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
-Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
-Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
+Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_bm4m5"]
+[sub_resource type="Resource" id="Resource_owut0"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
 ID = 0
+Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
+Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
 Damage = 100
 Speed = 100
 Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
-Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
-Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
+Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_mpvc2"]
+[sub_resource type="Resource" id="Resource_wclpa"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
 ID = 0
+Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
+Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
 Damage = 100
 Speed = 100
 Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
-Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
-Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
+Other_Info = {}
 
 [node name="LevelTest" type="Node3D"]
 
@@ -143,16 +147,16 @@ size = Vector3(17.7864, 1, 44.0941)
 
 [node name="nut_ammo" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_c40ee")
+Bullet_Info = SubResource("Resource_ooppd")
 
 [node name="nut_ammo2" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81657, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_wdij6")
+Bullet_Info = SubResource("Resource_2prgy")
 
 [node name="nut_ammo3" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58655, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_bm4m5")
+Bullet_Info = SubResource("Resource_owut0")
 
 [node name="nut_ammo4" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71694, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_mpvc2")
+Bullet_Info = SubResource("Resource_wclpa")
