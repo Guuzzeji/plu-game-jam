@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Bullet_Type" load_steps=2 format=3 uid="uid://di37acejeygq6"]
 
-[ext_resource type="Script" path="res://src/bullet_resource.gd" id="3_4ds15"]
+[ext_resource type="Script" path="res://src/bullet_resource.gd" id="1_sowta"]
 
 [resource]
 resource_local_to_scene = true
-script = ExtResource("3_4ds15")
+script = ExtResource("1_sowta")
 Name = "Nut Bullet"
 ID = 0
 Damage = 100
@@ -12,5 +12,6 @@ Speed = 100
 Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
+Other_Info = {}
 Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
 Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
