@@ -3,6 +3,8 @@ extends Area3D
 @export var Bullet_Info : Bullet_Type
 @export var Player_Info : Player_Data
 
+signal hit_body(body)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_as_top_level(true) # Sets node to the view top of level tree
@@ -18,6 +20,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if (!body.is_in_group("player")):
 		queue_free()
+		hit_body.emit(body)
 		print(body.get_groups())
 	pass
 
