@@ -13,11 +13,7 @@ extends CharacterBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var Inv_Index_Left_Barrel = 0
-var Inv_Index_Right_Barrel = 0
-
 func _ready():
-	$AnimationPlayer.play("RESET")
 	pass
 
 func _input(event):
@@ -30,46 +26,18 @@ func _input(event):
 		$CameraNeck.rotate_x(-event.relative.y * 0.01)
 		
 	$CameraNeck.rotation.x = clamp($CameraNeck.rotation.x, -1.5, 1.5)
-	
-	if Input.is_action_pressed("Left_barrel_type"):
-		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
-			Inv_Index_Left_Barrel = (Inv_Index_Left_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
-		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
-			Inv_Index_Left_Barrel = (Inv_Index_Left_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
-			# Inv_Index_Left_Barrel = abs(Inv_Index_Left_Barrel)
-		
-	elif Input.is_action_pressed("Right_barrel_type"):
-		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
-			Inv_Index_Right_Barrel = (Inv_Index_Right_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
-		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
-			Inv_Index_Right_Barrel = (Inv_Index_Right_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
-			# Inv_Index_Right_Barrel = abs(Inv_Index_Right_Barrel)
-			
-	
-	if PlayerInfo.Bullet_Inventory.size() != 0:
-		var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Right_Barrel]
-		print(bullet)
-		PlayerInfo.Right_Barrel = bullet
-		
-	if PlayerInfo.Bullet_Inventory.size() != 0:
-		var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Left_Barrel]
-		print(bullet)
-		PlayerInfo.Left_Barrel = bullet
-
+	barrel_bullet_switch()
 
 func _physics_process(delta):
 	# print(transform.basis, velocity)
-	#print("Mana = ", PlayerInfo.Mana)
+	print("Mana = ", PlayerInfo.Mana)
 	print("== Inv = ", PlayerInfo.Bullet_Inventory)
-	print("== Inv Left Barrel Index = ", Inv_Index_Left_Barrel)
-	print("== Inv Right Barrel Index = ", Inv_Index_Right_Barrel)
-		
-	$Control/Debug_label.set_text("\n= Debug =
-	- Health = " + str(PlayerInfo.Health) +
-	"\n- Mana = " + str(PlayerInfo.Mana))
+	print("== Inv Left Barrel Index = ", PlayerInfo.Inv_Index_Left_Barrel)
+	print("== Inv Right Barrel Index = ", PlayerInfo.Inv_Index_Right_Barrel)
 	
 	mana_check()
-	barrel_controls()
+	barrel_fire()
+	auto_put_bullet_in_barrel()
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -83,17 +51,20 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	print("DIR = ", input_dir.normalized())
 	
 	if direction:
-		$AnimationTree.set("parameters/blend_position", speed_controller / PlayerInfo.SPEED)
 		speed_controller = lerp(speed_controller, SPEED, ACCL)
 		velocity.x = direction.x * speed_controller * delta
 		velocity.z = direction.z * speed_controller * delta
 	else:
-		$AnimationTree.set("parameters/blend_position", speed_controller / PlayerInfo.SPEED)
 		speed_controller = lerp(speed_controller, 0.0, DE_ACCL)
 		velocity.x = lerp(velocity.x, 0.0, DE_ACCL)
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
+	
+	# Camera Movement to feel motion
+	$CameraNeck/Camera3D.rotation.z = lerp($CameraNeck/Camera3D.rotation.z, -0.05 * input_dir.normalized().x, 0.4)
+	$CameraNeck/Camera3D.rotation.x = lerp($CameraNeck/Camera3D.rotation.x, -0.05 * input_dir.normalized().y, 0.4)
 	
 	move_and_slide()
 
@@ -103,7 +74,7 @@ func mana_check():
 	pass
 
 	
-func barrel_controls():
+func barrel_fire():
 	if Input.is_action_pressed("Left_Fire"):
 		# print(PlayerInfo.Bullet_Info_Left_Barrel.Cost)
 		if PlayerInfo.Left_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Left_Barrel.Cost:
@@ -122,6 +93,34 @@ func barrel_controls():
 			$CameraNeck/ShotingHole.add_child(bullet)
 	pass
 
+func barrel_bullet_switch():
+	if Input.is_action_pressed("Left_barrel_type"):
+		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			PlayerInfo.Inv_Index_Left_Barrel = (PlayerInfo.Inv_Index_Left_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
+		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			PlayerInfo.Inv_Index_Left_Barrel = (PlayerInfo.Inv_Index_Left_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
+			
+		if PlayerInfo.Bullet_Inventory.size() != 0:
+			var bullet = PlayerInfo.Bullet_Inventory[PlayerInfo.Inv_Index_Left_Barrel]
+			print(bullet)
+			PlayerInfo.Left_Barrel = bullet
+		
+	elif Input.is_action_pressed("Right_barrel_type"):
+		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			PlayerInfo.Inv_Index_Right_Barrel = (PlayerInfo.Inv_Index_Right_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
+		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			PlayerInfo.Inv_Index_Right_Barrel = (PlayerInfo.Inv_Index_Right_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
+	
+		if PlayerInfo.Bullet_Inventory.size() != 0:
+			var bullet = PlayerInfo.Bullet_Inventory[PlayerInfo.Inv_Index_Right_Barrel]
+			print(bullet)
+			PlayerInfo.Right_Barrel = bullet
+			
+func auto_put_bullet_in_barrel():
+	if PlayerInfo.Bullet_Inventory.size() == 1:
+		var bullet = PlayerInfo.Bullet_Inventory[0]
+		PlayerInfo.Left_Barrel = bullet
+		PlayerInfo.Right_Barrel = bullet
 
 func _on_barrel_timer_timeout():
 	can_shoot_barrel = true
