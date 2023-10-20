@@ -14,6 +14,7 @@ extends CharacterBody3D
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
+	$CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam.environment = $CameraNeck/Camera3D.environment
 	pass
 
 func _input(event):
@@ -24,9 +25,13 @@ func _input(event):
 		# print($CameraNeck.rotation.x)
 		self.rotate_y(-event.relative.x * 0.01)
 		$CameraNeck.rotate_x(-event.relative.y * 0.01)
+		$CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam/Shotgun_SawedOff.position.x = lerp($CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam/Shotgun_SawedOff.position.x, 0.1 * -event.relative.normalized().x, 0.025)
 		
 	$CameraNeck.rotation.x = clamp($CameraNeck.rotation.x, -1.5, 1.5)
 	barrel_bullet_switch()
+	
+func _process(delta):
+	$CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam.global_position = $CameraNeck/Camera3D.global_position
 
 func _physics_process(delta):
 	# print(transform.basis, velocity)
@@ -63,8 +68,14 @@ func _physics_process(delta):
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
 	
 	# Camera Movement to feel motion
-	$CameraNeck/Camera3D.rotation.z = lerp($CameraNeck/Camera3D.rotation.z, -0.05 * input_dir.normalized().x, 0.4)
-	$CameraNeck/Camera3D.rotation.x = lerp($CameraNeck/Camera3D.rotation.x, -0.05 * input_dir.normalized().y, 0.4)
+	$CameraNeck/Camera3D.rotation.z = lerp($CameraNeck/Camera3D.rotation.z, -0.05 * input_dir.normalized().x, 0.05)
+	$CameraNeck/Camera3D.rotation.x = lerp($CameraNeck/Camera3D.rotation.x, -0.05 * input_dir.normalized().y, 0.025)
+	
+	#Gun Swing
+	$AnimationTree.set("parameters/blend_position", speed_controller / PlayerInfo.SPEED)
+	$CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam/Shotgun_SawedOff.position.x = lerp($CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam/Shotgun_SawedOff.position.x, 0.0, 0.05)
+	
+	
 	
 	move_and_slide()
 
