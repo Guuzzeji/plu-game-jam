@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Player_Data" load_steps=2 format=3 uid="uid://ce2n6cf4dqt8m"]
+
+[ext_resource type="Script" path="res://src/player_resource.gd" id="1_2sm1d"]
+
+[resource]
+script = ExtResource("1_2sm1d")
+Health = 100
+Mana = 100
+Max_Mana = 100
+Max_Health = 100
+Mana_Inc_Sec = 1
+Mana_Timer = 0.15
+Bullet_Inventory = Array[Resource("res://src/bullet_resource.gd")]([])
+Barrel_Delay = 0.15
+SPEED = 450.0
+ACCL = 0.2
+DE_ACCL = 0.08
+JUMP_VELOCITY = 5.66

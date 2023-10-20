@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcxm7bu2hi8nt"
-path.s3tc="res://.godot/imported/bullet_nut.jpg-de8a843a97cb08131a9d329cedadfe0b.s3tc.ctex"
+uid="uid://3xonlltnk7pi"
+path.s3tc="res://.godot/imported/texture_01.png-fe046c1c777b0c18d1b379406894cf97.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/bullet_nut.jpg"
-dest_files=["res://.godot/imported/bullet_nut.jpg-de8a843a97cb08131a9d329cedadfe0b.s3tc.ctex"]
+source_file="res://assets/images/test-surface-texture/Dark/texture_01.png"
+dest_files=["res://.godot/imported/texture_01.png-fe046c1c777b0c18d1b379406894cf97.s3tc.ctex"]
 
 [params]
 

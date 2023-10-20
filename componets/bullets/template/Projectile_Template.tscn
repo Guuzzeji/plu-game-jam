@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cijiql5co2aix"]
+
+[ext_resource type="Script" path="res://componets/bullets/template/projectile.gd" id="1_3nsh5"]
+
+[node name="Bullet_Template" type="Area3D"]
+script = ExtResource("1_3nsh5")
+
+[node name="Life_Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Life_Timer" to="." method="_on_life_timer_timeout"]
