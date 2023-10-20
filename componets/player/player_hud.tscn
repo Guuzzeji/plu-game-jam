@@ -1,0 +1,151 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmx53al0wfbgl"]
+
+[ext_resource type="Script" path="res://componets/player/player_hud.gd" id="1_825m1"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_1yhfq"]
+
+[node name="PlayerHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_825m1")
+PlayerInfo = ExtResource("2_1yhfq")
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(0.901961, 0.0470588, 0, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -48.0
+offset_right = 115.0
+offset_bottom = -21.0
+grow_vertical = 0
+fill_mode = 3
+
+[node name="ManaBar" type="ProgressBar" parent="."]
+modulate = Color(0, 0.486275, 0.870588, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -48.0
+offset_right = -29.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+fill_mode = 3
+
+[node name="HealthText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -72.0
+offset_right = 102.0
+offset_bottom = -46.0
+grow_vertical = 0
+text = "HEALTH"
+
+[node name="ManaText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -72.0
+offset_right = -47.0
+offset_bottom = -46.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "MANA"
+
+[node name="BulletPanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="Item_0" type="Control" parent="BulletPanel"]
+layout_mode = 1
+anchor_right = 0.125
+anchor_bottom = 1.0
+
+[node name="Item_1" type="Control" parent="BulletPanel"]
+layout_mode = 1
+anchor_left = 0.125
+anchor_right = 0.25
+anchor_bottom = 1.0
+
+[node name="Item_2" type="Control" parent="BulletPanel"]
+layout_mode = 1
+anchor_left = 0.25
+anchor_right = 0.375
+anchor_bottom = 1.0
+offset_right = -1.52588e-05
+
+[node name="Item_3" type="Control" parent="BulletPanel"]
+layout_mode = 1
+anchor_left = 0.375
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1.52588e-05
+
+[node name="Item_4" type="Control" parent="BulletPanel"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.625
+anchor_bottom = 1.0
+
+[node name="Item_5" type="Control" parent="BulletPanel"]
+layout_mode = 1
+anchor_left = 0.625
+anchor_right = 0.75
+anchor_bottom = 1.0
+offset_right = -3.05176e-05
+
+[node name="Item_6" type="Control" parent="BulletPanel"]
+layout_mode = 1
+anchor_left = 0.75
+anchor_right = 0.875
+anchor_bottom = 1.0
+offset_left = -3.05176e-05
+offset_right = -3.05176e-05
+
+[node name="Item_7" type="Control" parent="BulletPanel"]
+layout_mode = 1
+anchor_left = 0.875
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.05176e-05
+
+[node name="Panel" type="Panel" parent="BulletPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -32.0
+offset_right = 256.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
