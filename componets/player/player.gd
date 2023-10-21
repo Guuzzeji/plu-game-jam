@@ -13,8 +13,10 @@ extends CharacterBody3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var jump_buffer = 0.0
+
 func _ready():
-	$CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam.environment = $CameraNeck/Camera3D.environment
+	$AnimationPlayer.play("RESET")
 	pass
 
 func _input(event):
@@ -25,13 +27,18 @@ func _input(event):
 		# print($CameraNeck.rotation.x)
 		self.rotate_y(-event.relative.x * 0.01)
 		$CameraNeck.rotate_x(-event.relative.y * 0.01)
-		$CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam/Shotgun_SawedOff.position.x = lerp($CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam/Shotgun_SawedOff.position.x, 0.1 * -event.relative.normalized().x, 0.025)
+		$CameraNeck/Shotgun_SawedOff.position.x = lerp($CameraNeck/Shotgun_SawedOff.position.x, 0.1 * -event.relative.normalized().x, 0.025)
 		
 	$CameraNeck.rotation.x = clamp($CameraNeck.rotation.x, -1.5, 1.5)
 	barrel_bullet_switch()
 	
 func _process(delta):
-	$CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam.global_position = $CameraNeck/Camera3D.global_position
+	#Fix Gun Clipping through walls
+	if $CameraNeck/RayGunOffsetWall.is_colliding():
+		$CameraNeck/Shotgun_SawedOff.position = lerp($CameraNeck/Shotgun_SawedOff.position, Vector3($CameraNeck/Shotgun_SawedOff.position.x, -100, $CameraNeck/Shotgun_SawedOff.position.z), 0.00025)
+	else: 
+		$CameraNeck/Shotgun_SawedOff.position = lerp($CameraNeck/Shotgun_SawedOff.position, $CameraNeck/OrginalGunPos.position, 0.1)
+	pass
 
 func _physics_process(delta):
 	# print(transform.basis, velocity)
@@ -49,8 +56,15 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer = 0.1
+	
+	jump_buffer -= delta
+		
+	if jump_buffer > 0 and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_buffer = 0.0
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -62,7 +76,9 @@ func _physics_process(delta):
 		speed_controller = lerp(speed_controller, SPEED, ACCL)
 		velocity.x = direction.x * speed_controller * delta
 		velocity.z = direction.z * speed_controller * delta
+		#$AnimationPlayer.play("Walking")
 	else:
+		#$AnimationPlayer.play("RESET")
 		speed_controller = lerp(speed_controller, 0.0, DE_ACCL)
 		velocity.x = lerp(velocity.x, 0.0, DE_ACCL)
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
@@ -72,8 +88,7 @@ func _physics_process(delta):
 	$CameraNeck/Camera3D.rotation.x = lerp($CameraNeck/Camera3D.rotation.x, -0.05 * input_dir.normalized().y, 0.025)
 	
 	#Gun Swing
-	$AnimationTree.set("parameters/blend_position", speed_controller / PlayerInfo.SPEED)
-	$CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam/Shotgun_SawedOff.position.x = lerp($CameraNeck/Camera3D/SubViewportContainer/SubViewport/GunCam/Shotgun_SawedOff.position.x, 0.0, 0.05)
+	$CameraNeck/Shotgun_SawedOff.position.x = lerp($CameraNeck/Shotgun_SawedOff.position.x, 0.0, 0.05)
 	
 	
 	
@@ -94,6 +109,8 @@ func barrel_fire():
 			can_shoot_barrel = false
 			var bullet = PlayerInfo.Left_Barrel.Projectile.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
+			$AnimationPlayer.play("Fire")
+			
 			
 	elif Input.is_action_pressed("Right_Fire"):
 		if PlayerInfo.Right_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Right_Barrel.Cost:
@@ -102,6 +119,7 @@ func barrel_fire():
 			can_shoot_barrel = false
 			var bullet = PlayerInfo.Right_Barrel.Projectile.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
+			$AnimationPlayer.play("Fire")
 	pass
 
 func barrel_bullet_switch():
