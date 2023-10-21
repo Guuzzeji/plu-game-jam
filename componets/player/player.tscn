@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpseferbomb0h"]
+[gd_scene load_steps=20 format=3 uid="uid://cpseferbomb0h"]
 
 [ext_resource type="Script" path="res://componets/player/player.gd" id="1_gtsp0"]
 [ext_resource type="PackedScene" uid="uid://bk01mifklj8ii" path="res://assets/models/Shotgun_SawedOff.fbx" id="2_phksp"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_tjgyl"]
 [ext_resource type="PackedScene" uid="uid://bmx53al0wfbgl" path="res://componets/player/player_hud.tscn" id="4_6vgwf"]
+[ext_resource type="AudioStream" uid="uid://dms3rq5efnyd2" path="res://assets/sfx/dsshotgn.wav" id="5_u06is"]
+[ext_resource type="Texture2D" uid="uid://dsacww882pcnk" path="res://assets/images/firetexture.jpg" id="6_bgng6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
 
@@ -13,6 +15,58 @@ sky_material = SubResource("ProceduralSkyMaterial_pnspk")
 [sub_resource type="Environment" id="Environment_d0ypc"]
 background_mode = 2
 sky = SubResource("Sky_by5k1")
+
+[sub_resource type="Gradient" id="Gradient_lnbu7"]
+colors = PackedColorArray(0.681406, 0.372268, 1.92523e-07, 1, 0.916156, 0.743967, 0.495447, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2hsov"]
+gradient = SubResource("Gradient_lnbu7")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4rqbo"]
+lifetime_randomness = 0.13
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, -100)
+angular_velocity_min = 132.64
+angular_velocity_max = 227.37
+linear_accel_min = 11.84
+linear_accel_max = 13.16
+radial_accel_min = -7.89
+radial_accel_max = 100.0
+tangential_accel_min = 42.1
+tangential_accel_max = 42.1
+damping_min = 12.5
+damping_max = 12.5
+angle_min = 104.2
+angle_max = 104.2
+scale_min = 0.1
+scale_max = 0.25
+color = Color(0.705882, 0.478431, 0.239216, 1)
+color_initial_ramp = SubResource("GradientTexture1D_2hsov")
+hue_variation_min = 0.07
+hue_variation_max = 0.11
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oqvf"]
+specular_mode = 2
+disable_ambient_light = true
+albedo_color = Color(0.105882, 0.254902, 0.427451, 1)
+albedo_texture = ExtResource("6_bgng6")
+albedo_texture_msdf = true
+metallic_specular = 0.0
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.137255, 0, 0.980392, 1)
+emission_energy_multiplier = 6.18
+emission_texture = ExtResource("6_bgng6")
+rim = 0.11
+subsurf_scatter_strength = 0.16
+
+[sub_resource type="SphereMesh" id="SphereMesh_j8crh"]
+material = SubResource("StandardMaterial3D_7oqvf")
+radial_segments = 4
+rings = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0pf0p"]
 radius = 0.726535
@@ -25,14 +79,38 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraNeck/Shotgun_SawedOff:rotation")
-tracks/0/interp = 1
+tracks/0/path = NodePath("CameraNeck/Shotgun_SawedOff:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06, 0.15),
+"times": PackedFloat32Array(0, 0.07, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 1.5708, -0.0872665), Vector3(0, 1.5708, 0.174533), Vector3(0, 1.5708, -0.0872665)]
+"values": [Vector3(-2.1684e-19, 0.450105, 0.0460532), Vector3(-2.1684e-19, 0.450105, 0.242342), Vector3(-2.1684e-19, 0.450105, 0.0460532)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GunFireSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CameraNeck/Shotgun_SawedOff/GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_kb8ww"]
@@ -48,6 +126,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 1.5708, -0.0872665)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraNeck/Shotgun_SawedOff:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.1684e-19, 0.450105, 0.0460532)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GunFireSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CameraNeck/Shotgun_SawedOff/GPUParticles3D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_uo7ll"]
@@ -97,6 +211,32 @@ transform = Transform3D(0.00134958, -0.0154382, 0.299599, -0.0261118, 0.298459, 
 [node name="Shotgun_SawedOff" parent="CameraNeck" instance=ExtResource("2_phksp")]
 transform = Transform3D(-1.08186e-06, -9.46508e-08, 0.3, -0.0261467, 0.298858, 0, -0.298858, -0.0261467, -1.086e-06, -2.1684e-19, 0.450105, 0.0460532)
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CameraNeck/Shotgun_SawedOff"]
+transform = Transform3D(-1.20207e-05, -0.29052, -3.32065, -1.05168e-06, 3.32065, -0.290519, 3.33333, 0, -1.20666e-05, 3.52753, 0.382022, 1.28415e-05)
+emitting = false
+amount = 150
+lifetime = 0.35
+one_shot = true
+explosiveness = 0.25
+randomness = 0.32
+visibility_aabb = AABB(-0.513887, -0.616458, -0.273674, 1.02777, 1.23292, 0.547348)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_4rqbo")
+draw_pass_1 = SubResource("SphereMesh_j8crh")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="CameraNeck/Shotgun_SawedOff"]
+transform = Transform3D(-1.20207e-05, -0.29052, -3.32065, -1.05168e-06, 3.32065, -0.290519, 3.33333, 0, -1.20666e-05, 3.52753, 0.382022, 1.28415e-05)
+emitting = false
+amount = 150
+lifetime = 0.35
+one_shot = true
+explosiveness = 0.25
+randomness = 0.32
+visibility_aabb = AABB(-0.513887, -0.616458, -0.273674, 1.02777, 1.23292, 0.547348)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_4rqbo")
+draw_pass_1 = SubResource("SphereMesh_j8crh")
+
 [node name="ShotingHole" type="Node3D" parent="CameraNeck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.645011, -1.05302)
 
@@ -125,6 +265,9 @@ reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_17tox")
 }
+
+[node name="GunFireSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_u06is")
 
 [connection signal="timeout" from="Barrel_Timer" to="." method="_on_barrel_timer_timeout"]
 [connection signal="timeout" from="Mana_Inc" to="." method="_on_mana_inc_timeout"]
