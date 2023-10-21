@@ -34,7 +34,7 @@ func _input(event):
 	
 func _process(delta):
 	#Fix Gun Clipping through walls
-	if $CameraNeck/RayGunOffsetWall.is_colliding():
+	if $CameraNeck/RayGunOffsetWall.is_colliding() and !$CameraNeck/RayGunOffsetWall.get_collider().is_in_group("player"):
 		$CameraNeck/Shotgun_SawedOff.position = lerp($CameraNeck/Shotgun_SawedOff.position, Vector3($CameraNeck/Shotgun_SawedOff.position.x, -100, $CameraNeck/Shotgun_SawedOff.position.z), 0.00025)
 	else: 
 		$CameraNeck/Shotgun_SawedOff.position = lerp($CameraNeck/Shotgun_SawedOff.position, $CameraNeck/OrginalGunPos.position, 0.1)
@@ -101,7 +101,7 @@ func mana_check():
 
 	
 func barrel_fire():
-	if Input.is_action_pressed("Left_Fire"):
+	if Input.is_action_just_pressed("Left_Fire"):
 		# print(PlayerInfo.Bullet_Info_Left_Barrel.Cost)
 		if PlayerInfo.Left_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Left_Barrel.Cost:
 			PlayerInfo.Mana -= PlayerInfo.Left_Barrel.Cost
@@ -112,7 +112,7 @@ func barrel_fire():
 			$AnimationPlayer.play("Fire")
 			
 			
-	elif Input.is_action_pressed("Right_Fire"):
+	elif Input.is_action_just_pressed("Right_Fire"):
 		if PlayerInfo.Right_Barrel != null and can_shoot_barrel and PlayerInfo.Mana >= PlayerInfo.Right_Barrel.Cost:
 			PlayerInfo.Mana -= PlayerInfo.Right_Barrel.Cost
 			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
