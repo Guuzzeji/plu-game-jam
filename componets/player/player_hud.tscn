@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmx53al0wfbgl"]
+[gd_scene load_steps=6 format=3 uid="uid://bmx53al0wfbgl"]
 
 [ext_resource type="Script" path="res://componets/player/player_hud.gd" id="1_825m1"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_1yhfq"]
+[ext_resource type="Texture2D" uid="uid://dctn0ylea3bqn" path="res://assets/images/kenney_crosshairPack/PNG/White/crosshair188.png" id="3_1dsmr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wi18b"]
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qo7sf"]
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="PlayerHud" type="Control"]
 layout_mode = 3
@@ -13,6 +24,7 @@ grow_vertical = 2
 script = ExtResource("1_825m1")
 PlayerInfo = ExtResource("2_1yhfq")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 modulate = Color(0.901961, 0.0470588, 0, 1)
@@ -70,82 +82,52 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "MANA"
 
-[node name="BulletPanel" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -256.0
-offset_right = 256.0
-offset_bottom = 64.0
-grow_horizontal = 2
-
-[node name="Item_0" type="Control" parent="BulletPanel"]
-layout_mode = 1
-anchor_right = 0.125
-anchor_bottom = 1.0
-
-[node name="Item_1" type="Control" parent="BulletPanel"]
-layout_mode = 1
-anchor_left = 0.125
-anchor_right = 0.25
-anchor_bottom = 1.0
-
-[node name="Item_2" type="Control" parent="BulletPanel"]
-layout_mode = 1
-anchor_left = 0.25
-anchor_right = 0.375
-anchor_bottom = 1.0
-offset_right = -1.52588e-05
-
-[node name="Item_3" type="Control" parent="BulletPanel"]
-layout_mode = 1
-anchor_left = 0.375
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -1.52588e-05
-
-[node name="Item_4" type="Control" parent="BulletPanel"]
-layout_mode = 1
-anchor_left = 0.5
-anchor_right = 0.625
-anchor_bottom = 1.0
-
-[node name="Item_5" type="Control" parent="BulletPanel"]
-layout_mode = 1
-anchor_left = 0.625
-anchor_right = 0.75
-anchor_bottom = 1.0
-offset_right = -3.05176e-05
-
-[node name="Item_6" type="Control" parent="BulletPanel"]
-layout_mode = 1
-anchor_left = 0.75
-anchor_right = 0.875
-anchor_bottom = 1.0
-offset_left = -3.05176e-05
-offset_right = -3.05176e-05
-
-[node name="Item_7" type="Control" parent="BulletPanel"]
-layout_mode = 1
-anchor_left = 0.875
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.05176e-05
-
-[node name="Panel" type="Panel" parent="BulletPanel"]
+[node name="Crosshair" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -32.0
-offset_right = 256.0
-offset_bottom = 32.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+texture = ExtResource("3_1dsmr")
 metadata/_edit_lock_ = true
+
+[node name="BulletLeft" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -16.0
+offset_right = -24.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Smple Text"
+label_settings = SubResource("LabelSettings_wi18b")
+horizontal_alignment = 1
+
+[node name="BulletRight" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -16.0
+offset_right = 128.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Smple Text"
+label_settings = SubResource("LabelSettings_qo7sf")
+horizontal_alignment = 1
