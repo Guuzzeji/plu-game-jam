@@ -120,14 +120,26 @@ func barrel_fire():
 			var bullet = PlayerInfo.Right_Barrel.Projectile.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
 			$AnimationPlayer.play("Fire")
+	else:
+		can_shoot_barrel = true
 	pass
 
 func barrel_bullet_switch():
 	if Input.is_action_pressed("Left_barrel_type"):
-		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
-			PlayerInfo.Inv_Index_Left_Barrel = (PlayerInfo.Inv_Index_Left_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
-		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
-			PlayerInfo.Inv_Index_Left_Barrel = (PlayerInfo.Inv_Index_Left_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
+		can_shoot_barrel = false
+		Engine.time_scale = 0.25
+		if Input.is_action_just_released("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			if (PlayerInfo.Inv_Index_Left_Barrel + 1) < PlayerInfo.Bullet_Inventory.size(): 
+				PlayerInfo.Inv_Index_Left_Barrel = (PlayerInfo.Inv_Index_Left_Barrel + 1) 
+			else: 
+				PlayerInfo.Inv_Index_Left_Barrel = 0
+				
+		elif  Input.is_action_just_released("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			if (PlayerInfo.Inv_Index_Left_Barrel - 1) >= 0: 
+				PlayerInfo.Inv_Index_Left_Barrel = (PlayerInfo.Inv_Index_Left_Barrel - 1) 
+			else: 
+				PlayerInfo.Inv_Index_Left_Barrel = PlayerInfo.Bullet_Inventory.size() - 1 
+			
 			
 		if PlayerInfo.Bullet_Inventory.size() != 0:
 			var bullet = PlayerInfo.Bullet_Inventory[PlayerInfo.Inv_Index_Left_Barrel]
@@ -135,16 +147,28 @@ func barrel_bullet_switch():
 			PlayerInfo.Left_Barrel = bullet
 		
 	elif Input.is_action_pressed("Right_barrel_type"):
-		if Input.is_action_just_pressed("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
-			PlayerInfo.Inv_Index_Right_Barrel = (PlayerInfo.Inv_Index_Right_Barrel + 1) % PlayerInfo.Bullet_Inventory.size()
-		elif  Input.is_action_just_pressed("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
-			PlayerInfo.Inv_Index_Right_Barrel = (PlayerInfo.Inv_Index_Right_Barrel - 1) % PlayerInfo.Bullet_Inventory.size()
+		can_shoot_barrel = false
+		Engine.time_scale = 0.25
+		if Input.is_action_just_released("Scroll_barrel_down") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			if (PlayerInfo.Inv_Index_Right_Barrel + 1) < PlayerInfo.Bullet_Inventory.size(): 
+				PlayerInfo.Inv_Index_Right_Barrel = (PlayerInfo.Inv_Index_Right_Barrel + 1) 
+			else: 
+				PlayerInfo.Inv_Index_Right_Barrel = 0
+				
+		elif  Input.is_action_just_released("Scroll_barrel_up") and  PlayerInfo.Bullet_Inventory.size() != 0:
+			if (PlayerInfo.Inv_Index_Right_Barrel - 1) >= 0: 
+				PlayerInfo.Inv_Index_Right_Barrel = (PlayerInfo.Inv_Index_Right_Barrel - 1) 
+			else: 
+				PlayerInfo.Inv_Index_Right_Barrel = PlayerInfo.Bullet_Inventory.size() - 1 
 	
 		if PlayerInfo.Bullet_Inventory.size() != 0:
 			var bullet = PlayerInfo.Bullet_Inventory[PlayerInfo.Inv_Index_Right_Barrel]
 			print(bullet)
 			PlayerInfo.Right_Barrel = bullet
-			
+	else:
+		can_shoot_barrel = true
+		Engine.time_scale = 1
+		
 func auto_put_bullet_in_barrel():
 	if PlayerInfo.Bullet_Inventory.size() == 1:
 		var bullet = PlayerInfo.Bullet_Inventory[0]

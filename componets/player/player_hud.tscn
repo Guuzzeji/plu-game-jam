@@ -1,18 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmx53al0wfbgl"]
+[gd_scene load_steps=4 format=3 uid="uid://bmx53al0wfbgl"]
 
 [ext_resource type="Script" path="res://componets/player/player_hud.gd" id="1_825m1"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_1yhfq"]
-[ext_resource type="Texture2D" uid="uid://dctn0ylea3bqn" path="res://assets/images/kenney_crosshairPack/PNG/White/crosshair188.png" id="3_1dsmr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_wi18b"]
-font_size = 12
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_qo7sf"]
-font_size = 12
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://dojxi6wqwicjx" path="res://componets/player/cross_hair.tscn" id="3_ue8dm"]
 
 [node name="PlayerHud" type="Control"]
 layout_mode = 3
@@ -82,52 +72,5 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "MANA"
 
-[node name="Crosshair" type="TextureRect" parent="."]
+[node name="CrossHair" parent="." instance=ExtResource("3_ue8dm")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_1dsmr")
-metadata/_edit_lock_ = true
-
-[node name="BulletLeft" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -16.0
-offset_right = -24.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Smple Text"
-label_settings = SubResource("LabelSettings_wi18b")
-horizontal_alignment = 1
-
-[node name="BulletRight" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -16.0
-offset_right = 128.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Smple Text"
-label_settings = SubResource("LabelSettings_qo7sf")
-horizontal_alignment = 1
