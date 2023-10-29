@@ -92,12 +92,12 @@ func player_movement(delta):
 		speed_controller = lerp(speed_controller, SPEED, ACCL)
 		velocity.x = direction.x * speed_controller * delta
 		velocity.z = direction.z * speed_controller * delta
-		$AnimationPlayer.play("Walking")
 	else:
-		$AnimationPlayer.stop()
 		speed_controller = lerp(speed_controller, 0.0, DE_ACCL)
 		velocity.x = lerp(velocity.x, 0.0, DE_ACCL)
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
+		
+	$AnimationTree.set("parameters/blend_position", speed_controller / 400)
 	
 	pass
 
