@@ -27,7 +27,7 @@ func barrel_bullet_switch():
 		$AnimationPlayer.play("Show")
 		currentState = State.SHOW
 		
-	elif Input.is_action_just_released(ActionTrigger):
+	elif Input.is_action_just_released(ActionTrigger) and PlayerInfo.Bullet_Inventory.size() != 0:
 		$AnimationPlayer.play("Hide")
 		$ItemList.clear()
 		currentState = State.HIDE
