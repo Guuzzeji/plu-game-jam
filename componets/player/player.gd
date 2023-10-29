@@ -41,7 +41,7 @@ func _physics_process(delta):
 	update_move_state()
 	update_mana_state()
 	update_health_state()
-	#debug_logs()
+	debug_logs()
 	
 	mana_check()
 	barrel_fire("Right_Barrel", "Right_Fire")
@@ -63,7 +63,12 @@ func debug_logs():
 	print("Gun State -> ", PlayerInfo.BarrelState.keys()[PlayerInfo.Current_BarrelState])
 	print("Player Dir -> ", self.move_dir)
 	print("Player Move State -> ", PlayerInfo.MovementState.keys()[PlayerInfo.Curret_MovementState])
-	print("Player Bullets:", PlayerInfo.Bullet_Inventory)
+	print("Player Bullets -> ", PlayerInfo.Bullet_Inventory.size())
+		
+	if PlayerInfo.Bullet_Inventory.size() != 0:
+		print("Inv Left Barrel Index = ", PlayerInfo.Bullet_Inventory[PlayerInfo.Inv_Index_Left_Barrel].Name)
+		print("Inv Right Barrel Index = ", PlayerInfo.Bullet_Inventory[PlayerInfo.Inv_Index_Left_Barrel].Name)
+	
 	print("======NewLine======")
 	pass
 	
