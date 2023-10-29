@@ -4,6 +4,7 @@ extends Control
 @export var ActionTrigger : String
 @export var Select_Bullet_Index: String
 @export var Gun_Barrel: String
+@export var Barrel_Label_State: String
 
 enum State {SHOW, HIDE}
 
@@ -22,8 +23,7 @@ func _process(delta):
 	pass
 
 func barrel_bullet_switch():
-	if Input.is_action_just_pressed(ActionTrigger) and PlayerInfo.Bullet_Inventory.size() != 0:
-		print_list_bullets()
+	if Input.is_action_just_pressed(ActionTrigger) and PlayerInfo.Bullet_Inventory.size() != 0 and PlayerInfo.Current_BarrelState == PlayerInfo.BarrelState[Barrel_Label_State]:
 		$AnimationPlayer.play("Show")
 		currentState = State.SHOW
 		
@@ -33,12 +33,15 @@ func barrel_bullet_switch():
 		currentState = State.HIDE
 		
 	if currentState == State.SHOW:
+		print_list_bullets()
 		$ItemList.select(PlayerInfo[Select_Bullet_Index])
 		
 func print_list_bullets():
 	#print($ScrollContainer/ItemList.get_item_count())
-	if $ItemList.get_item_count() != PlayerInfo.Bullet_Inventory.size() || $ItemList.get_item_count() == 0:
-		for i in range(0, PlayerInfo.Bullet_Inventory.size()):
+	var orginalSizeList = $ItemList.get_item_count() 
+	
+	if $ItemList.get_item_count() < PlayerInfo.Bullet_Inventory.size():
+		for i in range(orginalSizeList, PlayerInfo.Bullet_Inventory.size()):
 			$ItemList.add_item(PlayerInfo.Bullet_Inventory[i].Name)
 			
 		$ItemList.select(PlayerInfo[Select_Bullet_Index])
