@@ -30,7 +30,7 @@ albedo_texture = ExtResource("2_dchu1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkh6p"]
 albedo_texture = ExtResource("2_dchu1")
 
-[sub_resource type="Resource" id="Resource_1un6j"]
+[sub_resource type="Resource" id="Resource_e4h48"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -44,7 +44,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_154bs"]
+[sub_resource type="Resource" id="Resource_41uaj"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -58,7 +58,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_7ybyo"]
+[sub_resource type="Resource" id="Resource_gscpa"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -72,7 +72,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_twa4b"]
+[sub_resource type="Resource" id="Resource_t03jx"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -183,16 +183,16 @@ size = Vector3(17.7864, 1, 44.0941)
 
 [node name="nut_ammo" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_1un6j")
+Bullet_Info = SubResource("Resource_e4h48")
 
 [node name="nut_ammo2" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81657, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_154bs")
+Bullet_Info = SubResource("Resource_41uaj")
 
 [node name="nut_ammo3" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58655, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_7ybyo")
+Bullet_Info = SubResource("Resource_gscpa")
 
 [node name="nut_ammo4" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71694, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_twa4b")
+Bullet_Info = SubResource("Resource_t03jx")

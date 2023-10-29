@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Bullet_Type" load_steps=3 format=3 uid="uid://di37acejeygq6"]
+[gd_resource type="Resource" script_class="Bullet_Type" load_steps=2 format=3 uid="uid://di37acejeygq6"]
 
 [ext_resource type="Script" path="res://src/bullet_resource.gd" id="1_sowta"]
-[ext_resource type="Texture2D" uid="uid://bcxm7bu2hi8nt" path="res://assets/images/bullet_nut.jpg" id="1_upka1"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_sowta")
 Name = "Nut Bullet"
-Icon = ExtResource("1_upka1")
 ID = 0
 Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
 Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
