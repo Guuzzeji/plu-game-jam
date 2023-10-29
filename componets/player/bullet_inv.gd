@@ -23,7 +23,7 @@ func _process(delta):
 	pass
 
 func barrel_bullet_switch():
-	if Input.is_action_just_pressed(ActionTrigger) and PlayerInfo.Bullet_Inventory.size() != 0 and PlayerInfo.Current_BarrelState == PlayerInfo.BarrelState[Barrel_Label_State]:
+	if Input.is_action_just_pressed(ActionTrigger) and PlayerInfo.Bullet_Inventory.size() != 0:
 		$AnimationPlayer.play("Show")
 		currentState = State.SHOW
 		

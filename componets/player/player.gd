@@ -18,6 +18,7 @@ var move_dir = Vector2.ZERO
 func _ready():
 	$AnimationPlayer.play("RESET")
 	PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.IDLE
+	PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.IDLE
 	pass
 
 func _input(event):
@@ -37,13 +38,37 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-	debug_logs()
+	update_move_state()
+	update_mana_state()
+	update_health_state()
+	#debug_logs()
+	
 	mana_check()
 	barrel_fire("Right_Barrel", "Right_Fire")
 	barrel_fire("Left_Barrel", "Left_Fire")
 	auto_pickup_bullet_in_barrel()
 	
-	# Add the gravity.
+	player_movement(delta)
+	
+	# Camera Movement to feel motion
+	$CameraNeck/Camera3D.rotation.z = lerp($CameraNeck/Camera3D.rotation.z, -0.05 * move_dir.x, 0.05)
+	$CameraNeck/Camera3D.rotation.x = lerp($CameraNeck/Camera3D.rotation.x, -0.05 * move_dir.y, 0.025)
+	
+	move_and_slide()
+
+func debug_logs():
+	print("Health -> ", PlayerInfo.Health)
+	print("Health State -> ", PlayerInfo.HealthState.keys()[PlayerInfo.Current_HealthState])
+	print("Mana State -> ", PlayerInfo.ManaState.keys()[PlayerInfo.Current_ManaState])
+	print("Gun State -> ", PlayerInfo.BarrelState.keys()[PlayerInfo.Current_BarrelState])
+	print("Player Dir -> ", self.move_dir)
+	print("Player Move State -> ", PlayerInfo.MovementState.keys()[PlayerInfo.Curret_MovementState])
+	print("Player Bullets:", PlayerInfo.Bullet_Inventory)
+	print("======NewLine======")
+	pass
+	
+func player_movement(delta):
+		# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -74,25 +99,6 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, 0.0, DE_ACCL)
 		velocity.z = lerp(velocity.z, 0.0, DE_ACCL)
 	
-	# Camera Movement to feel motion
-	$CameraNeck/Camera3D.rotation.z = lerp($CameraNeck/Camera3D.rotation.z, -0.05 * input_dir.normalized().x, 0.05)
-	$CameraNeck/Camera3D.rotation.x = lerp($CameraNeck/Camera3D.rotation.x, -0.05 * input_dir.normalized().y, 0.025)
-	
-	move_and_slide()
-	update_move_state()
-	update_mana_state()
-	update_health_state()
-
-func debug_logs():
-	print("Health:", PlayerInfo.Health)
-	print("Health State:", PlayerInfo.Current_HealthState)
-	print("Mana:", PlayerInfo.Mana)
-	print("Health State:", PlayerInfo.Current_ManaState)
-	print("Gun State:", PlayerInfo.Current_BarrelState)
-	print("Player Dir:", self.move_dir)
-	print("Player Move State:", PlayerInfo.Curret_MovementState)
-	print("Player Bullets:", PlayerInfo.Bullet_Inventory)
-	print("======NewLine======")
 	pass
 
 func mana_check():
@@ -104,18 +110,17 @@ func barrel_fire(barrel: String, input: String):
 	if Input.is_action_just_pressed(input):
 		if can_shoot_barrel and (PlayerInfo[barrel] != null and PlayerInfo.Mana >= PlayerInfo[barrel].Cost):
 			PlayerInfo.Mana -= PlayerInfo[barrel].Cost
+			PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.SHOOTING
 			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
 			can_shoot_barrel = false
 			var bullet = PlayerInfo[barrel].Projectile.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
 			$CameraNeck/PlayerGunProp.fire_anim()
-	elif PlayerInfo.Current_BarrelState != PlayerInfo.BarrelState.SWITCHING_BULLETS_RIGHT or PlayerInfo.Current_BarrelState != PlayerInfo.BarrelState.SWITCHING_BULLETS_RIGHT or PlayerInfo.Current_BarrelState != PlayerInfo.BarrelState.SHOOTING or PlayerInfo.Current_BarrelState != PlayerInfo.BarrelState.SHOOTING_DELAY:
-		PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.IDLE
 		
 	pass
 
 func barrel_bullet_switch(barrel_index_inv: String, barrel: String, input_trigger: String, barrel_state: int):
-	if Input.is_action_pressed(input_trigger) and PlayerInfo.Bullet_Inventory.size() != 0 and PlayerInfo.Current_BarrelState == PlayerInfo.BarrelState.IDLE:
+	if Input.is_action_pressed(input_trigger) and PlayerInfo.Bullet_Inventory.size() != 0:
 		PlayerInfo.Current_BarrelState = barrel_state
 		can_shoot_barrel = false
 		Engine.time_scale = 0.25
@@ -152,13 +157,13 @@ func update_move_state():
 		PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.IDLE
 	elif self.move_dir != Vector2.ZERO and is_on_floor():
 		PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.WALKING
-	elif self.move_dir == Vector2.ZERO and !is_on_floor() and velocity.y < 0:
-		PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.JUMPING
-	elif self.move_dir != Vector2.ZERO and !is_on_floor() and velocity.y < 0:
-		PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.WALKING_AND_JUMPING
-	elif self.move_dir != Vector2.ZERO and !is_on_floor() and velocity.y > 0:
-		PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.WALKING_AND_FALLING
 	elif self.move_dir == Vector2.ZERO and !is_on_floor() and velocity.y > 0:
+		PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.JUMPING
+	elif self.move_dir != Vector2.ZERO and !is_on_floor() and velocity.y > 0:
+		PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.WALKING_AND_JUMPING
+	elif self.move_dir != Vector2.ZERO and !is_on_floor() and velocity.y < 0:
+		PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.WALKING_AND_FALLING
+	elif self.move_dir == Vector2.ZERO and !is_on_floor() and velocity.y < 0:
 		PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.FALLING
 	pass
 	
@@ -172,20 +177,20 @@ func update_health_state():
 	pass
 	
 func update_mana_state():
-	if PlayerInfo.Mana == PlayerInfo.Max_Mana and $Mana_Inc.is_stopped():
+	if PlayerInfo.Mana >= PlayerInfo.Max_Mana and $Mana_Inc.is_stopped():
 		PlayerInfo.Current_ManaState = PlayerInfo.ManaState.FULL
 	elif PlayerInfo.Mana <= PlayerInfo.Max_Mana * 0.10 and $Mana_Inc.is_stopped():
 		PlayerInfo.Current_ManaState = PlayerInfo.ManaState.LOW
-	elif PlayerInfo.Health <= 0 and $Mana_Inc.is_stopped():
+	elif PlayerInfo.Mana <= 0 and $Mana_Inc.is_stopped():
 		PlayerInfo.Current_ManaState = PlayerInfo.ManaState.ZERO
-	elif !$Mana_Inc.is_stopped():
-		PlayerInfo.Current_ManaState = PlayerInfo.ManaState.RECHARGING
 	pass
 
 func _on_barrel_timer_timeout():
 	can_shoot_barrel = true
+	PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.IDLE
 	pass # Replace with function body.
 
 func _on_mana_inc_timeout():
 	PlayerInfo.Mana += PlayerInfo.Mana_Inc_Sec
+	PlayerInfo.Current_ManaState = PlayerInfo.ManaState.RECHARGING
 	pass # Replace with function body.
