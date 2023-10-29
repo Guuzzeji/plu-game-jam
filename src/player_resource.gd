@@ -35,3 +35,8 @@ var Curret_MovementState
 var Current_BarrelState
 var Current_HealthState
 var Current_ManaState
+
+func take_damge(damge: int):
+	Current_HealthState = HealthState.HIT
+	Health -= damge
+	pass
