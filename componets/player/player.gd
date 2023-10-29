@@ -16,7 +16,7 @@ extends CharacterBody3D
 var jump_buffer = 0.0
 
 func _ready():
-	$AnimationPlayer.play("RESET")
+	#$AnimationPlayer.play("RESET")
 	pass
 
 func _input(event):
@@ -27,17 +27,11 @@ func _input(event):
 		# print($CameraNeck.rotation.x)
 		self.rotate_y(-event.relative.x * 0.01)
 		$CameraNeck.rotate_x(-event.relative.y * 0.01)
-		$CameraNeck/Shotgun_SawedOff.position.x = lerp($CameraNeck/Shotgun_SawedOff.position.x, 0.1 * -event.relative.normalized().x, 0.025)
 		
 	$CameraNeck.rotation.x = clamp($CameraNeck.rotation.x, -1.5, 1.5)
 	barrel_bullet_switch()
 	
 func _process(delta):
-	#Fix Gun Clipping through walls
-	if $CameraNeck/RayGunOffsetWall.is_colliding() and !$CameraNeck/RayGunOffsetWall.get_collider().is_in_group("player"):
-		$CameraNeck/Shotgun_SawedOff.position = lerp($CameraNeck/Shotgun_SawedOff.position, Vector3($CameraNeck/Shotgun_SawedOff.position.x, -100, $CameraNeck/Shotgun_SawedOff.position.z), 0.00025)
-	else: 
-		$CameraNeck/Shotgun_SawedOff.position = lerp($CameraNeck/Shotgun_SawedOff.position, $CameraNeck/OrginalGunPos.position, 0.1)
 	pass
 
 func _physics_process(delta):
@@ -87,11 +81,6 @@ func _physics_process(delta):
 	$CameraNeck/Camera3D.rotation.z = lerp($CameraNeck/Camera3D.rotation.z, -0.05 * input_dir.normalized().x, 0.05)
 	$CameraNeck/Camera3D.rotation.x = lerp($CameraNeck/Camera3D.rotation.x, -0.05 * input_dir.normalized().y, 0.025)
 	
-	#Gun Swing
-	$CameraNeck/Shotgun_SawedOff.position.x = lerp($CameraNeck/Shotgun_SawedOff.position.x, 0.0, 0.05)
-	
-	
-	
 	move_and_slide()
 
 func mana_check():
@@ -109,7 +98,7 @@ func barrel_fire():
 			can_shoot_barrel = false
 			var bullet = PlayerInfo.Left_Barrel.Projectile.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
-			$AnimationPlayer.play("Fire")
+			$CameraNeck/PlayerGunProp.fire_anim()
 			
 			
 	elif Input.is_action_just_pressed("Right_Fire"):
@@ -119,7 +108,7 @@ func barrel_fire():
 			can_shoot_barrel = false
 			var bullet = PlayerInfo.Right_Barrel.Projectile.instantiate()
 			$CameraNeck/ShotingHole.add_child(bullet)
-			$AnimationPlayer.play("Fire")
+			$CameraNeck/PlayerGunProp.fire_anim()
 	else:
 		can_shoot_barrel = true
 	pass
