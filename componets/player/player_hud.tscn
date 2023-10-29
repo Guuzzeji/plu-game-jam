@@ -85,6 +85,7 @@ PlayerInfo = ExtResource("2_1yhfq")
 ActionTrigger = "Left_barrel_type"
 Select_Bullet_Index = "Inv_Index_Left_Barrel"
 Gun_Barrel = "Left_Barrel"
+Barrel_Label_State = "SWITCHING_BULLETS_LEFT"
 
 [node name="BulletInventory2" parent="." instance=ExtResource("3_6fq6f")]
 layout_mode = 1
@@ -98,6 +99,7 @@ PlayerInfo = ExtResource("2_1yhfq")
 ActionTrigger = "Right_barrel_type"
 Select_Bullet_Index = "Inv_Index_Right_Barrel"
 Gun_Barrel = "Right_Barrel"
+Barrel_Label_State = "SWITCHING_BULLETS_RIGHT"
 
 [node name="CrossHair" type="TextureRect" parent="."]
 layout_mode = 1

@@ -23,5 +23,15 @@ class_name Player_Data
 @export var DE_ACCL: float = 0.08
 @export var JUMP_VELOCITY: float = 5.66 # 4.5
 
+enum MovementState {WALKING, IDLE, JUMPING, WALKING_AND_JUMPING, FALLING, WALKING_AND_FALLING}
+enum BarrelState {SHOOTING, SWITCHING_BULLETS_LEFT, SWITCHING_BULLETS_RIGHT, IDLE, SHOOTING_DELAY}
+enum HealthState {HIT, FINE, DEAD, ALMOST_DEAD}
+enum ManaState {LOW, ZERO, RECHARGING, FULL}
+
 var Inv_Index_Left_Barrel: int = 0
 var Inv_Index_Right_Barrel: int = 0
+
+var Curret_MovementState
+var Current_BarrelState
+var Current_HealthState
+var Current_ManaState
