@@ -1,6 +1,9 @@
 extends CharacterBody3D
 
 @export var  PlayerInfo : Player_Data 
+#makes it avaliable for the ui editor(the right screen, player.gd)
+#Player_data is a resource file, can import to enemries so they know the players info
+#
 
 @onready var SPEED = PlayerInfo.SPEED
 @onready var ACCL = PlayerInfo.ACCL
@@ -60,13 +63,15 @@ func _input(event):
 func _physics_process(delta):
 	# print(transform.basis, velocity)
 	#print("Mana = ", PlayerInfo.Mana)
-	print("== Inv = ", PlayerInfo.Bullet_Inventory)
-	print("== Inv Left Barrel Index = ", Inv_Index_Left_Barrel)
-	print("== Inv Right Barrel Index = ", Inv_Index_Right_Barrel)
+	#print("== Inv = ", PlayerInfo.Bullet_Inventory)
+	#print("== Inv Left Barrel Index = ", Inv_Index_Left_Barrel)
+	#print("== Inv Right Barrel Index = ", Inv_Index_Right_Barrel)
 		
 	$Control/Debug_label.set_text("\n= Debug =
 	- Health = " + str(PlayerInfo.Health) +
 	"\n- Mana = " + str(PlayerInfo.Mana))
+	
+	#Aray[Bullet_Type](size 0)
 	
 	mana_check()
 	barrel_controls()

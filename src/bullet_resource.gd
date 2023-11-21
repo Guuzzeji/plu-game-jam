@@ -7,6 +7,7 @@ extends Resource
 #	Can't use _init() in this case b/c godot is design to not use export var when using _init()
 #	Use notifcations instead, will load everything correctly
 
+#this code is for a specific bullet, just handels stats, not the actual firing.
 class_name Bullet_Type
 
 @export var Name: String

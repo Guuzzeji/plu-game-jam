@@ -58,6 +58,7 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_2hrfu")
 blend_point_1/pos = 0.0
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 5
 script = ExtResource("1_gtsp0")
 PlayerInfo = ExtResource("2_tjgyl")
 
@@ -73,7 +74,7 @@ transform = Transform3D(-1.30463e-08, -1.32519e-09, 0.3, -0.0303169, 0.298464, -
 [node name="ShotingHole" type="Node3D" parent="CameraNeck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476007, -0.957375)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["player"]]
 shape = SubResource("CapsuleShape3D_0pf0p")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
