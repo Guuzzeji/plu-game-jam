@@ -30,7 +30,7 @@ albedo_texture = ExtResource("2_dchu1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkh6p"]
 albedo_texture = ExtResource("2_dchu1")
 
-[sub_resource type="Resource" id="Resource_ooppd"]
+[sub_resource type="Resource" id="Resource_3c8l2"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -44,7 +44,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_2prgy"]
+[sub_resource type="Resource" id="Resource_fmt3i"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -58,7 +58,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_owut0"]
+[sub_resource type="Resource" id="Resource_ufpsn"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -72,7 +72,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_wclpa"]
+[sub_resource type="Resource" id="Resource_3504o"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -137,6 +137,42 @@ material_override = SubResource("StandardMaterial3D_jkh6p")
 use_collision = true
 size = Vector3(26.077, 1, 39.0945)
 
+[node name="CSGBox3D6" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5168, 0.488618, 16.9797)
+material_override = SubResource("StandardMaterial3D_jkh6p")
+use_collision = true
+size = Vector3(7.16219, 1, 28.2828)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5168, 2.5766, 3.43332)
+material_override = SubResource("StandardMaterial3D_jkh6p")
+use_collision = true
+size = Vector3(7.16219, 1, 6.73482)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.149, 3.61894, 6.91771)
+material_override = SubResource("StandardMaterial3D_jkh6p")
+use_collision = true
+size = Vector3(2.72053, 1, 6.73482)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6248, 4.6689, 14.1504)
+material_override = SubResource("StandardMaterial3D_jkh6p")
+use_collision = true
+size = Vector3(2.72053, 1, 6.73482)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6248, 5.9262, 18.7785)
+material_override = SubResource("StandardMaterial3D_jkh6p")
+use_collision = true
+size = Vector3(2.72053, 1, 6.73482)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.979764, 0.200155, 0, -0.200155, 0.979764, 15.6248, 6.97785, 22.9783)
+material_override = SubResource("StandardMaterial3D_jkh6p")
+use_collision = true
+size = Vector3(2.72053, 1, 6.73482)
+
 [node name="CSGBox3D5" type="CSGBox3D" parent="World"]
 transform = Transform3D(-4.37114e-08, 1, 3.48787e-16, -1, -4.37114e-08, -3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 41.7825, 1.71489, -2.55345)
 material_override = SubResource("StandardMaterial3D_jkh6p")
@@ -147,16 +183,16 @@ size = Vector3(17.7864, 1, 44.0941)
 
 [node name="nut_ammo" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_ooppd")
+Bullet_Info = SubResource("Resource_3c8l2")
 
 [node name="nut_ammo2" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81657, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_2prgy")
+Bullet_Info = SubResource("Resource_fmt3i")
 
 [node name="nut_ammo3" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58655, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_owut0")
+Bullet_Info = SubResource("Resource_ufpsn")
 
 [node name="nut_ammo4" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71694, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_wclpa")
+Bullet_Info = SubResource("Resource_3504o")
