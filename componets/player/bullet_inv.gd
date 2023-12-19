@@ -1,6 +1,10 @@
 extends Control
 
-@export var  PlayerInfo : Player_Data 
+# **Overview**
+# UI Node used to create bullet overlay for player 
+# Bullet overlay displays bullet name and which one is currently used
+
+@export var PlayerInfo : Player_Data 
 @export var ActionTrigger : String
 @export var Select_Bullet_Index: String
 @export var Gun_Barrel: String
@@ -22,6 +26,9 @@ func _process(delta):
 	bullet_label()
 	pass
 
+# **About** 
+# Runs in process loop and updates to show / hide base on if action trigger label was triggered
+# and if player meets state to show bullets
 func barrel_bullet_switch():
 	if Input.is_action_just_pressed(ActionTrigger) and PlayerInfo.Bullet_Inventory.size() != 0:
 		$AnimationPlayer.play("Show")
@@ -36,6 +43,9 @@ func barrel_bullet_switch():
 		print_list_bullets()
 		$ItemList.select(PlayerInfo[Select_Bullet_Index])
 		
+# **About** 
+# Used for printing bullet names into list for UI
+# NOTE: May want to fix this to show damge and mana cost to player
 func print_list_bullets():
 	#print($ScrollContainer/ItemList.get_item_count())
 	var orginalSizeList = $ItemList.get_item_count() 
@@ -45,7 +55,9 @@ func print_list_bullets():
 			$ItemList.add_item(PlayerInfo.Bullet_Inventory[i].Name)
 			
 		$ItemList.select(PlayerInfo[Select_Bullet_Index])
-
+		
+# **About** 
+# Sets the CurrentBullet label to what the player is currently using
 func bullet_label():
 	if PlayerInfo[Gun_Barrel] != null:
 		$CurrentBullet.text = PlayerInfo[Gun_Barrel].Name

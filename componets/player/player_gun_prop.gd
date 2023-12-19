@@ -1,12 +1,15 @@
 extends Node3D
 
+# **Overview**
+# Used to control player gun animations
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("RESET")
 	pass # Replace with function body.
-	
 
+# **About**
+# Used to update gun prop position base on mouse
 func _input(event):
 	if event is InputEventMouseMotion:
 		$Shotgun_SawedOff.position.x = lerp($Shotgun_SawedOff.position.x, 0.1 * -event.relative.normalized().x, 0.025)
@@ -23,7 +26,9 @@ func _process(delta):
 	#Gun Swing
 	$Shotgun_SawedOff.position.x = lerp($Shotgun_SawedOff.position.x, 0.0, 0.05)
 	pass
-	
+
+# **About**
+# Play animation when gun is fire
 func fire_anim():
 	$AnimationPlayer.play("Fire")
 	pass

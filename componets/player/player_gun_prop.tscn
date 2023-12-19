@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dla44yymmgqa1"]
+[gd_scene load_steps=9 format=3 uid="uid://dla44yymmgqa1"]
 
 [ext_resource type="Script" path="res://componets/player/player_gun_prop.gd" id="1_evpa7"]
 [ext_resource type="PackedScene" uid="uid://bk01mifklj8ii" path="res://assets/models/Shotgun_SawedOff.fbx" id="1_vvl1l"]
 [ext_resource type="AudioStream" uid="uid://dms3rq5efnyd2" path="res://assets/sfx/dsshotgn.wav" id="2_abblw"]
+[ext_resource type="Texture2D" uid="uid://dsacww882pcnk" path="res://assets/images/firetexture.jpg" id="4_qjdo5"]
 
 [sub_resource type="Animation" id="Animation_hoft8"]
 resource_name = "Fire"
-length = 0.15
+length = 0.25
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -15,22 +16,82 @@ tracks/0/path = NodePath("Shotgun_SawedOff:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
+"times": PackedFloat32Array(0, 0.09, 0.21),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-2.1684e-19, 2.08165e-12, 0.0460532), Vector3(-2.1684e-19, 2.08165e-12, 0.222431), Vector3(-2.1684e-19, 2.08165e-12, 0.0460532)]
+"values": [Vector3(-2.1684e-19, 2.08165e-12, 0.0460532), Vector3(2.08165e-12, 2.08165e-12, 0.45), Vector3(-2.1684e-19, 2.08165e-12, 0.0460532)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GunFireSound:playing")
+tracks/1/path = NodePath("CSGTorus3D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0.05, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12), Vector3(0.15, 0.15, 0.15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGTorus3D:material_override:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GunFireSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGTorus3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CSGTorus3D/SpotLight3D:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.14, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 5.132, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CSGTorus3D/SpotLight3D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_kb8ww"]
@@ -59,12 +120,84 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGTorus3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGTorus3D:material_override:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGTorus3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CSGTorus3D/SpotLight3D:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.132]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CSGTorus3D/SpotLight3D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_17tox"]
 _data = {
 "Fire": SubResource("Animation_hoft8"),
 "RESET": SubResource("Animation_kb8ww")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ev2i2"]
+albedo_color = Color(1, 1, 1, 0.733333)
+albedo_texture = ExtResource("4_qjdo5")
+albedo_texture_force_srgb = true
+metallic = 0.46
+emission_enabled = true
+emission = Color(0.701961, 0.223529, 0.137255, 1)
+emission_energy_multiplier = 3.23
+emission_operator = 1
+rim_enabled = true
+grow_amount = 6.103
 
 [node name="PlayerGunProp" type="Node3D"]
 script = ExtResource("1_evpa7")
@@ -77,7 +210,7 @@ target_position = Vector3(0, 0, -1)
 transform = Transform3D(0.00134958, -0.0154382, 0.299599, -0.0261118, 0.298459, 0.0154971, -0.298858, -0.0261466, -1.08455e-06, -2.1684e-19, 2.08165e-12, 0.0460532)
 
 [node name="Shotgun_SawedOff" parent="." instance=ExtResource("1_vvl1l")]
-transform = Transform3D(-1.08186e-06, -9.46508e-08, 0.3, -0.0261467, 0.298858, 0, -0.298858, -0.0261467, -1.086e-06, -2.1684e-19, 2.08165e-12, 0.0460532)
+transform = Transform3D(-1.08186e-06, -9.46508e-08, 0.3, -0.0261467, 0.298858, 0, -0.298858, -0.0261467, -1.086e-06, 1.73471e-12, 2.08165e-12, 0.382676)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -87,3 +220,18 @@ libraries = {
 
 [node name="GunFireSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_abblw")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1.84866e-16, 3.57639e-09, 0.0818182, 0.0818182, -3.57639e-09, -2.85371e-17, 3.57639e-09, 0.0818182, -3.57639e-09, 2.08165e-12, 2.08165e-12, -0.930491)
+material_override = SubResource("StandardMaterial3D_ev2i2")
+inner_radius = 0.011
+outer_radius = 1.306
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGTorus3D"]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(1, 0, 0.352941, 1)
+light_energy = 6.318
+light_indirect_energy = 2.495
+light_size = 0.379
+spot_range = 3.12316
+spot_angle = 60.259
