@@ -43,5 +43,12 @@ shape = SubResource("SphereShape3D_cx0s0")
 wait_time = 2.0
 one_shot = true
 
+[node name="DetectionEyes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="LineOfSight" type="RayCast3D" parent="DetectionEyes"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -8, 0)
+
 [connection signal="body_entered" from="SentryBody/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="SentryBody/Area3D" to="." method="_on_area_3d_body_exited"]

@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=23 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
 [ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="2_6ywks"]
 [ext_resource type="Texture2D" uid="uid://1jfql6svsg7h" path="res://assets/images/test-surface-texture/Purple/texture_01.png" id="2_dchu1"]
 [ext_resource type="Script" path="res://src/bullet_resource.gd" id="3_5ds71"]
+[ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="7_wvtpm"]
 [ext_resource type="PackedScene" uid="uid://bbsm0qn7577kn" path="res://sentry.tscn" id="8_2wg63"]
+[ext_resource type="PackedScene" uid="uid://ctv1pdtxhu54x" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn" id="8_nsty1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
 
@@ -31,7 +33,7 @@ albedo_texture = ExtResource("2_dchu1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkh6p"]
 albedo_texture = ExtResource("2_dchu1")
 
-[sub_resource type="Resource" id="Resource_2bjas"]
+[sub_resource type="Resource" id="Resource_yajv1"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -45,7 +47,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_kwkhw"]
+[sub_resource type="Resource" id="Resource_q1fpd"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -59,7 +61,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_x8va6"]
+[sub_resource type="Resource" id="Resource_70tvy"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -73,7 +75,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_as6bd"]
+[sub_resource type="Resource" id="Resource_0sri5"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -87,7 +89,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_rcy1t"]
+[sub_resource type="Resource" id="Resource_q44g5"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -96,6 +98,20 @@ Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
 Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
 Damage = 100
 Speed = 100
+Cost = 5
+Life_Time = 5.0
+Enemy_Bullet = false
+Other_Info = {}
+
+[sub_resource type="Resource" id="Resource_y2bgp"]
+resource_local_to_scene = true
+script = ExtResource("3_5ds71")
+Name = "Classic Bullet"
+ID = 0
+Path_Projectile = "res://componets/bullets/classicbullet/classic_projectile.tscn"
+Path_Ammo = "res://componets/bullets/classicbullet/Classic_ammo.tscn"
+Damage = 100
+Speed = 5
 Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
@@ -158,26 +174,40 @@ material_override = SubResource("StandardMaterial3D_jkh6p")
 use_collision = true
 size = Vector3(17.7864, 1, 44.0941)
 
+[node name="CSGBox3D6" type="CSGBox3D" parent="World"]
+transform = Transform3D(0.871342, 0, -0.490676, 0, 1, 0, 0.490676, 0, 0.871342, -11.2488, 0.646645, -9.73042)
+use_collision = true
+size = Vector3(0.204726, 0.969065, 2.65941)
+
 [node name="Bullet_Pickup" type="Node" parent="."]
 
 [node name="nut_ammo" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_2bjas")
+Bullet_Info = SubResource("Resource_yajv1")
 
 [node name="nut_ammo2" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81657, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_kwkhw")
+Bullet_Info = SubResource("Resource_q1fpd")
 
 [node name="nut_ammo3" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58655, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_x8va6")
+Bullet_Info = SubResource("Resource_70tvy")
 
 [node name="nut_ammo4" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71694, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_as6bd")
+Bullet_Info = SubResource("Resource_0sri5")
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Sentry2" parent="Enemies" instance=ExtResource("8_2wg63")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.70249, 0.307355, -6.64095)
-Bullet_Info = SubResource("Resource_rcy1t")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.88513, 0.307355, -8.86643)
+Bullet_Info = SubResource("Resource_q44g5")
+
+[node name="BulletSv2" parent="Enemies" instance=ExtResource("7_wvtpm")]
+transform = Transform3D(-0.998153, 0, 0.0607521, 0, 1, 0, -0.0607521, 0, -0.998153, 0, 0, 37.0852)
+Bullet_Info = SubResource("Resource_y2bgp")
+
+[node name="TestingProps" type="Node" parent="."]
+
+[node name="SpawnTester" parent="TestingProps" instance=ExtResource("8_nsty1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2462, 0.1, 13.4914)

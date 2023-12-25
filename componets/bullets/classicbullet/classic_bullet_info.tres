@@ -5,12 +5,12 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_sowta")
-Name = "Nut Bullet"
-ID = 0
-Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
-Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
+Name = "Classic Bullet"
+ID = 5
+Path_Projectile = "res://componets/bullets/classicbullet/classic_projectile.tscn"
+Path_Ammo = "res://componets/bullets/classicbullet/Classic_ammo.tscn"
 Damage = 100
-Speed = 100
+Speed = 1
 Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false

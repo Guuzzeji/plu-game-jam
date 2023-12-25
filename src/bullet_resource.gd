@@ -27,6 +27,6 @@ static var Projectile: PackedScene
 # Load PackSence for both ammo and Projectile
 func _notification(what):
 	if what == 1: # 1 means loading resource
-		print(Path_Projectile)
+#		print(Path_Projectile)
 		Ammo = load(Path_Ammo)
 		Projectile = load(Path_Projectile)
