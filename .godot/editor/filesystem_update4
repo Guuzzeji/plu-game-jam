@@ -1,0 +1,11 @@
+res://levels/level_test.tscn
+res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd
+res://componets/player/player_info.tres
+res://componets/player/player.tscn
+res://sentry.tscn
+res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn
+res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn
+res://componets/bullets/classicbullet/classic_projectile.tscn
+res://componets/bullets/classicbullet/Classic_ammo.tscn
+res://componets/bullets/nutbullet/nut_projectile.tscn
+res://componets/InteractibleCode/Interact_SpawnMe.gd
