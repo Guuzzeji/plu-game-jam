@@ -8,8 +8,13 @@ var targetBody = null
 var RayCastTargeter
 var RayCastSightLine
 var tresspassed = false
-var reloadAnimaion
-@export var Bullet_Info : Bullet_Type #think of it as a copy of the bullet info file 
+var reloadAnimaion ##delete?
+
+@export var Bullet_Info : Bullet_Type ##think of it as a copy of the bullet info file 
+@export var SentryInfo : Sentry_Data ##merge these two?
+@onready var instanceHealth = SentryInfo.Health ##ok, sooooo SentryInfo.Health is a static... good to know
+##oh hey first example of needing the @onready thingy!
+
 #creates a object that contains all bullet data and links to launch code
 #to function, export puts the data in the right sentry.gd terminal
 #you must import the bullet tscn file so the Bullet_Type actually works
@@ -50,6 +55,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	healthCheck()
 	if (tresspassed):
 		state = ATTACK ##make it so attack only activates if the eyes see somehting
 		#eyes only activate when a body enteres the detection area
@@ -129,20 +135,26 @@ func _process(delta):
 
 
 func _on_area_3d_body_entered(body):  #When player enters the area, enter attack mode
-	print("A body entered")
+	#print("A body entered")
 	if body.is_in_group("player"):
 		tresspassed = true 
 		targetBody = body
-		print("EnteredNew: ", body)
+		#print("EnteredNew: ", body)
 
 
 func _on_area_3d_body_exited(body): #when player leaves go idle
 	if body.is_in_group("player"):
 		tresspassed = false
 		state = PASSIVE
-		print("exitedNew:  ", body)
-	
+		#print("exitedNew:  ", body)
 
+func inflictDamage(damage): #entities that damage use this
+	instanceHealth = instanceHealth - damage
+	
+func healthCheck(): ##kill sentry if health drops below zero
+	if instanceHealth <= 0:
+		#print ("goodby world")
+		queue_free() #delete self, litterally 
 
 func fire(): #when attack state decides to fire the gun
 	if ($Timer.is_stopped()):

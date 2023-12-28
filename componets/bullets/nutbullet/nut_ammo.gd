@@ -3,8 +3,8 @@ extends "res://componets/bullets/template/ammo.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimationPlayer.play("RESET")
-	$AnimationPlayer.play("init")
+	#$AnimationPlayer.play("RESET")
+	#$AnimationPlayer.play("init")
 	pass # Replace with function body.
 
 

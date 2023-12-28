@@ -36,6 +36,9 @@ func _process(delta):
 			#the object we are looking at should habe collider text if it is "interactable"
 			#we will display this text on the ui using the above function.
 			current_collider = collider
+		else:
+			set_interactionLabel_text(collider.get_interaction_text())
+			#constantly update interaction description for changes
 
 		if Input.is_action_just_pressed("Interact"): #assuming we can change action pressed
 			set_interactionLabel_text(collider.get_interaction_text()) #collider text might cjhange

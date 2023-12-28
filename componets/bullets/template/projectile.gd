@@ -22,6 +22,12 @@ func _on_body_entered(body):
 		queue_free()
 		hit_body.emit(body)
 		print(body.get_groups())
+	if (body.is_in_group("Enemy")):
+		print(body.get_groups(), "hit enemy")
+		queue_free()
+		body.inflictDamage(Bullet_Info.Damage)
+		
+		
 	pass
 
 func _on_life_timer_timeout():

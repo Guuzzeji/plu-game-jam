@@ -51,12 +51,12 @@ func _input(event):
 	
 	if PlayerInfo.Bullet_Inventory.size() != 0:
 		var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Right_Barrel]
-		print(bullet)
+		#print(bullet)
 		PlayerInfo.Right_Barrel = bullet
 		
 	if PlayerInfo.Bullet_Inventory.size() != 0:
 		var bullet = PlayerInfo.Bullet_Inventory[Inv_Index_Left_Barrel]
-		print(bullet)
+		#print(bullet)
 		PlayerInfo.Left_Barrel = bullet
 
 

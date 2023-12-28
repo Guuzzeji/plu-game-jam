@@ -6,18 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://1imh0crjifi4" path="res://assets/models/ClassicBulletTexture.png" id="4_ior3o"]
 [ext_resource type="ArrayMesh" uid="uid://dq8jn1cyxei00" path="res://assets/models/ClassicBullet.obj" id="5_je82n"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_34p12"]
-radius = 0.346932
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1q0io"]
+radius = 0.2
+height = 0.75
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq1uq"]
 albedo_texture = ExtResource("4_ior3o")
 
-[node name="Nut_Projectile" instance=ExtResource("1_53sr2")]
+[node name="Classic_projectile" instance=ExtResource("1_53sr2")]
 Bullet_Info = ExtResource("2_l1sbu")
 Player_Info = ExtResource("3_m6oj7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-shape = SubResource("SphereShape3D_34p12")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.0264815)
+shape = SubResource("CapsuleShape3D_1q0io")
 
 [node name="ClassicBullet" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0, 0.276425)
