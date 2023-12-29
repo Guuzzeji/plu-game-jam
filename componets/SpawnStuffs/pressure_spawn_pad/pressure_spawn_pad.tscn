@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw01ihem7k5ta"]
 
-[ext_resource type="Script" path="res://SpawnPad.gd" id="1_3ditx"]
+[ext_resource type="Script" path="res://componets/SpawnStuffs/pressure_spawn_pad/SpawnPad.gd" id="1_7rdmf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h2ert"]
 height = 0.4
@@ -14,7 +14,7 @@ height = 0.2
 radius = 0.6
 
 [node name="PressureSpawnPad" type="CharacterBody3D"]
-script = ExtResource("1_3ditx")
+script = ExtResource("1_7rdmf")
 
 [node name="pressurePad" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

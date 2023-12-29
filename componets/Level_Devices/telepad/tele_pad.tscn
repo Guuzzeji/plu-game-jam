@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2frh40hq2y2w"]
+
+[ext_resource type="Script" path="res://componets/Level_Devices/telepad/TelePad.gd" id="1_4nydg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glmja"]
+albedo_color = Color(0, 0.47451, 0.160784, 1)
+metallic = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5yxv6"]
+height = 0.4
+radius = 0.4
+
+[node name="TelePad" type="Node3D" groups=["Telepads"]]
+script = ExtResource("1_4nydg")
+
+[node name="pressurePad" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+material_override = SubResource("StandardMaterial3D_glmja")
+height = 0.1
+
+[node name="PlateDetectionArea" type="Area3D" parent="."]
+
+[node name="DetectionArea" type="CollisionShape3D" parent="PlateDetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("CylinderShape3D_5yxv6")
+
+[node name="exit" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[connection signal="body_entered" from="PlateDetectionArea" to="." method="_on_plate_detection_area_body_entered"]
+[connection signal="body_exited" from="PlateDetectionArea" to="." method="_on_plate_detection_area_body_exited"]

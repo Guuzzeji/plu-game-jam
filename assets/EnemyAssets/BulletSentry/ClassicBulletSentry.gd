@@ -163,6 +163,8 @@ func fire(): #when attack state decides to fire the gun
 	#the bullet object file is in components_>bullets->nutbullet->nut_projectile.tscn file
 		var firedBullet = Bullet_Info.Projectile.instantiate() #creates the bullet with info
 	#uses the info in bullet_Info to fabricate a functional bullet in firedBullet
+		#firedBullet.transform = $SentryHead/BulletSpawnPoint.transform
+		firedBullet.orginator = self
 		$SentryHead/BulletSpawnPoint.add_child(firedBullet) #places into word, launches when placed
 	#place the bullet in the world, activates when placed.
 		$Timer.start()

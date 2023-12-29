@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bw0uu5umnt8vn"]
+[gd_scene load_steps=19 format=3 uid="uid://bw0uu5umnt8vn"]
 
 [ext_resource type="Script" path="res://componets/Enemy Folder/Evil Cube/evil_cube.gd" id="1_475g6"]
 
@@ -48,7 +48,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FUCKINGROTATE/THE FUCKING TIRE:rotation")
+tracks/0/path = NodePath("rotation node/tire node:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -63,7 +63,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FUCKINGROTATE/THE FUCKING TIRE:rotation")
+tracks/0/path = NodePath("rotation node/tire node:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -90,6 +90,10 @@ states/FUCKINGROTATEANIMATION/node = SubResource("AnimationNodeAnimation_usofc")
 states/FUCKINGROTATEANIMATION/position = Vector2(395, 100)
 states/Start/position = Vector2(177, 100)
 transitions = ["Start", "FUCKINGROTATEANIMATION", SubResource("AnimationNodeStateMachineTransition_2wmjd")]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ccf5t"]
+height = 1.0
+radius = 1.71468
 
 [node name="EvilCube" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_475g6")
@@ -132,13 +136,13 @@ shape = SubResource("BoxShape3D_abm8l")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.5
 
-[node name="FUCKINGROTATE" type="Node3D" parent="."]
+[node name="rotation node" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="THE FUCKING TIRE" type="Node3D" parent="FUCKINGROTATE"]
+[node name="tire node" type="Node3D" parent="rotation node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
-[node name="tire" type="MeshInstance3D" parent="FUCKINGROTATE/THE FUCKING TIRE"]
+[node name="tire" type="MeshInstance3D" parent="rotation node/tire node"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_qry5c")
 mesh = SubResource("TorusMesh_a0t50")
@@ -156,3 +160,15 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_0ersp")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="turretPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="inRange" type="Area3D" parent="."]
+
+[node name="rangeDetection" type="CollisionShape3D" parent="inRange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_ccf5t")
+
+[connection signal="body_entered" from="inRange" to="." method="_on_in_range_body_entered"]
+[connection signal="body_exited" from="inRange" to="." method="_on_in_range_body_exited"]

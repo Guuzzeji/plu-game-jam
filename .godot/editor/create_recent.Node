@@ -1,10 +1,10 @@
-CharacterBody3D
-Node3D
 CollisionShape3D
-CSGCylinder3D
 Area3D
-AnimationTree
+Node3D
 Node
+CharacterBody3D
+CSGCylinder3D
+AnimationTree
 AnimationPlayer
 MeshInstance3D
 NavigationAgent3D

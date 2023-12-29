@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=32 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
@@ -8,10 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://bbsm0qn7577kn" path="res://sentry.tscn" id="8_2wg63"]
 [ext_resource type="Script" path="res://src/sentry_resource.gd" id="8_lsjku"]
 [ext_resource type="PackedScene" uid="uid://ctv1pdtxhu54x" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn" id="8_nsty1"]
-[ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="9_wnhye"]
 [ext_resource type="PackedScene" uid="uid://bw0uu5umnt8vn" path="res://componets/Enemy Folder/Evil Cube/evil_cube.tscn" id="10_j33k2"]
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="11_pibf0"]
-[ext_resource type="PackedScene" uid="uid://bw01ihem7k5ta" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn" id="11_tcf6d"]
+[ext_resource type="PackedScene" uid="uid://bw01ihem7k5ta" path="res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn" id="11_tcf6d"]
+[ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="12_8mt6k"]
+[ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="13_i76f7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
 
@@ -107,7 +108,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_y2bgp"]
+[sub_resource type="Resource" id="Resource_ts0ao"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Classic Bullet"
@@ -167,7 +168,7 @@ radius = 13.1168
 [node name="floor" type="CSGBox3D" parent="World"]
 material_override = SubResource("StandardMaterial3D_kn2tl")
 use_collision = true
-size = Vector3(112.074, 0.148753, 92.8801)
+size = Vector3(112.074, 0, 92.88)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="World"]
 transform = Transform3D(1, -2.52648e-16, 3.35275e-16, 3.35275e-16, 0.961262, -0.275637, -2.52648e-16, 0.275637, 0.961262, 0, 0.290469, -13.3511)
@@ -206,19 +207,19 @@ size = Vector3(0.204726, 0.969065, 2.65941)
 
 [node name="Bullet_Pickup" type="Node" parent="."]
 
-[node name="nut_ammo" parent="Bullet_Pickup" instance=ExtResource("9_wnhye")]
+[node name="nut_ammo" parent="Bullet_Pickup" instance=ExtResource("12_8mt6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
 Bullet_Info = SubResource("Resource_m6hhp")
 
-[node name="nut_ammo2" parent="Bullet_Pickup" instance=ExtResource("9_wnhye")]
+[node name="nut_ammo2" parent="Bullet_Pickup" instance=ExtResource("12_8mt6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81657, 0.65442, 8.7293)
 Bullet_Info = SubResource("Resource_q1fpd")
 
-[node name="nut_ammo3" parent="Bullet_Pickup" instance=ExtResource("9_wnhye")]
+[node name="nut_ammo3" parent="Bullet_Pickup" instance=ExtResource("12_8mt6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58655, 0.65442, 8.7293)
 Bullet_Info = SubResource("Resource_70tvy")
 
-[node name="nut_ammo4" parent="Bullet_Pickup" instance=ExtResource("9_wnhye")]
+[node name="nut_ammo4" parent="Bullet_Pickup" instance=ExtResource("12_8mt6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71694, 0.65442, 8.7293)
 Bullet_Info = SubResource("Resource_0sri5")
 
@@ -230,7 +231,7 @@ Bullet_Info = SubResource("Resource_q44g5")
 
 [node name="BulletSv2" parent="Enemies" instance=ExtResource("7_wvtpm")]
 transform = Transform3D(-0.998153, 0, 0.0607521, 0, 1, 0, -0.0607521, 0, -0.998153, 0, 0, 37.0852)
-Bullet_Info = SubResource("Resource_y2bgp")
+Bullet_Info = SubResource("Resource_ts0ao")
 SentryInfo = SubResource("Resource_uouh8")
 
 [node name="TestingProps" type="Node" parent="."]
@@ -245,7 +246,7 @@ spawnBlueprint = ExtResource("7_wvtpm")
 
 [node name="SpawnTester3" parent="TestingProps" instance=ExtResource("8_nsty1")]
 transform = Transform3D(-0.0412828, 0, -0.999147, 0, 1, 0, 0.999147, 0, -0.0412828, -9.71755, 0.1, 15.5849)
-spawnBlueprint = ExtResource("9_wnhye")
+spawnBlueprint = ExtResource("12_8mt6k")
 y_offset = 0.5
 
 [node name="SpawnTester4" parent="TestingProps" instance=ExtResource("8_nsty1")]
@@ -258,8 +259,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -50.29
 spawnBlueprint = ExtResource("10_j33k2")
 
 [node name="PressureSpawnPad2" parent="TestingProps" instance=ExtResource("11_tcf6d")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -51.5039, 0, 3.77802)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -51.5039, -0.0875177, 3.77802)
 spawnBlueprint = ExtResource("10_j33k2")
+
+[node name="PressureSpawnPad3" parent="TestingProps" instance=ExtResource("11_tcf6d")]
+transform = Transform3D(-0.863158, 0, -0.504934, 0, 1, 0, 0.504934, 0, -0.863158, -46.2799, -0.0875177, 5.18049)
+spawnBlueprint = ExtResource("12_8mt6k")
 
 [node name="WorldMeshTest" type="Node" parent="."]
 
@@ -291,6 +296,7 @@ material = SubResource("StandardMaterial3D_niw3x")
 
 [node name="EvilCube" parent="WorldMeshTest/NavigationRegion3D" instance=ExtResource("10_j33k2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 3)
+spawnBlueprint = ExtResource("7_wvtpm")
 
 [node name="SpawnPoint" parent="WorldMeshTest" instance=ExtResource("11_pibf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.7439, -1.66893e-06, 17.8652)
@@ -299,3 +305,27 @@ spawnBlueprint = ExtResource("7_wvtpm")
 [node name="SpawnPoint2" parent="WorldMeshTest" instance=ExtResource("11_pibf0")]
 transform = Transform3D(-0.778068, 0, 0.62818, 0, 1, 0, -0.62818, 0, -0.778068, -71.5436, 4.32601, 11.5511)
 spawnBlueprint = ExtResource("10_j33k2")
+
+[node name="teleporter nonsense" type="Node" parent="."]
+
+[node name="TelePad" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.776315, 2.38419e-07, -1.77078)
+TeleChannel = 1
+
+[node name="TelePad2" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04117, 0, -0.59906)
+TeleChannel = 1
+
+[node name="TelePad3" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.56271, 0, 0)
+
+[node name="TelePad4" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.9088, 3.8147e-06, 2.20727)
+
+[node name="TelePad5" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.0031, 0, 2.75667)
+TeleChannel = 2
+
+[node name="TelePad6" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.2043, -3.8147e-06, 12.6512)
+TeleChannel = 2

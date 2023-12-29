@@ -116,6 +116,7 @@ func barrel_controls():
 			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
 			can_shoot_barrel = false
 			var bullet = PlayerInfo.Left_Barrel.Projectile.instantiate()
+			bullet.orginator = self
 			$CameraNeck/ShotingHole.add_child(bullet)
 			
 	elif Input.is_action_pressed("Right_Fire"):
@@ -124,6 +125,7 @@ func barrel_controls():
 			$Barrel_Timer.start(PlayerInfo.Barrel_Delay)
 			can_shoot_barrel = false
 			var bullet = PlayerInfo.Right_Barrel.Projectile.instantiate()
+			bullet.orginator = self
 			$CameraNeck/ShotingHole.add_child(bullet)
 	pass
 

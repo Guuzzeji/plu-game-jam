@@ -23,6 +23,7 @@ class_name Bullet_Type
 
 static var Ammo: PackedScene
 static var Projectile: PackedScene
+var orginator : Node3D
 
 # Load PackSence for both ammo and Projectile
 func _notification(what):

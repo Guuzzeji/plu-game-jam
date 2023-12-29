@@ -1,18 +1,22 @@
-res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
+res://levels/level_test.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd
 res://componets/Enemy Folder/Evil Cube/evil_cube.gd
 res://componets/player/InteractionRay.gd
 res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd
 res://componets/player/player_info.tres
 res://componets/bullets/nutbullet/nut_bullet_info.tres
-res://levels/level_test.tscn
 res://componets/player/player.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn
 res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn
 res://componets/SpawnStuffs/SpawnPoint.tscn
+res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
+res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
+res://componets/Level_Devices/telepad/tele_pad.tscn
+res://componets/bullets/classicbullet/classic_bullet_info.tres
+res://componets/bullets/template/Ammo_Template.tscn
+res://componets/bullets/template/projectile.gd
 res://componets/bullets/classicbullet/classic_projectile.tscn
-res://componets/bullets/classicbullet/Classic_ammo.tscn
-res://componets/bullets/nutbullet/nut_projectile.tscn
 res://componets/bullets/template/Projectile_Template.tscn
-res://SpawnPad.gd
-res://misc_Testing_Scenes/Spawn_TesterStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
+res://src/bullet_resource.gd
+res://componets/bullets/classicbullet/Classic_ammo.tscn
+res://componets/player/player.gd

@@ -9,8 +9,8 @@ extends CharacterBody3D
 @export var y_offset = 0.0
 @export var z_offset = 0.0
 
-func _physics_process(delta):
-	pass
+#func _physics_process(delta):
+	#pass
 
 
 func _on_plate_detection_area_body_entered(body):
@@ -18,8 +18,8 @@ func _on_plate_detection_area_body_entered(body):
 		spawn_entity()
 
 
-func _on_plate_detection_area_body_exited(body):
-	pass # Replace with function body.
+#func _on_plate_detection_area_body_exited(body):
+	#pass # Replace with function body.
 
 func spawn_entity():
 	#spawned.position = self.global_position #tell turret to spawn in center ring
