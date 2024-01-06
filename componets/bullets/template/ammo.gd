@@ -7,18 +7,22 @@ extends Area3D
 
 @export var Bullet_Info : Bullet_Type
 @export var Player_Info : Player_Data
+@export var AnimPlayer : AnimationPlayer
 
 # **About**
 # Signal for when player picks up bullet
 signal player_pickup(body)
 
 # Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass
+func _ready():
+	if AnimPlayer != null:
+		AnimPlayer.play("RESET")
+		AnimPlayer.play("IDLE")
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-	#print(Bullet_Info.Projectile)
+#	print(Bullet_Info.Projectile)
 #	pass
 
 # **About**
