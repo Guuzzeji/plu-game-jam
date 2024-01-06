@@ -7,7 +7,6 @@ extends Control
 @export var PlayerInfo : Player_Data 
 @export var ActionTrigger : String
 @export var Select_Bullet_Index: String
-@export var Gun_Barrel: String
 @export var Barrel_Label_State: String
 
 enum State {SHOW, HIDE}
@@ -59,7 +58,7 @@ func print_list_bullets():
 # **About** 
 # Sets the CurrentBullet label to what the player is currently using
 func bullet_label():
-	if PlayerInfo[Gun_Barrel] != null:
-		$CurrentBullet.text = PlayerInfo[Gun_Barrel].Name
+	if PlayerInfo.Bullet_Inventory.size() != 0:
+		$CurrentBullet.text = PlayerInfo.Bullet_Inventory[PlayerInfo[Select_Bullet_Index]].Name
 		
 	pass 
