@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Bullet_Type" load_steps=2 format=3 uid="uid://di37acejeygq6"]
 
-[ext_resource type="Script" path="res://src/bullet_resource.gd" id="1_sowta"]
+[ext_resource type="Script" path="res://src/bullet_resource.gd" id="1_7qvau"]
 
 [resource]
-script = ExtResource("1_sowta")
+script = ExtResource("1_7qvau")
 Name = "Classic Bullet"
 ID = 6
 Path_Projectile = "res://componets/bullets/classicbullet/classic_projectile.tscn"

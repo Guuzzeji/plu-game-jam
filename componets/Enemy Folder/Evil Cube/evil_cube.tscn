@@ -96,6 +96,7 @@ height = 1.0
 radius = 1.71468
 
 [node name="EvilCube" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 5
 script = ExtResource("1_475g6")
 
 [node name="Meshes" type="Node3D" parent="."]

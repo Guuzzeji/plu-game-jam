@@ -24,7 +24,7 @@ func _ready():
 			break ##no point searching for more pads after finding the correct one
 			
 func _on_plate_detection_area_body_entered(body):
-	if body.is_in_group("player") || body.is_in_group("Enemy"):
+	if body.is_in_group("player") || body.is_in_group("Enemy") || body.is_in_group("teleportable"):
 		if buddy_telepad  && !buddy_telepad.sentPackage: ##crashes if an unpaired telepad tries to teleport, poor lonely soul... telegun
 			sentPackage = true	##tell self not to retrieve sent body
 			sendBody(body)	## make sure entered body was not teleported here.

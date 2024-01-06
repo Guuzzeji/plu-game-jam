@@ -14,6 +14,8 @@ Bullet_Info = ExtResource("2_jgqp5")
 
 [node name="SentryHead" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01346, 0)
+collision_layer = 8
+collision_mask = 8
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SentryHead"]
 
@@ -28,6 +30,8 @@ shape = SubResource("BoxShape3D_ssobp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.670568)
 
 [node name="SentryBody" type="CharacterBody3D" parent="."]
+collision_layer = 8
+collision_mask = 8
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="SentryBody"]
 height = 0.5

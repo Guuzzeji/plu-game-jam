@@ -13,6 +13,11 @@ var tresspassed = false;
 #to function, export puts the data in the right sentry.gd terminal
 #you must import the bullet tscn file so the Bullet_Type actually works
 
+##code to test launching physics objects like spheres
+var bomblauncher = true	
+var firedBullet
+
+@export var bombdata : PackedScene
 enum {     #the states of the enemy 
 	PASSIVE,
 	ATTACK,
@@ -61,7 +66,7 @@ func _process(delta):
 			#can see player code, eyes always sees player, raycast checks if can see player
 			#raycast only detects the first object it hits, backbone of if statement
 			$DetectionEyes.look_at(targetBody.position,Vector3.UP)
-			if (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider().is_in_group("player")):
+			if (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() && RayCastSightLine.get_collider().is_in_group("player")):
 				var  original_scale = self.basis.get_scale()# original_scale(self.basis.get_scale())
 				var speed = .05
 				var target_position = targetBody.position #self.transform.origin
@@ -83,14 +88,14 @@ func _process(delta):
 
 
 func _on_area_3d_body_entered(body):  #When player enters the area, enter attack mode
-	
-	if body.is_in_group("player"):
+	if body.is_in_group("Enemy"):
+		print("ENTERED ", body)
 		tresspassed = true 
 		targetBody = body
 
 
 func _on_area_3d_body_exited(body): #when player leaves go idle
-	if body.is_in_group("player"):
+	if body.is_in_group("Enemy"):
 		tresspassed = false
 		state = PASSIVE
 		print("exited:  ", body)
@@ -99,10 +104,18 @@ func _on_area_3d_body_exited(body): #when player leaves go idle
 
 func fire(): #when attack state decides to fire the gun
 	if ($Timer.is_stopped()):
+		if bomblauncher:
+			firedBullet = bombdata.instantiate()
+			firedBullet.orginator = self
+			##since rthis is not working, i will emit signal with span node point
+			# emit fireBomb($SentryHead/BulletSpawnPoint.localposition, object?)
+			
+		else:
+			firedBullet = Bullet_Info.Projectile.instantiate() #creates the bullet with info
+	#uses the info in bullet_Info to fabricate a functional bullet in firedBullet
 	#do not need to specify root
 	#the bullet object file is in components_>bullets->nutbullet->nut_projectile.tscn file
-		var firedBullet = Bullet_Info.Projectile.instantiate() #creates the bullet with info
-	#uses the info in bullet_Info to fabricate a functional bullet in firedBullet
+		
 		$SentryHead/BulletSpawnPoint.add_child(firedBullet) #places into word, launches when placed
 	#place the bullet in the world, activates when placed.
 		$Timer.start()

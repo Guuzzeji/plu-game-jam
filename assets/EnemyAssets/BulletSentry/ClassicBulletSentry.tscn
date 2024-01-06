@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://evaf4ox1obtl" path="res://componets/Enemy Folder/Bullet Sentry/BulletSentryHead.gltf" id="1_64cgk"]
 [ext_resource type="Script" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd" id="1_hhcjm"]
+[ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/nutbullet/nut_bullet_info.tres" id="2_3hh53"]
 [ext_resource type="Animation" uid="uid://d7dves1fuvqx" path="res://componets/Enemy Folder/Bullet Sentry/animation_model_SlideReload.res" id="2_ckgaf"]
-[ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/classicbullet/classic_bullet_info.tres" id="2_yibnk"]
 [ext_resource type="Script" path="res://src/sentry_resource.gd" id="3_u7axc"]
 [ext_resource type="ArrayMesh" uid="uid://cvo6sah7eq1ku" path="res://componets/Enemy Folder/Bullet Sentry/BulletSentryBase.obj" id="5_cj0or"]
 
@@ -31,7 +31,7 @@ height = 1.338
 
 [node name="ClasicBulletSentry" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_hhcjm")
-Bullet_Info = ExtResource("2_yibnk")
+Bullet_Info = ExtResource("2_3hh53")
 SentryInfo = SubResource("Resource_e1jpf")
 
 [node name="SentryHead" type="CharacterBody3D" parent="."]

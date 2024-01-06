@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dhn0nttyfjrr6"]
 
 [ext_resource type="PackedScene" uid="uid://cijiql5co2aix" path="res://componets/bullets/template/Projectile_Template.tscn" id="1_53sr2"]
-[ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/classicbullet/classic_bullet_info.tres" id="2_l1sbu"]
+[ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/nutbullet/nut_bullet_info.tres" id="2_8os4t"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="3_m6oj7"]
 [ext_resource type="Texture2D" uid="uid://1imh0crjifi4" path="res://assets/models/ClassicBulletTexture.png" id="4_ior3o"]
 [ext_resource type="ArrayMesh" uid="uid://dq8jn1cyxei00" path="res://assets/models/ClassicBullet.obj" id="5_je82n"]
@@ -14,7 +14,7 @@ height = 0.75
 albedo_texture = ExtResource("4_ior3o")
 
 [node name="Classic_projectile" instance=ExtResource("1_53sr2")]
-Bullet_Info = ExtResource("2_l1sbu")
+Bullet_Info = ExtResource("2_8os4t")
 Player_Info = ExtResource("3_m6oj7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dhn0nttyfjrr6"]
 
 [ext_resource type="PackedScene" uid="uid://cijiql5co2aix" path="res://componets/bullets/template/Projectile_Template.tscn" id="1_53sr2"]
-[ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/nutbullet/nut_bullet_info.tres" id="2_nnf6i"]
+[ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/nutbullet/nut_bullet_info.tres" id="2_nv3up"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="3_m6oj7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_34p12"]
@@ -10,7 +10,7 @@
 load_path = "res://.godot/imported/bullet_nut.jpg-de8a843a97cb08131a9d329cedadfe0b.s3tc.ctex"
 
 [node name="Nut_Projectile" instance=ExtResource("1_53sr2")]
-Bullet_Info = ExtResource("2_nnf6i")
+Bullet_Info = ExtResource("2_nv3up")
 Player_Info = ExtResource("3_m6oj7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
