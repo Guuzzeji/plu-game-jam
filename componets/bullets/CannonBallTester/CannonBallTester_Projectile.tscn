@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6nknrq732uax"]
+
+[ext_resource type="Script" path="res://componets/bullets/template/projectile.gd" id="1_s3msm"]
+[ext_resource type="Resource" uid="uid://fpjltkfpctg7" path="res://componets/bullets/CannonBallTester/CannonBallTester_bullet_info.tres" id="2_jdaoh"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="3_p62xb"]
+[ext_resource type="Texture2D" uid="uid://dsacww882pcnk" path="res://assets/images/firetexture.jpg" id="4_a55b3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rau05"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nks31"]
+albedo_texture = ExtResource("4_a55b3")
+
+[node name="CannonBallTester_Projectile" type="Area3D" node_paths=PackedStringArray("Life_Timer")]
+script = ExtResource("1_s3msm")
+Bullet_Info = ExtResource("2_jdaoh")
+Player_Info = ExtResource("3_p62xb")
+Life_Timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rau05")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+material_override = SubResource("StandardMaterial3D_nks31")

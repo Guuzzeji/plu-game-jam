@@ -3,6 +3,9 @@ extends CharacterBody3D
 # **Overview**
 # Player code, movement, weapon play, camera, and Animation triggers
 
+# Notes
+# - To check player key mappings go to project settings --> input map tab
+
 @export var  PlayerInfo : Player_Data 
 @onready var SPEED = PlayerInfo.SPEED
 @onready var ACCL = PlayerInfo.ACCL
@@ -10,13 +13,13 @@ extends CharacterBody3D
 @onready var JUMP_VELOCITY = PlayerInfo.JUMP_VELOCITY
 
 @onready var speed_controller = 0.0 # used to tell how fast player is moving
-@onready var can_shoot_barrel = true
+@onready var can_shoot_barrel = true # internal node state for knowing when we can shoot
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var jump_buffer = 0.0
-var move_dir = Vector2.ZERO
+var jump_buffer = 0.0 # Use to make player timming of jump press feel more direct / not laggy
+var move_dir = Vector2.ZERO # Keeping track of player movement
 
 # **About**
 # On Load into world
@@ -29,9 +32,11 @@ func _ready():
 # **About**
 # Input Events (key press and mouse events)
 func _input(event):
+	# Use for hidding mouse or not
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
-		
+	
+	# Camera Code / Camera Movement
 	if event is InputEventMouseMotion:
 		# print($CameraNeck.rotation.x)
 		self.rotate_y(-event.relative.x * 0.01)
@@ -42,8 +47,8 @@ func _input(event):
 # **About**
 # General Update
 func _process(delta):
-	barrel_bullet_switch("Inv_Index_Right_Barrel", "Right_Barrel", "Right_barrel_type", PlayerInfo.BarrelState.SWITCHING_BULLETS_RIGHT)
-	barrel_bullet_switch("Inv_Index_Left_Barrel", "Left_Barrel", "Left_barrel_type", PlayerInfo.BarrelState.SWITCHING_BULLETS_LEFT)
+	barrel_bullet_switch("Inv_Index_Right_Barrel", "Right_barrel_type", PlayerInfo.BarrelState.SWITCHING_BULLETS_RIGHT)
+	barrel_bullet_switch("Inv_Index_Left_Barrel", "Left_barrel_type", PlayerInfo.BarrelState.SWITCHING_BULLETS_LEFT)
 	pass
 
 # **About**
@@ -55,9 +60,8 @@ func _physics_process(delta):
 	debug_logs()
 	
 	mana_check()
-	barrel_fire("Right_Barrel", "Right_Fire")
-	barrel_fire("Left_Barrel", "Left_Fire")
-	auto_pickup_bullet_in_barrel()
+	barrel_fire(PlayerInfo.Inv_Index_Right_Barrel, "Right_Fire")
+	barrel_fire(PlayerInfo.Inv_Index_Left_Barrel, "Left_Fire")
 	
 	player_movement(delta)
 	
@@ -130,14 +134,21 @@ func mana_check():
 # **About**
 # Player shooting bullet
 # **Parms**
-# - barrel: (string) used to get barrel from PlayerInfo (player resource file)
-# 	- Barrel can be "Right_Barrel" or "Left_Barrel"
+# - barrel: (int) used to get barrel from PlayerInfo (player resource file)
+# 	- Barrel can be "Inv_Index_Right_Barrel" or "Inv_Index_Left_Barrel"
 # - input_trigger: (string) used for input trigger for when to fire
-func barrel_fire(barrel: String, input_trigger: String):
+func barrel_fire(barrel: int, input_trigger: String):
+	# Check and see if we have a bullet to use
+	# if not, then exit out of barrel_fire
+	if PlayerInfo.Bullet_Inventory.size() == 0:
+		return
+	
+	var bullet = PlayerInfo.Bullet_Inventory[barrel]
+		
 	if Input.is_action_just_pressed(input_trigger):
-		if can_shoot_barrel and (PlayerInfo[barrel] != null and PlayerInfo.Mana >= PlayerInfo[barrel].Cost):
+		if can_shoot_barrel and PlayerInfo.Mana >= bullet.Cost:
 			# Applying mana cost from bullet and updating state
-			PlayerInfo.Mana -= PlayerInfo[barrel].Cost
+			PlayerInfo.Mana -= bullet.Cost
 			PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.SHOOTING
 			
 			# Starting shooting dely timer
@@ -145,8 +156,8 @@ func barrel_fire(barrel: String, input_trigger: String):
 			can_shoot_barrel = false
 			
 			# Adding bullet to the world
-			var bullet = PlayerInfo[barrel].Projectile.instantiate()
-			$CameraNeck/ShotingHole.add_child(bullet)
+			var bullet_node = load(bullet.Path_Projectile).instantiate()
+			$CameraNeck/ShotingHole.add_child(bullet_node)
 			$CameraNeck/PlayerGunProp.fire_anim()
 		
 	pass
@@ -156,10 +167,9 @@ func barrel_fire(barrel: String, input_trigger: String):
 # Use the scroll wheel to switch bullets and input_trigger
 # **Parms**
 # - barrel_index_inv: (string) which bullet inventory we want to use can be "Inv_Index_Left_Barrel" or Inv_Index_Right_Barrel"
-# - shooting_barrel: (string) which barrel, shooting barrel, will be moditfy. Can be "Right_Barrel" or "Left_Barrel"
 # - input_trigger: (string) which user key will trigger bulleting switching
 # - barrel_state: (int) the new state of the barrel (PlayerInfo.Current_BarrelState) that will be set when switching bullets
-func barrel_bullet_switch(barrel_index_inv: String, shooting_barrel: String, input_trigger: String, barrel_state: int):
+func barrel_bullet_switch(barrel_index_inv: String, input_trigger: String, barrel_state: int):
 	# Checking if input trigger was pressed
 	if Input.is_action_pressed(input_trigger) and PlayerInfo.Bullet_Inventory.size() != 0:
 		# Update player state and turning off shooting
@@ -178,12 +188,6 @@ func barrel_bullet_switch(barrel_index_inv: String, shooting_barrel: String, inp
 				PlayerInfo[barrel_index_inv] = PlayerInfo[barrel_index_inv] - 1
 			else: 
 				PlayerInfo[barrel_index_inv] = 0
-		
-		# Updating to new bullet to be used in barrel for player to shoot
-		if PlayerInfo.Bullet_Inventory.size() != 0:
-			var bullet = PlayerInfo.Bullet_Inventory[PlayerInfo[barrel_index_inv]]
-			#print(bullet)
-			PlayerInfo[shooting_barrel] = bullet
 	
 	# Closing state and setting state back to normal once player release input trigger	
 	elif Input.is_action_just_released(input_trigger):
@@ -191,15 +195,10 @@ func barrel_bullet_switch(barrel_index_inv: String, shooting_barrel: String, inp
 		Engine.time_scale = 1
 		PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.IDLE
 	pass
+	
 
-# **About**
-# Used for auto picking up bullet when player Bullet_Inventory is empty
-func auto_pickup_bullet_in_barrel():
-	if PlayerInfo.Bullet_Inventory.size() == 1:
-		var bullet = PlayerInfo.Bullet_Inventory[0]
-		PlayerInfo.Left_Barrel = bullet
-		PlayerInfo.Right_Barrel = bullet
-	pass
+
+# === STATE MACHINE UPDATER FUNC ===
 
 # **About**
 # Used to update player state in terms of movement

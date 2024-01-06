@@ -18,12 +18,10 @@ class_name Player_Data
 
 # Bullet inventory
 @export var Bullet_Inventory: Array[Bullet_Type] # test with size 5
-var Inv_Index_Left_Barrel: int = 0
-var Inv_Index_Right_Barrel: int = 0
 
 # Shooting barrels
-@export var Right_Barrel: Bullet_Type
-@export var Left_Barrel: Bullet_Type
+var Inv_Index_Left_Barrel: int = 0
+var Inv_Index_Right_Barrel: int = 0
 
 # Barrel delay when gun is fire
 @export var Barrel_Delay: float = 0.15

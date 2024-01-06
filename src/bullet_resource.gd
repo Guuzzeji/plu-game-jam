@@ -6,6 +6,7 @@ extends Resource
 # Can be used to make custom bullets, but will require more work
 
 # **Notes**
+# Another Note: DON'T USE THIS IT WILL NOT WORK!!!!!
 # Docs: https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html
 # https://docs.godotengine.org/en/stable/tutorials/best_practices/godot_notifications.html#ready-vs-enter-tree-vs-notification-parented
 # Note:
@@ -29,14 +30,3 @@ class_name Bullet_Type
 @export var Life_Time: float = 5 # This is how long the bullet will live, until self deletes itself
 @export var Enemy_Bullet: bool = false
 @export var Other_Info: Dictionary # Use this to add additional infomation for the bullet
-
-# Used for loading scene files into world
-static var Ammo: PackedScene
-static var Projectile: PackedScene
-
-# Load PackSence for both ammo and Projectile
-func _notification(what):
-	if what == 1: # 1 means loading resource
-		print(Path_Projectile)
-		Ammo = load(Path_Ammo)
-		Projectile = load(Path_Projectile)
