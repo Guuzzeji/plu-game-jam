@@ -33,7 +33,7 @@ albedo_texture = ExtResource("2_dchu1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkh6p"]
 albedo_texture = ExtResource("2_dchu1")
 
-[sub_resource type="Resource" id="Resource_a6a5q"]
+[sub_resource type="Resource" id="Resource_xtgo0"]
 resource_local_to_scene = true
 script = ExtResource("6_sye2w")
 Name = "Nut Bullet"
@@ -47,7 +47,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_wxw58"]
+[sub_resource type="Resource" id="Resource_g0mg8"]
 resource_local_to_scene = true
 script = ExtResource("6_sye2w")
 Name = "CannonBallTester"
@@ -61,7 +61,7 @@ Life_Time = 10.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_3hkkg"]
+[sub_resource type="Resource" id="Resource_npge2"]
 resource_local_to_scene = true
 script = ExtResource("6_sye2w")
 Name = "CannonBallTester"
@@ -75,7 +75,7 @@ Life_Time = 10.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_wxp88"]
+[sub_resource type="Resource" id="Resource_1rqnp"]
 resource_local_to_scene = true
 script = ExtResource("6_sye2w")
 Name = "Nut Bullet"
@@ -186,17 +186,17 @@ size = Vector3(17.7864, 1, 44.0941)
 
 [node name="nut_ammo" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_a6a5q")
+Bullet_Info = SubResource("Resource_xtgo0")
 
 [node name="CannonBallTester" parent="Bullet_Pickup" instance=ExtResource("6_k4xsk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.11758, 0.688253, 8.70695)
-Bullet_Info = SubResource("Resource_wxw58")
+Bullet_Info = SubResource("Resource_g0mg8")
 
 [node name="PreLoader" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 154.347, 0)
 
 [node name="CannonBallTester_Projectile" parent="PreLoader" instance=ExtResource("7_58ro0")]
-Bullet_Info = SubResource("Resource_3hkkg")
+Bullet_Info = SubResource("Resource_npge2")
 
 [node name="Nut_Projectile" parent="PreLoader" instance=ExtResource("6_b68bf")]
-Bullet_Info = SubResource("Resource_wxp88")
+Bullet_Info = SubResource("Resource_1rqnp")
