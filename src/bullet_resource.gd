@@ -6,6 +6,7 @@ extends Resource
 # Can be used to make custom bullets, but will require more work
 
 # **Notes**
+# Another Note: DON'T USE THIS IT WILL NOT WORK!!!!!
 # Docs: https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html
 # https://docs.godotengine.org/en/stable/tutorials/best_practices/godot_notifications.html#ready-vs-enter-tree-vs-notification-parented
 # Note:

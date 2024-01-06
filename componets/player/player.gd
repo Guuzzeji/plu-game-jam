@@ -3,6 +3,9 @@ extends CharacterBody3D
 # **Overview**
 # Player code, movement, weapon play, camera, and Animation triggers
 
+# Notes
+# - To check player key mappings go to project settings --> input map tab
+
 @export var  PlayerInfo : Player_Data 
 @onready var SPEED = PlayerInfo.SPEED
 @onready var ACCL = PlayerInfo.ACCL
@@ -10,13 +13,13 @@ extends CharacterBody3D
 @onready var JUMP_VELOCITY = PlayerInfo.JUMP_VELOCITY
 
 @onready var speed_controller = 0.0 # used to tell how fast player is moving
-@onready var can_shoot_barrel = true
+@onready var can_shoot_barrel = true # internal node state for knowing when we can shoot
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var jump_buffer = 0.0
-var move_dir = Vector2.ZERO
+var jump_buffer = 0.0 # Use to make player timming of jump press feel more direct / not laggy
+var move_dir = Vector2.ZERO # Keeping track of player movement
 
 # **About**
 # On Load into world
@@ -29,9 +32,11 @@ func _ready():
 # **About**
 # Input Events (key press and mouse events)
 func _input(event):
+	# Use for hidding mouse or not
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
-		
+	
+	# Camera Code / Camera Movement
 	if event is InputEventMouseMotion:
 		# print($CameraNeck.rotation.x)
 		self.rotate_y(-event.relative.x * 0.01)
@@ -52,7 +57,7 @@ func _physics_process(delta):
 	update_move_state()
 	update_mana_state()
 	update_health_state()
-	# debug_logs()
+	debug_logs()
 	
 	mana_check()
 	barrel_fire(PlayerInfo.Inv_Index_Right_Barrel, "Right_Fire")
@@ -129,10 +134,12 @@ func mana_check():
 # **About**
 # Player shooting bullet
 # **Parms**
-# - barrel: (string) used to get barrel from PlayerInfo (player resource file)
-# 	- Barrel can be "Right_Barrel" or "Left_Barrel"
+# - barrel: (int) used to get barrel from PlayerInfo (player resource file)
+# 	- Barrel can be "Inv_Index_Right_Barrel" or "Inv_Index_Left_Barrel"
 # - input_trigger: (string) used for input trigger for when to fire
 func barrel_fire(barrel: int, input_trigger: String):
+	# Check and see if we have a bullet to use
+	# if not, then exit out of barrel_fire
 	if PlayerInfo.Bullet_Inventory.size() == 0:
 		return
 	
@@ -189,6 +196,9 @@ func barrel_bullet_switch(barrel_index_inv: String, input_trigger: String, barre
 		PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.IDLE
 	pass
 	
+
+
+# === STATE MACHINE UPDATER FUNC ===
 
 # **About**
 # Used to update player state in terms of movement

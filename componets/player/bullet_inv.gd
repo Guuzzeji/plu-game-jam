@@ -5,12 +5,11 @@ extends Control
 # Bullet overlay displays bullet name and which one is currently used
 
 @export var PlayerInfo : Player_Data 
-@export var ActionTrigger : String
-@export var Select_Bullet_Index: String
-@export var Barrel_Label_State: String
+@export var ActionTrigger : String         # Basically what key to press, (have to set this up under project settings -> input map)
+@export var Select_Bullet_Index: String    # From Player resource data file can be "Inv_Index_Left_Barrel" or "Inv_Index_Right_Barrel"
+# @export var Barrel_Label_State: String
 
-enum State {SHOW, HIDE}
-
+enum State {SHOW, HIDE} # Use to know when we are hiding / showing pannel
 var currentState = State.HIDE
 
 # Called when the node enters the scene tree for the first time.
@@ -42,6 +41,7 @@ func barrel_bullet_switch():
 		print_list_bullets()
 		$ItemList.select(PlayerInfo[Select_Bullet_Index])
 		
+
 # **About** 
 # Used for printing bullet names into list for UI
 # NOTE: May want to fix this to show damge and mana cost to player
@@ -54,7 +54,8 @@ func print_list_bullets():
 			$ItemList.add_item(PlayerInfo.Bullet_Inventory[i].Name)
 			
 		$ItemList.select(PlayerInfo[Select_Bullet_Index])
-		
+
+
 # **About** 
 # Sets the CurrentBullet label to what the player is currently using
 func bullet_label():
