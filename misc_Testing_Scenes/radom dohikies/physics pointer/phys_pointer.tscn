@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://i4cw81kxx37b"]
+
+[ext_resource type="Script" path="res://misc_Testing_Scenes/radom dohikies/physics pointer/phys_pointer.gd" id="1_uylrt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5nhnq"]
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1mlke"]
+radius = 8.0
+
+[node name="PhysPointer" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_uylrt")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+radius = 0.4
+cone = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_5nhnq")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_1mlke")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

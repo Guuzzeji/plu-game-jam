@@ -1,0 +1,202 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1705639126
+icon.svg::CompressedTexture2D::8899725720172608093::1703556998::1703556998::1::::<><>::
+node_3d.tscn::PackedScene::8038631834678722283::1703557031::0::1::::<><>::res://TurretHead.gd
+README.md::TextFile::-1::1703555306::0::1::::<><>::
+sentry.gd::GDScript::-1::1704510120::0::1::::<>Node3D<>::
+sentry.tscn::PackedScene::2494542437616407809::1704510184::0::1::::<><>::res://sentry.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres
+TurretHead.gd::GDScript::-1::1703557031::0::1::::<>CharacterBody3D<>::
+::res://assets/::1703557031
+::res://assets/EnemyAssets/::1703557031
+::res://assets/EnemyAssets/BulletSentry/::1705638516
+ClassicBulletSentry.gd::GDScript::-1::1705638516::0::1::::<>Node3D<>::
+ClassicBulletSentry.tscn::PackedScene::8392096375224683114::1704510130::0::1::::<><>::uid://evaf4ox1obtl::::res://componets/Enemy Folder/Bullet Sentry/BulletSentryHead.gltf<>res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://d7dves1fuvqx::::res://componets/Enemy Folder/Bullet Sentry/animation_model_SlideReload.res<>res://src/sentry_resource.gd<>uid://cvo6sah7eq1ku::::res://componets/Enemy Folder/Bullet Sentry/BulletSentryBase.obj
+::res://assets/images/::1703557031
+bullet_nut.jpg::CompressedTexture2D::2575064893286597217::1703555309::1703555309::1::::<><>::
+::res://assets/images/test-surface-texture/::1703555311
+::res://assets/images/test-surface-texture/Dark/::1703555310
+texture_01.png::CompressedTexture2D::2013642159058551878::1703555309::1703555309::1::::<><>::
+texture_02.png::CompressedTexture2D::417460746997535814::1703555309::1703555310::1::::<><>::
+texture_03.png::CompressedTexture2D::3924725735778446992::1703555310::1703555310::1::::<><>::
+texture_04.png::CompressedTexture2D::2328130180189737454::1703555310::1703555310::1::::<><>::
+texture_05.png::CompressedTexture2D::4166686222397619961::1703555310::1703555310::1::::<><>::
+texture_06.png::CompressedTexture2D::377726764170723207::1703555310::1703555310::1::::<><>::
+texture_07.png::CompressedTexture2D::8871866715689304551::1703555310::1703555310::1::::<><>::
+texture_08.png::CompressedTexture2D::83870678184933532::1703555310::1703555310::1::::<><>::
+texture_09.png::CompressedTexture2D::3661950919815881582::1703555310::1703555310::1::::<><>::
+texture_10.png::CompressedTexture2D::8892388713101543685::1703555310::1703555310::1::::<><>::
+texture_11.png::CompressedTexture2D::7113479119240924381::1703555310::1703555310::1::::<><>::
+texture_12.png::CompressedTexture2D::8960790167883019836::1703555310::1703555310::1::::<><>::
+texture_13.png::CompressedTexture2D::2051294135125463379::1703555310::1703555310::1::::<><>::
+::res://assets/images/test-surface-texture/Green/::1703555310
+texture_01.png::CompressedTexture2D::441528161021192312::1703555310::1703555310::1::::<><>::
+texture_02.png::CompressedTexture2D::66516086613321027::1703555310::1703555310::1::::<><>::
+texture_03.png::CompressedTexture2D::4668757985568993765::1703555310::1703555310::1::::<><>::
+texture_04.png::CompressedTexture2D::8040585466324329304::1703555310::1703555310::1::::<><>::
+texture_05.png::CompressedTexture2D::6273838381154837216::1703555310::1703555310::1::::<><>::
+texture_06.png::CompressedTexture2D::3493080893524884476::1703555310::1703555310::1::::<><>::
+texture_07.png::CompressedTexture2D::4573969281338482601::1703555310::1703555310::1::::<><>::
+texture_08.png::CompressedTexture2D::2444765670167590226::1703555310::1703555310::1::::<><>::
+texture_09.png::CompressedTexture2D::3283506877931311828::1703555310::1703555310::1::::<><>::
+texture_10.png::CompressedTexture2D::2956798099475563529::1703555310::1703555310::1::::<><>::
+texture_11.png::CompressedTexture2D::2614409166960015990::1703555310::1703555310::1::::<><>::
+texture_12.png::CompressedTexture2D::6990170734609664217::1703555310::1703555310::1::::<><>::
+texture_13.png::CompressedTexture2D::970272615239244705::1703555310::1703555310::1::::<><>::
+::res://assets/images/test-surface-texture/Light/::1703555310
+texture_01.png::CompressedTexture2D::8678449057818993877::1703555310::1703555310::1::::<><>::
+texture_02.png::CompressedTexture2D::3440385783449165234::1703555310::1703555310::1::::<><>::
+texture_03.png::CompressedTexture2D::413358536556253852::1703555310::1703555310::1::::<><>::
+texture_04.png::CompressedTexture2D::8513909255378416366::1703555310::1703555310::1::::<><>::
+texture_05.png::CompressedTexture2D::2184225519317121686::1703555310::1703555310::1::::<><>::
+texture_06.png::CompressedTexture2D::7263399083063698436::1703555310::1703555310::1::::<><>::
+texture_07.png::CompressedTexture2D::4032757510926013709::1703555310::1703555310::1::::<><>::
+texture_08.png::CompressedTexture2D::3495441916125872012::1703555310::1703555310::1::::<><>::
+texture_09.png::CompressedTexture2D::6979348527913924275::1703555310::1703555310::1::::<><>::
+texture_10.png::CompressedTexture2D::870887387456529937::1703555310::1703555310::1::::<><>::
+texture_11.png::CompressedTexture2D::6383430846775281068::1703555310::1703555310::1::::<><>::
+texture_12.png::CompressedTexture2D::2931416215338268120::1703555310::1703555310::1::::<><>::
+texture_13.png::CompressedTexture2D::5955015120609959374::1703555310::1703555310::1::::<><>::
+::res://assets/images/test-surface-texture/Orange/::1703555311
+texture_01.png::CompressedTexture2D::601721682955856099::1703555310::1703555310::1::::<><>::
+texture_02.png::CompressedTexture2D::2408152404079155252::1703555310::1703555310::1::::<><>::
+texture_03.png::CompressedTexture2D::4650317509945463270::1703555310::1703555310::1::::<><>::
+texture_04.png::CompressedTexture2D::3065396433804535207::1703555310::1703555310::1::::<><>::
+texture_05.png::CompressedTexture2D::7085222629825159663::1703555310::1703555310::1::::<><>::
+texture_06.png::CompressedTexture2D::6820200015492352149::1703555310::1703555310::1::::<><>::
+texture_07.png::CompressedTexture2D::5672868874483073351::1703555310::1703555310::1::::<><>::
+texture_08.png::CompressedTexture2D::3399262560861255165::1703555310::1703555310::1::::<><>::
+texture_09.png::CompressedTexture2D::6645856818114619966::1703555310::1703555310::1::::<><>::
+texture_10.png::CompressedTexture2D::9180857249680528305::1703555311::1703555311::1::::<><>::
+texture_11.png::CompressedTexture2D::5462928866750569469::1703555311::1703555311::1::::<><>::
+texture_12.png::CompressedTexture2D::2895918675216945837::1703555311::1703555311::1::::<><>::
+texture_13.png::CompressedTexture2D::8985565245889847326::1703555311::1703555311::1::::<><>::
+::res://assets/images/test-surface-texture/Purple/::1703555311
+texture_01.png::CompressedTexture2D::1843822118534095295::1703555311::1703555311::1::::<><>::
+texture_02.png::CompressedTexture2D::123792696497965425::1703555311::1703555311::1::::<><>::
+texture_03.png::CompressedTexture2D::4403411238058678406::1703555311::1703555311::1::::<><>::
+texture_04.png::CompressedTexture2D::7865293741903490771::1703555311::1703555311::1::::<><>::
+texture_05.png::CompressedTexture2D::6982105943983314707::1703555311::1703555311::1::::<><>::
+texture_06.png::CompressedTexture2D::2221923910035899055::1703555311::1703555311::1::::<><>::
+texture_07.png::CompressedTexture2D::6334891759001206758::1703555311::1703555311::1::::<><>::
+texture_08.png::CompressedTexture2D::6583097814287883965::1703555311::1703555311::1::::<><>::
+texture_09.png::CompressedTexture2D::8332425602917848739::1703555311::1703555311::1::::<><>::
+texture_10.png::CompressedTexture2D::7155064044820372852::1703555311::1703555311::1::::<><>::
+texture_11.png::CompressedTexture2D::2238049445277190939::1703555311::1703555311::1::::<><>::
+texture_12.png::CompressedTexture2D::1137057726814513020::1703555311::1703555311::1::::<><>::
+texture_13.png::CompressedTexture2D::2736158275698417883::1703555311::1703555311::1::::<><>::
+::res://assets/images/test-surface-texture/Red/::1703555311
+texture_01.png::CompressedTexture2D::1039852730827239150::1703555311::1703555311::1::::<><>::
+texture_02.png::CompressedTexture2D::7007746119707721066::1703555311::1703555311::1::::<><>::
+texture_03.png::CompressedTexture2D::8571923171818761504::1703555311::1703555311::1::::<><>::
+texture_04.png::CompressedTexture2D::6600876018017436245::1703555311::1703555311::1::::<><>::
+texture_05.png::CompressedTexture2D::8338252087420842473::1703555311::1703555311::1::::<><>::
+texture_06.png::CompressedTexture2D::3454794566242468801::1703555311::1703555311::1::::<><>::
+texture_07.png::CompressedTexture2D::8179684691808400419::1703555311::1703555311::1::::<><>::
+texture_08.png::CompressedTexture2D::5354766910858739256::1703555311::1703555311::1::::<><>::
+texture_09.png::CompressedTexture2D::3671682387817822883::1703555311::1703555311::1::::<><>::
+texture_10.png::CompressedTexture2D::3046394166007158246::1703555311::1703555311::1::::<><>::
+texture_11.png::CompressedTexture2D::1792904954127015748::1703555311::1703555311::1::::<><>::
+texture_12.png::CompressedTexture2D::3400190241315901872::1703555311::1703555311::1::::<><>::
+texture_13.png::CompressedTexture2D::587529402837996056::1703555311::1703555311::1::::<><>::
+::res://assets/models/::1703557031
+ClassicBullet.obj::Mesh::8350979053245521563::1703557031::1703557031::1::::<><>::
+ClassicBulletTexture.png::CompressedTexture2D::1842167378049964209::1703557031::1703557031::1::::<><>::
+Shotgun_1.fbx::PackedScene::8105284275566398385::1703555311::1703555311::1::::<><>::
+Shotgun_2.fbx::PackedScene::466385857175890473::1703555311::1703555311::1::::<><>::
+Shotgun_3.fbx::PackedScene::4554205840138768882::1703555311::1703555311::1::::<><>::
+Shotgun_4.fbx::PackedScene::1405370822400270428::1703555311::1703555311::1::::<><>::
+Shotgun_SawedOff.fbx::PackedScene::3141519063643975444::1703555311::1703555311::1::::<><>::
+Shotgun_ShortStock.fbx::PackedScene::7283085785407822437::1703555311::1703555311::1::::<><>::
+::res://componets/::1703737965
+::res://componets/bullets/::1703900524
+::res://componets/bullets/classicbullet/::1704510130
+Classic_ammo.gd::GDScript::-1::1703654810::0::1::::<>Area3D<>::
+Classic_ammo.tscn::PackedScene::6814682869582603429::1704328682::0::1::::<><>::uid://c810cva7uciar::::res://componets/bullets/template/Ammo_Template.tscn<>res://componets/bullets/nutbullet/nut_ammo.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj
+classic_bullet_info.tres::Resource/Resource::7780518432706895735::1704063767::0::1::::<><>::res://src/bullet_resource.gd
+classic_projectile.tscn::PackedScene::7678963035880674685::1704510130::0::1::::<><>::uid://cijiql5co2aix::::res://componets/bullets/template/Projectile_Template.tscn<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj
+::res://componets/bullets/mortarbullet/::1704510130
+Mortat_Bullet.tscn::PackedScene::277227240348454362::1704499815::0::1::::<><>::res://componets/bullets/template/arc_projectile.gd
+tempBounceScript.tscn::PackedScene::7866260126281704930::1704500701::0::1::::<><>::
+tempBounceShell.tscn::PackedScene::3926810797938907266::1704510130::0::1::::<><>::uid://b0s2lpu2x06ri::::res://componets/bullets/mortarbullet/tempShell.tres
+tempShell.tres::Resource/Resource::4179960396759486686::1703998133::0::1::::<><>::res://src/bullet_resource.gd
+tempshellammo.tscn::PackedScene::4409057184453781469::1704500701::0::1::::<><>::uid://b0s2lpu2x06ri::::res://componets/bullets/mortarbullet/tempShell.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
+::res://componets/bullets/nutbullet/::1705638516
+nut_ammo.gd::GDScript::-1::1703641900::0::1::::<>Area3D<>::
+nut_ammo.tscn::PackedScene::6814682869582603429::1704500700::0::1::::<><>::uid://c810cva7uciar::::res://componets/bullets/template/Ammo_Template.tscn<>uid://bcxm7bu2hi8nt::::res://assets/images/bullet_nut.jpg<>res://componets/bullets/nutbullet/nut_ammo.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
+nut_bullet_info.tres::Resource/Bullet_Type::7780518432706895735::1705638516::0::1::::<><>::res://src/bullet_resource.gd
+nut_projectile.tscn::PackedScene::7678963035880674685::1704507733::0::1::::<><>::uid://cijiql5co2aix::::res://componets/bullets/template/Projectile_Template.tscn<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
+::res://componets/bullets/template/::1705638516
+ammo.gd::GDScript::-1::1703654878::0::1::::<>Area3D<>::
+Ammo_Template.tscn::PackedScene::7144269629924897537::1704500773::0::1::::<><>::res://componets/bullets/template/ammo.gd
+arc_projectile.gd::GDScript::-1::1705638516::0::1::::<>Area3D<>::
+projectile.gd::GDScript::-1::1705638516::0::1::::<>Area3D<>::
+Projectile_Template.tscn::PackedScene::5353446449133234335::1704500701::0::1::::<><>::res://componets/bullets/template/projectile.gd
+::res://componets/Enemy Folder/::1703643170
+::res://componets/Enemy Folder/Bullet Sentry/::1703719143
+animation_model_SlideReload.res::Animation::276846510783005883::1703719143::0::1::::<><>::
+Base texture.png::CompressedTexture2D::1791976182234655840::1703557031::1703557031::1::::<><>::
+BulletSentryBase.obj::Mesh::6277622755681336656::1703557031::1703557031::1::::<><>::
+BulletSentryHead.gltf::PackedScene::324117782241636869::1703557031::1703557031::1::::<><>::
+bullet_sentry.tscn::PackedScene::233994156239869429::1703557031::0::1::::<><>::uid://bbr0w62ju4wsu::::res://componets/Enemy Folder/Bullet Sentry/Sentry bullet.gltf
+::res://componets/Enemy Folder/Evil Cube/::1705638516
+evil_cube.gd::GDScript::-1::1705638516::0::1::::<>CharacterBody3D<>::
+evil_cube.tscn::PackedScene::3983436350474710851::1704510130::0::1::::<><>::res://componets/Enemy Folder/Evil Cube/evil_cube.gd
+::res://componets/InteractibleCode/::1703576875
+InteractTest.gd::GDScript::-1::1703557031::0::1::::Interactable<>Node<>::
+Interact_SpawnMe.gd::GDScript::-1::1703576875::0::1::::<>Interactable<>::
+::res://componets/Level_Devices/::1703737973
+::res://componets/Level_Devices/telepad/::1704510130
+TelePad.gd::GDScript::-1::1704506928::0::1::::<>Node3D<>::
+tele_pad.tscn::PackedScene::6679308285955523332::1704510130::0::1::::<><>::res://componets/Level_Devices/telepad/TelePad.gd
+::res://componets/player/::1705638516
+InteractionRay.gd::GDScript::-1::1705638516::0::1::::<>RayCast3D<>::
+player.gd::GDScript::-1::1703812968::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::5863084854890047613::1704328104::0::1::::<><>::res://componets/player/player.gd<>uid://bk01mifklj8ii::::res://assets/models/Shotgun_SawedOff.fbx<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>res://componets/player/InteractionRay.gd
+player_info.tres::Resource/Player_Data::5110179735907972042::1705638516::0::1::::<><>::res://src/player_resource.gd
+::res://componets/SpawnStuffs/::1703997040
+SpawnPoint.gd::GDScript::-1::1703621787::0::1::::<>Node3D<>::
+SpawnPoint.tscn::PackedScene::8700897515919064888::1703997040::0::1::::<><>::res://componets/SpawnStuffs/SpawnPoint.gd
+::res://componets/SpawnStuffs/pressure_spawn_pad/::1704510130
+pressure_spawn_pad.tscn::PackedScene::3983777990175560014::1704510130::0::1::::<><>::res://componets/SpawnStuffs/pressure_spawn_pad/SpawnPad.gd
+SpawnPad.gd::GDScript::-1::1703743388::0::1::::<>CharacterBody3D<>::
+::res://doc/::1703555312
+design.md::TextFile::-1::1703555312::0::1::::<><>::
+git-help.md::TextFile::-1::1703555312::0::1::::<><>::
+godot-help.md::TextFile::-1::1703555312::0::1::::<><>::
+project.md::TextFile::-1::1703555312::0::1::::<><>::
+::res://levels/::1705638516
+level_test.tscn::PackedScene::437080268328329291::1705638516::0::1::::<><>::uid://cpseferbomb0h::::res://componets/player/player.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://1jfql6svsg7h::::res://assets/images/test-surface-texture/Purple/texture_01.png<>res://src/bullet_resource.gd<>uid://drtguo8ski4ig::::res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn<>uid://bbsm0qn7577kn::::res://sentry.tscn<>res://src/sentry_resource.gd<>uid://ctv1pdtxhu54x::::res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn<>uid://bw0uu5umnt8vn::::res://componets/Enemy Folder/Evil Cube/evil_cube.tscn<>uid://dv71rmtif5x73::::res://componets/SpawnStuffs/SpawnPoint.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://bcmfd3yd2ilpe::::res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.tscn<>uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn
+::res://misc_Testing_Scenes/::1704316281
+::res://misc_Testing_Scenes/radom dohikies/::1704329661
+::res://misc_Testing_Scenes/radom dohikies/physics pointer/::1704328739
+phys_pointer.gd::GDScript::-1::1704328739::0::1::::<>RigidBody3D<>::
+phys_pointer.tscn::PackedScene::621540199344930201::1704328739::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/physics pointer/phys_pointer.gd
+::res://misc_Testing_Scenes/radom dohikies/vent/::1704510130
+pipeVent.gd::GDScript::-1::1704398971::0::1::::<>Node3D<>::
+pipeVent.tscn::PackedScene::6961535737825818119::1704510130::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/vent/pipeVent.gd
+ventBomb.gd::GDScript::-1::1704507514::0::1::::<>RigidBody3D<>::
+ventBomb.tscn::PackedScene::2551881354265255166::1704510130::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.gd
+::res://misc_Testing_Scenes/Spawn_TesterStuffs/::1705638516
+Spawn Pad.gltf::PackedScene::6877864817892558822::1703557031::1703557031::1::::<><>::
+Spawn Pad_0.png::CompressedTexture2D::8761863956430122917::1703557031::1703557031::1::::<><>::
+Spawn Pad_1.png::CompressedTexture2D::7395290803156605439::1703557031::1703557031::1::::<><>::
+spawn_tester.gd::GDScript::-1::1705638516::0::1::::<>Node3D<>::
+spawn_tester.tscn::PackedScene::6151386946041099417::1704506844::0::1::::<><>::uid://c48xots6jmqgk::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad.gltf<>res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd<>uid://b0smlv7bj0go1::::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/ButtonLocking.res<>uid://cvrrm0ybj66yv::::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/ButtonPressed.res<>uid://cydb1rlwbpddb::::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/KillButtonPressed.res<>res://componets/InteractibleCode/Interact_SpawnMe.gd
+::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/::1703557031
+ButtonLocking.res::Animation::4179049974345684870::1703557031::0::1::::<><>::
+ButtonPressed.res::Animation::6282956474225564137::1703557031::0::1::::<><>::
+KillButtonPressed.res::Animation::6463674806486762235::1703557031::0::1::::<><>::
+::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadMaterials/::1703557031
+blockbench_export_mesh2.res::ArrayMesh::210902634414535117::1703557031::0::1::::<><>::uid://ddmlmhcuece6b::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad_1.png
+blockbench_export_mesh3.res::ArrayMesh::3802085303632938251::1703557031::0::1::::<><>::uid://ddmlmhcuece6b::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad_1.png
+blockbench_export_mesh4.res::ArrayMesh::6260310549752604177::1703557031::0::1::::<><>::uid://ddmlmhcuece6b::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad_1.png
+blockbench_export_mesh5.res::ArrayMesh::3916827881486260070::1703557031::0::1::::<><>::uid://ddmlmhcuece6b::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad_1.png
+blockbench_export_mesh6.res::ArrayMesh::1278830164597567643::1703557031::0::1::::<><>::uid://ddmlmhcuece6b::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad_1.png
+blockbench_export_mesh7.res::ArrayMesh::1702031375078033116::1703557031::0::1::::<><>::uid://ddmlmhcuece6b::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad_1.png
+blockbench_export_mesh8.res::ArrayMesh::2348490085024598445::1703557031::0::1::::<><>::uid://ddmlmhcuece6b::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad_1.png
+blockbench_export_mesh9.res::ArrayMesh::519158361241053729::1703557031::0::1::::<><>::uid://ddmlmhcuece6b::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad_1.png
+blockbench_export_mesh.res::ArrayMesh::9216472905826046412::1703557031::0::1::::<><>::uid://dw3kvb3sd1utp::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad_0.png
+::res://src/::1703809880
+bullet_resource.gd::GDScript::-1::1703809880::0::1::::Bullet_Type<>Resource<>::
+player_resource.gd::GDScript::-1::1703576875::0::1::::Player_Data<>Resource<>::
+sentry_resource.gd::GDScript::-1::1703576992::0::1::::Sentry_Data<>Resource<>::

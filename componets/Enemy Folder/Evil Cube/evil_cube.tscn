@@ -1,0 +1,175 @@
+[gd_scene load_steps=19 format=3 uid="uid://bw0uu5umnt8vn"]
+
+[ext_resource type="Script" path="res://componets/Enemy Folder/Evil Cube/evil_cube.gd" id="1_475g6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ntwp"]
+albedo_color = Color(0, 0.964706, 0.388235, 1)
+metallic = 0.75
+
+[sub_resource type="BoxMesh" id="BoxMesh_ru58k"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nw8ls"]
+radius = 0.15
+height = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnjrq"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wvgtl"]
+top_radius = 0.125
+bottom_radius = 0.125
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s6u5h"]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.15
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6diby"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_abm8l"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qry5c"]
+albedo_color = Color(0.309804, 0.145098, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_a0t50"]
+inner_radius = 0.125
+outer_radius = 0.25
+rings = 8
+ring_segments = 8
+
+[sub_resource type="Animation" id="Animation_mqr7y"]
+resource_name = "FUCKINGROTATEANIMATION"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotation node/tire node:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g42jw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotation node/tire node:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1p5u"]
+_data = {
+"FUCKINGROTATEANIMATION": SubResource("Animation_mqr7y"),
+"RESET": SubResource("Animation_g42jw")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_usofc"]
+animation = &"FUCKINGROTATEANIMATION"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2wmjd"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0ersp"]
+states/FUCKINGROTATEANIMATION/node = SubResource("AnimationNodeAnimation_usofc")
+states/FUCKINGROTATEANIMATION/position = Vector2(395, 100)
+states/Start/position = Vector2(177, 100)
+transitions = ["Start", "FUCKINGROTATEANIMATION", SubResource("AnimationNodeStateMachineTransition_2wmjd")]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ccf5t"]
+height = 1.0
+radius = 1.71468
+
+[node name="EvilCube" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 5
+script = ExtResource("1_475g6")
+
+[node name="Meshes" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="TheCube" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+material_override = SubResource("StandardMaterial3D_6ntwp")
+mesh = SubResource("BoxMesh_ru58k")
+skeleton = NodePath("../..")
+
+[node name="leggy" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573407, 0)
+mesh = SubResource("CapsuleMesh_nw8ls")
+skeleton = NodePath("../TheCube")
+
+[node name="eye" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.29418e-09, 0.75, 0.184558)
+material_override = SubResource("StandardMaterial3D_dnjrq")
+mesh = SubResource("CylinderMesh_wvgtl")
+
+[node name="GunCap" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, -8.74228e-08, 8.74228e-08, 8.74228e-08, -4.37114e-08, -1, 8.74228e-08, 1, -4.37114e-08, -2.6524e-08, 0.75, 0.303399)
+mesh = SubResource("CylinderMesh_s6u5h")
+
+[node name="tirepivotfuckanimations" type="Node3D" parent="Meshes"]
+
+[node name="Hitboxes" type="Node3D" parent="."]
+
+[node name="collisionBox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_6diby")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_abm8l")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.5
+
+[node name="rotation node" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="tire node" type="Node3D" parent="rotation node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="tire" type="MeshInstance3D" parent="rotation node/tire node"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qry5c")
+mesh = SubResource("TorusMesh_a0t50")
+skeleton = NodePath("../../../Meshes")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v1p5u")
+}
+autoplay = "FUCKINGROTATEANIMATION"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v1p5u")
+}
+tree_root = SubResource("AnimationNodeStateMachine_0ersp")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="turretPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="inRange" type="Area3D" parent="."]
+
+[node name="rangeDetection" type="CollisionShape3D" parent="inRange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_ccf5t")
+
+[connection signal="body_entered" from="inRange" to="." method="_on_in_range_body_entered"]
+[connection signal="body_exited" from="inRange" to="." method="_on_in_range_body_exited"]

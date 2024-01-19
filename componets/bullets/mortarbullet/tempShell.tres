@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Bullet_Type" load_steps=2 format=3 uid="uid://b0s2lpu2x06ri"]
+
+[ext_resource type="Script" path="res://src/bullet_resource.gd" id="1_pjm0d"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_pjm0d")
+Name = "tempShell bullet"
+ID = 0
+Path_Projectile = "res://componets/bullets/mortarbullet/tempBounceShell.tscn"
+Path_Ammo = "res://componets/bullets/mortarbullet/tempshellammo.tscn"
+Damage = 50
+Speed = 100
+Cost = 5
+Life_Time = 5.0
+Enemy_Bullet = false
+Other_Info = {}

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d7j5lk4wmesg"]
+
+[ext_resource type="Script" path="res://componets/bullets/template/arc_projectile.gd" id="1_tg4dg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8uhqb"]
+
+[node name="MortatBullet" type="Area3D"]
+script = ExtResource("1_tg4dg")
+
+[node name="Life_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_8uhqb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Life_Timer" to="." method="_on_life_timer_timeout"]

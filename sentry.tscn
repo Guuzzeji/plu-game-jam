@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbsm0qn7577kn"]
+
+[ext_resource type="Script" path="res://sentry.gd" id="1_0olox"]
+[ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/nutbullet/nut_bullet_info.tres" id="2_jgqp5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ssobp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cx0s0"]
+radius = 8.0
+
+[node name="Sentry" type="Node3D"]
+script = ExtResource("1_0olox")
+Bullet_Info = ExtResource("2_jgqp5")
+
+[node name="SentryHead" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01346, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SentryHead"]
+
+[node name="RayCast3D" type="RayCast3D" parent="SentryHead"]
+transform = Transform3D(1.52855e-14, 3.49691e-07, 8, 8, -3.49691e-07, 1.96512e-20, 3.49691e-07, 8, -3.49691e-07, 0, 0, 0)
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SentryHead"]
+shape = SubResource("BoxShape3D_ssobp")
+
+[node name="BulletSpawnPoint" type="Node3D" parent="SentryHead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.670568)
+
+[node name="SentryBody" type="CharacterBody3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SentryBody"]
+height = 0.5
+
+[node name="Area3D" type="Area3D" parent="SentryBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01346, 0)
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SentryBody/Area3D"]
+shape = SubResource("SphereShape3D_cx0s0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="DetectionEyes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="LineOfSight" type="RayCast3D" parent="DetectionEyes"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -8, 0)
+
+[connection signal="body_entered" from="SentryBody/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="SentryBody/Area3D" to="." method="_on_area_3d_body_exited"]
