@@ -1,4 +1,4 @@
-res://levels/level_test.tscn
+res://componets/player/player.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd
 res://componets/bullets/template/arc_projectile.gd
 res://componets/bullets/template/projectile.gd
