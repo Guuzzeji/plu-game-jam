@@ -5,6 +5,7 @@ extends Node3D
 
 var sentry_head
 var targetBody = null
+var targetBodyGroup = "Enemy"
 var RayCastTargeter
 var RayCastSightLine
 var tresspassed = false;
@@ -66,6 +67,7 @@ func _process(delta):
 			#can see player code, eyes always sees player, raycast checks if can see player
 			#raycast only detects the first object it hits, backbone of if statement
 			$DetectionEyes.look_at(targetBody.position,Vector3.UP)
+			print(targetBody.position)
 			if (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() && RayCastSightLine.get_collider().is_in_group("player")):
 				var  original_scale = self.basis.get_scale()# original_scale(self.basis.get_scale())
 				var speed = .05
@@ -78,7 +80,7 @@ func _process(delta):
 				sentry_head.transform = Transform3D (new_transform.basis, Vector3(0,1,0))
 			
 			#attacking code
-				if (RayCastTargeter.is_colliding() && RayCastTargeter.get_collider().is_in_group("player")):
+				if (RayCastTargeter.is_colliding() && RayCastTargeter.get_collider().is_in_group(targetBodyGroup)):
 					fire()
 					
 		DISABLED:
@@ -88,17 +90,23 @@ func _process(delta):
 
 
 func _on_area_3d_body_entered(body):  #When player enters the area, enter attack mode
-	if body.is_in_group("Enemy"):
-		print("ENTERED ", body)
-		tresspassed = true 
-		targetBody = body
+	if body.is_in_group(targetBodyGroup):
+		#print("ENTERED ", body)
+		if targetBody == null:
+			tresspassed = true 
+			targetBody = body
+			print("new target: ", targetBody)
+		else:
+			print(targetBody)
 
 
 func _on_area_3d_body_exited(body): #when player leaves go idle
-	if body.is_in_group("Enemy"):
-		tresspassed = false
-		state = PASSIVE
-		print("exited:  ", body)
+	if body.is_in_group(targetBodyGroup):
+		if targetBody == body:
+			tresspassed = false
+			state = PASSIVE
+			print(targetBody)
+		#print("exited:  ", body)
 	
 
 

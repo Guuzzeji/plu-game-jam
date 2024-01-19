@@ -52,7 +52,7 @@ func turretHat():
 
 
 func _on_in_range_body_entered(body):
-	print(body)
+	#print(body)
 	if body == target:
 		inRange = true
 	pass # Replace with function body.
