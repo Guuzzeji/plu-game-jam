@@ -15,12 +15,18 @@ extends Area3D
 @export var Life_Timer : Timer
 
 # **About**
+# variable to stre what fired the projectile
+# stops shooter from hitting self, requires projectile.orginator = self inside shooter code
+var orginator = Node3D
+
+# **About**
 # Signal for when bullet hits something 
 # returns the body of what it hits
 signal hit_body(body)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(Player_Info.Pbody," ", orginator)
 	set_as_top_level(true) # Sets node to root level of the node tree (basically at sets parent to level/world node)
 	Life_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
 	Life_Timer.one_shot = true

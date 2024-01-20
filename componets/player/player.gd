@@ -24,6 +24,7 @@ var move_dir = Vector2.ZERO # Keeping track of player movement
 # **About**
 # On Load into world
 func _ready():
+	PlayerInfo.Pbody = self ##player resource now knows the player's body
 	$AnimationPlayer.play("RESET")
 	PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.IDLE
 	PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.IDLE
@@ -147,6 +148,8 @@ func barrel_fire(barrel: int, input_trigger: String):
 		return
 	
 	var bullet = PlayerInfo.Bullet_Inventory[barrel]
+	
+
 		
 	if Input.is_action_just_pressed(input_trigger):
 		if can_shoot_barrel and PlayerInfo.Mana >= bullet.Cost:
@@ -160,6 +163,7 @@ func barrel_fire(barrel: int, input_trigger: String):
 			
 			# Adding bullet to the world
 			var bullet_node = load(bullet.Path_Projectile).instantiate()
+			bullet_node.orginator = self #tell bullet who fired it.
 			$CameraNeck/ShotingHole.add_child(bullet_node)
 			$CameraNeck/PlayerGunProp.fire_anim()
 		
