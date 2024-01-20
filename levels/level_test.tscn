@@ -1,21 +1,12 @@
-[gd_scene load_steps=34 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=21 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
 [ext_resource type="Texture2D" uid="uid://1jfql6svsg7h" path="res://assets/images/test-surface-texture/Purple/texture_01.png" id="2_dchu1"]
 [ext_resource type="Script" path="res://src/bullet_resource.gd" id="3_5ds71"]
-[ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="7_wvtpm"]
-[ext_resource type="PackedScene" uid="uid://bbsm0qn7577kn" path="res://sentry.tscn" id="8_2wg63"]
-[ext_resource type="Script" path="res://src/sentry_resource.gd" id="8_lsjku"]
-[ext_resource type="PackedScene" uid="uid://ctv1pdtxhu54x" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn" id="8_nsty1"]
-[ext_resource type="PackedScene" uid="uid://bw0uu5umnt8vn" path="res://componets/Enemy Folder/Evil Cube/evil_cube.tscn" id="10_j33k2"]
-[ext_resource type="PackedScene" uid="uid://cfx4rv04labga" path="res://componets/bullets/classicbullet/ClassicBullet.tscn" id="11_63q5s"]
-[ext_resource type="PackedScene" uid="uid://bw01ihem7k5ta" path="res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn" id="11_tcf6d"]
+[ext_resource type="PackedScene" uid="uid://c856cl5nd1e4x" path="res://levels/ToolTesting.tscn" id="8_dol5p"]
 [ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="12_8mt6k"]
-[ext_resource type="PackedScene" uid="uid://bcmfd3yd2ilpe" path="res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.tscn" id="12_345h5"]
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="13_i76f7"]
-[ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="14_2maow"]
-[ext_resource type="PackedScene" uid="uid://ccyso7geclxnd" path="res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn" id="15_2g2ta"]
 [ext_resource type="PackedScene" uid="uid://bsjl70sugaxhg" path="res://levels/PathFindingTestArera.tscn" id="18_tnolj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
@@ -85,59 +76,6 @@ Enemy_Bullet = false
 Other_Info = {}
 
 [sub_resource type="Resource" id="Resource_0sri5"]
-resource_local_to_scene = true
-script = ExtResource("3_5ds71")
-Name = "Nut Bullet"
-ID = 0
-Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
-Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
-Damage = 100
-Speed = 100
-Cost = 5
-Life_Time = 5.0
-Enemy_Bullet = false
-Other_Info = {}
-
-[sub_resource type="Resource" id="Resource_1a404"]
-resource_local_to_scene = true
-script = ExtResource("3_5ds71")
-Name = "Nut Bullet"
-ID = 0
-Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
-Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
-Damage = 100
-Speed = 100
-Cost = 5
-Life_Time = 5.0
-Enemy_Bullet = false
-Other_Info = {}
-
-[sub_resource type="Resource" id="Resource_fw2lo"]
-resource_local_to_scene = true
-script = ExtResource("3_5ds71")
-Name = "Nut Bullet"
-ID = 0
-Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
-Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
-Damage = 100
-Speed = 100
-Cost = 5
-Life_Time = 5.0
-Enemy_Bullet = false
-Other_Info = {}
-
-[sub_resource type="Resource" id="Resource_uouh8"]
-resource_local_to_scene = true
-script = ExtResource("8_lsjku")
-Health = 200
-Mana = 100
-Max_Mana = 100
-Max_Health = 100
-Mana_Inc_Sec = 1
-Mana_Timer = 0.15
-Barrel_Delay = 0.15
-
-[sub_resource type="Resource" id="Resource_dnwco"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -231,92 +169,26 @@ Bullet_Info = SubResource("Resource_70tvy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71694, 0.65442, 8.7293)
 Bullet_Info = SubResource("Resource_0sri5")
 
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Sentry2" parent="Enemies" instance=ExtResource("8_2wg63")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.88513, 0.307355, -8.86643)
-Bullet_Info = SubResource("Resource_1a404")
-bombdata = ExtResource("12_345h5")
-
-[node name="BulletSv2" parent="Enemies" instance=ExtResource("7_wvtpm")]
-transform = Transform3D(-0.998153, 0, 0.0607521, 0, 1, 0, -0.0607521, 0, -0.998153, 0, 0, 37.0852)
-Bullet_Info = SubResource("Resource_fw2lo")
-SentryInfo = SubResource("Resource_uouh8")
-
-[node name="Sentry3" parent="Enemies" instance=ExtResource("8_2wg63")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.8851, 0.307355, 19.1336)
-Bullet_Info = SubResource("Resource_dnwco")
-bombdata = ExtResource("12_345h5")
-
-[node name="TestingProps" type="Node" parent="."]
-
-[node name="SpawnTester" parent="TestingProps" instance=ExtResource("8_nsty1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2462, 0.1, 13.4914)
-spawnBlueprint = ExtResource("7_wvtpm")
-
-[node name="SpawnTester2" parent="TestingProps" instance=ExtResource("8_nsty1")]
-transform = Transform3D(-0.862399, 0, 0.50623, 0, 1, 0, -0.50623, 0, -0.862399, -22.7064, 0.1, 19.5351)
-spawnBlueprint = ExtResource("7_wvtpm")
-
-[node name="SpawnTester3" parent="TestingProps" instance=ExtResource("8_nsty1")]
-transform = Transform3D(-0.0412828, 0, -0.999147, 0, 1, 0, 0.999147, 0, -0.0412828, -9.71755, 0.1, 15.5849)
-spawnBlueprint = ExtResource("11_63q5s")
-y_offset = 0.5
-
-[node name="SpawnTester4" parent="TestingProps" instance=ExtResource("8_nsty1")]
-transform = Transform3D(-0.0412828, 0, -0.999147, 0, 1, 0, 0.999147, 0, -0.0412828, -65.8133, 0.1, 18.0216)
-spawnBlueprint = ExtResource("10_j33k2")
-y_offset = 0.5
-
-[node name="PressureSpawnPad" parent="TestingProps" instance=ExtResource("11_tcf6d")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -50.2993, 0, -1.49644)
-spawnBlueprint = ExtResource("10_j33k2")
-
-[node name="PressureSpawnPad2" parent="TestingProps" instance=ExtResource("11_tcf6d")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -51.5039, -0.0875177, 3.77802)
-spawnBlueprint = ExtResource("10_j33k2")
-
-[node name="PressureSpawnPad3" parent="TestingProps" instance=ExtResource("11_tcf6d")]
-transform = Transform3D(-0.863158, 0, -0.504934, 0, 1, 0, 0.504934, 0, -0.863158, -46.2799, -0.0875177, 5.18049)
-spawnBlueprint = ExtResource("14_2maow")
-y_offset = 0.5
-
-[node name="PressureSpawnPad4" parent="TestingProps" instance=ExtResource("11_tcf6d")]
-transform = Transform3D(-0.863158, 0, -0.504934, 0, 1, 0, 0.504934, 0, -0.863158, -7.75718, -0.0875196, 4.2823)
-spawnBlueprint = ExtResource("15_2g2ta")
-y_offset = 0.5
-
-[node name="balltester" parent="TestingProps" instance=ExtResource("8_nsty1")]
-transform = Transform3D(-0.0412828, 0, -0.999147, 0, 1, 0, 0.999147, 0, -0.0412828, -40.7283, 0.1, -3.35013)
-spawnBlueprint = ExtResource("12_345h5")
-y_offset = 1.0
-
-[node name="balltester2" parent="TestingProps" instance=ExtResource("11_tcf6d")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -40.2993, 0, 0.50356)
-spawnBlueprint = ExtResource("12_345h5")
-y_offset = 1.0
-
 [node name="teleporter nonsense" type="Node" parent="."]
 
 [node name="TelePad" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.776315, 2.38419e-07, -1.77078)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22369, 2.38419e-07, -0.77078)
 TeleChannel = 5
+
+[node name="TelePad2" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25073, 1.19209e-06, -2.66482)
+TeleChannel = 4
 
 [node name="TelePad3" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.56271, 0, 0)
 
 [node name="TelePad4" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.9088, 3.8147e-06, 2.20727)
-
-[node name="TelePad5" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.0031, 0, 2.75667)
-TeleChannel = 2
-
-[node name="TelePad6" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.2043, -3.8147e-06, 12.6512)
-TeleChannel = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.609, 17.049)
 
 [node name="SubLevels" type="Node" parent="."]
 
 [node name="PathFindingTestArera" parent="SubLevels" instance=ExtResource("18_tnolj")]
-transform = Transform3D(0.83527, 0, 0.549839, 0, 1, 0, -0.549839, 0, 0.83527, 94.4563, -50.3283, 0.685425)
+transform = Transform3D(0.865178, 0, -0.501465, 0, 1, 0, 0.501465, 0, 0.865178, 45.6951, -22.5781, 117.343)
+
+[node name="ToolTesting" parent="SubLevels" instance=ExtResource("8_dol5p")]
+transform = Transform3D(0.989784, 0, -0.142577, 0, 1, 0, 0.142577, 0, 0.989784, 95.6482, -11, 37.6916)

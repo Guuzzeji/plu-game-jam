@@ -33,3 +33,5 @@ res://componets/bullets/mortarbullet/tempShell.tres
 res://componets/bullets/mortarbullet/BouncingShell.tres
 res://levels/PathFindingTestArera.tscn
 res://levels/DeviceTestArea.tscn
+res://levels/ToolTesting.tscn
+res://componets/SpawnStuffs/SpawnPoint.tscn

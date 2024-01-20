@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c856cl5nd1e4x"]
+
+[ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_7scvg"]
+[ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="2_yle1n"]
+[ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="3_0ie17"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8o3"]
+albedo_color = Color(0.321569, 0, 0, 1)
+metallic = 0.4
+
+[node name="ToolTesting" type="Node3D"]
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="HomeTele" parent="Teleporters" instance=ExtResource("1_7scvg")]
+TeleChannel = 4
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Platform" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(50, 1, 50)
+material = SubResource("StandardMaterial3D_fp8o3")
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="SpawnPoint" parent="SpawnPoints" instance=ExtResource("2_yle1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 14)
+spawnBlueprint = ExtResource("3_0ie17")
