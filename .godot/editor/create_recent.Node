@@ -1,3 +1,7 @@
+CSGPolygon3D
+CSGCylinder3D
+Node3D
+Node
 Label
 RayCast3D
 Timer
@@ -6,10 +10,6 @@ Area3D
 MeshInstance3D
 CSGSphere3D
 RigidBody3D
-Node3D
-Node
 CSGTorus3D
-CSGCylinder3D
 CharacterBody3D
 CSGBox3D
-AnimationTree

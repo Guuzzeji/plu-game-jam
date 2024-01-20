@@ -8,7 +8,7 @@ extends CharacterBody3D
 #var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var target = null ##the target the cube seeks
 const SPEED = 3.0
-var player_path := "../../../Player" ##OK WHY DOES THIS WORK # NodePath# "/res://componets/player/player.tscn"
+#var player_path := "../../../Player" ##OK WHY DOES THIS WORK # NodePath# "/res://componets/player/player.tscn"
 @onready var nav_agent = $NavigationAgent3D ##so code can use navmesh.
 
 var health = 100.0 ##does what it says on tin
@@ -21,7 +21,11 @@ func _ready():
 	#print(player_path)
 	#print(get_node("../../../Player"))
 	#print(get_node(player_path))
-	target = get_node(player_path) ##depeding on where in tree, returns null???
+	#target = get_node(player_path) ##depeding on where in tree, returns null???
+	target = load("res://componets/player/player_info.tres").Pbody
+	#print(target, " ", player_path)
+	#var playerInfo = load("res://componets/player/player_info.tres")
+	#print(playerInfo.Pbody)
 	if spawnBlueprint:
 		turretHat()
 

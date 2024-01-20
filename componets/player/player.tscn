@@ -123,6 +123,7 @@ shape = SubResource("CapsuleShape3D_0pf0p")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(3.1238e-15, 8.74228e-08, -2, 2, -8.74228e-08, -6.97574e-16, -8.74228e-08, -2, -8.74228e-08, 0, 0.562428, -0.912269)
+visible = false
 target_position = Vector3(2.08165e-12, 10, 2.08165e-12)
 
 [node name="Barrel_Timer" type="Timer" parent="."]

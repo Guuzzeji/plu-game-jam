@@ -31,3 +31,5 @@ res://componets/bullets/mortarbullet/Mortat_Bullet.tscn
 res://componets/bullets/mortarbullet/tempshellammo.tscn
 res://componets/bullets/mortarbullet/tempShell.tres
 res://componets/bullets/mortarbullet/BouncingShell.tres
+res://levels/PathFindingTestArera.tscn
+res://levels/DeviceTestArea.tscn
