@@ -1,16 +1,16 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1705737385
+::res://::1705780768
 icon.svg::CompressedTexture2D::8899725720172608093::1703556998::1703556998::1::::<><>::
 node_3d.tscn::PackedScene::8038631834678722283::1705643016::0::1::::<><>::res://TurretHead.gd
 README.md::TextFile::-1::1703555306::0::1::::<><>::
 sentry.gd::GDScript::-1::1705736068::0::1::::<>Node3D<>::
-sentry.tscn::PackedScene::2494542437616407809::1705737196::0::1::::<><>::res://sentry.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres
+sentry.tscn::PackedScene::2494542437616407809::1705741990::0::1::::<><>::res://sentry.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres
 TurretHead.gd::GDScript::-1::1705643015::0::1::::<>CharacterBody3D<>::
 ::res://assets/::1705724907
 ::res://assets/EnemyAssets/::1705643436
-::res://assets/EnemyAssets/BulletSentry/::1705737196
-ClassicBulletSentry.gd::GDScript::-1::1705735357::0::1::::<>Node3D<>::
-ClassicBulletSentry.tscn::PackedScene::8392096375224683114::1705737196::0::1::::<><>::uid://evaf4ox1obtl::::res://componets/Enemy Folder/Bullet Sentry/BulletSentryHead.gltf<>res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://d7dves1fuvqx::::res://componets/Enemy Folder/Bullet Sentry/animation_model_SlideReload.res<>res://src/sentry_resource.gd<>uid://cvo6sah7eq1ku::::res://componets/Enemy Folder/Bullet Sentry/BulletSentryBase.obj
+::res://assets/EnemyAssets/BulletSentry/::1705741990
+ClassicBulletSentry.gd::GDScript::-1::1705741683::0::1::::<>Node3D<>::
+ClassicBulletSentry.tscn::PackedScene::8392096375224683114::1705741990::0::1::::<><>::uid://evaf4ox1obtl::::res://componets/Enemy Folder/Bullet Sentry/BulletSentryHead.gltf<>res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd<>uid://nj6a23nrn624::::res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres<>uid://d7dves1fuvqx::::res://componets/Enemy Folder/Bullet Sentry/animation_model_SlideReload.res<>res://src/sentry_resource.gd<>uid://cvo6sah7eq1ku::::res://componets/Enemy Folder/Bullet Sentry/BulletSentryBase.obj
 ::res://assets/images/::1705724897
 bullet_nut.jpg::CompressedTexture2D::2575064893286597217::1703555309::1703555309::1::::<><>::
 firetexture.jpg::CompressedTexture2D::8422823166043618004::1705724897::1705724897::1::::<><>::
@@ -1333,30 +1333,30 @@ dsdbopn.wav::AudioStreamWAV::4391249715557823522::1705724907::1705724907::1::::<
 dsshotgn.wav::AudioStreamWAV::8040418295509308953::1705724907::1705724907::1::::<><>::
 ::res://componets/::1705643437
 ::res://componets/bullets/::1705725887
-::res://componets/bullets/CannonBallTester/::1705737197
-CannonBallTester_ammo.tscn::PackedScene::4963883717945071249::1705737197::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://fpjltkfpctg7::::res://componets/bullets/CannonBallTester/CannonBallTester_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dsacww882pcnk::::res://assets/images/firetexture.jpg
+::res://componets/bullets/CannonBallTester/::1705741991
+CannonBallTester_ammo.tscn::PackedScene::4963883717945071249::1705741991::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://fpjltkfpctg7::::res://componets/bullets/CannonBallTester/CannonBallTester_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dsacww882pcnk::::res://assets/images/firetexture.jpg
 CannonBallTester_bullet_info.tres::Resource/Resource::382476994807930456::1705724907::0::1::::<><>::res://src/bullet_resource.gd
-CannonBallTester_Projectile.tscn::PackedScene::4589743051629568767::1705737197::0::1::::<><>::res://componets/bullets/template/projectile.gd<>uid://fpjltkfpctg7::::res://componets/bullets/CannonBallTester/CannonBallTester_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dsacww882pcnk::::res://assets/images/firetexture.jpg
-::res://componets/bullets/classicbullet/::1705737197
-ClassicBullet.tscn::PackedScene::5173058568149141344::1705737197::0::1::::<><>::res://componets/bullets/template/projectile.gd<>uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>uid://nj6a23nrn624::::res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj
-ClassicBulletAmmo.tscn::PackedScene::403216997134303133::1705737197::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>uid://nj6a23nrn624::::res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj
+CannonBallTester_Projectile.tscn::PackedScene::4589743051629568767::1705741991::0::1::::<><>::res://componets/bullets/template/projectile.gd<>uid://fpjltkfpctg7::::res://componets/bullets/CannonBallTester/CannonBallTester_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dsacww882pcnk::::res://assets/images/firetexture.jpg
+::res://componets/bullets/classicbullet/::1705741991
+ClassicBullet.tscn::PackedScene::5173058568149141344::1705741991::0::1::::<><>::res://componets/bullets/template/projectile.gd<>uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>uid://nj6a23nrn624::::res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj
+ClassicBulletAmmo.tscn::PackedScene::403216997134303133::1705741991::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>uid://nj6a23nrn624::::res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj
 Classic_ammo.gd::GDScript::-1::1705643016::0::1::::<>Area3D<>::
 Classic_Bullet_Resource.tres::Resource/Resource::932918055855622855::1705730651::0::1::::<><>::res://src/bullet_resource.gd
-::res://componets/bullets/mortarbullet/::1705737197
+::res://componets/bullets/mortarbullet/::1705741991
 BouncingShell.tres::Resource/Resource::7817392377130254588::1705731242::0::1::::<><>::res://src/bullet_resource.gd
 Mortat_Bullet.tscn::PackedScene::277227240348454362::1705727257::0::1::::<><>::res://componets/bullets/template/arc_projectile.gd
-tempBounceScript.tscn::PackedScene::7866260126281704930::1705737197::0::1::::<><>::
-tempBounceShell.tscn::PackedScene::3926810797938907266::1705737196::0::1::::<><>::uid://b0s2lpu2x06ri::::res://componets/bullets/mortarbullet/tempShell.tres
+tempBounceScript.tscn::PackedScene::7866260126281704930::1705741991::0::1::::<><>::
+tempBounceShell.tscn::PackedScene::3926810797938907266::1705741990::0::1::::<><>::uid://b0s2lpu2x06ri::::res://componets/bullets/mortarbullet/tempShell.tres
 tempShell.tres::Resource/Resource::4179960396759486686::1705643016::0::1::::<><>::res://src/bullet_resource.gd
 tempshellammo.tscn::PackedScene::4409057184453781469::1705643016::0::1::::<><>::uid://b0s2lpu2x06ri::::res://componets/bullets/mortarbullet/tempShell.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-::res://componets/bullets/nutbullet/::1705737261
-nut_ammo.tscn::PackedScene::6814682869582603429::1705737261::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://bcxm7bu2hi8nt::::res://assets/images/bullet_nut.jpg<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-nut_bullet_info.tres::Resource/Bullet_Type::7780518432706895735::1705735357::0::1::::<><>::res://src/bullet_resource.gd
-nut_projectile.tscn::PackedScene::7678963035880674685::1705737197::0::1::::<><>::res://componets/bullets/template/projectile.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-::res://componets/bullets/template/::1705737193
-ammo.gd::GDScript::-1::1705735357::0::1::::<>Area3D<>::
-arc_projectile.gd::GDScript::-1::1705735357::0::1::::<>Area3D<>::
-projectile.gd::GDScript::-1::1705737193::0::1::::<>Area3D<>::
+::res://componets/bullets/nutbullet/::1705741991
+nut_ammo.tscn::PackedScene::6814682869582603429::1705741991::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://bcxm7bu2hi8nt::::res://assets/images/bullet_nut.jpg<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
+nut_bullet_info.tres::Resource/Bullet_Type::7780518432706895735::1705737450::0::1::::<><>::res://src/bullet_resource.gd
+nut_projectile.tscn::PackedScene::7678963035880674685::1705741991::0::1::::<><>::res://componets/bullets/template/projectile.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
+::res://componets/bullets/template/::1705741596
+ammo.gd::GDScript::-1::1705737450::0::1::::<>Area3D<>::
+arc_projectile.gd::GDScript::-1::1705737450::0::1::::<>Area3D<>::
+projectile.gd::GDScript::-1::1705741596::0::1::::<>Area3D<>::
 ::res://componets/Enemy Folder/::1705643437
 ::res://componets/Enemy Folder/Bullet Sentry/::1705643437
 animation_model_SlideReload.res::Animation::276846510783005883::1705643016::0::1::::<><>::
@@ -1364,55 +1364,55 @@ Base texture.png::CompressedTexture2D::1791976182234655840::1705643015::17056430
 BulletSentryBase.obj::Mesh::6277622755681336656::1705643016::1705643016::1::::<><>::
 BulletSentryHead.gltf::PackedScene::324117782241636869::1705643016::1705643016::1::::<><>::
 bullet_sentry.tscn::PackedScene::233994156239869429::1705643016::0::1::::<><>::uid://bbr0w62ju4wsu::::res://componets/Enemy Folder/Bullet Sentry/Sentry bullet.gltf
-::res://componets/Enemy Folder/Evil Cube/::1705735357
-evil_cube.gd::GDScript::-1::1705735357::0::1::::<>CharacterBody3D<>::
-evil_cube.tscn::PackedScene::3983436350474710851::1705728146::0::1::::<><>::res://componets/Enemy Folder/Evil Cube/evil_cube.gd
+::res://componets/Enemy Folder/Evil Cube/::1705741991
+evil_cube.gd::GDScript::-1::1705737450::0::1::::<>CharacterBody3D<>::
+evil_cube.tscn::PackedScene::3983436350474710851::1705741991::0::1::::<><>::res://componets/Enemy Folder/Evil Cube/evil_cube.gd
 ::res://componets/InteractibleCode/::1705643437
 InteractTest.gd::GDScript::-1::1705643016::0::1::::Interactable<>Node<>::
 Interact_SpawnMe.gd::GDScript::-1::1705643016::0::1::::<>Interactable<>::
 ::res://componets/Level_Devices/::1705643437
-::res://componets/Level_Devices/telepad/::1705737196
+::res://componets/Level_Devices/telepad/::1705741990
 TelePad.gd::GDScript::-1::1705643016::0::1::::<>Node3D<>::
-tele_pad.tscn::PackedScene::6679308285955523332::1705737196::0::1::::<><>::res://componets/Level_Devices/telepad/TelePad.gd
-::res://componets/player/::1705737197
+tele_pad.tscn::PackedScene::6679308285955523332::1705741990::0::1::::<><>::res://componets/Level_Devices/telepad/TelePad.gd
+::res://componets/player/::1705742027
 bullet_inv.gd::GDScript::-1::1705724907::0::1::::<>Control<>::
-bullet_inventory.tscn::PackedScene::8161897701949397233::1705724907::0::1::::<><>::res://componets/player/bullet_inv.gd
-InteractionRay.gd::GDScript::-1::1705735357::0::1::::<>RayCast3D<>::
-player.gd::GDScript::-1::1705735357::0::1::::<>CharacterBody3D<>::
-player.tscn::PackedScene::5863084854890047613::1705737196::0::1::::<><>::res://componets/player/player.gd<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dla44yymmgqa1::::res://componets/player/player_gun_prop.tscn<>uid://bmx53al0wfbgl::::res://componets/player/player_hud.tscn
+bullet_inventory.tscn::PackedScene::8161897701949397233::1705741991::0::1::::<><>::res://componets/player/bullet_inv.gd
+InteractionRay.gd::GDScript::-1::1705738099::0::1::::<>RayCast3D<>::
+player.gd::GDScript::-1::1705741977::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::5863084854890047613::1705742027::0::1::::<><>::res://componets/player/player.gd<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dla44yymmgqa1::::res://componets/player/player_gun_prop.tscn<>uid://bmx53al0wfbgl::::res://componets/player/player_hud.tscn<>res://componets/player/InteractionRay.gd
 player_gun_prop.gd::GDScript::-1::1705724907::0::1::::<>Node3D<>::
-player_gun_prop.tscn::PackedScene::7933153210108353738::1705737197::0::1::::<><>::res://componets/player/player_gun_prop.gd<>uid://bk01mifklj8ii::::res://assets/models/Shotgun_SawedOff.fbx<>uid://dms3rq5efnyd2::::res://assets/sfx/dsshotgn.wav<>uid://dsacww882pcnk::::res://assets/images/firetexture.jpg
+player_gun_prop.tscn::PackedScene::7933153210108353738::1705741991::0::1::::<><>::res://componets/player/player_gun_prop.gd<>uid://bk01mifklj8ii::::res://assets/models/Shotgun_SawedOff.fbx<>uid://dms3rq5efnyd2::::res://assets/sfx/dsshotgn.wav<>uid://dsacww882pcnk::::res://assets/images/firetexture.jpg
 player_hud.gd::GDScript::-1::1705724907::0::1::::<>Control<>::
-player_hud.tscn::PackedScene::3278039025863526979::1705724907::0::1::::<><>::res://componets/player/player_hud.gd<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dojxi6wqwicjx::::res://componets/player/bullet_inventory.tscn<>uid://cklmx5w7d33nv::::res://assets/images/kenney_crosshairPack/PNG/White/crosshair100.png
-player_info.tres::Resource/Player_Data::5110179735907972042::1705735357::0::1::::<><>::res://src/player_resource.gd
+player_hud.tscn::PackedScene::3278039025863526979::1705741991::0::1::::<><>::res://componets/player/player_hud.gd<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dojxi6wqwicjx::::res://componets/player/bullet_inventory.tscn<>uid://cklmx5w7d33nv::::res://assets/images/kenney_crosshairPack/PNG/White/crosshair100.png
+player_info.tres::Resource/Player_Data::5110179735907972042::1705737450::0::1::::<><>::res://src/player_resource.gd
 ::res://componets/SpawnStuffs/::1705643437
 SpawnPoint.gd::GDScript::-1::1705643016::0::1::::<>Node3D<>::
 SpawnPoint.tscn::PackedScene::8700897515919064888::1705643016::0::1::::<><>::res://componets/SpawnStuffs/SpawnPoint.gd
-::res://componets/SpawnStuffs/pressure_spawn_pad/::1705737196
-pressure_spawn_pad.tscn::PackedScene::3983777990175560014::1705737196::0::1::::<><>::res://componets/SpawnStuffs/pressure_spawn_pad/SpawnPad.gd
+::res://componets/SpawnStuffs/pressure_spawn_pad/::1705741990
+pressure_spawn_pad.tscn::PackedScene::3983777990175560014::1705741990::0::1::::<><>::res://componets/SpawnStuffs/pressure_spawn_pad/SpawnPad.gd
 SpawnPad.gd::GDScript::-1::1705643016::0::1::::<>CharacterBody3D<>::
 ::res://doc/::1703555312
 design.md::TextFile::-1::1703555312::0::1::::<><>::
 git-help.md::TextFile::-1::1703555312::0::1::::<><>::
 godot-help.md::TextFile::-1::1703555312::0::1::::<><>::
 project.md::TextFile::-1::1703555312::0::1::::<><>::
-::res://levels/::1705737196
-level_test.tscn::PackedScene::437080268328329291::1705737196::0::1::::<><>::uid://cpseferbomb0h::::res://componets/player/player.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://1jfql6svsg7h::::res://assets/images/test-surface-texture/Purple/texture_01.png<>res://src/bullet_resource.gd<>uid://drtguo8ski4ig::::res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn<>uid://bbsm0qn7577kn::::res://sentry.tscn<>res://src/sentry_resource.gd<>uid://ctv1pdtxhu54x::::res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn<>uid://bw0uu5umnt8vn::::res://componets/Enemy Folder/Evil Cube/evil_cube.tscn<>uid://cfx4rv04labga::::res://componets/bullets/classicbullet/ClassicBullet.tscn<>uid://dv71rmtif5x73::::res://componets/SpawnStuffs/SpawnPoint.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://bcmfd3yd2ilpe::::res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.tscn<>uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://f0k6plpv6os0::::res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn<>uid://ccyso7geclxnd::::res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn<>uid://djm2ksywpyt3i::::res://componets/bullets/mortarbullet/BouncingShell.tres
+::res://levels/::1705741990
+level_test.tscn::PackedScene::437080268328329291::1705741990::0::1::::<><>::uid://cpseferbomb0h::::res://componets/player/player.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://1jfql6svsg7h::::res://assets/images/test-surface-texture/Purple/texture_01.png<>res://src/bullet_resource.gd<>uid://drtguo8ski4ig::::res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn<>uid://bbsm0qn7577kn::::res://sentry.tscn<>res://src/sentry_resource.gd<>uid://ctv1pdtxhu54x::::res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn<>uid://bw0uu5umnt8vn::::res://componets/Enemy Folder/Evil Cube/evil_cube.tscn<>uid://cfx4rv04labga::::res://componets/bullets/classicbullet/ClassicBullet.tscn<>uid://dv71rmtif5x73::::res://componets/SpawnStuffs/SpawnPoint.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://bcmfd3yd2ilpe::::res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.tscn<>uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://f0k6plpv6os0::::res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn<>uid://ccyso7geclxnd::::res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn<>uid://djm2ksywpyt3i::::res://componets/bullets/mortarbullet/BouncingShell.tres
 ::res://misc_Testing_Scenes/::1705643437
 ::res://misc_Testing_Scenes/radom dohikies/::1705643437
 ::res://misc_Testing_Scenes/radom dohikies/physics pointer/::1705643437
 phys_pointer.gd::GDScript::-1::1705643016::0::1::::<>RigidBody3D<>::
 phys_pointer.tscn::PackedScene::621540199344930201::1705643016::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/physics pointer/phys_pointer.gd
-::res://misc_Testing_Scenes/radom dohikies/vent/::1705737196
+::res://misc_Testing_Scenes/radom dohikies/vent/::1705741990
 pipeVent.gd::GDScript::-1::1705736236::0::1::::<>Node3D<>::
-pipeVent.tscn::PackedScene::6961535737825818119::1705737196::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/vent/pipeVent.gd
+pipeVent.tscn::PackedScene::6961535737825818119::1705740414::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/vent/pipeVent.gd
 ventBomb.gd::GDScript::-1::1705732424::0::1::::<>RigidBody3D<>::
-ventBomb.tscn::PackedScene::2551881354265255166::1705737196::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.gd
-::res://misc_Testing_Scenes/Spawn_TesterStuffs/::1705735357
+ventBomb.tscn::PackedScene::2551881354265255166::1705741990::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.gd
+::res://misc_Testing_Scenes/Spawn_TesterStuffs/::1705737450
 Spawn Pad.gltf::PackedScene::6877864817892558822::1705643016::1705643016::1::::<><>::
 Spawn Pad_0.png::CompressedTexture2D::8761863956430122917::1705643016::1705643016::1::::<><>::
 Spawn Pad_1.png::CompressedTexture2D::7395290803156605439::1705643016::1705643016::1::::<><>::
-spawn_tester.gd::GDScript::-1::1705735357::0::1::::<>Node3D<>::
+spawn_tester.gd::GDScript::-1::1705737450::0::1::::<>Node3D<>::
 spawn_tester.tscn::PackedScene::6151386946041099417::1705643016::0::1::::<><>::uid://c48xots6jmqgk::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad.gltf<>res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd<>uid://b0smlv7bj0go1::::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/ButtonLocking.res<>uid://cvrrm0ybj66yv::::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/ButtonPressed.res<>uid://cydb1rlwbpddb::::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/KillButtonPressed.res<>res://componets/InteractibleCode/Interact_SpawnMe.gd
 ::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/::1705643437
 ButtonLocking.res::Animation::4179049974345684870::1705643016::0::1::::<><>::

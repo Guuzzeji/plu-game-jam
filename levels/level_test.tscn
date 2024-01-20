@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=37 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="13_i76f7"]
 [ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="14_2maow"]
 [ext_resource type="PackedScene" uid="uid://ccyso7geclxnd" path="res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn" id="15_2g2ta"]
-[ext_resource type="Resource" uid="uid://djm2ksywpyt3i" path="res://componets/bullets/mortarbullet/BouncingShell.tres" id="18_erk2a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
 
@@ -113,7 +112,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_04s4b"]
+[sub_resource type="Resource" id="Resource_51ffm"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -251,7 +250,7 @@ bombdata = ExtResource("12_345h5")
 
 [node name="BulletSv2" parent="Enemies" instance=ExtResource("7_wvtpm")]
 transform = Transform3D(-0.998153, 0, 0.0607521, 0, 1, 0, -0.0607521, 0, -0.998153, 0, 0, 37.0852)
-Bullet_Info = SubResource("Resource_04s4b")
+Bullet_Info = SubResource("Resource_51ffm")
 SentryInfo = SubResource("Resource_uouh8")
 
 [node name="Sentry3" parent="Enemies" instance=ExtResource("8_2wg63")]
@@ -370,7 +369,3 @@ TeleChannel = 2
 [node name="TelePad6" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.2043, -3.8147e-06, 12.6512)
 TeleChannel = 2
-
-[node name="ClassicBulletAmmo" parent="." instance=ExtResource("14_2maow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.22502, 0, 0.837221)
-Bullet_Info = ExtResource("18_erk2a")

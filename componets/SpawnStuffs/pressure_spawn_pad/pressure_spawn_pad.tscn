@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw01ihem7k5ta"]
+[gd_scene load_steps=6 format=3 uid="uid://bw01ihem7k5ta"]
 
 [ext_resource type="Script" path="res://componets/SpawnStuffs/pressure_spawn_pad/SpawnPad.gd" id="1_7rdmf"]
 
@@ -10,7 +10,11 @@ radius = 0.4
 height = 0.05
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ffxg3"]
-height = 0.2
+height = 0.1
+radius = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8ygyg"]
+height = 0.05
 radius = 0.6
 
 [node name="PressureSpawnPad" type="CharacterBody3D"]
@@ -36,9 +40,17 @@ sides = 16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
 shape = SubResource("CylinderShape3D_q4b6x")
 
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+shape = SubResource("CylinderShape3D_q4b6x")
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.1, 0)
 shape = SubResource("CylinderShape3D_ffxg3")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.02, 0)
+shape = SubResource("CylinderShape3D_8ygyg")
 
 [node name="SpawnNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.2, 0)
