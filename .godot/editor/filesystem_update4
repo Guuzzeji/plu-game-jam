@@ -1,4 +1,4 @@
-res://levels/level_test.tscn
+res://componets/bullets/nutbullet/nut_projectile.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd
 res://componets/bullets/template/ammo.gd
 res://componets/bullets/template/arc_projectile.gd
@@ -9,29 +9,3 @@ res://componets/player/player.gd
 res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd
 res://componets/player/player_info.tres
 res://componets/bullets/nutbullet/nut_bullet_info.tres
-res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
-res://componets/Level_Devices/telepad/tele_pad.tscn
-res://componets/bullets/mortarbullet/tempBounceShell.tscn
-res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn
-res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.tscn
-res://sentry.tscn
-res://componets/player/player.tscn
-res://componets/bullets/classicbullet/ClassicBullet.tscn
-res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn
-res://componets/bullets/nutbullet/nut_projectile.tscn
-res://componets/bullets/nutbullet/nut_ammo.tscn
-res://componets/player/player_gun_prop.tscn
-res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn
-res://componets/bullets/mortarbullet/tempBounceScript.tscn
-res://componets/bullets/CannonBallTester/CannonBallTester_Projectile.tscn
-res://componets/player/bullet_inventory.tscn
-res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
-res://componets/player/player_hud.tscn
-res://componets/bullets/mortarbullet/Mortat_Bullet.tscn
-res://componets/bullets/mortarbullet/tempshellammo.tscn
-res://componets/bullets/mortarbullet/tempShell.tres
-res://componets/bullets/mortarbullet/BouncingShell.tres
-res://levels/PathFindingTestArera.tscn
-res://levels/DeviceTestArea.tscn
-res://levels/ToolTesting.tscn
-res://componets/SpawnStuffs/SpawnPoint.tscn
