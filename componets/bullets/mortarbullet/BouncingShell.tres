@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Bullet_Type" load_steps=2 format=3 uid="uid://djm2ksywpyt3i"]
+
+[ext_resource type="Script" path="res://src/bullet_resource.gd" id="1_gso52"]
+
+[resource]
+script = ExtResource("1_gso52")
+Name = ""
+ID = 0
+Path_Projectile = "res://componets/Enemy Folder/Evil Cube/evil_cube.tscn"
+Path_Ammo = ""
+Damage = 0
+Speed = 0
+Cost = 5
+Life_Time = 5.0
+Enemy_Bullet = false
+Other_Info = {}

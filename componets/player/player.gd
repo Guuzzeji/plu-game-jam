@@ -57,7 +57,10 @@ func _physics_process(delta):
 	update_move_state()
 	update_mana_state()
 	update_health_state()
-	debug_logs()
+	##debug_logs()
+	
+	##debug delte me
+	#print(PlayerInfo.Bullet_Inventory)
 	
 	mana_check()
 	barrel_fire(PlayerInfo.Inv_Index_Right_Barrel, "Right_Fire")

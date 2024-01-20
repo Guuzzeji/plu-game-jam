@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfx4rv04labga"]
+
+[ext_resource type="Script" path="res://componets/bullets/template/projectile.gd" id="1_gc4os"]
+[ext_resource type="Texture2D" uid="uid://1imh0crjifi4" path="res://assets/models/ClassicBulletTexture.png" id="2_6y62v"]
+[ext_resource type="Resource" uid="uid://nj6a23nrn624" path="res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres" id="2_52yii"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="3_ncsel"]
+[ext_resource type="ArrayMesh" uid="uid://dq8jn1cyxei00" path="res://assets/models/ClassicBullet.obj" id="3_yeqbg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qujrc"]
+radius = 0.210341
+height = 0.71665
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wwyl"]
+albedo_texture = ExtResource("2_6y62v")
+
+[node name="ClassicBullet" type="Area3D" node_paths=PackedStringArray("Life_Timer")]
+script = ExtResource("1_gc4os")
+Bullet_Info = ExtResource("2_52yii")
+Player_Info = ExtResource("3_ncsel")
+Life_Timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_qujrc")
+
+[node name="ClassicBullet" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, -0.240221)
+material_override = SubResource("StandardMaterial3D_1wwyl")
+mesh = ExtResource("3_yeqbg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
