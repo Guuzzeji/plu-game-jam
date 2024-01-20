@@ -129,6 +129,12 @@ func player_movement(delta):
 	pass
 
 # **About**
+# damage player when hit, can modify incoming damage
+func inflictDamage(damage): #entities that damage use this
+	var armorMod = 1.0
+	PlayerInfo.Health = PlayerInfo.Health - damage * armorMod
+
+# **About**
 # Update mana if player isn't full
 func mana_check():
 	if (PlayerInfo.Mana != PlayerInfo.Max_Mana and $Mana_Inc.is_stopped()):

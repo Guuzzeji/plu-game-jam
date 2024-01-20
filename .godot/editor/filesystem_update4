@@ -28,3 +28,4 @@ res://componets/bullets/mortarbullet/tempBounceScript.tscn
 res://componets/bullets/CannonBallTester/CannonBallTester_Projectile.tscn
 res://componets/player/bullet_inventory.tscn
 res://componets/player/player_hudInteractANGLE.gdshader
+res://componets/Enemy Folder/Evil Cube/evil_cube.tscn

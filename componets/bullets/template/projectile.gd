@@ -26,7 +26,7 @@ signal hit_body(body)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(Player_Info.Pbody," ", orginator)
+	#print(Player_Info.Pbody," ", orginator)
 	set_as_top_level(true) # Sets node to root level of the node tree (basically at sets parent to level/world node)
 	Life_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
 	Life_Timer.one_shot = true
@@ -49,10 +49,12 @@ func _on_body_entered(body):
 		damage(body)
 	elif body.is_in_group("player") && Bullet_Info.Enemy_Bullet:
 		damage(body)
+	else:	## hits something not self
+		queue_free()
 	pass
 
 func damage(body):		##if an enemy (say evil rock) cannot be damaged, best not crash!
-	print(Bullet_Info.Damage)
+	#print(Bullet_Info.Damage)
 	if body.has_method("inflictDamage") != null:	##if can inflict damage, damage it
 		body.inflictDamage(Bullet_Info.Damage)	##can simplify, this is easier to read
 	queue_free()

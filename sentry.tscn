@@ -38,7 +38,7 @@ height = 0.5
 
 [node name="Area3D" type="Area3D" parent="SentryBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01346, 0)
-collision_mask = 4
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SentryBody/Area3D"]
 shape = SubResource("SphereShape3D_cx0s0")

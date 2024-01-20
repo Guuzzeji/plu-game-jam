@@ -113,7 +113,7 @@ Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
 
-[sub_resource type="Resource" id="Resource_kl71c"]
+[sub_resource type="Resource" id="Resource_04s4b"]
 resource_local_to_scene = true
 script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
@@ -251,7 +251,7 @@ bombdata = ExtResource("12_345h5")
 
 [node name="BulletSv2" parent="Enemies" instance=ExtResource("7_wvtpm")]
 transform = Transform3D(-0.998153, 0, 0.0607521, 0, 1, 0, -0.0607521, 0, -0.998153, 0, 0, 37.0852)
-Bullet_Info = SubResource("Resource_kl71c")
+Bullet_Info = SubResource("Resource_04s4b")
 SentryInfo = SubResource("Resource_uouh8")
 
 [node name="Sentry3" parent="Enemies" instance=ExtResource("8_2wg63")]

@@ -22,11 +22,11 @@ Life_Timer = NodePath("Timer")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1.91068e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, -1.05004e-08, 0, -0.240221)
 shape = SubResource("CapsuleShape3D_qujrc")
 
 [node name="ClassicBullet" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, -0.240221)
+transform = Transform3D(1.91068e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 1.05004e-08, 0, 0)
 material_override = SubResource("StandardMaterial3D_1wwyl")
 mesh = ExtResource("3_yeqbg")
 

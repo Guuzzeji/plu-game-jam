@@ -161,10 +161,11 @@ func fire(): #when attack state decides to fire the gun
 		$SentryHead/BulletSentryHead/ReloadAnimation.play("BulletTurret/animation_model_SlideReload")
 	#do not need to specify root
 	#the bullet object file is in components_>bullets->nutbullet->nut_projectile.tscn file
-		var firedBullet = Bullet_Info.Projectile.instantiate() #creates the bullet with info
+		var firedBullet = load(Bullet_Info.Path_Projectile).instantiate() #creates the bullet with info
 	#uses the info in bullet_Info to fabricate a functional bullet in firedBullet
 		#firedBullet.transform = $SentryHead/BulletSpawnPoint.transform
-		firedBullet.orginator = self
+		firedBullet.orginator = self	#cant hit self!
+		firedBullet.Bullet_Info.Enemy_Bullet = true	#can now damage player
 		$SentryHead/BulletSpawnPoint.add_child(firedBullet) #places into word, launches when placed
 	#place the bullet in the world, activates when placed.
 		$Timer.start()

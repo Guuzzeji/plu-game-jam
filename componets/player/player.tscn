@@ -89,6 +89,7 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_43juc")
 blend_point_1/pos = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 3
 script = ExtResource("1_gtsp0")
 PlayerInfo = ExtResource("2_tjgyl")
 
