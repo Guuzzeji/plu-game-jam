@@ -43,14 +43,20 @@ func _process(delta):
 # **About**
 # Use when ever enemy node goes into body
 func _on_body_entered(body):
-	if (!body.is_in_group("player")):
-		queue_free()
-		hit_body.emit(body)
-		#print(body.get_groups())
-		hit_body.emit(body)
+	if (orginator == body):
+		pass ##dont hit self
+	elif (body.is_in_group("Enemy")):
+		damage(body)
+	elif body.is_in_group("player") && Bullet_Info.Enemy_Bullet:
+		damage(body)
 	pass
 
-
+func damage(body):		##if an enemy (say evil rock) cannot be damaged, best not crash!
+	print(Bullet_Info.Damage)
+	if body.has_method("inflictDamage") != null:	##if can inflict damage, damage it
+		body.inflictDamage(Bullet_Info.Damage)	##can simplify, this is easier to read
+	queue_free()
+	
 # == Signal Code == 
 
 # **About**

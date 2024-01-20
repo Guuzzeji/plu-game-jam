@@ -31,7 +31,6 @@ enum {     #the states of the enemy
 
 
 var state = PASSIVE;
-
 func _ready():
 	sentry_head = get_node("SentryHead") #refer to the head of unit to follow player.
 	RayCastTargeter = get_node("SentryHead/RayCast3D")
