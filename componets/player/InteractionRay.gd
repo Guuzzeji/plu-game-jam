@@ -4,8 +4,8 @@ extends RayCast3D
 # detects camera for some reason, why does camera have EVERY collision mask?
 var current_collider #used to store what the collider is looking at, default is null
 
-@onready var interaction_label = get_parent_node_3d().get_parent_node_3d().get_parent_node_3d().get_node("Control/InteractTesting")
-	#WHY IS THIS THE ONE THAT WORKS
+@onready var interaction_label = $"../../../PlayerHud".get_node("InteractText")
+	#WHY IS THIS THE ONE THAT WORKS$
 
 #the label on the ui that we want to display what we are looking at
 

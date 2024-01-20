@@ -1,5 +1,6 @@
-res://misc_Testing_Scenes/radom dohikies/vent/pipeVent.tscn
+res://componets/player/player.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd
+res://componets/bullets/template/ammo.gd
 res://componets/bullets/template/arc_projectile.gd
 res://componets/bullets/template/projectile.gd
 res://componets/Enemy Folder/Evil Cube/evil_cube.gd
@@ -8,17 +9,15 @@ res://componets/player/player.gd
 res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd
 res://componets/player/player_info.tres
 res://componets/bullets/nutbullet/nut_bullet_info.tres
-res://componets/bullets/template/ammo.gd
-res://misc_Testing_Scenes/radom dohikies/vent/pipeVent.gd
-res://sentry.tscn
-res://sentry.gd
+res://componets/player/player_hud.tscn
 res://levels/level_test.tscn
 res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
 res://componets/Level_Devices/telepad/tele_pad.tscn
 res://componets/bullets/mortarbullet/tempBounceShell.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn
+res://misc_Testing_Scenes/radom dohikies/vent/pipeVent.tscn
 res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.tscn
-res://componets/player/player.tscn
+res://sentry.tscn
 res://componets/bullets/classicbullet/ClassicBullet.tscn
 res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn
 res://componets/bullets/nutbullet/nut_projectile.tscn
@@ -27,3 +26,5 @@ res://componets/player/player_gun_prop.tscn
 res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn
 res://componets/bullets/mortarbullet/tempBounceScript.tscn
 res://componets/bullets/CannonBallTester/CannonBallTester_Projectile.tscn
+res://componets/player/bullet_inventory.tscn
+res://componets/player/player_hudInteractANGLE.gdshader

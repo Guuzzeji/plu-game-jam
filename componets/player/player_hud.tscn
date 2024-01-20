@@ -84,8 +84,6 @@ offset_bottom = -184.16
 PlayerInfo = ExtResource("2_1yhfq")
 ActionTrigger = "Left_barrel_type"
 Select_Bullet_Index = "Inv_Index_Left_Barrel"
-Gun_Barrel = "Left_Barrel"
-Barrel_Label_State = "SWITCHING_BULLETS_LEFT"
 
 [node name="BulletInventory2" parent="." instance=ExtResource("3_6fq6f")]
 layout_mode = 1
@@ -98,8 +96,6 @@ offset_bottom = -184.16
 PlayerInfo = ExtResource("2_1yhfq")
 ActionTrigger = "Right_barrel_type"
 Select_Bullet_Index = "Inv_Index_Right_Barrel"
-Gun_Barrel = "Right_Barrel"
-Barrel_Label_State = "SWITCHING_BULLETS_RIGHT"
 
 [node name="CrossHair" type="TextureRect" parent="."]
 layout_mode = 1
@@ -115,3 +111,11 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_5o8bf")
+
+[node name="InteractText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 121.0
+offset_right = 1144.0
+offset_bottom = 156.0
+text = "testing"
