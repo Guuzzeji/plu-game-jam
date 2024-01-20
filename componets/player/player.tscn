@@ -1,116 +1,89 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpseferbomb0h"]
+[gd_scene load_steps=12 format=3 uid="uid://cpseferbomb0h"]
 
 [ext_resource type="Script" path="res://componets/player/player.gd" id="1_gtsp0"]
+[ext_resource type="PackedScene" uid="uid://bk01mifklj8ii" path="res://assets/models/Shotgun_SawedOff.fbx" id="2_phksp"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_tjgyl"]
-[ext_resource type="PackedScene" uid="uid://dla44yymmgqa1" path="res://componets/player/player_gun_prop.tscn" id="3_1vktc"]
-[ext_resource type="PackedScene" uid="uid://bmx53al0wfbgl" path="res://componets/player/player_hud.tscn" id="4_6vgwf"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
-
-[sub_resource type="Sky" id="Sky_by5k1"]
-sky_material = SubResource("ProceduralSkyMaterial_pnspk")
-
-[sub_resource type="Environment" id="Environment_d0ypc"]
-background_mode = 2
-sky = SubResource("Sky_by5k1")
+[ext_resource type="Script" path="res://componets/player/InteractionRay.gd" id="3_uwfkk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0pf0p"]
-radius = 0.726535
 height = 2.35404
 
-[sub_resource type="Animation" id="Animation_cbqet"]
-resource_name = "Idle"
-length = 0.5
+[sub_resource type="Animation" id="Animation_qm1n5"]
+resource_name = "Moving"
+length = 1.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraNeck/Camera3D:position")
-tracks/0/interp = 1
+tracks/0/path = NodePath("CameraNeck/Shotgun_SawedOff:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.6, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(2.08165e-12, 0.77703, 2.08165e-12)]
+"values": [Vector3(0, 0.438313, 0.0434037), Vector3(-0.0497323, 0.404166, 0.0434037), Vector3(0.0506612, 0.392056, 0.0434037), Vector3(0, 0.438313, 0.0434037)]
 }
 
-[sub_resource type="Animation" id="Animation_s4q8k"]
+[sub_resource type="Animation" id="Animation_uhiqq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraNeck/Camera3D:position")
+tracks/0/path = NodePath("CameraNeck/Shotgun_SawedOff:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(2.08165e-12, 0.77703, 2.08165e-12)]
+"values": [Vector3(0, 0.438313, 0.0434037)]
 }
 
-[sub_resource type="Animation" id="Animation_hxtdx"]
-resource_name = "Walking"
-length = 0.5
-loop_mode = 1
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CameraNeck/Camera3D:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(2.08165e-12, 0.77703, 2.08165e-12), Vector3(2.08165e-12, 0.861687, 0), Vector3(2.08165e-12, 0.77703, 2.08165e-12)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ivk8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0hhsr"]
 _data = {
-"Idle": SubResource("Animation_cbqet"),
-"RESET": SubResource("Animation_s4q8k"),
-"Walking": SubResource("Animation_hxtdx")
+"Moving": SubResource("Animation_qm1n5"),
+"RESET": SubResource("Animation_uhiqq")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lqpwg"]
-animation = &"Idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_74xhf"]
+animation = &"Moving"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_43juc"]
-animation = &"Walking"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2hrfu"]
+animation = &"RESET"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_n2x4h"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_lqpwg")
-blend_point_0/pos = 0.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_43juc")
-blend_point_1/pos = 1.0
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_2rl5t"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_74xhf")
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_2hrfu")
+blend_point_1/pos = 0.0
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 5
 script = ExtResource("1_gtsp0")
 PlayerInfo = ExtResource("2_tjgyl")
 
 [node name="CameraNeck" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.357505)
-
-[node name="PlayerBodyShape" type="CSGCylinder3D" parent="CameraNeck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.357505)
 
 [node name="Camera3D" type="Camera3D" parent="CameraNeck"]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 0.77703, 2.08165e-12)
-environment = SubResource("Environment_d0ypc")
-current = true
 fov = 90.0
 
-[node name="PlayerGunProp" parent="CameraNeck" instance=ExtResource("3_1vktc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412829, 0)
+[node name="InteractionRay" type="RayCast3D" parent="CameraNeck/Camera3D"]
+transform = Transform3D(1, -3.48787e-16, -3.48787e-16, -3.48787e-16, -4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -5.17381e-16, -0.0108719, -0.0998711)
+collision_mask = 4
+script = ExtResource("3_uwfkk")
+
+[node name="Shotgun_SawedOff" parent="CameraNeck" instance=ExtResource("2_phksp")]
+transform = Transform3D(-1.30463e-08, -1.32519e-09, 0.3, -0.0303169, 0.298464, -6.18675e-15, -0.298464, -0.0303169, -1.31134e-08, 0, 0.438313, 0.0434037)
 
 [node name="ShotingHole" type="Node3D" parent="CameraNeck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.645011, -1.05302)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476007, -0.957375)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["player"]]
 shape = SubResource("CapsuleShape3D_0pf0p")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(3.1238e-15, 8.74228e-08, -2, 2, -8.74228e-08, -6.97574e-16, -8.74228e-08, -2, -8.74228e-08, 0, 0.562428, -0.912269)
@@ -122,23 +95,56 @@ one_shot = true
 [node name="Mana_Inc" type="Timer" parent="."]
 one_shot = true
 
-[node name="Barrel_Switch_Timer" type="Timer" parent="."]
-
-[node name="PlayerHud" parent="." instance=ExtResource("4_6vgwf")]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_6ivk8")
+"": SubResource("AnimationLibrary_0hhsr")
 }
-next/Walking = &"RESET"
-blend_times = [&"RESET", &"Walking", 0.5, &"Walking", &"Walking", 0.15]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendSpace1D_n2x4h")
+libraries = {
+"": SubResource("AnimationLibrary_0hhsr")
+}
+tree_root = SubResource("AnimationNodeBlendSpace1D_2rl5t")
 anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/blend_position = -0.0011099
+parameters/blend_position = -0.00162077
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Debug_label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 23.0
+text = " = Debug = 
+- Health = 
+- Mana = 
+- Bullet Right = 
+- Bullet Left = "
+
+[node name="InteractTesting" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.952083
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press E to interact"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Barrel_Timer" to="." method="_on_barrel_timer_timeout"]
 [connection signal="timeout" from="Mana_Inc" to="." method="_on_mana_inc_timeout"]

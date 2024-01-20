@@ -1,26 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4dc3i5pc7pdd"]
+[gd_scene load_steps=10 format=3 uid="uid://c4dc3i5pc7pdd"]
 
-[ext_resource type="Script" path="res://componets/bullets/template/ammo.gd" id="1_xx6bo"]
-[ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/nutbullet/nut_bullet_info.tres" id="2_01aq4"]
+[ext_resource type="PackedScene" uid="uid://c810cva7uciar" path="res://componets/bullets/template/Ammo_Template.tscn" id="1_sde4p"]
 [ext_resource type="Texture2D" uid="uid://bcxm7bu2hi8nt" path="res://assets/images/bullet_nut.jpg" id="2_3222h"]
+[ext_resource type="Script" path="res://componets/bullets/nutbullet/nut_ammo.gd" id="2_g0vud"]
+[ext_resource type="Resource" uid="uid://di37acejeygq6" path="res://componets/bullets/nutbullet/nut_bullet_info.tres" id="3_vodi3"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="4_we3o1"]
-
-[sub_resource type="Animation" id="Animation_oa4bp"]
-resource_name = "IDLE"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(3.48787e-16, 6.28319, 3.48787e-16)]
-}
 
 [sub_resource type="Animation" id="Animation_2eosg"]
 length = 0.001
@@ -37,30 +21,46 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_oa4bp"]
+resource_name = "init"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.48787e-16, 6.28319, 3.48787e-16)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uik3j"]
 _data = {
-"IDLE": SubResource("Animation_oa4bp"),
-"RESET": SubResource("Animation_2eosg")
+"RESET": SubResource("Animation_2eosg"),
+"init": SubResource("Animation_oa4bp")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mdu5s"]
 
-[node name="Ammo_Template" type="Area3D" node_paths=PackedStringArray("AnimPlayer")]
-script = ExtResource("1_xx6bo")
-Bullet_Info = ExtResource("2_01aq4")
+[node name="Ammo_Template" instance=ExtResource("1_sde4p")]
+script = ExtResource("2_g0vud")
+Bullet_Info = ExtResource("3_vodi3")
 Player_Info = ExtResource("4_we3o1")
-AnimPlayer = NodePath("AnimationPlayer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 libraries = {
 "": SubResource("AnimationLibrary_uik3j")
 }
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 shape = SubResource("SphereShape3D_mdu5s")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." index="2"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 texture = ExtResource("2_3222h")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="player_pickup" from="." to="." method="_on_player_pickup"]
