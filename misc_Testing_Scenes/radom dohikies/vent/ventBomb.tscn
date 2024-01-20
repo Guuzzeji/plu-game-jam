@@ -15,7 +15,6 @@ radius = 1.5
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_0brlb")
 max_contacts_reported = 4
-contact_monitor = true
 script = ExtResource("1_rugqe")
 
 [node name="bombShell" type="CSGSphere3D" parent="."]
@@ -37,7 +36,10 @@ shape = SubResource("SphereShape3D_mnu2w")
 
 [node name="detonateTimer" type="Timer" parent="."]
 
+[node name="SafetyFuze" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="lifeTimer" to="." method="_on_life_timer_timeout"]
 [connection signal="body_entered" from="explosionArea" to="." method="_on_explosion_area_body_entered"]
 [connection signal="timeout" from="detonateTimer" to="." method="_on_detonate_timer_timeout"]
+[connection signal="timeout" from="SafetyFuze" to="." method="_on_safety_fuze_timeout"]

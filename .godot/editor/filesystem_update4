@@ -30,3 +30,5 @@ res://componets/bullets/mortarbullet/tempBounceScript.tscn
 res://componets/bullets/CannonBallTester/CannonBallTester_Projectile.tscn
 res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres
 res://componets/bullets/mortarbullet/BouncingShell.tres
+res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.gd
+res://sentry.gd

@@ -67,7 +67,7 @@ func _process(delta):
 			#can see player code, eyes always sees player, raycast checks if can see player
 			#raycast only detects the first object it hits, backbone of if statement
 			$DetectionEyes.look_at(targetBody.position,Vector3.UP)
-			print(targetBody.position)
+			#print(targetBody.position)
 			if (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() && RayCastSightLine.get_collider().is_in_group("player")):
 				var  original_scale = self.basis.get_scale()# original_scale(self.basis.get_scale())
 				var speed = .05

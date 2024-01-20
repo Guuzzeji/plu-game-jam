@@ -1,6 +1,6 @@
+Timer
 CollisionShape3D
 Area3D
-Timer
 MeshInstance3D
 CSGSphere3D
 RigidBody3D
