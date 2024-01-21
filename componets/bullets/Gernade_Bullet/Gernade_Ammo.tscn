@@ -1,0 +1,106 @@
+[gd_scene load_steps=14 format=3 uid="uid://d4j4h8r8f6on"]
+
+[ext_resource type="Script" path="res://componets/bullets/template/ammo.gd" id="1_fgnqx"]
+[ext_resource type="Resource" uid="uid://b1hoyyy45o251" path="res://componets/bullets/Gernade_Bullet/Gernade_Bullet.tres" id="2_4ou56"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="3_ml5vg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sblrm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hahv1"]
+albedo_color = Color(0, 0.337255, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75x5c"]
+transparency = 1
+albedo_color = Color(0.47451, 0.47451, 0.47451, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0upxk"]
+transparency = 1
+albedo_color = Color(0.47451, 0.47451, 0.47451, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1opt"]
+transparency = 1
+albedo_color = Color(0.47451, 0.47451, 0.47451, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sedv"]
+transparency = 1
+albedo_color = Color(0.47451, 0.47451, 0.47451, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qfou"]
+transparency = 1
+albedo_color = Color(0.47451, 0.47451, 0.47451, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8awl"]
+transparency = 1
+albedo_color = Color(0.47451, 0.47451, 0.47451, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlyje"]
+transparency = 1
+albedo_color = Color(0.47451, 0.47451, 0.47451, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bc46"]
+transparency = 1
+albedo_color = Color(0.47451, 0.47451, 0.47451, 1)
+metallic = 1.0
+
+[node name="GernadeAmmo" type="Area3D"]
+script = ExtResource("1_fgnqx")
+Bullet_Info = ExtResource("2_4ou56")
+Player_Info = ExtResource("3_ml5vg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_sblrm")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, 0.12)
+material_override = SubResource("StandardMaterial3D_hahv1")
+polygon = PackedVector2Array(0.172885, 0.135749, 0.212308, 0.211107, 0.435846, 0.140932, 0.364802, -0.150018, -0.0996113, -0.167068, -0.209051, -0.0898894, -0.171265, 0.0970207)
+depth = 0.25
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00422664, 0.0876046, -0.0424184)
+material_override = SubResource("StandardMaterial3D_75x5c")
+radius = 0.07127
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0130251, 0.0867179, 0.0295183)
+material_override = SubResource("StandardMaterial3D_0upxk")
+radius = 0.07127
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652289, 0.0876046, 0.0256014)
+material_override = SubResource("StandardMaterial3D_t1opt")
+radius = 0.0752103
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177112, 0.0876046, -0.00719891)
+material_override = SubResource("StandardMaterial3D_1sedv")
+radius = 0.0724624
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121772, 0.121673, -0.0258356)
+material_override = SubResource("StandardMaterial3D_5qfou")
+radius = 0.068753
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.197678, 0.0657437, -0.0508417)
+material_override = SubResource("StandardMaterial3D_e8awl")
+radius = 0.07127
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0667133, 0.11778, -0.0685914)
+material_override = SubResource("StandardMaterial3D_dlyje")
+radius = 0.046701
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115432, 0.0915768, 0.0372234)
+material_override = SubResource("StandardMaterial3D_8bc46")
+radius = 0.07127
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

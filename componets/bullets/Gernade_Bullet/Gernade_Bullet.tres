@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Bullet_Type" load_steps=2 format=3 uid="uid://b1hoyyy45o251"]
+
+[ext_resource type="Script" path="res://src/bullet_resource.gd" id="1_a0sea"]
+
+[resource]
+script = ExtResource("1_a0sea")
+Name = "GernadeBullet"
+ID = 0
+Path_Projectile = "res://componets/bullets/Gernade_Bullet/Gernade_Bullet.tscn"
+Path_Ammo = "res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn"
+Damage = 25
+Speed = 25
+Cost = 5
+Life_Time = 5.0
+Enemy_Bullet = false
+Other_Info = {}

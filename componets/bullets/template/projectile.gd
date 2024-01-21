@@ -17,7 +17,9 @@ extends Area3D
 # **About**
 # variable to stre what fired the projectile
 # stops shooter from hitting self, requires projectile.orginator = self inside shooter code
+# Also should add the curret character's speed to the bullet speed
 var orginator = Node3D
+#var playerSpeed = 
 
 # **About**
 # Signal for when bullet hits something 

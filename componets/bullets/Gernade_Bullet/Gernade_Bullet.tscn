@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl5287t8dw2cj"]
+
+[ext_resource type="Script" path="res://componets/bullets/template/projectile.gd" id="1_yrr3n"]
+[ext_resource type="Resource" uid="uid://b1hoyyy45o251" path="res://componets/bullets/Gernade_Bullet/Gernade_Bullet.tres" id="2_xplob"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="3_ir8da"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pxoig"]
+
+[node name="GernadeBullet" type="Area3D" node_paths=PackedStringArray("Life_Timer")]
+script = ExtResource("1_yrr3n")
+Bullet_Info = ExtResource("2_xplob")
+Player_Info = ExtResource("3_ir8da")
+Life_Timer = NodePath("Life_Timer")
+
+[node name="Life_Timer" type="Timer" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.207978
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_pxoig")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Life_Timer" to="." method="_on_life_timer_timeout"]

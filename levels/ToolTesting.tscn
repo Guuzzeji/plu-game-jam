@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c856cl5nd1e4x"]
+[gd_scene load_steps=10 format=3 uid="uid://c856cl5nd1e4x"]
 
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_7scvg"]
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="2_yle1n"]
 [ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="3_0ie17"]
+[ext_resource type="PackedScene" uid="uid://bw01ihem7k5ta" path="res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn" id="5_rqwjy"]
+[ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="5_ugqed"]
+[ext_resource type="PackedScene" uid="uid://d4j4h8r8f6on" path="res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn" id="6_62v3s"]
+[ext_resource type="PackedScene" uid="uid://cxdi1p47atdbk" path="res://componets/bullets/PhysicsBullet/PhysicsBullet_Ammo.tscn" id="7_7cwd2"]
+[ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="7_vu514"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8o3"]
 albedo_color = Color(0.321569, 0, 0, 1)
@@ -28,3 +33,25 @@ material = SubResource("StandardMaterial3D_fp8o3")
 [node name="SpawnPoint" parent="SpawnPoints" instance=ExtResource("2_yle1n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 14)
 spawnBlueprint = ExtResource("3_0ie17")
+
+[node name="SpawnPads" type="Node3D" parent="."]
+
+[node name="nut_ammo" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+spawnBlueprint = ExtResource("5_ugqed")
+y_offset = 0.5
+
+[node name="Gernade Ammo" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 4)
+spawnBlueprint = ExtResource("6_62v3s")
+y_offset = 0.5
+
+[node name="Physics Ammo" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -4)
+spawnBlueprint = ExtResource("7_7cwd2")
+y_offset = 0.5
+
+[node name="PressureSpawnPad3" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 8)
+spawnBlueprint = ExtResource("7_vu514")
+y_offset = 0.5

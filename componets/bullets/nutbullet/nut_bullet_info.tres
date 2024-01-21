@@ -15,3 +15,4 @@ Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
+InitialForce = 5
