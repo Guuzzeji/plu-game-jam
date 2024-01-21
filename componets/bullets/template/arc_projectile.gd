@@ -1,8 +1,14 @@
 extends RigidBody3D
 
 # **How to use**
-# Create a new node .tscn file and have the root node be a Area3d node
-# Then attach this script onto the Area3d node you create for the scene
+# Create a new node .tscn file and have the root node be a rigid body node
+# Then attach this script onto the rigid body node you create for the scene
+#create an area 3D node that is slightly bigger than the rigid body, this is for target hit detection
+##note, rigid body works as area 3D node, fine but ERRROR CAUTION ERROR
+						##the rigid area ALSO calculates physics, causing weord behavior where body bounces 
+						##THEN the code activates, this might be useful to apply knockback BUT the player can launch themselves 
+						##with their own bullet,
+						##note, maybe dont do the second area detection.... hmmmm
 # Also create a Timer parent node with the scene you created, will have to attach that in properties menu under Life Timer
 # After that add a collision shape and fill out the properties in the editor
 
@@ -13,7 +19,7 @@ extends RigidBody3D
 @export var Bullet_Info : Bullet_Type
 @export var Player_Info : Player_Data
 @export var Life_Timer : Timer
-@export var Collision_Timer : Timer
+@export var Collision_Timer : Timer	 #if want to explode shortly after you hit something 
 
 # **About**
 # variable to stre what fired the projectile
