@@ -1,8 +1,8 @@
-AnimatableBody3D
-Node
+Node3D
 CollisionShape3D
 StaticBody3D
-Node3D
+AnimatableBody3D
+Node
 CollisionPolygon3D
 Area3D
 Timer
@@ -12,4 +12,3 @@ RayCast3D
 CSGSphere3D
 CSGBox3D
 CSGTorus3D
-RigidBody3D

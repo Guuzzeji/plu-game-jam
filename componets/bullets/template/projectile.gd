@@ -45,11 +45,11 @@ func _process(delta):
 # **About**
 # Use when ever enemy node goes into body
 func _on_body_entered(body):
-	#print(orginator)
-	#print(body)
-	print(body.owner)
-	if (orginator == body):
-		pass ##dont hit self
+	#print("Orginator: ", orginator)
+	#print("Body: ", body)
+	#print("body owner: ", body.owner)
+	if (orginator == body or orginator == body.owner):
+		pass ##dont hit selfs
 	elif (body.is_in_group("Enemy")):
 		damage(body)
 	elif body.is_in_group("player") && Bullet_Info.Enemy_Bullet:
