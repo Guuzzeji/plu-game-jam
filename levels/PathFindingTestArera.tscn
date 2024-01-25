@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsjl70sugaxhg"]
+[gd_scene load_steps=8 format=3 uid="uid://bsjl70sugaxhg"]
 
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_fnqm2"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="2_kk017"]
 [ext_resource type="PackedScene" uid="uid://bw0uu5umnt8vn" path="res://componets/Enemy Folder/Evil Cube/evil_cube.tscn" id="2_u6p4o"]
 [ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="3_xlot8"]
+[ext_resource type="PackedScene" uid="uid://bw01ihem7k5ta" path="res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn" id="5_yw8i2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_1e54v"]
 vertices = PackedVector3Array(60.326, 0.5, -3.19, 63.826, 0.5, -4.69, 63.826, 0.5, -45.94, 59.326, 0.5, -0.189999, 60.326, 0.5, -3.19, 63.826, 0.5, -45.94, 8.326, 0.5, -45.94, 8.326, 0.5, -0.189999, 63.826, 0.5, -45.94, 63.826, 0.5, -4.69, 66.826, 0.5, -3.69, 63.826, 0.5, -45.94, 66.826, 0.5, -3.69, 67.576, 0.5, -2.94, 63.826, 0.5, -45.94, 67.576, 0.5, -2.94, 68.576, 0.5, 0.0600014, 119.326, 0.5, 0.0600014, 119.326, 0.5, -45.94, 61.576, 1.25, 4.06, 62.326, 1, 4.81, 63.076, 1.5, 3.56, 61.576, 1.5, 2.81, 67.326, 1.5, -0.689999, 66.326, 1.5, -2.69, 63.326, 1.5, -3.44, 60.326, 1.5, 0.310001, 61.576, 1.5, 2.81, 64.826, 1.5, 3.31, 61.576, 1.5, 2.81, 63.076, 1.5, 3.56, 64.826, 1.5, 3.31, 64.826, 1.5, 3.31, 66.576, 1.5, 2.31, 67.326, 1.5, -0.689999, 63.326, 1.5, -3.44, 61.326, 1.5, -2.69, 60.326, 1.5, 0.310001, 60.326, 0.5, 4.31, 60.576, 0.5, 3.31, 59.576, 0.5, 1.56, 8.326, 0.5, 4.31, 59.326, 0.5, -0.189999, 8.326, 0.5, -0.189999, 8.326, 0.5, 4.31, 59.576, 0.5, 1.56, 67.076, 0.5, 3.56, 63.576, 0.5, 4.56, 63.326, 0.5, 5.31, 62.826, 0.5, 46.06, 63.326, 0.5, 5.31, 62.826, 0.75, 5.31, 62.826, 0.5, 46.06, 68.576, 0.5, 0.0600014, 67.076, 0.5, 3.56, 62.826, 0.5, 46.06, 119.326, 0.5, 46.06, 119.326, 0.5, 0.0600014, 62.326, 1, 4.81, 61.576, 1.25, 4.06, 61.326, 1, 4.56, 62.326, 0.75, 5.31, 62.826, 0.5, 46.06, 62.826, 0.75, 5.31, 62.326, 0.75, 5.31, 62.326, 0.75, 5.31, 61.326, 1, 4.56, 60.326, 0.5, 4.31, 8.326, 0.5, 4.31, 8.326, 0.5, 46.06, 62.826, 0.5, 46.06)
@@ -19,6 +20,14 @@ albedo_texture = ExtResource("2_kk017")
 [node name="TelePad" parent="Teleporters" instance=ExtResource("1_fnqm2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 TeleChannel = 5
+
+[node name="TelePad2" parent="Teleporters" instance=ExtResource("1_fnqm2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.443, 0, 5.92)
+TeleChannel = 6
+
+[node name="TelePad3" parent="Teleporters" instance=ExtResource("1_fnqm2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75886, 1, -7.94924)
+TeleChannel = 6
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.863, 0, 0)
@@ -45,3 +54,15 @@ depth = 2.0
 [node name="EvilCube" parent="." instance=ExtResource("2_u6p4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.818, 0, 0)
 spawnBlueprint = ExtResource("3_xlot8")
+
+[node name="PressureSpawnPad" parent="." instance=ExtResource("5_yw8i2")]
+transform = Transform3D(0.772312, 0, -0.635243, 0, 1, 0, 0.635243, 0, 0.772312, 0.127609, 0, 7.21433)
+spawnBlueprint = ExtResource("2_u6p4o")
+
+[node name="PressureSpawnPad2" parent="." instance=ExtResource("5_yw8i2")]
+transform = Transform3D(0.772312, 0, -0.635243, 0, 1, 0, 0.635243, 0, 0.772312, 1.12761, 0, 10.2143)
+spawnBlueprint = ExtResource("2_u6p4o")
+
+[node name="PressureSpawnPad3" parent="." instance=ExtResource("5_yw8i2")]
+transform = Transform3D(0.772312, 0, -0.635243, 0, 1, 0, 0.635243, 0, 0.772312, -2.87239, 0, 9.21433)
+spawnBlueprint = ExtResource("2_u6p4o")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c856cl5nd1e4x"]
+[gd_scene load_steps=12 format=3 uid="uid://c856cl5nd1e4x"]
 
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_7scvg"]
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="2_yle1n"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d4j4h8r8f6on" path="res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn" id="6_62v3s"]
 [ext_resource type="PackedScene" uid="uid://cxdi1p47atdbk" path="res://componets/bullets/PhysicsBullet/PhysicsBullet_Ammo.tscn" id="7_7cwd2"]
 [ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="7_vu514"]
+[ext_resource type="PackedScene" uid="uid://ctv1pdtxhu54x" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn" id="9_pqssm"]
+[ext_resource type="PackedScene" uid="uid://p08shaauj6w6" path="res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn" id="10_6gfki"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8o3"]
 albedo_color = Color(0.321569, 0, 0, 1)
@@ -19,6 +21,14 @@ metallic = 0.4
 
 [node name="HomeTele" parent="Teleporters" instance=ExtResource("1_7scvg")]
 TeleChannel = 4
+
+[node name="TelePad" parent="Teleporters" instance=ExtResource("1_7scvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38241, -4.76837e-07, -3.68135)
+TeleChannel = 8
+
+[node name="TelePad2" parent="Teleporters" instance=ExtResource("1_7scvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54318, -4.76837e-07, -3.30451)
+TeleChannel = 8
 
 [node name="World" type="Node3D" parent="."]
 
@@ -55,3 +65,7 @@ y_offset = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 8)
 spawnBlueprint = ExtResource("7_vu514")
 y_offset = 0.5
+
+[node name="SpawnTesterRandos" parent="SpawnPads" instance=ExtResource("9_pqssm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+spawnBlueprint = ExtResource("10_6gfki")

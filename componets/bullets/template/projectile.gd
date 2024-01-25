@@ -45,6 +45,9 @@ func _process(delta):
 # **About**
 # Use when ever enemy node goes into body
 func _on_body_entered(body):
+	#print(orginator)
+	#print(body)
+	print(body.owner)
 	if (orginator == body):
 		pass ##dont hit self
 	elif (body.is_in_group("Enemy")):
