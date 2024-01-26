@@ -29,6 +29,7 @@ shape = SubResource("CapsuleShape3D_vq0to")
 [node name="ClassicBullet" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.91068e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 1.05004e-08, 0, 0)
 material_override = SubResource("StandardMaterial3D_gjhox")
+transparency = 0.35
 mesh = ExtResource("2_sb2eu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

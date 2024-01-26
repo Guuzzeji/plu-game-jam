@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://booitd2lx3oqi"]
+
+[ext_resource type="Script" path="res://componets/bullets/template/ammo.gd" id="1_jm4r8"]
+[ext_resource type="Resource" uid="uid://o8n1jr5csigc" path="res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres" id="2_nkqjv"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="3_5spgl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g8lfc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb2qy"]
+albedo_color = Color(1, 0, 0.0156863, 1)
+emission_energy_multiplier = 1.14
+rim_enabled = true
+clearcoat_enabled = true
+grow_amount = -0.821
+
+[node name="InstantBeamAmmo" type="Area3D"]
+script = ExtResource("1_jm4r8")
+Bullet_Info = ExtResource("2_nkqjv")
+Player_Info = ExtResource("3_5spgl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_g8lfc")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qb2qy")
+inner_radius = 0.1
+outer_radius = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

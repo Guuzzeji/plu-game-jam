@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Bullet_Type" load_steps=2 format=3 uid="uid://o8n1jr5csigc"]
+
+[ext_resource type="Script" path="res://src/bullet_resource.gd" id="1_1utp1"]
+
+[resource]
+script = ExtResource("1_1utp1")
+Name = "InstantBeam"
+ID = 7
+Path_Projectile = "res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tscn"
+Path_Ammo = "res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn"
+Damage = 1
+Speed = 0
+Cost = 5
+Life_Time = 0.05
+Enemy_Bullet = false
+Other_Info = {}
+InitialForce = 5
+ActivateCollisionDelay = 0.5
+offset = 1.0
+CanBounce = false
+friendlyFire = false
+Explosive = false
+ExplodeDelay = 0.0
+safetyDelay = 0.5

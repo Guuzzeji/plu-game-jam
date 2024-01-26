@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://d4j4h8r8f6on" path="res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn" id="6_62v3s"]
 [ext_resource type="PackedScene" uid="uid://cxdi1p47atdbk" path="res://componets/bullets/PhysicsBullet/PhysicsBullet_Ammo.tscn" id="7_7cwd2"]
 [ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="7_vu514"]
+[ext_resource type="PackedScene" uid="uid://booitd2lx3oqi" path="res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn" id="8_sgwl5"]
 [ext_resource type="PackedScene" uid="uid://ctv1pdtxhu54x" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn" id="9_pqssm"]
 [ext_resource type="PackedScene" uid="uid://p08shaauj6w6" path="res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn" id="10_6gfki"]
-[ext_resource type="PackedScene" uid="uid://mhutow3ewifp" path="res://misc_Testing_Scenes/radom dohikies/FancyHitboxTree/FancyHitboxTree.tscn" id="11_jrks4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8o3"]
 albedo_color = Color(0.321569, 0, 0, 1)
@@ -62,6 +62,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -4)
 spawnBlueprint = ExtResource("7_7cwd2")
 y_offset = 0.5
 
+[node name="InstaBeamAmmo" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -8)
+spawnBlueprint = ExtResource("8_sgwl5")
+y_offset = 0.5
+
 [node name="PressureSpawnPad3" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 8)
 spawnBlueprint = ExtResource("7_vu514")
@@ -72,6 +77,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 spawnBlueprint = ExtResource("10_6gfki")
 
 [node name="misc" type="Node3D" parent="."]
-
-[node name="FancyHitboxTree" parent="misc" instance=ExtResource("11_jrks4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)

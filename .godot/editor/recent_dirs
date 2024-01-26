@@ -1,3 +1,5 @@
+res://componets/bullets/BeamAndLasers/InstantBeam
+res://componets/bullets/BeamAndLasers/ConstantBeam
 res://componets/bullets/classicbullet
 res://componets/bullets/PhysicsBullet
 res://componets/bullets/Gernade_Bullet

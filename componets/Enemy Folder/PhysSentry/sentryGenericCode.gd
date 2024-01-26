@@ -1,4 +1,4 @@
-extends Node3D
+extends Node3D	#this: example sentry used for testing
 ################################ INSTRUCTIONS
 # 1DESIGN your turret after ModSentryX1 to start as that is what the script was made for
 # 2: The meshes in ModSentryx1 are JUST for looks, feel free to replace them
