@@ -1,4 +1,3 @@
-res://levels/ToolTesting.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd
 res://componets/bullets/template/ammo.gd
 res://componets/bullets/template/arc_projectile.gd
@@ -11,14 +10,13 @@ res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd
 res://componets/player/player_info.tres
 res://componets/bullets/nutbullet/nut_bullet_info.tres
 res://componets/bullets/PhysicsBullet/PhysBulletResource.tres
-res://componets/bullets/PhysicsBullet/PhysBullet.tscn
-res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn
+res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres
+res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.gdshader
+res://componets/Enemy Folder/PhysSentry/PhysicSentryHead.tscn
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/new_script.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/evil_cube_crawler.tscn
 res://levels/level_test.tscn
 res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
-res://componets/Level_Devices/telepad/tele_pad.tscn
-res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn
-res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.tscn
-res://sentry.tscn
 res://componets/player/player.tscn
 res://componets/bullets/classicbullet/ClassicBullet.tscn
 res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn
@@ -27,11 +25,11 @@ res://componets/bullets/nutbullet/nut_ammo.tscn
 res://componets/bullets/CannonBallTester/CannonBallTester_Projectile.tscn
 res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
 res://levels/PathFindingTestArera.tscn
-res://misc_Testing_Scenes/radom dohikies/FancyHitboxTree/FancyHitboxTree.tscn
-res://componets/bullets/BeamAndLasers/ConstantBeam/ConstantBeamResource.tres
-res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tscn
-res://componets/bullets/template/Beam.gd
-res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn
-res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres
+res://levels/ToolTesting.tscn
+res://componets/bullets/PhysicsBullet/PhysBullet.tscn
+res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn
 res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn
-res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.gdshader
+res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn
+res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tscn
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCrawlerIKScript.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn

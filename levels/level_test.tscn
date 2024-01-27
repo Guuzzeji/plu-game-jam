@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=22 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
 [ext_resource type="Texture2D" uid="uid://1jfql6svsg7h" path="res://assets/images/test-surface-texture/Purple/texture_01.png" id="2_dchu1"]
 [ext_resource type="Script" path="res://src/bullet_resource.gd" id="3_5ds71"]
 [ext_resource type="PackedScene" uid="uid://c856cl5nd1e4x" path="res://levels/ToolTesting.tscn" id="8_dol5p"]
+[ext_resource type="PackedScene" uid="uid://dqt4i2pqa6m30" path="res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn" id="9_70rwp"]
 [ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="12_8mt6k"]
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="13_i76f7"]
 [ext_resource type="PackedScene" uid="uid://bsjl70sugaxhg" path="res://levels/PathFindingTestArera.tscn" id="18_tnolj"]
@@ -224,3 +225,6 @@ transform = Transform3D(0.865178, 0, -0.501465, 0, 1, 0, 0.501465, 0, 0.865178, 
 
 [node name="ToolTesting" parent="SubLevels" instance=ExtResource("8_dol5p")]
 transform = Transform3D(0.989784, 0, -0.142577, 0, 1, 0, 0.142577, 0, 0.989784, 95.6482, -11, 37.6916)
+
+[node name="EvilCubeCrawlerExport" parent="." instance=ExtResource("9_70rwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49997, 0.240029, -2.17399)
