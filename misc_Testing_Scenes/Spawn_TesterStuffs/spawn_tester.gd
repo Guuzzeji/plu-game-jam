@@ -79,7 +79,7 @@ func on_button_pressed(whichButton):
 		#return "idle"
 	#elif ((state == LOCKED) or (state == UNLOCKING)):
 		#return "lock"
-func _process(delta):	#animation note, playing an animation interupts another animation
+func _process(_delta):	#animation note, playing an animation interupts another animation
 		match state:
 			WAIT:
 				pass

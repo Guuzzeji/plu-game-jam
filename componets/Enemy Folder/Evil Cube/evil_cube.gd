@@ -29,7 +29,7 @@ func _ready():
 	if spawnBlueprint:
 		turretHat()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	healthCheck()
 	velocity = Vector3.ZERO #reset the velocity each loop
 	nav_agent.set_target_position(target.global_position) #why

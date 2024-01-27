@@ -1,8 +1,10 @@
+res://levels/level_test.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd
 res://componets/bullets/template/ammo.gd
 res://componets/bullets/template/arc_projectile.gd
 res://componets/bullets/template/projectile.gd
 res://componets/Enemy Folder/Evil Cube/evil_cube.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCrawlerIKScript.gd
 res://componets/Enemy Folder/PhysSentry/sentryGenericCode.gd
 res://componets/player/InteractionRay.gd
 res://componets/player/player.gd
@@ -10,12 +12,11 @@ res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd
 res://componets/player/player_info.tres
 res://componets/bullets/nutbullet/nut_bullet_info.tres
 res://componets/bullets/PhysicsBullet/PhysBulletResource.tres
-res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.gdshader
-res://componets/Enemy Folder/PhysSentry/PhysicSentryHead.tscn
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/new_script.gd
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/evil_cube_crawler.tscn
-res://levels/level_test.tscn
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCubeCrawl_AI.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/IKTargetScript.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/TargetRaycasts.gd
 res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
 res://componets/player/player.tscn
 res://componets/bullets/classicbullet/ClassicBullet.tscn
@@ -30,6 +31,6 @@ res://componets/bullets/PhysicsBullet/PhysBullet.tscn
 res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn
 res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tscn
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCrawlerIKScript.gd
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn
+res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres

@@ -227,4 +227,4 @@ transform = Transform3D(0.865178, 0, -0.501465, 0, 1, 0, 0.501465, 0, 0.865178, 
 transform = Transform3D(0.989784, 0, -0.142577, 0, 1, 0, 0.142577, 0, 0.989784, 95.6482, -11, 37.6916)
 
 [node name="EvilCubeCrawlerExport" parent="." instance=ExtResource("9_70rwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49997, 0.240029, -2.17399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49997, 7.24003, -2.17399)
