@@ -12,11 +12,8 @@ res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd
 res://componets/player/player_info.tres
 res://componets/bullets/nutbullet/nut_bullet_info.tres
 res://componets/bullets/PhysicsBullet/PhysBulletResource.tres
+res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.gdshader
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCubeCrawl_AI.gd
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/IKTargetScript.gd
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/TargetRaycasts.gd
 res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
 res://componets/player/player.tscn
 res://componets/bullets/classicbullet/ClassicBullet.tscn
@@ -31,6 +28,5 @@ res://componets/bullets/PhysicsBullet/PhysBullet.tscn
 res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn
 res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tscn
-res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres
