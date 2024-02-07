@@ -1,7 +1,8 @@
+CSGSphere3D
+CSGBox3D
 RayCast3D
 Node3D
 CSGCylinder3D
-CSGBox3D
 Marker3D
 SkeletonIK3D
 Path3D
@@ -11,4 +12,3 @@ Area3D
 Timer
 StaticBody3D
 CollisionShape3D
-AnimatableBody3D

@@ -11,7 +11,7 @@ extends Marker3D
 var is_stepping := false #is partner currently stepping?
 
 func _process(delta):
-	if !is_stepping && abs(global_position.distance_to(step_target.global_position)) > step_distance:	##space between ik target and the target on node
+	if !is_stepping && !adjacent_leg.is_stepping && abs(global_position.distance_to(step_target.global_position)) > step_distance:	##space between ik target and the target on node
 		step()
 		opposite_leg.step() ##so diagnal legs are synced for cleaner movement animation
 

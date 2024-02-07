@@ -30,3 +30,6 @@ res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tscn
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/IKTargetScript.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCubeCrawl_AI.gd
