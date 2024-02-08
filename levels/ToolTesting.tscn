@@ -96,4 +96,3 @@ mesh = ExtResource("12_ajdjw")
 
 [node name="EvilCubeCrawlerExport" parent="." instance=ExtResource("12_bbas6")]
 transform = Transform3D(0.3343, 0, -0.942467, 0, 1, 0, 0.942467, 0, 0.3343, -10.7177, 0.369209, -7.17887)
-ground_offset = 0.75

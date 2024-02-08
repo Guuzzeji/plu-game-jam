@@ -33,3 +33,5 @@ res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tscn
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/IKTargetScript.gd
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCubeCrawl_AI.gd
+res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn
+res://componets/bullets/template/Beam.gd

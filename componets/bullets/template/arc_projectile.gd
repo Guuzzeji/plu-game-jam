@@ -77,7 +77,7 @@ func _on_body_entered(body):
 func damage(body):		##if an enemy (say evil rock) cannot be damaged, best not crash!
 	#print(Bullet_Info.Damage)
 	if body.has_method("inflictDamage"):	##if can inflict damage, damage it
-		body.inflictDamage(Bullet_Info.Damage)
+		body.inflictDamage(Bullet_Info.Damage, body, self)
 	queue_free()
 	
 # == Signal Code == 

@@ -181,9 +181,9 @@ func get_global_x():
 ###############################################################################################################
 
 ########################################## SHOOTING ############################################
-func inflictDamage(damage): #entities that damage use this
+func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
 	instanceHealth = instanceHealth - damage
-	print(instanceHealth)
+	#print(instanceHealth)
 	
 func healthCheck(): ##kill sentry if health drops below zero
 	if instanceHealth <= 0:

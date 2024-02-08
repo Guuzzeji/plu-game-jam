@@ -130,7 +130,7 @@ func player_movement(delta):
 
 # **About**
 # damage player when hit, can modify incoming damage
-func inflictDamage(damage): #entities that damage use this
+func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
 	var armorMod = 1.0
 	PlayerInfo.Health = PlayerInfo.Health - damage * armorMod
 
