@@ -1,3 +1,5 @@
+CollisionShape3D
+Area3D
 CSGSphere3D
 CSGBox3D
 RayCast3D
@@ -8,7 +10,5 @@ SkeletonIK3D
 Path3D
 CSGPolygon3D
 CSGTorus3D
-Area3D
 Timer
 StaticBody3D
-CollisionShape3D
