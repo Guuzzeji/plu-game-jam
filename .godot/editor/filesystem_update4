@@ -16,3 +16,18 @@ res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.gdshader
 res://componets/Level_Devices/One_Way_Teleporter/One_Way_Teleporter.tscn
 res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn
 res://levels/level_test.tscn
+res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.gd
+res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
+res://componets/player/player.tscn
+res://componets/bullets/classicbullet/ClassicBullet.tscn
+res://componets/bullets/nutbullet/nut_ammo.tscn
+res://componets/bullets/CannonBallTester/CannonBallTester_Projectile.tscn
+res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
+res://levels/PathFindingTestArera.tscn
+res://levels/ToolTesting.tscn
+res://componets/bullets/PhysicsBullet/PhysBullet.tscn
+res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn
+res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tscn
+res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
+res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.gd
+res://componets/player/player_gun_prop.gd

@@ -16,7 +16,7 @@ func _input(event):
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#Fix Gun Clipping through walls
 	if $RayGunOffsetWall.is_colliding() and !$RayGunOffsetWall.get_collider().is_in_group("player"):
 		$Shotgun_SawedOff.position = lerp($Shotgun_SawedOff.position, Vector3($Shotgun_SawedOff.position.x, -100, $Shotgun_SawedOff.position.z), 0.00025)

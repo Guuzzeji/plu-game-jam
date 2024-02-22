@@ -47,7 +47,7 @@ func _input(event):
 
 # **About**
 # General Update
-func _process(delta):
+func _process(_delta):
 	barrel_bullet_switch("Inv_Index_Right_Barrel", "Right_barrel_type", PlayerInfo.BarrelState.SWITCHING_BULLETS_RIGHT)
 	barrel_bullet_switch("Inv_Index_Left_Barrel", "Left_barrel_type", PlayerInfo.BarrelState.SWITCHING_BULLETS_LEFT)
 	pass
@@ -133,6 +133,8 @@ func player_movement(delta):
 func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
 	var armorMod = 1.0
 	PlayerInfo.Health = PlayerInfo.Health - damage * armorMod
+	## if hitspot == head:
+	## PlayerInfo.Health = PlayerInfo.Health - (damage * 2) * armorMod
 
 # **About**
 # Update mana if player isn't full
