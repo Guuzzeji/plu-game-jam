@@ -1,8 +1,8 @@
+CSGBox3D
+MeshInstance3D
 Node3D
 CollisionShape3D
 Area3D
-CSGBox3D
-MeshInstance3D
 Node
 CSGCylinder3D
 CSGMesh3D

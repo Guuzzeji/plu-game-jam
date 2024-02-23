@@ -14,7 +14,7 @@ size = Vector3(100, 20, 100)
 [node name="Proto_Level_01" type="Node3D"]
 
 [node name="player_reference_shape" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.16406, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04853, 1.16406, -13.1173)
 mesh = SubResource("CapsuleMesh_oo6bs")
 
 [node name="Geography" type="Node3D" parent="."]
@@ -29,9 +29,75 @@ size = Vector3(100, 0.1, 100)
 
 [node name="SlabFloor" type="CSGBox3D" parent="Geography/Enterance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+use_collision = true
 size = Vector3(5, 0.5, 5)
 
 [node name="One_Way_Exit" parent="Geography/Enterance" instance=ExtResource("2_unqjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+One_Way_TeleChannel = 5
+invisible = true
+
+[node name="Wall1" type="CSGBox3D" parent="Geography/Enterance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3, 0)
+use_collision = true
+size = Vector3(0.5, 6, 5)
+
+[node name="Wall2" type="CSGBox3D" parent="Geography/Enterance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 3, 0)
+use_collision = true
+size = Vector3(0.5, 6, 5)
+
+[node name="Wall3" type="CSGBox3D" parent="Geography/Enterance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2.25)
+use_collision = true
+size = Vector3(5, 6, 0.5)
+
+[node name="Wall4" type="CSGBox3D" parent="Geography/Enterance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -2.25)
+use_collision = true
+size = Vector3(4, 1, 0.5)
+
+[node name="ChamberA" type="Node3D" parent="Geography"]
+
+[node name="Wall1" type="CSGBox3D" parent="Geography/ChamberA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3, -5)
+use_collision = true
+size = Vector3(0.5, 6, 5)
+
+[node name="Wall3" type="CSGBox3D" parent="Geography/ChamberA"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 3, -7.75)
+use_collision = true
+size = Vector3(0.5, 6, 5)
+
+[node name="Wall2" type="CSGBox3D" parent="Geography/ChamberA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 3, -10)
+use_collision = true
+size = Vector3(0.5, 6, 15)
+
+[node name="Wall5" type="CSGBox3D" parent="Geography/ChamberA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, 3, -10)
+use_collision = true
+size = Vector3(0.5, 6, 15)
+
+[node name="Wall4" type="CSGBox3D" parent="Geography/ChamberA"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 3, -17.75)
+use_collision = true
+size = Vector3(0.5, 6, 15)
+
+[node name="Wall6" type="CSGBox3D" parent="Geography/ChamberA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, 3, 0)
+use_collision = true
+size = Vector3(0.5, 6, 5)
+
+[node name="Wall7" type="CSGBox3D" parent="Geography/ChamberA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 3, 0)
+use_collision = true
+size = Vector3(0.5, 6, 5)
+
+[node name="Wall8" type="CSGBox3D" parent="Geography/ChamberA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5.5, -2.25)
+use_collision = true
+size = Vector3(4, 1, 0.5)
 
 [node name="Utilities" type="Node3D" parent="."]
 

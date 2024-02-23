@@ -25,3 +25,4 @@ res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
 res://componets/player/player.tscn
 res://levels/Light_Testing.tscn
 res://levels/proto_level_01.tscn
+res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.gd
