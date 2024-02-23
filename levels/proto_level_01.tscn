@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1w6fftdidred"]
+
+[ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_gcr0a"]
+[ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="2_unqjl"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oo6bs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbyrj"]
+albedo_texture = ExtResource("1_gcr0a")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdji4"]
+size = Vector3(100, 20, 100)
+
+[node name="Proto_Level_01" type="Node3D"]
+
+[node name="player_reference_shape" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.16406, -4)
+mesh = SubResource("CapsuleMesh_oo6bs")
+
+[node name="Geography" type="Node3D" parent="."]
+
+[node name="floor" type="CSGBox3D" parent="Geography"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+material_override = SubResource("StandardMaterial3D_dbyrj")
+use_collision = true
+size = Vector3(100, 0.1, 100)
+
+[node name="Enterance" type="Node3D" parent="Geography"]
+
+[node name="SlabFloor" type="CSGBox3D" parent="Geography/Enterance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+size = Vector3(5, 0.5, 5)
+
+[node name="One_Way_Exit" parent="Geography/Enterance" instance=ExtResource("2_unqjl")]
+
+[node name="Utilities" type="Node3D" parent="."]
+
+[node name="Activtation_Area" type="Area3D" parent="Utilities"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Utilities/Activtation_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+shape = SubResource("BoxShape3D_tdji4")
+
+[node name="Spawners" type="Node3D" parent="Utilities"]

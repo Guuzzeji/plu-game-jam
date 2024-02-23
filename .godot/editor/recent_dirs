@@ -1,3 +1,4 @@
+res://levels
 res://componets/Level_Devices/One_Way_Teleporter
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler
 res://componets/bullets/BeamAndLasers/InstantBeam
@@ -13,7 +14,6 @@ res://componets/Level_Devices/telepad
 res://
 res://assets/EnemyAssets/BulletSentry
 res://componets/bullets/nutbullet
-res://levels
 res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations
 res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadMaterials
 res://misc_Testing_Scenes/Spawn_TesterStuffs

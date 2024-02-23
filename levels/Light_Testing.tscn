@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://p7gx7g31d32g"]
+
+[ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="1_vsxi1"]
+[ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="2_pf2bu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vi24"]
+albedo_color = Color(0.0352941, 0.25098, 0.337255, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbyja"]
+albedo_color = Color(0.00392157, 0.443137, 0.443137, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qj7l4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xycwt"]
+shading_mode = 0
+albedo_color = Color(0.101961, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3dnu"]
+albedo_color = Color(0, 0.533333, 1, 1)
+emission_enabled = true
+emission = Color(0.00392157, 0.52549, 0.517647, 1)
+emission_energy_multiplier = 16.0
+rim_enabled = true
+rim_tint = 0.8
+grow_amount = -0.52
+
+[node name="Light_Testing" type="Node3D"]
+
+[node name="terrain" type="Node3D" parent="."]
+
+[node name="Base_Platform" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+use_collision = true
+size = Vector3(20, 0.1, 20)
+material = SubResource("StandardMaterial3D_7vi24")
+
+[node name="Light_Roof" type="CSGBox3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 5)
+use_collision = true
+size = Vector3(20, 0.1, 10)
+material = SubResource("StandardMaterial3D_vbyja")
+
+[node name="player_reference_shape" type="MeshInstance3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.16406, -4)
+mesh = SubResource("CapsuleMesh_qj7l4")
+
+[node name="Cubes" type="Node3D" parent="."]
+
+[node name="glow_cube" type="CSGBox3D" parent="Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 5)
+use_collision = true
+material = SubResource("StandardMaterial3D_xycwt")
+
+[node name="glow_cube2ShadowTest" type="CSGBox3D" parent="Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -6)
+use_collision = true
+material = SubResource("StandardMaterial3D_xycwt")
+
+[node name="plain_cube" type="CSGBox3D" parent="Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+use_collision = true
+
+[node name="RadiateGlow_cube" type="CSGBox3D" parent="Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 5)
+use_collision = true
+material = SubResource("StandardMaterial3D_a3dnu")
+
+[node name="RadiateGlow_cube2" type="CSGBox3D" parent="Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -5)
+use_collision = true
+material = SubResource("StandardMaterial3D_a3dnu")
+
+[node name="teleporters" type="Node3D" parent="."]
+
+[node name="One_Way_Enter" parent="teleporters" instance=ExtResource("1_vsxi1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+One_Way_TeleChannel = 3
+
+[node name="One_Way_Exit" parent="teleporters" instance=ExtResource("2_pf2bu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+One_Way_TeleChannel = 4
