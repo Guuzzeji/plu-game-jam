@@ -30,7 +30,7 @@ func _on_plate_detection_area_body_entered(body):
 			sendBody(body)	## make sure entered body was not teleported here.
 
 
-func _on_plate_detection_area_body_exited(body):
+func _on_plate_detection_area_body_exited(_body):
 	##EDITOR WILL NOT SHUT UP ABOUT UNUSED BODY -prefix _box
 	if buddy_telepad:
 		buddy_telepad.sentPackage = false ## reset sending tele, here the buddy is the one that sent body

@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):			##think it just stops head from lagging behind thus legs lag?
+func _process(_delta):			##think it just stops head from lagging behind thus legs lag?
 	var velocity = parent.global_position - previous_position
 	global_position = parent.global_position + velocity * offset
 	

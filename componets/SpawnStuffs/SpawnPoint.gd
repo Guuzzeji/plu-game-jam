@@ -10,7 +10,7 @@ extends Node3D
 @export var SpawnOnTimer = false
 @export var TimerDelay = 1.0
 @export var TimerRepeat = false
-@export var SpawnOnSignal = false
+@export var SpawnOnLevelStart = false
 
 ## DEBUG SETTINGS ##
 @export var visibleArrow = false 
@@ -18,7 +18,7 @@ extends Node3D
 ## LEVEL CONTROL UTILITIES ###
 var entity		##CURRENTLY UNUSED
 signal ACTIVATED ## I need two of these?
-@export var add_to_group_naem : String		## add spawned to group, how we track alive enemies
+@export var add_to_group_name : String		## add spawned to group, how we track alive enemies
 
 #####################################################################
 func _ready():
@@ -31,7 +31,7 @@ func _ready():
 		$SpawnTimer.set_one_shot(TimerRepeat)
 		$SpawnTimer.set_wait_time(TimerDelay)
 		
-	if SpawnOnSignal:
+	if SpawnOnLevelStart:
 		if owner.has_signal("ACTIVATE"):
 			#print(owner.ACTIVATE)
 			owner.ACTIVATE.connect(_spawn_signal_recieved)	### when created, grabs owner, grabs the signal ACTIVATED, connects to self function
@@ -49,6 +49,9 @@ func spawn_entity():
 	#spawned.rotate_y(PI)
 	entity.transform = entity.transform.translated(Vector3(x_offset,y_offset,z_offset))
 	add_child(entity)
+	if add_to_group_name:
+		entity.add_to_group(add_to_group_name)	## group up enemies to see if player killed them all.
+		#print(get_tree().get_nodes_in_group(add_to_group_name).size())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

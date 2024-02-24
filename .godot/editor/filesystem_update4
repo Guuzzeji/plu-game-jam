@@ -40,3 +40,7 @@ res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/IKTargetScript.gd
 res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.gd
 res://componets/player/bullet_inv.gd
 res://componets/player/player_hud.gd
+res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd
+res://componets/Level_Devices/telepad/TelePad.gd
+res://componets/bullets/template/Beam.gd

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b1w6fftdidred"]
+[gd_scene load_steps=27 format=3 uid="uid://b1w6fftdidred"]
 
 [ext_resource type="Script" path="res://levels/PL1_EVENT_MONITOR.gd" id="1_f2hsq"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_gcr0a"]
@@ -16,8 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://vp6sfilokglx" path="res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.tscn" id="13_uwlmh"]
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="15_rb14f"]
 [ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="16_insel"]
+[ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="16_qbgqj"]
 [ext_resource type="PackedScene" uid="uid://p08shaauj6w6" path="res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn" id="16_u2ih5"]
 [ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="17_bu0ak"]
+[ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="17_r0qei"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oo6bs"]
 
@@ -41,6 +43,7 @@ size = Vector3(100, 20, 100)
 
 [node name="Proto_Level_01" type="Node3D"]
 script = ExtResource("1_f2hsq")
+courtyard_Enemy_group = "CourtYardE"
 
 [node name="player_reference_shape" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.021, 1.16406, -38.5125)
@@ -163,6 +166,7 @@ mesh = ExtResource("7_72cc3")
 [node name="PgDoor" type="CSGMesh3D" parent="Geography/OnshapeImports"]
 use_collision = true
 mesh = ExtResource("8_3fm4i")
+script = ExtResource("3_tg16j")
 
 [node name="WindowPane" type="CSGMesh3D" parent="Geography/OnshapeImports"]
 mesh = ExtResource("9_2upj5")
@@ -193,25 +197,39 @@ cooldownTime = 5.0
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 5.179, 0.632224, -10.873)
 spawnBlueprint = ExtResource("16_insel")
 
+[node name="teleporter" type="Node3D" parent="Utilities"]
+
+[node name="baitTelepad" parent="Utilities/teleporter" instance=ExtResource("17_r0qei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13)
+TeleChannel = 7
+
+[node name="ClassicBulletAmmo" parent="Utilities/teleporter/baitTelepad" instance=ExtResource("16_qbgqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62551, 0)
+
+[node name="surpriseTelepad" parent="Utilities/teleporter" instance=ExtResource("17_r0qei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8419, 0, 14.3984)
+TeleChannel = 7
+
 [node name="SpawnPoints" type="Node3D" parent="."]
 
 [node name="StartSpawnPoint" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
 transform = Transform3D(-0.656862, 0, 0.754011, 0, 1, 0, -0.754011, 0, -0.656862, 6.1226, 0, -2.51355)
 spawnBlueprint = ExtResource("16_u2ih5")
 SpawnOnStart = false
-SpawnOnSignal = true
+add_to_group_name = "CourtYardE"
 
 [node name="StartSpawnPoint2" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
 transform = Transform3D(0.926535, 0, 0.376208, 0, 1, 0, -0.376208, 0, 0.926535, 22.3504, 0, -12.7591)
 spawnBlueprint = ExtResource("17_bu0ak")
 SpawnOnStart = false
-SpawnOnSignal = true
+add_to_group_name = "CourtYardE"
 
 [node name="StartSpawnPoint3" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
 transform = Transform3D(-0.808945, 0, -0.587884, 0, 1, 0, 0.587884, 0, -0.808945, 3.39197, 1.90735e-06, -28.3849)
 spawnBlueprint = ExtResource("16_u2ih5")
 SpawnOnStart = false
-SpawnOnSignal = true
+add_to_group_name = "CourtYardE"
 
+[connection signal="open_door2" from="." to="Geography/OnshapeImports/PgDoor" method="_open_door"]
 [connection signal="body_entered" from="Utilities/Activtation_Area" to="." method="_on_activtation_area_body_entered"]
 [connection signal="PlayerPadActivated" from="Utilities/DoorPressurePlate" to="Geography/OnshapeImports/Chamber1Door" method="_toggle_door"]

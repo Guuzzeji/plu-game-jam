@@ -28,7 +28,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 ##documentation for this dark magic: https://docs.godotengine.org/en/stable/tutorials/physics/ray-casting.html
 	if self.is_colliding():
 		if self.get_collider().owner == orginator:
