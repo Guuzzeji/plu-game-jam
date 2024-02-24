@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgcq33mgn8v5n"
+path="res://.godot/imported/Part Studio 1 - 1x1x3.obj-74d997c0dbee98912d0c6d0bf205bf4e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Part Studio 1 - 1x1x3.obj-74d997c0dbee98912d0c6d0bf205bf4e.mesh"]
+
+source_file="res://assets/models/ImportedAssets/Part Studio 1 - 1x1x3/Part Studio 1 - 1x1x3.obj"
+dest_files=["res://.godot/imported/Part Studio 1 - 1x1x3.obj-74d997c0dbee98912d0c6d0bf205bf4e.mesh", "res://.godot/imported/Part Studio 1 - 1x1x3.obj-74d997c0dbee98912d0c6d0bf205bf4e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1708727342
+::res://::1708756582
 icon.svg::CompressedTexture2D::8899725720172608093::1703556998::1703556998::1::::<><>::
 node_3d.tscn::PackedScene::8038631834678722283::1705643016::0::1::::<><>::res://TurretHead.gd
 README.md::TextFile::-1::1703555306::0::1::::<><>::
@@ -1326,11 +1326,19 @@ Shotgun_3.fbx::PackedScene::4554205840138768882::1703555311::1703555311::1::::<>
 Shotgun_4.fbx::PackedScene::1405370822400270428::1703555311::1703555311::1::::<><>::
 Shotgun_SawedOff.fbx::PackedScene::3141519063643975444::1703555311::1703555311::1::::<><>::
 Shotgun_ShortStock.fbx::PackedScene::7283085785407822437::1703555311::1703555311::1::::<><>::
-::res://assets/models/ImportedAssets/::1706377770
+::res://assets/models/ImportedAssets/::1708754886
 Part Studio 1 - 1x1x3.obj::Mesh::1172759098703423783::1706327569::1706377770::1::::<><>::
-::res://assets/ProtoLevel1Assets/::1708731568
-::res://assets/ProtoLevel1Assets/Part Studio 1 - 1x1x3/::1708731570
-Part Studio 1 - 1x1x3.obj::Mesh::2812705464625779701::1708731568::1708731576::1::::<><>::
+::res://assets/models/ImportedAssets/Part Studio 1 - 1x1x3/::1708754821
+Part Studio 1 - 1x1x3.obj::Mesh::2812705464625779701::1708731568::1708754821::1::::<><>::
+::res://assets/ProtoLevel1Assets/::1708755298
+Chamber1Door.obj::Mesh::8846246210361991330::1708755297::1708755298::1::::<><>::
+ChamberCenter.obj::Mesh::2382402229691387753::1708754861::1708754888::1::::<><>::
+Courtyard Cover.obj::Mesh::857738273550379055::1708755147::1708755149::1::::<><>::
+Courtyard.obj::Mesh::1254019410599491568::1708754253::1708754254::1::::<><>::
+ExitDoor.obj::Mesh::2158750902284068719::1708755178::1708755180::1::::<><>::
+PathfindGuarden.obj::Mesh::1419995338384107832::1708755138::1708755140::1::::<><>::
+PGDoor.obj::Mesh::2217460217930059004::1708755286::1708755288::1::::<><>::
+windowPane.obj::Mesh::7856498373156828211::1708754741::1708754752::1::::<><>::
 ::res://assets/sfx/::1705724907
 dsbarexp.wav::AudioStreamWAV::5751250044972243364::1705724907::1705724907::1::::<><>::
 dsdbcls.wav::AudioStreamWAV::7737932075427806870::1705724907::1705724907::1::::<><>::
@@ -1341,12 +1349,12 @@ dsshotgn.wav::AudioStreamWAV::8040418295509308953::1705724907::1705724907::1::::
 ::res://componets/bullets/BeamAndLasers/::1706215950
 ::res://componets/bullets/BeamAndLasers/ConstantBeam/::1706216066
 ConstantBeamResource.tres::Resource/Resource::2416503955079891913::1706216066::0::1::::<><>::res://src/bullet_resource.gd
-::res://componets/bullets/BeamAndLasers/InstantBeam/::1708731560
+::res://componets/bullets/BeamAndLasers/InstantBeam/::1708757554
 InstantBeamResource.tres::Resource/Resource::1051604528702195998::1706231233::0::1::::<><>::res://src/bullet_resource.gd
 InstantBeam_ammo.tscn::PackedScene::3398485649020128336::1707349926::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://o8n1jr5csigc::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-InstantBeam_bullet.gdshader::Shader::-1::1708731560::0::1::::<><>::
+InstantBeam_bullet.gdshader::Shader::-1::1708758341::0::1::::<><>::
 InstantBeam_bullet.tres::StandardMaterial3D::1874021401480000368::1708725965::0::1::::<><>::
-InstantBeam_bullet.tscn::PackedScene::8552182151670766117::1708730337::0::1::::<><>::res://componets/bullets/template/Beam.gd<>uid://o8n1jr5csigc::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://1x14gvy52p65::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres
+InstantBeam_bullet.tscn::PackedScene::8552182151670766117::1708757553::0::1::::<><>::res://componets/bullets/template/Beam.gd<>uid://o8n1jr5csigc::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://1x14gvy52p65::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres
 ::res://componets/bullets/CannonBallTester/::1708637332
 CannonBallTester_ammo.tscn::PackedScene::4963883717945071249::1707349926::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://fpjltkfpctg7::::res://componets/bullets/CannonBallTester/CannonBallTester_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dsacww882pcnk::::res://assets/images/firetexture.jpg
 CannonBallTester_bullet_info.tres::Resource/Resource::382476994807930456::1705724907::0::1::::<><>::res://src/bullet_resource.gd
@@ -1363,8 +1371,8 @@ Gernade_Bullet.tscn::PackedScene::5608549981632670201::1705791539::0::1::::<><>:
 nut_ammo.tscn::PackedScene::6814682869582603429::1708637332::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://bcxm7bu2hi8nt::::res://assets/images/bullet_nut.jpg<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
 nut_bullet_info.tres::Resource/Bullet_Type::7780518432706895735::1708725965::0::1::::<><>::res://src/bullet_resource.gd
 nut_projectile.tscn::PackedScene::7678963035880674685::1707349925::0::1::::<><>::res://componets/bullets/template/projectile.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-::res://componets/bullets/PhysicsBullet/::1708730337
-PhysBullet.tscn::PackedScene::2883665252396186486::1708730337::0::1::::<><>::uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>res://componets/bullets/template/arc_projectile.gd<>uid://ck6g2u2e738j2::::res://componets/bullets/PhysicsBullet/PhysBulletResource.tres<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
+::res://componets/bullets/PhysicsBullet/::1708757552
+PhysBullet.tscn::PackedScene::2883665252396186486::1708757552::0::1::::<><>::uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>res://componets/bullets/template/arc_projectile.gd<>uid://ck6g2u2e738j2::::res://componets/bullets/PhysicsBullet/PhysBulletResource.tres<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
 PhysBulletResource.tres::Resource/Bullet_Type::5539139124936775537::1708725965::0::1::::<><>::res://src/bullet_resource.gd
 PhysicsBullet_Ammo.tscn::PackedScene::6393910905011049360::1705869720::0::1::::<><>::uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>res://componets/bullets/template/ammo.gd<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj<>uid://ck6g2u2e738j2::::res://componets/bullets/PhysicsBullet/PhysBulletResource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
 ::res://componets/bullets/template/::1708725965
@@ -1379,9 +1387,9 @@ Base texture.png::CompressedTexture2D::1791976182234655840::1705643015::17056430
 BulletSentryBase.obj::Mesh::6277622755681336656::1705643016::1705643016::1::::<><>::
 BulletSentryHead.gltf::PackedScene::324117782241636869::1705643016::1705643016::1::::<><>::
 bullet_sentry.tscn::PackedScene::233994156239869429::1705643016::0::1::::<><>::uid://bbr0w62ju4wsu::::res://componets/Enemy Folder/Bullet Sentry/Sentry bullet.gltf
-::res://componets/Enemy Folder/Evil Cube/::1708730337
+::res://componets/Enemy Folder/Evil Cube/::1708757552
 evil_cube.gd::GDScript::-1::1708725965::0::1::::<>CharacterBody3D<>::
-evil_cube.tscn::PackedScene::3983436350474710851::1708730337::0::1::::<><>::res://componets/Enemy Folder/Evil Cube/evil_cube.gd
+evil_cube.tscn::PackedScene::3983436350474710851::1708757552::0::1::::<><>::res://componets/Enemy Folder/Evil Cube/evil_cube.gd
 ::res://componets/Enemy Folder/EvilCubes/::1706251332
 ::res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/::1708725965
 CubeCralwerEnemy.tscn::PackedScene::8323283247787143865::1707349981::0::1::::<><>::uid://bl25w4ymafyt3::::res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCubeCrawlerExport.glb<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCrawlerIKScript.gd<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCubeCrawl_AI.gd<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/IKTargetScript.gd<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/TargetRaycasts.gd<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd
@@ -1391,8 +1399,8 @@ EvilCubeCrawl_AI.gd::GDScript::-1::1707349467::0::1::::<>Node3D<>::
 IKTargetScript.gd::GDScript::-1::1707331129::0::1::::<>Marker3D<>::
 StepContainerScript.gd::GDScript::-1::1707331436::0::1::::<>Node3D<>::
 TargetRaycasts.gd::GDScript::-1::1706335980::0::1::::<>RayCast3D<>::
-::res://componets/Enemy Folder/PhysSentry/::1708730337
-ModSentry_X1.tscn::PackedScene::1106478271164129679::1708730337::0::1::::<><>::res://componets/Enemy Folder/PhysSentry/sentryGenericCode.gd<>uid://o8n1jr5csigc::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres
+::res://componets/Enemy Folder/PhysSentry/::1708757552
+ModSentry_X1.tscn::PackedScene::1106478271164129679::1708757552::0::1::::<><>::res://componets/Enemy Folder/PhysSentry/sentryGenericCode.gd<>uid://o8n1jr5csigc::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres
 PhysicSentryHead.tscn::PackedScene::8698607962074758137::1706314629::0::1::::<><>::
 PhysicSentryHeadScript.gd::GDScript::-1::1705962384::0::1::::<>RigidBody3D<>::
 PhysSentry.gd::GDScript::-1::1705974462::0::1::::<>Node3D<>::
@@ -1401,13 +1409,17 @@ sentryGenericCode.gd::GDScript::-1::1708725965::0::1::::<>Node3D<>::
 ::res://componets/InteractibleCode/::1705643437
 InteractTest.gd::GDScript::-1::1705643016::0::1::::Interactable<>Node<>::
 Interact_SpawnMe.gd::GDScript::-1::1705643016::0::1::::<>Interactable<>::
-::res://componets/Level_Devices/::1708541161
-::res://componets/Level_Devices/One_Way_Teleporter/::1708730338
+::res://componets/Level_Devices/::1708756582
+::res://componets/Level_Devices/buttons/::1708756556
+::res://componets/Level_Devices/One_Way_Teleporter/::1708757553
 One_Way_Enter.gd::GDScript::-1::1708637232::0::1::::<>Node3D<>::
-One_Way_Enter.tscn::PackedScene::6137574568884409189::1708730337::0::1::::<><>::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.gd
+One_Way_Enter.tscn::PackedScene::6137574568884409189::1708757553::0::1::::<><>::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.gd
 one_way_exit.gd::GDScript::-1::1708730335::0::1::::<>Node3D<>::
-one_way_exit.tscn::PackedScene::2132264638891308957::1708730338::0::1::::<><>::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.gd
+one_way_exit.tscn::PackedScene::2132264638891308957::1708757553::0::1::::<><>::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.gd
 One_Way_Teleporter.tscn::PackedScene::2712109423641001318::1708541295::0::1::::<><>::
+::res://componets/Level_Devices/PressurePlates/::1708757553
+PressurePlate1.tscn::PackedScene::1506846029269710005::1708758341::0::1::::<><>::res://componets/Level_Devices/PressurePlates/PressurePlate1.gd
+PressurePlate1.gd::GDScript::-1::1708758332::0::1::::<>Node3D<>::
 ::res://componets/Level_Devices/telepad/::1706231239
 TelePad.gd::GDScript::-1::1705643016::0::1::::<>Node3D<>::
 tele_pad.tscn::PackedScene::6679308285955523332::1706231239::0::1::::<><>::res://componets/Level_Devices/telepad/TelePad.gd
@@ -1433,12 +1445,12 @@ design.md::TextFile::-1::1703555312::0::1::::<><>::
 git-help.md::TextFile::-1::1703555312::0::1::::<><>::
 godot-help.md::TextFile::-1::1703555312::0::1::::<><>::
 project.md::TextFile::-1::1703555312::0::1::::<><>::
-::res://levels/::1708731560
-level_test.tscn::PackedScene::437080268328329291::1708730337::0::1::::<><>::uid://cpseferbomb0h::::res://componets/player/player.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://1jfql6svsg7h::::res://assets/images/test-surface-texture/Purple/texture_01.png<>res://src/bullet_resource.gd<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>uid://c856cl5nd1e4x::::res://levels/ToolTesting.tscn<>uid://p7gx7g31d32g::::res://levels/Light_Testing.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://bsjl70sugaxhg::::res://levels/PathFindingTestArera.tscn
-Light_Testing.tscn::PackedScene::1119299809239928900::1708730338::0::1::::<><>::uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
+::res://levels/::1708757553
+level_test.tscn::PackedScene::437080268328329291::1708757552::0::1::::<><>::uid://cpseferbomb0h::::res://componets/player/player.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://1jfql6svsg7h::::res://assets/images/test-surface-texture/Purple/texture_01.png<>res://src/bullet_resource.gd<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>uid://c856cl5nd1e4x::::res://levels/ToolTesting.tscn<>uid://p7gx7g31d32g::::res://levels/Light_Testing.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://b1w6fftdidred::::res://levels/proto_level_01.tscn<>uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://bsjl70sugaxhg::::res://levels/PathFindingTestArera.tscn
+Light_Testing.tscn::PackedScene::1119299809239928900::1708757553::0::1::::<><>::uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
 PathFindingTestArera.tscn::PackedScene::3669125643096596144::1708637332::0::1::::<><>::uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://bw0uu5umnt8vn::::res://componets/Enemy Folder/Evil Cube/evil_cube.tscn<>uid://drtguo8ski4ig::::res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
-proto_level_01.tscn::PackedScene::4258638376731712263::1708731560::0::1::::<><>::uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
-ToolTesting.tscn::PackedScene::7152890963123315361::1708730337::0::1::::<><>::uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://dv71rmtif5x73::::res://componets/SpawnStuffs/SpawnPoint.tscn<>uid://drtguo8ski4ig::::res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://d4j4h8r8f6on::::res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn<>uid://cxdi1p47atdbk::::res://componets/bullets/PhysicsBullet/PhysicsBullet_Ammo.tscn<>uid://f0k6plpv6os0::::res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn<>uid://booitd2lx3oqi::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn<>uid://ctv1pdtxhu54x::::res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn<>uid://p08shaauj6w6::::res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn<>uid://qydf2xrmgpil::::res://assets/models/ImportedAssets/Part Studio 1 - 1x1x3.obj<>uid://dqt4i2pqa6m30::::res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
+proto_level_01.tscn::PackedScene::4258638376731712263::1708757875::0::1::::<><>::uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://r4prtbwg7ncy::::res://assets/ProtoLevel1Assets/Courtyard.obj<>uid://dybgnak72k66i::::res://assets/ProtoLevel1Assets/Chamber1Door.obj<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>uid://87b21bunftc8::::res://assets/ProtoLevel1Assets/ChamberCenter.obj<>uid://50ykuvnuwjwp::::res://assets/ProtoLevel1Assets/ExitDoor.obj<>uid://mhq3aunlnknv::::res://assets/ProtoLevel1Assets/Courtyard Cover.obj<>uid://uh4d622js5hs::::res://assets/ProtoLevel1Assets/PathfindGuarden.obj<>uid://6ufimfqrwnce::::res://assets/ProtoLevel1Assets/PGDoor.obj<>uid://dj60m6xs52nf4::::res://assets/ProtoLevel1Assets/windowPane.obj<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://vp6sfilokglx::::res://componets/Level_Devices/PressurePlates/PressurePlate1.tscn
+ToolTesting.tscn::PackedScene::7152890963123315361::1708757552::0::1::::<><>::uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://dv71rmtif5x73::::res://componets/SpawnStuffs/SpawnPoint.tscn<>uid://drtguo8ski4ig::::res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://d4j4h8r8f6on::::res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn<>uid://cxdi1p47atdbk::::res://componets/bullets/PhysicsBullet/PhysicsBullet_Ammo.tscn<>uid://f0k6plpv6os0::::res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn<>uid://booitd2lx3oqi::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn<>uid://ctv1pdtxhu54x::::res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn<>uid://p08shaauj6w6::::res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn<>uid://qydf2xrmgpil::::res://assets/models/ImportedAssets/Part Studio 1 - 1x1x3.obj<>uid://dqt4i2pqa6m30::::res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>uid://bgcq33mgn8v5n::::res://assets/models/ImportedAssets/Part Studio 1 - 1x1x3/Part Studio 1 - 1x1x3.obj
 ::res://misc_Testing_Scenes/::1705643437
 ::res://misc_Testing_Scenes/radom dohikies/::1706214243
 ::res://misc_Testing_Scenes/radom dohikies/FancyHitboxTree/::1706220700

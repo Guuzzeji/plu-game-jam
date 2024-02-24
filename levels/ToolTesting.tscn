@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dqt4i2pqa6m30" path="res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn" id="12_bbas6"]
 [ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="14_ux25i"]
 [ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="15_pwcin"]
-[ext_resource type="ArrayMesh" uid="uid://bgcq33mgn8v5n" path="res://assets/ProtoLevel1Assets/Part Studio 1 - 1x1x3/Part Studio 1 - 1x1x3.obj" id="16_qvoja"]
+[ext_resource type="ArrayMesh" uid="uid://bgcq33mgn8v5n" path="res://assets/models/ImportedAssets/Part Studio 1 - 1x1x3/Part Studio 1 - 1x1x3.obj" id="16_shkl2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8o3"]
 albedo_color = Color(0.321569, 0, 0, 1)
@@ -119,7 +119,7 @@ One_Way_TeleChannel = 1
 
 [node name="imported1mCube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38175, 0, 18.6124)
-mesh = ExtResource("16_qvoja")
+mesh = ExtResource("16_shkl2")
 skeleton = NodePath("../Geography/ChamberA")
 
 [node name="Godot1MCube" type="CSGBox3D" parent="imported1mCube"]

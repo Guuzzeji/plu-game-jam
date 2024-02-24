@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=25 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c856cl5nd1e4x" path="res://levels/ToolTesting.tscn" id="8_dol5p"]
 [ext_resource type="PackedScene" uid="uid://p7gx7g31d32g" path="res://levels/Light_Testing.tscn" id="9_3brnu"]
 [ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="12_8mt6k"]
+[ext_resource type="PackedScene" uid="uid://b1w6fftdidred" path="res://levels/proto_level_01.tscn" id="12_vie5u"]
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="13_i76f7"]
 [ext_resource type="PackedScene" uid="uid://bsjl70sugaxhg" path="res://levels/PathFindingTestArera.tscn" id="18_tnolj"]
 
@@ -225,6 +226,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.609, 17.049)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.97272, 0, -1.63604)
 One_Way_TeleChannel = 4
 
+[node name="PROTOLEVELWOO" parent="teleporter nonsense" instance=ExtResource("7_hx76k")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.227043, 0, -1.63604)
+One_Way_TeleChannel = 5
+
 [node name="One_Way_Exit" parent="teleporter nonsense" instance=ExtResource("8_bfqpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97272, 0, -4.63604)
 One_Way_TeleChannel = 3
@@ -239,3 +244,6 @@ transform = Transform3D(0.989784, 0, -0.142577, 0, 1, 0, 0.142577, 0, 0.989784, 
 
 [node name="Light_Testing" parent="SubLevels" instance=ExtResource("9_3brnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, 30)
+
+[node name="Proto_Level_01" parent="SubLevels" instance=ExtResource("12_vie5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173, 0, -44)

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://uh4d622js5hs"
+path="res://.godot/imported/PathfindGuarden.obj-d25f4ecd703f615a89a633b2e3b9638d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/PathfindGuarden.obj-d25f4ecd703f615a89a633b2e3b9638d.mesh"]
+
+source_file="res://assets/ProtoLevel1Assets/PathfindGuarden.obj"
+dest_files=["res://.godot/imported/PathfindGuarden.obj-d25f4ecd703f615a89a633b2e3b9638d.mesh", "res://.godot/imported/PathfindGuarden.obj-d25f4ecd703f615a89a633b2e3b9638d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dybgnak72k66i"
+path="res://.godot/imported/Chamber1Door.obj-7f0eb80460c6b22c79d8abfab94d50ce.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Chamber1Door.obj-7f0eb80460c6b22c79d8abfab94d50ce.mesh"]
+
+source_file="res://assets/ProtoLevel1Assets/Chamber1Door.obj"
+dest_files=["res://.godot/imported/Chamber1Door.obj-7f0eb80460c6b22c79d8abfab94d50ce.mesh", "res://.godot/imported/Chamber1Door.obj-7f0eb80460c6b22c79d8abfab94d50ce.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
