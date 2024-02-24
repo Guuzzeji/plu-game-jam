@@ -36,3 +36,7 @@ res://componets/SpawnStuffs/SpawnPoint.gd
 res://levels/PL1_EVENT_MONITOR.gd
 res://levels/PathFindingTestArera.tscn
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/TargetRaycasts.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/IKTargetScript.gd
+res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.gd
+res://componets/player/bullet_inv.gd
+res://componets/player/player_hud.gd

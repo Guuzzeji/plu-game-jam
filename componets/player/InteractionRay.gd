@@ -25,7 +25,7 @@ func set_interactionLabel_text(inputText):
 		interaction_label.set_visible(true)
 
 
-func _process(delta):
+func _process(_delta):
 	var collider = get_collider() 
 	#print(current_collider)  #default is null
 	#print(collider)		  #default is Object#null

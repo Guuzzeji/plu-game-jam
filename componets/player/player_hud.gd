@@ -14,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	# Setting player health and mana values
 	$HealthBar.value = PlayerInfo.Health
 	$ManaBar.value = PlayerInfo.Mana
