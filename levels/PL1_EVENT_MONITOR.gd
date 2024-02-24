@@ -18,12 +18,12 @@ func _process(_delta):
 	#print(courtyard_Enemy_group, " ", get_tree().get_nodes_in_group(courtyard_Enemy_group).size())
 	if !flagA && get_tree().get_nodes_in_group(courtyard_Enemy_group).size() > 0:
 		flagA = true	##	enemies have spawned successfully
-		print("spawned   ",  get_tree().get_nodes_in_group(courtyard_Enemy_group).size())
+		#print("spawned   ",  get_tree().get_nodes_in_group(courtyard_Enemy_group).size())
 	if !flagB && flagA && get_tree().get_nodes_in_group(courtyard_Enemy_group).size() == 0:	##check enemies spawned
 		emit_signal("open_door2")
-		print("opening")
+		#print("opening")
 		flagB = true
-	print(get_tree().get_nodes_in_group(courtyard_Enemy_group).size())
+	#print(get_tree().get_nodes_in_group(courtyard_Enemy_group).size())
 	
 	pass
 
