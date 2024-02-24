@@ -60,8 +60,10 @@ var intruders : Array		##this is so turrets can have multiple targets
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	intruderDetector.body_entered.connect(_on_intruder_area_body_entered)	##connect up the area node to functions
-	intruderDetector.body_exited.connect(_on_intruder_area_body_exited)
+	if !intruderDetector.body_entered.is_connected(_on_intruder_area_body_entered):
+		intruderDetector.body_entered.connect(_on_intruder_area_body_entered)	##connect up the area node to functions
+	if !intruderDetector.body_exited.is_connected(_on_intruder_area_body_exited):
+		intruderDetector.body_exited.connect(_on_intruder_area_body_exited)
 	intruderDetector.collision_layer = 2	##detection is on layer 2
 	intruderDetector.collision_mask = 2
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c856cl5nd1e4x"]
+[gd_scene load_steps=16 format=3 uid="uid://c856cl5nd1e4x"]
 
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_7scvg"]
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="2_yle1n"]
@@ -11,11 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://booitd2lx3oqi" path="res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn" id="8_sgwl5"]
 [ext_resource type="PackedScene" uid="uid://ctv1pdtxhu54x" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn" id="9_pqssm"]
 [ext_resource type="PackedScene" uid="uid://p08shaauj6w6" path="res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn" id="10_6gfki"]
-[ext_resource type="ArrayMesh" uid="uid://qydf2xrmgpil" path="res://assets/models/ImportedAssets/Part Studio 1 - 1x1x3.obj" id="12_ajdjw"]
 [ext_resource type="PackedScene" uid="uid://dqt4i2pqa6m30" path="res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn" id="12_bbas6"]
 [ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="14_ux25i"]
 [ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="15_pwcin"]
-[ext_resource type="ArrayMesh" uid="uid://bgcq33mgn8v5n" path="res://assets/models/ImportedAssets/Part Studio 1 - 1x1x3/Part Studio 1 - 1x1x3.obj" id="16_shkl2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8o3"]
 albedo_color = Color(0.321569, 0, 0, 1)
@@ -93,10 +91,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.56608, 9.47098, -3.57627)
 use_collision = true
 radius = 8.26283
 
-[node name="PartStudio1-1x1x3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 13.8978)
-mesh = ExtResource("12_ajdjw")
-
 [node name="EvilCubeCrawlerExport" parent="." instance=ExtResource("12_bbas6")]
 transform = Transform3D(0.3343, 0, -0.942467, 0, 1, 0, 0.942467, 0, 0.3343, -10.7177, 0.369209, -7.17887)
 
@@ -116,11 +110,3 @@ One_Way_TeleChannel = 1
 [node name="One_Way_Exit2" parent="one-way-teleporters" instance=ExtResource("15_pwcin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
 One_Way_TeleChannel = 1
-
-[node name="imported1mCube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38175, 0, 18.6124)
-mesh = ExtResource("16_shkl2")
-skeleton = NodePath("../Geography/ChamberA")
-
-[node name="Godot1MCube" type="CSGBox3D" parent="imported1mCube"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.357, 0.5, 0)
