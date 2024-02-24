@@ -33,8 +33,7 @@ func _ready():
 		
 	if SpawnOnSignal:
 		if owner.has_signal("ACTIVATE"):
-			print("has")
-			print(owner.ACTIVATE)
+			#print(owner.ACTIVATE)
 			owner.ACTIVATE.connect(_spawn_signal_recieved)	### when created, grabs owner, grabs the signal ACTIVATED, connects to self function
 		## why do signals work like this???
 		

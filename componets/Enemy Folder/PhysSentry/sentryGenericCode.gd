@@ -211,12 +211,12 @@ func fire_if_able(): #when attack state decides to fire the gun
 ########################################## INTRUDER MANAGEMENT ################################################################
 func _on_intruder_area_body_entered(body):
 	intruders.append(body) 	##temp target change later
-	print(intruders)
+	#print(intruders)
 	pass # Replace with function body.
 
 
 func _on_intruder_area_body_exited(body):
 	intruders.erase(body)
-	print(intruders)
+	#print(intruders)
 	pass # Replace with function body.
 ###########################################################################################################################

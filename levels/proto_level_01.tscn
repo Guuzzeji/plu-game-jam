@@ -150,6 +150,12 @@ use_collision = true
 mesh = ExtResource("6_t0eih")
 material = SubResource("StandardMaterial3D_n1bfi")
 
+[node name="CourtYardCover2" type="CSGMesh3D" parent="Geography/OnshapeImports"]
+transform = Transform3D(-0.5709, 0, -0.82102, 0, 1, 0, 0.82102, 0, -0.5709, 12.348, -0.654929, -34.0055)
+use_collision = true
+mesh = ExtResource("6_t0eih")
+material = SubResource("StandardMaterial3D_n1bfi")
+
 [node name="PathfindGuarden" type="CSGMesh3D" parent="Geography/OnshapeImports"]
 use_collision = true
 mesh = ExtResource("7_72cc3")
@@ -196,8 +202,16 @@ SpawnOnStart = false
 SpawnOnSignal = true
 
 [node name="StartSpawnPoint2" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 16, 0, -5)
+transform = Transform3D(0.926535, 0, 0.376208, 0, 1, 0, -0.376208, 0, 0.926535, 22.3504, 0, -12.7591)
 spawnBlueprint = ExtResource("17_bu0ak")
+SpawnOnStart = false
+SpawnOnSignal = true
+
+[node name="StartSpawnPoint3" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(-0.808945, 0, -0.587884, 0, 1, 0, 0.587884, 0, -0.808945, 3.39197, 1.90735e-06, -28.3849)
+spawnBlueprint = ExtResource("16_u2ih5")
+SpawnOnStart = false
+SpawnOnSignal = true
 
 [connection signal="body_entered" from="Utilities/Activtation_Area" to="." method="_on_activtation_area_body_entered"]
 [connection signal="PlayerPadActivated" from="Utilities/DoorPressurePlate" to="Geography/OnshapeImports/Chamber1Door" method="_toggle_door"]
