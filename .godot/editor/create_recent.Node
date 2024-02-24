@@ -1,7 +1,9 @@
+NavigationRegion3D
+CollisionPolygon3D
+Area3D
 Node3D
 Node
 CollisionShape3D
-Area3D
 Timer
 CSGCylinder3D
 CSGMesh3D
@@ -11,4 +13,3 @@ CSGPolygon3D
 CSGSphere3D
 RayCast3D
 Marker3D
-SkeletonIK3D

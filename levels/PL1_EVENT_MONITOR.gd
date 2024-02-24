@@ -3,10 +3,12 @@ extends Node
 @export var courtyard_Enemy_group: String 
 signal ACTIVATE ##spanwers can spawn, animations can animate.
 signal open_door2 ##opens the door to the pg hallway
+signal Deploy_Cubes	## spawn the cubes after player enters pg hallway
 
 ## jank code ###
 var flagA = false ###for checking enemies are alive
 var flagB = false ##stop endlessly opening door
+var flagC = false ##stop player from respawning cubes
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,4 +34,11 @@ func _on_activtation_area_body_entered(body):
 	if body.is_in_group("player"):
 		print("player_entered")
 		emit_signal("ACTIVATE")
+	pass # Replace with function body.
+
+
+func _on_pg_hallway_activation_body_entered(body):
+	if  !flagC && body.is_in_group("player"):
+		emit_signal("Deploy_Cubes")
+		flagC = true
 	pass # Replace with function body.

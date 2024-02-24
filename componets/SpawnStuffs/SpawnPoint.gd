@@ -19,6 +19,7 @@ extends Node3D
 var entity		##CURRENTLY UNUSED
 signal ACTIVATED ## I need two of these?
 @export var add_to_group_name : String		## add spawned to group, how we track alive enemies
+@export var navmesh_Layer : int ## navmesh if spawned creature requires it
 
 #####################################################################
 func _ready():
@@ -51,6 +52,10 @@ func spawn_entity():
 	add_child(entity)
 	if add_to_group_name:
 		entity.add_to_group(add_to_group_name)	## group up enemies to see if player killed them all.
+	if entity.has_method("update_navmesh_layer"):
+		print("update")
+		entity.update_navmesh_layer(navmesh_Layer)
+
 		#print(get_tree().get_nodes_in_group(add_to_group_name).size())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
