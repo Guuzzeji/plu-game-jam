@@ -29,3 +29,8 @@ res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.gd
 res://componets/Level_Devices/PressurePlates/PressurePlate1.tscn
 res://componets/Level_Devices/PressurePlates/PressurePlate1.gd
 res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.gd
+res://componets/Level_Devices/Doors/GenericDoorCode.gd
+res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.tscn
+res://componets/SpawnStuffs/SpawnPoint.tscn
+res://componets/SpawnStuffs/SpawnPoint.gd
+res://levels/PL1_EVENT_MONITOR.gd

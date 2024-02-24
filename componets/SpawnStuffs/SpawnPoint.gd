@@ -10,11 +10,19 @@ extends Node3D
 @export var SpawnOnTimer = false
 @export var TimerDelay = 1.0
 @export var TimerRepeat = false
+@export var SpawnOnSignal = false
 
-var entity
+## DEBUG SETTINGS ##
+@export var visibleArrow = false 
+
+## LEVEL CONTROL UTILITIES ###
+var entity		##CURRENTLY UNUSED
+signal ACTIVATED ## I need two of these?
+@export var add_to_group_naem : String		## add spawned to group, how we track alive enemies
 
 #####################################################################
 func _ready():
+	$MeshInstance3D.visible = visibleArrow
 
 	if SpawnOnStart && !SpawnOnTimer: ## just spawn once on startup
 		spawn_entity()
@@ -22,7 +30,14 @@ func _ready():
 		$SpawnTimer.set_autostart(SpawnOnTimer && SpawnOnStart)
 		$SpawnTimer.set_one_shot(TimerRepeat)
 		$SpawnTimer.set_wait_time(TimerDelay)
-	
+		
+	if SpawnOnSignal:
+		if owner.has_signal("ACTIVATE"):
+			print("has")
+			print(owner.ACTIVATE)
+			owner.ACTIVATE.connect(_spawn_signal_recieved)	### when created, grabs owner, grabs the signal ACTIVATED, connects to self function
+		## why do signals work like this???
+		
 	pass # Replace with function body.
 #####################################################################
 
@@ -39,6 +54,9 @@ func spawn_entity():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _spawn_signal_recieved():
+	spawn_entity()
 
 
 

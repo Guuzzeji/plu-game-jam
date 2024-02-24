@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1w6fftdidred"]
+[gd_scene load_steps=25 format=3 uid="uid://b1w6fftdidred"]
 
+[ext_resource type="Script" path="res://levels/PL1_EVENT_MONITOR.gd" id="1_f2hsq"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_gcr0a"]
 [ext_resource type="ArrayMesh" uid="uid://r4prtbwg7ncy" path="res://assets/ProtoLevel1Assets/Courtyard.obj" id="2_5ukvn"]
 [ext_resource type="ArrayMesh" uid="uid://dybgnak72k66i" path="res://assets/ProtoLevel1Assets/Chamber1Door.obj" id="2_jhv02"]
 [ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="2_unqjl"]
+[ext_resource type="Script" path="res://componets/Level_Devices/Doors/GenericDoorCode.gd" id="3_tg16j"]
 [ext_resource type="ArrayMesh" uid="uid://87b21bunftc8" path="res://assets/ProtoLevel1Assets/ChamberCenter.obj" id="4_b78xd"]
 [ext_resource type="ArrayMesh" uid="uid://50ykuvnuwjwp" path="res://assets/ProtoLevel1Assets/ExitDoor.obj" id="5_xpsoi"]
 [ext_resource type="ArrayMesh" uid="uid://mhq3aunlnknv" path="res://assets/ProtoLevel1Assets/Courtyard Cover.obj" id="6_t0eih"]
@@ -11,12 +13,23 @@
 [ext_resource type="ArrayMesh" uid="uid://6ufimfqrwnce" path="res://assets/ProtoLevel1Assets/PGDoor.obj" id="8_3fm4i"]
 [ext_resource type="ArrayMesh" uid="uid://dj60m6xs52nf4" path="res://assets/ProtoLevel1Assets/windowPane.obj" id="9_2upj5"]
 [ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="10_v1ha5"]
-[ext_resource type="PackedScene" uid="uid://vp6sfilokglx" path="res://componets/Level_Devices/PressurePlates/PressurePlate1.tscn" id="12_gostc"]
+[ext_resource type="PackedScene" uid="uid://vp6sfilokglx" path="res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.tscn" id="13_uwlmh"]
+[ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="15_rb14f"]
+[ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="16_insel"]
+[ext_resource type="PackedScene" uid="uid://p08shaauj6w6" path="res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn" id="16_u2ih5"]
+[ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="17_bu0ak"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oo6bs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbyrj"]
 albedo_texture = ExtResource("1_gcr0a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ek0fo"]
+albedo_color = Color(0.235294, 0.52549, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1bfi"]
+transparency = 1
+albedo_color = Color(0.223529, 0.4, 0.196078, 0.537255)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enfew"]
 transparency = 1
@@ -27,18 +40,13 @@ albedo_color = Color(0.556863, 0.721569, 0.313726, 0.258824)
 size = Vector3(100, 20, 100)
 
 [node name="Proto_Level_01" type="Node3D"]
+script = ExtResource("1_f2hsq")
 
 [node name="player_reference_shape" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.021, 1.16406, -38.5125)
 mesh = SubResource("CapsuleMesh_oo6bs")
 
 [node name="Geography" type="Node3D" parent="."]
-
-[node name="floor" type="CSGBox3D" parent="Geography"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.84756, 0)
-material_override = SubResource("StandardMaterial3D_dbyrj")
-use_collision = true
-size = Vector3(100, 0.1, 100)
 
 [node name="Enterance" type="Node3D" parent="Geography"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.6348, 0, -1.57404)
@@ -67,6 +75,12 @@ size = Vector3(5, 6, 0.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -2.25)
 use_collision = true
 size = Vector3(4, 1, 0.5)
+
+[node name="floor" type="CSGBox3D" parent="Geography/Enterance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.6348, -3.84756, 1.57404)
+material_override = SubResource("StandardMaterial3D_dbyrj")
+use_collision = true
+size = Vector3(100, 0.1, 100)
 
 [node name="ChamberA" type="Node3D" parent="Geography"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.6348, 0, -1.57404)
@@ -116,10 +130,12 @@ size = Vector3(4, 1, 0.5)
 [node name="Chamber1Door" type="CSGMesh3D" parent="Geography/OnshapeImports"]
 use_collision = true
 mesh = ExtResource("2_jhv02")
+script = ExtResource("3_tg16j")
 
 [node name="Courtyard" type="CSGMesh3D" parent="Geography/OnshapeImports"]
 use_collision = true
 mesh = ExtResource("2_5ukvn")
+material = SubResource("StandardMaterial3D_ek0fo")
 
 [node name="ChamberCenter" type="CSGMesh3D" parent="Geography/OnshapeImports"]
 use_collision = true
@@ -132,6 +148,7 @@ mesh = ExtResource("5_xpsoi")
 [node name="CourtYardCover" type="CSGMesh3D" parent="Geography/OnshapeImports"]
 use_collision = true
 mesh = ExtResource("6_t0eih")
+material = SubResource("StandardMaterial3D_n1bfi")
 
 [node name="PathfindGuarden" type="CSGMesh3D" parent="Geography/OnshapeImports"]
 use_collision = true
@@ -153,8 +170,6 @@ material = SubResource("StandardMaterial3D_enfew")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 shape = SubResource("BoxShape3D_tdji4")
 
-[node name="Spawners" type="Node3D" parent="Utilities"]
-
 [node name="One_Way_Enter" parent="Utilities" instance=ExtResource("10_v1ha5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 16.3554)
 One_Way_TeleChannel = 6
@@ -163,5 +178,26 @@ One_Way_TeleChannel = 6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 One_Way_TeleChannel = 5
 
-[node name="PressurePlate1" parent="Utilities" instance=ExtResource("12_gostc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06155, 0)
+[node name="DoorPressurePlate" parent="Utilities" instance=ExtResource("13_uwlmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.179, 0.25, -10.873)
+single_use = false
+cooldownTime = 5.0
+
+[node name="AmmoBait" parent="Utilities" instance=ExtResource("15_rb14f")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 5.179, 0.632224, -10.873)
+spawnBlueprint = ExtResource("16_insel")
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="StartSpawnPoint" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(-0.656862, 0, 0.754011, 0, 1, 0, -0.754011, 0, -0.656862, 6.1226, 0, -2.51355)
+spawnBlueprint = ExtResource("16_u2ih5")
+SpawnOnStart = false
+SpawnOnSignal = true
+
+[node name="StartSpawnPoint2" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 16, 0, -5)
+spawnBlueprint = ExtResource("17_bu0ak")
+
+[connection signal="body_entered" from="Utilities/Activtation_Area" to="." method="_on_activtation_area_body_entered"]
+[connection signal="PlayerPadActivated" from="Utilities/DoorPressurePlate" to="Geography/OnshapeImports/Chamber1Door" method="_toggle_door"]

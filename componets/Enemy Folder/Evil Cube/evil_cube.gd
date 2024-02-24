@@ -9,6 +9,8 @@ extends CharacterBody3D
 var target = null ##the target the cube seeks
 const SPEED = 3.0
 #var player_path := "../../../Player" ##OK WHY DOES THIS WORK # NodePath# "/res://componets/player/player.tscn"
+
+var creator
 @onready var nav_agent = $NavigationAgent3D ##so code can use navmesh.
 
 var health = 100.0 ##does what it says on tin
@@ -66,3 +68,6 @@ func _on_in_range_body_exited(body):
 	if body == target:
 		inRange = false
 	pass # Replace with function body.
+
+func _assign_creator(nodethingy):
+	creator = nodethingy
