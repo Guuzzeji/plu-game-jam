@@ -29,7 +29,8 @@ signal hit_body(body)
 func _ready():
 	#print(Player_Info.Pbody," ", orginator)
 	set_as_top_level(true) # Sets node to root level of the node tree (basically at sets parent to level/world node)
-	Life_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
+	if !Life_Timer.timeout.is_connected(_on_life_timer_timeout):
+		Life_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
 	Life_Timer.one_shot = true
 	Life_Timer.start(Bullet_Info.Life_Time)
 	pass
