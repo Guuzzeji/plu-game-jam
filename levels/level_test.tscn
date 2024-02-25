@@ -234,6 +234,10 @@ One_Way_TeleChannel = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97272, 0, -4.63604)
 One_Way_TeleChannel = 3
 
+[node name="One_Way_Exit2" parent="teleporter nonsense" instance=ExtResource("8_bfqpk")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0272832, 0, -4.63604)
+One_Way_TeleChannel = 6
+
 [node name="SubLevels" type="Node" parent="."]
 
 [node name="PathFindingTestArera" parent="SubLevels" instance=ExtResource("18_tnolj")]

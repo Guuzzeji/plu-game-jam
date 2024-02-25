@@ -90,6 +90,7 @@ material = SubResource("StandardMaterial3D_3sqgn")
 use_collision = true
 mesh = ExtResource("5_xpsoi")
 material = SubResource("StandardMaterial3D_072as")
+script = ExtResource("3_tg16j")
 
 [node name="CourtYardCover" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
 transform = Transform3D(0.961175, 0, 0.275939, 0, 1, 0, -0.275939, 0, 0.961175, 1.16944, 0, 3.1742)
@@ -132,9 +133,13 @@ script = ExtResource("3_tg16j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 shape = SubResource("BoxShape3D_tdji4")
 
-[node name="One_Way_Enter" parent="Utilities" instance=ExtResource("10_v1ha5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 16.3554)
+[node name="level_exit" parent="Utilities" instance=ExtResource("10_v1ha5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27988, 6.543)
 One_Way_TeleChannel = 6
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Utilities/level_exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.302203, 0)
+size = Vector3(0.6, 0.125, 0.6)
 
 [node name="One_Way_Exit" parent="Utilities" instance=ExtResource("2_unqjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -214,80 +219,80 @@ SpawnOnStart = false
 add_to_group_name = "PgEnemies"
 navmesh_Layer = 2
 
-[node name="ChamberA" type="Node3D" parent="."]
+[node name="ChamberA-delete?" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.6348, 0, -1.57404)
 visible = false
 
-[node name="Wall1" type="CSGBox3D" parent="ChamberA"]
+[node name="Wall1" type="CSGBox3D" parent="ChamberA-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3, -5)
 use_collision = true
 size = Vector3(0.5, 6, 5)
 
-[node name="Wall3" type="CSGBox3D" parent="ChamberA"]
+[node name="Wall3" type="CSGBox3D" parent="ChamberA-delete?"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 3, -7.75)
 use_collision = true
 size = Vector3(0.5, 6, 5)
 
-[node name="Wall2" type="CSGBox3D" parent="ChamberA"]
+[node name="Wall2" type="CSGBox3D" parent="ChamberA-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 3, -10)
 use_collision = true
 size = Vector3(0.5, 6, 15)
 
-[node name="Wall5" type="CSGBox3D" parent="ChamberA"]
+[node name="Wall5" type="CSGBox3D" parent="ChamberA-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, 3, -10)
 use_collision = true
 size = Vector3(0.5, 6, 15)
 
-[node name="Wall4" type="CSGBox3D" parent="ChamberA"]
+[node name="Wall4" type="CSGBox3D" parent="ChamberA-delete?"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 3, -17.75)
 use_collision = true
 size = Vector3(0.5, 6, 15)
 
-[node name="Wall6" type="CSGBox3D" parent="ChamberA"]
+[node name="Wall6" type="CSGBox3D" parent="ChamberA-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, 3, 0)
 use_collision = true
 size = Vector3(0.5, 6, 5)
 
-[node name="Wall7" type="CSGBox3D" parent="ChamberA"]
+[node name="Wall7" type="CSGBox3D" parent="ChamberA-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 3, 0)
 use_collision = true
 size = Vector3(0.5, 6, 5)
 
-[node name="Wall8" type="CSGBox3D" parent="ChamberA"]
+[node name="Wall8" type="CSGBox3D" parent="ChamberA-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5.5, -2.25)
 use_collision = true
 size = Vector3(4, 1, 0.5)
 
-[node name="Enterance" type="Node3D" parent="."]
+[node name="Enterance-delete?" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.6348, 0, -1.57404)
 visible = false
 
-[node name="SlabFloor" type="CSGBox3D" parent="Enterance"]
+[node name="SlabFloor" type="CSGBox3D" parent="Enterance-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 use_collision = true
 size = Vector3(5, 0.5, 5)
 
-[node name="Wall1" type="CSGBox3D" parent="Enterance"]
+[node name="Wall1" type="CSGBox3D" parent="Enterance-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3, 0)
 use_collision = true
 size = Vector3(0.5, 6, 5)
 
-[node name="Wall2" type="CSGBox3D" parent="Enterance"]
+[node name="Wall2" type="CSGBox3D" parent="Enterance-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 3, 0)
 use_collision = true
 size = Vector3(0.5, 6, 5)
 
-[node name="Wall3" type="CSGBox3D" parent="Enterance"]
+[node name="Wall3" type="CSGBox3D" parent="Enterance-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2.25)
 use_collision = true
 size = Vector3(5, 6, 0.5)
 
-[node name="Wall4" type="CSGBox3D" parent="Enterance"]
+[node name="Wall4" type="CSGBox3D" parent="Enterance-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -2.25)
 use_collision = true
 size = Vector3(4, 1, 0.5)
 
-[node name="floor" type="CSGBox3D" parent="Enterance"]
+[node name="floor" type="CSGBox3D" parent="Enterance-delete?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.6348, -3.84756, 1.57404)
 material_override = SubResource("StandardMaterial3D_dbyrj")
 use_collision = true
@@ -297,6 +302,7 @@ size = Vector3(100, 0.1, 100)
 [connection signal="Deploy_Cubes" from="." to="SpawnPoints/CrawlerSpawnPoint2" method="_spawn_signal_recieved"]
 [connection signal="Deploy_Cubes" from="." to="SpawnPoints/CrawlerSpawnPoint3" method="_spawn_signal_recieved"]
 [connection signal="open_door2" from="." to="NavigationRegion3D/Geography/OnshapeImports/PgDoor" method="_open_door"]
+[connection signal="open_exit" from="." to="NavigationRegion3D/Geography/OnshapeImports/ExitDoor" method="_open_door"]
 [connection signal="body_entered" from="Utilities/Activtation_Area" to="." method="_on_activtation_area_body_entered"]
 [connection signal="PlayerPadActivated" from="Utilities/DoorPressurePlate" to="NavigationRegion3D/Geography/OnshapeImports/Chamber1Door" method="_toggle_door"]
 [connection signal="body_entered" from="Utilities/pgHallwayActivation" to="." method="_on_pg_hallway_activation_body_entered"]

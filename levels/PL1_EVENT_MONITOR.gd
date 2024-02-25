@@ -1,14 +1,17 @@
 extends Node
 
-@export var courtyard_Enemy_group: String 
-signal ACTIVATE ##spanwers can spawn, animations can animate.
+@export var courtyard_Enemy_group: String
+signal ACTIVATE ##spanwers can spawn, animations can animate.		## might wana remove and hardcode
 signal open_door2 ##opens the door to the pg hallway
 signal Deploy_Cubes	## spawn the cubes after player enters pg hallway
+signal open_exit    ## opens exit when enemies are dead
 
 ## jank code ###
 var flagA = false ###for checking enemies are alive
 var flagB = false ##stop endlessly opening door
 var flagC = false ##stop player from respawning cubes
+var flagD = false ##same as A but for hallway
+var flagE = false ##same as B but for pg hallway
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,14 +28,21 @@ func _process(_delta):
 		emit_signal("open_door2")
 		#print("opening")
 		flagB = true
+
 	#print(get_tree().get_nodes_in_group(courtyard_Enemy_group).size())
-	
-	pass
+	if flagC && !flagD && get_tree().get_nodes_in_group("PgEnemies").size() > 0:
+		flagD = true	##	enemies have spawned successfully
+		#print("spawned   ",  get_tree().get_nodes_in_group(PgEnemies).size())
+	if !flagE && flagD && get_tree().get_nodes_in_group("PgEnemies").size() == 0:	##check enemies spawned
+		emit_signal("open_exit")
+		#print("opening")
+		flagE = true
+	### should open exit door when enemies die
 
 
 func _on_activtation_area_body_entered(body):
 	if body.is_in_group("player"):
-		print("player_entered")
+		#print("player_entered")
 		emit_signal("ACTIVATE")
 	pass # Replace with function body.
 
