@@ -1,3 +1,4 @@
+res://levels/level_test.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd
 res://componets/bullets/template/ammo.gd
 res://componets/bullets/template/arc_projectile.gd
@@ -5,42 +6,17 @@ res://componets/bullets/template/projectile.gd
 res://componets/Enemy Folder/Evil Cube/evil_cube.gd
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCrawlerIKScript.gd
 res://componets/Enemy Folder/PhysSentry/sentryGenericCode.gd
+res://componets/Level_Devices/Doors/GenericDoorCode.gd
+res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.gd
 res://componets/player/InteractionRay.gd
 res://componets/player/player.gd
 res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd
 res://componets/player/player_info.tres
 res://componets/bullets/nutbullet/nut_bullet_info.tres
 res://componets/bullets/PhysicsBullet/PhysBulletResource.tres
-res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.gdshader
-res://levels/misc_testing.tscn
-res://levels/level_test.tscn
 res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
 res://levels/ToolTesting.tscn
-res://componets/bullets/PhysicsBullet/PhysBullet.tscn
-res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn
-res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tscn
 res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn
 res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
-res://componets/player/player.tscn
-res://levels/Light_Testing.tscn
 res://levels/proto_level_01.tscn
-res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.gd
-res://componets/Level_Devices/PressurePlates/PressurePlate1.tscn
-res://componets/Level_Devices/PressurePlates/PressurePlate1.gd
-res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.gd
-res://componets/Level_Devices/Doors/GenericDoorCode.gd
-res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.tscn
-res://componets/SpawnStuffs/SpawnPoint.tscn
-res://componets/SpawnStuffs/SpawnPoint.gd
-res://levels/PL1_EVENT_MONITOR.gd
-res://levels/PathFindingTestArera.tscn
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/TargetRaycasts.gd
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/IKTargetScript.gd
-res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.gd
-res://componets/player/bullet_inv.gd
-res://componets/player/player_hud.gd
-res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd
-res://componets/Level_Devices/telepad/TelePad.gd
-res://componets/bullets/template/Beam.gd
