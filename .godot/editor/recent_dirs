@@ -1,3 +1,4 @@
+res://componets/player
 res://componets/Enemy Folder/PhysSentry
 res://levels
 res://componets/Level_Devices/One_Way_Teleporter
@@ -19,4 +20,3 @@ res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations
 res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadMaterials
 res://misc_Testing_Scenes/Spawn_TesterStuffs
 res://misc_Testing_Scenes
-res://componets/Enemy Folder

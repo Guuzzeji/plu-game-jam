@@ -1,4 +1,3 @@
-res://levels/level_test.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd
 res://componets/bullets/template/ammo.gd
 res://componets/bullets/template/arc_projectile.gd
@@ -15,6 +14,9 @@ res://componets/player/player_info.tres
 res://componets/bullets/nutbullet/nut_bullet_info.tres
 res://componets/bullets/PhysicsBullet/PhysBulletResource.tres
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.gdshader
+res://componets/player/damage_numbers.tscn
+res://componets/player/damage_numbers.gd
+res://levels/level_test.tscn
 res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
 res://levels/ToolTesting.tscn
 res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn
