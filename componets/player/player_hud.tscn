@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmx53al0wfbgl"]
+[gd_scene load_steps=6 format=3 uid="uid://bmx53al0wfbgl"]
 
 [ext_resource type="Script" path="res://componets/player/player_hud.gd" id="1_825m1"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_1yhfq"]
 [ext_resource type="PackedScene" uid="uid://dojxi6wqwicjx" path="res://componets/player/bullet_inventory.tscn" id="3_6fq6f"]
+[ext_resource type="PackedScene" uid="uid://coaxq6hrs3lmo" path="res://componets/player/damage_numbers.tscn" id="3_jm24d"]
 [ext_resource type="Texture2D" uid="uid://cklmx5w7d33nv" path="res://assets/images/kenney_crosshairPack/PNG/White/crosshair100.png" id="4_5o8bf"]
 
 [node name="PlayerHud" type="Control"]
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_825m1")
 PlayerInfo = ExtResource("2_1yhfq")
+DamageTextFall = ExtResource("3_jm24d")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 

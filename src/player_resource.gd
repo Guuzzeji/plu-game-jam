@@ -45,6 +45,7 @@ var Current_ManaState
 
 # Player Body
 var Pbody = Node3D
+var Player_Hud
 #Allows if hitbody = playerBody in the bullet code, make static?
 
 # **About**

@@ -142,7 +142,7 @@ libraries = {
 "": SubResource("AnimationLibrary_6ivk8")
 }
 next/Walking = &"RESET"
-blend_times = [&"Walking", &"Walking", 0.15, &"RESET", &"Walking", 0.5]
+blend_times = [&"RESET", &"Walking", 0.5, &"Walking", &"Walking", 0.15]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {

@@ -25,6 +25,7 @@ var move_dir = Vector2.ZERO # Keeping track of player movement
 # On Load into world
 func _ready():
 	PlayerInfo.Pbody = self ##player resource now knows the player's body
+	PlayerInfo.Player_Hud = $PlayerHud
 	$AnimationPlayer.play("RESET")
 	PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.IDLE
 	PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.IDLE

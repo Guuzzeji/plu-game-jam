@@ -22,3 +22,7 @@ res://levels/ToolTesting.tscn
 res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn
 res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
 res://levels/proto_level_01.tscn
+res://componets/player/player.tscn
+res://componets/player/player_hud.tscn
+res://componets/player/player_hud.gd
+res://src/player_resource.gd

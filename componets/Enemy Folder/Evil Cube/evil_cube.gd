@@ -13,6 +13,9 @@ const SPEED = 3.0
 var creator
 @onready var nav_agent = $NavigationAgent3D ##so code can use navmesh.
 
+### damage numbers
+@onready var playerhud = load("res://componets/player/player_info.tres").Player_Hud
+
 var health = 100.0 ##does what it says on tin
 var inRange = false ##if player is in range, stop chasing. This is 
 
@@ -20,6 +23,8 @@ var inRange = false ##if player is in range, stop chasing. This is
 	##for giggles, turret hat, should have indepent health but die when evilCube dies
 
 func _ready():
+	### damage numbers
+
 	#print(player_path)
 	#print(get_node("../../../Player"))
 	#print(get_node(player_path))
@@ -44,6 +49,7 @@ func _physics_process(_delta):
 
 func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
 	health = health - damage
+	report_damage(damage, false, false)
 
 func healthCheck(): ##kill sentry if health drops below zero
 	if health <= 0:
@@ -71,3 +77,8 @@ func _on_in_range_body_exited(body):
 
 func _assign_creator(nodethingy):
 	creator = nodethingy
+
+
+##### damage display feedback to player
+func report_damage(damage: int , weakspot : bool, kill : int):
+	playerhud._Display_Damage_dealt(damage, weakspot, kill)
