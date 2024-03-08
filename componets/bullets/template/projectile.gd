@@ -45,12 +45,13 @@ func _process(delta):
 # **About**
 # Use when ever enemy node goes into body
 func _on_body_entered(body):
+	print("body: ", body, " body owner: ", body.owner) ##test the .owner tag
 	#print("Orginator: ", orginator)
 	#print("Body: ", body)
 	#print("body owner: ", body.owner)
 	if (orginator == body or orginator == body.owner):
 		pass ##dont hit selfs
-	elif (body.is_in_group("Enemy")):
+	elif (body.is_in_group("Enemy") or body.owner.is_in_group("Enemy") ):	## CAUTION this can cause issues if a non hitbox part of enemy is hit and not "caught"
 		damage(body)
 	elif body.is_in_group("player") && Bullet_Info.Enemy_Bullet:
 		damage(body)
@@ -62,6 +63,8 @@ func damage(body):		##if an enemy (say evil rock) cannot be damaged, best not cr
 	#print(Bullet_Info.Damage)
 	if body.has_method("inflictDamage"):	##if can inflict damage, damage it
 		body.inflictDamage(Bullet_Info.Damage, body, self)
+	elif body.owner.has_method("inflictDamage"):	## Inflict damage to hitbox's owner, CAUTION: potential damage contamination if hitbox IS owner,
+		body.owner.inflictDamage(Bullet_Info.Damage, body, self)
 ## sending body is for hitting armor / weakpoints
 ## self is to check if the bullet hit multiple weakpoint hitboxes at once, shouldn't count same bullet twice!
 	queue_free()

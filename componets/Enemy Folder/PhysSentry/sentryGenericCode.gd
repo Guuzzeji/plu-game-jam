@@ -43,6 +43,8 @@ var current_Target : Vector3 	##position of target
 @export var instanceHealth : int = 200
 @export var Mana : int = 400
 
+@onready var playerhud = load("res://componets/player/player_info.tres").Player_Hud
+
 #####@@@@@@@ STATE MACHINE
 enum {				## states for state machine
 	ACTIVE,	##shooting target
@@ -186,6 +188,7 @@ func get_global_x():
 ########################################## SHOOTING ############################################
 func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
 	instanceHealth = instanceHealth - damage
+	report_damage(damage, false, false)
 	#print(instanceHealth)
 	
 func healthCheck(): ##kill sentry if health drops below zero
@@ -221,3 +224,7 @@ func _on_intruder_area_body_exited(body):
 	#print(intruders)
 	pass # Replace with function body.
 ###########################################################################################################################
+
+##### damage display feedback to player
+func report_damage(damage: int , weakspot : bool, kill : int):
+	playerhud._Display_Damage_dealt(damage, weakspot, kill)
