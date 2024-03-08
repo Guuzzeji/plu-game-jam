@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfawoadi2j77r"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sf62p"]
+top_radius = 0.15
+bottom_radius = 0.05
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj3cg"]
+radius = 0.125
+height = 1.0
+
+[node name="BasicBulletSentry" type="Node3D"]
+
+[node name="Body" type="Node3D" parent="."]
+
+[node name="barrel" type="Node3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/barrel"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_sf62p")
+
+[node name="BulletSpawnPoint" type="Node3D" parent="Body/barrel"]
+
+[node name="headHitbox" type="StaticBody3D" parent="Body/barrel"]
+
+[node name="headcolliderShape" type="CollisionShape3D" parent="Body/barrel/headHitbox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_dj3cg")
