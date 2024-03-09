@@ -26,3 +26,4 @@ res://componets/player/player.tscn
 res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn
 res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn
 res://componets/Level_Devices/telepad/tele_pad.tscn
+res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentry_code.gd

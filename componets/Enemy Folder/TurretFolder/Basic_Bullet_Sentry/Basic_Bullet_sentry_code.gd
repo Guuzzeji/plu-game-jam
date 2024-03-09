@@ -1,12 +1,11 @@
-extends Node3D	#this: example sentry used for testing
-################################ INSTRUCTIONS
-# 1DESIGN your turret after ModSentryX1 to start as that is what the script was made for
-# 2: The meshes in ModSentryx1 are JUST for looks, feel free to replace them
-# 3: The placements of the Body, Barrel, and BulletSpawnPoint, and IntruderArea are what really matter
-# 4: body is y axis, barrel is x axis (rotates with y), the area node detects if a target has entered "range" 
-#####################
+extends Node3D
+
+###### SPECIAL NOTES
+# the base node is for non-moving parts of the turret. The turret rim and ammo/mana storages should be attached to this
+# due to all my weird ideas the turret code will not be generalzed as that might be a nightmare. I will work on making it modular however
+# 	modular as in you can copy the functions easily. 
+#####################  TURRET PARTS  ############################
 #CODE CREDIT GOES TO INDIE QUEST'S MODULAR TURRET AI WHICH THIS IS A MODIFICATION OF (well more of a port)
-#turret requirements
 @export var TurretHead : Node3D
 @export var TurnTable : Node3D
 @export var BulletSpawnPoint : Node3D
@@ -18,13 +17,11 @@ var Target : Node3D = IdleTarget
 @export var rotationSpeed : float
 @export var barrelSpeed : float		##note that the head should be a child of the turntable/body
 
-#####################
-## turret movement constraints				####avoid exceeding 90 degrees
+###################### turret movement constraints ######## CAUTION: avoid exceeding 90 degrees
 @export var min_elevation : float = -90
 @export var max_elevation : float = 90
 
-#####################
-## turret target/firing, we enter degrees, godot likes radians
+####################### turret target/firing, we enter degrees, godot likes radians
 @onready var rotation_speed : float	= deg_to_rad(rotationSpeed)
 @onready var TurretHeadSpeed : float = deg_to_rad(barrelSpeed)
 @export var CooldownTimer : Timer
@@ -34,16 +31,14 @@ var Target : Node3D = IdleTarget
 ##################### TARGETING MODES
 @export var shootfirstorclosest : bool = false		##temp, does nothing, remake with selectable options
 
-
-#####################
-##utility variables
+#######################utility variables
 var complete = true 			##if a turret component is missing,
 var active = true  			## current turret state
 var current_Target : Vector3 	##position of target
 @export var instanceHealth : int = 200
 @export var Mana : int = 400
-
 @onready var playerhud = load("res://componets/player/player_info.tres").Player_Hud
+
 
 #####@@@@@@@ STATE MACHINE
 enum {				## states for state machine
@@ -58,7 +53,6 @@ var state = IDLE  ## holder for state machine
 
 ### target aquesition
 var intruders : Array		##this is so turrets can have multiple targets
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -76,30 +70,6 @@ func _ready():
 		#complete = false
 	pass # Replace with function body.
 	
-
-func Verify_Target():		### MOVE ME
-	if intruders.is_empty():		##check if there are targets
-		Target = IdleTarget			## sno target means dont do anything
-		state = IDLE
-		return false
-	#elif intruders.is_empty() && Target == null: 	##no stored targets amd no current target = do nothing
-		#return false
-	elif !intruders.is_empty() && Target == IdleTarget:	##add first target
-		Target = intruders[0]
-		state = ACTIVE
-		return true
-	elif intruders.has(Target):	## basically, current target is valid, do nothing
-		Target = Target
-		state = ACTIVE
-		return true
-	elif !intruders.has(Target):	## potential targets active but current target died/left and must be updated
-		Target = intruders[0]
-		state = ACTIVE
-		return true
-	else:
-		print("error")
-	
-	##### NOTE,, REWRITE NEEDED, VERYIFY WHEN TARGET HAS DIED TO CODE, use is_instance_valid(Target)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	Verify_Target() ##sees if target is still alive, if not then remove from array
@@ -125,21 +95,40 @@ func _process(delta):
 			pass
 		DESPAWNING:
 			queue_free()
-		
-	
 	if Target != null:	## check if there still is a target
 		state = ACTIVE
 	else:
 		state = null
-
 	if active:
 		pass
 	else:
 		return
 	pass
 
+func Verify_Target():		### MOVE ME
+	if intruders.is_empty():		##check if there are targets
+		Target = IdleTarget			## sno target means dont do anything
+		state = IDLE
+		return false
+	#elif intruders.is_empty() && Target == null: 	##no stored targets amd no current target = do nothing
+		#return false
+	elif !intruders.is_empty() && Target == IdleTarget:	##add first target
+		Target = intruders[0]
+		state = ACTIVE
+		return true
+	elif intruders.has(Target):	## basically, current target is valid, do nothing
+		Target = Target
+		state = ACTIVE
+		return true
+	elif !intruders.has(Target):	## potential targets active but current target died/left and must be updated
+		Target = intruders[0]
+		state = ACTIVE
+		return true
+	else:
+		print("error")
+	##### NOTE,, REWRITE NEEDED, VERYIFY WHEN TARGET HAS DIED TO CODE, use is_instance_valid(Target)
+
 ########################################## TURRET POINT AT TARGET ############################################
-###############################
 ## TURRET MOVEMENT CONTROL FUNCTIONS
 func Update_Target_Location():
 	current_Target = Target.position
@@ -182,8 +171,8 @@ func get_local_y():
 func get_global_x():
 	var local_target = current_Target - TurretHead.global_position	##replaced turrethead.global_transform.orgin --> turrethead.global_position
 	return (local_target * Vector3(1, 0, 1)).angle_to(local_target) * sign(local_target.y)	##not qute sure how this worked
-	
 ###############################################################################################################
+
 
 ########################################## SHOOTING ############################################
 func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
@@ -210,7 +199,8 @@ func fire_if_able(): #when attack state decides to fire the gun
 	#place the bullet in the world, activates when placed.
 		CooldownTimer.start()
 	pass
-	##############################################################################################
+##############################################################################################
+
 
 ########################################## INTRUDER MANAGEMENT ################################################################
 func _on_intruder_area_body_entered(body):

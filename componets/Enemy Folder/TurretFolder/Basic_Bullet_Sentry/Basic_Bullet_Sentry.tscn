@@ -1,29 +1,104 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfawoadi2j77r"]
+[gd_scene load_steps=9 format=3 uid="uid://bfawoadi2j77r"]
+
+[ext_resource type="Script" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentry_code.gd" id="1_sd40w"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_sf62p"]
 top_radius = 0.15
 bottom_radius = 0.05
 height = 1.0
+radial_segments = 5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj3cg"]
 radius = 0.125
 height = 1.0
 
-[node name="BasicBulletSentry" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_pk75l"]
+size = Vector3(0.6, 0.8, 0.2)
 
-[node name="Body" type="Node3D" parent="."]
+[sub_resource type="BoxMesh" id="BoxMesh_sn7ce"]
+size = Vector3(0.6, 0.8, 0.2)
 
-[node name="barrel" type="Node3D" parent="Body"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_wgfbe"]
+bottom_radius = 0.75
+height = 0.25
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oxkfh"]
+height = 0.25
+radius = 0.75
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4tcgp"]
+height = 3.0
+radius = 5.0
+
+[node name="BasicBulletSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "CooldownTimer", "intruderDetector")]
+script = ExtResource("1_sd40w")
+TurretHead = NodePath("RotatingBody/barrel")
+TurnTable = NodePath("RotatingBody")
+BulletSpawnPoint = NodePath("RotatingBody/barrel/BulletSpawnPoint")
+IdleTarget = NodePath("IdlePointTarget")
+CooldownTimer = NodePath("CoolDown_Timer")
+intruderDetector = NodePath("IntruderArea")
+
+[node name="CoolDown_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="RotatingBody" type="Node3D" parent="."]
+
+[node name="barrel" type="Node3D" parent="RotatingBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/barrel"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RotatingBody/barrel"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("CylinderMesh_sf62p")
 
-[node name="BulletSpawnPoint" type="Node3D" parent="Body/barrel"]
+[node name="BulletSpawnPoint" type="Node3D" parent="RotatingBody/barrel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 
-[node name="headHitbox" type="StaticBody3D" parent="Body/barrel"]
+[node name="headHitbox" type="StaticBody3D" parent="RotatingBody/barrel"]
 
-[node name="headcolliderShape" type="CollisionShape3D" parent="Body/barrel/headHitbox"]
+[node name="headcolliderShape" type="CollisionShape3D" parent="RotatingBody/barrel/headHitbox"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_dj3cg")
+
+[node name="Neck" type="Node3D" parent="RotatingBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="NeckHitBox" type="StaticBody3D" parent="RotatingBody/Neck"]
+
+[node name="NeckColliderShape" type="CollisionShape3D" parent="RotatingBody/Neck/NeckHitBox"]
+shape = SubResource("BoxShape3D_pk75l")
+
+[node name="NeckMesh" type="MeshInstance3D" parent="RotatingBody/Neck"]
+mesh = SubResource("BoxMesh_sn7ce")
+
+[node name="IdlePointTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+
+[node name="Base" type="Node3D" parent="."]
+
+[node name="mountingBase" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+mesh = SubResource("CylinderMesh_wgfbe")
+
+[node name="ManaContainer" type="Node3D" parent="Base"]
+
+[node name="ManaCasing" type="Node3D" parent="Base/ManaContainer"]
+
+[node name="ManaCasingMesh" type="MeshInstance3D" parent="Base/ManaContainer/ManaCasing"]
+
+[node name="ManaGlowFluid" type="Node3D" parent="Base/ManaContainer"]
+
+[node name="ManaGlowFluidMesh" type="MeshInstance3D" parent="Base/ManaContainer/ManaGlowFluid"]
+
+[node name="BaseHitBox" type="StaticBody3D" parent="Base"]
+
+[node name="BaseHitBoxMesh" type="CollisionShape3D" parent="Base/BaseHitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+shape = SubResource("CylinderShape3D_oxkfh")
+
+[node name="IntruderArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IntruderArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_4tcgp")
