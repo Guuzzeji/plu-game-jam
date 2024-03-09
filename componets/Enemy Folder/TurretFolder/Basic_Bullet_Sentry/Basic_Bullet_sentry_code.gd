@@ -29,7 +29,7 @@ var Target : Node3D = IdleTarget
 @export var intruderDetector : Area3D
 
 ##################### TARGETING MODES
-@export var shootfirstorclosest : bool = false		##temp, does nothing, remake with selectable options
+@export var shootfirstorclosest : bool = false	##temp, does nothing, remake with selectable options
 
 #######################utility variables
 var complete = true 			##if a turret component is missing,

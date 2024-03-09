@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c856cl5nd1e4x"]
+[gd_scene load_steps=17 format=3 uid="uid://c856cl5nd1e4x"]
 
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_7scvg"]
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="2_yle1n"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ctv1pdtxhu54x" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn" id="9_pqssm"]
 [ext_resource type="PackedScene" uid="uid://p08shaauj6w6" path="res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn" id="10_6gfki"]
 [ext_resource type="PackedScene" uid="uid://dqt4i2pqa6m30" path="res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn" id="12_bbas6"]
+[ext_resource type="PackedScene" uid="uid://bfawoadi2j77r" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn" id="12_u886x"]
 [ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="14_ux25i"]
 [ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="15_pwcin"]
 
@@ -31,7 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38241, -4.76837e-07, -3.68
 TeleChannel = 8
 
 [node name="TelePad2" parent="Teleporters" instance=ExtResource("1_7scvg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54318, -4.76837e-07, -3.30451)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.54318, -4.76837e-07, 3.69549)
 TeleChannel = 8
 
 [node name="World" type="Node3D" parent="."]
@@ -78,6 +79,10 @@ y_offset = 0.5
 [node name="SpawnTesterRandos" parent="SpawnPads" instance=ExtResource("9_pqssm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 spawnBlueprint = ExtResource("10_6gfki")
+
+[node name="SpawnTesterRandos2" parent="SpawnPads" instance=ExtResource("9_pqssm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41394, 0, -6)
+spawnBlueprint = ExtResource("12_u886x")
 
 [node name="misc" type="Node3D" parent="."]
 

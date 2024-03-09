@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfawoadi2j77r"]
+[gd_scene load_steps=10 format=3 uid="uid://bfawoadi2j77r"]
 
 [ext_resource type="Script" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentry_code.gd" id="1_sd40w"]
+[ext_resource type="Resource" uid="uid://nj6a23nrn624" path="res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres" id="2_5j6xr"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_sf62p"]
 top_radius = 0.15
@@ -36,7 +37,10 @@ TurretHead = NodePath("RotatingBody/barrel")
 TurnTable = NodePath("RotatingBody")
 BulletSpawnPoint = NodePath("RotatingBody/barrel/BulletSpawnPoint")
 IdleTarget = NodePath("IdlePointTarget")
+rotationSpeed = 60.0
+barrelSpeed = 200.0
 CooldownTimer = NodePath("CoolDown_Timer")
+Bullet_Info = ExtResource("2_5j6xr")
 intruderDetector = NodePath("IntruderArea")
 
 [node name="CoolDown_Timer" type="Timer" parent="."]

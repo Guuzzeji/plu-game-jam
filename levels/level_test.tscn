@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=26 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
@@ -126,6 +126,9 @@ Explosive = false
 ExplodeDelay = 0.0
 safetyDelay = 0.5
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qsasb"]
+radius = 0.25
+
 [node name="LevelTest" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_vfy7f")]
@@ -229,6 +232,9 @@ One_Way_TeleChannel = 4
 [node name="PROTOLEVELWOO" parent="teleporter nonsense" instance=ExtResource("7_hx76k")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.227043, 0, -1.63604)
 One_Way_TeleChannel = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="teleporter nonsense/PROTOLEVELWOO"]
+mesh = SubResource("CapsuleMesh_qsasb")
 
 [node name="One_Way_Exit" parent="teleporter nonsense" instance=ExtResource("8_bfqpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97272, 0, -4.63604)

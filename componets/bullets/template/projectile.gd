@@ -45,7 +45,7 @@ func _process(delta):
 # **About**
 # Use when ever enemy node goes into body
 func _on_body_entered(body):
-	print("body: ", body, " body owner: ", body.owner) ##test the .owner tag
+	##print("body: ", body, " body owner: ", body.owner) ##test the .owner tag
 	#print("Orginator: ", orginator)
 	#print("Body: ", body)
 	#print("body owner: ", body.owner)
