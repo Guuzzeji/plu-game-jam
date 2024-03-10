@@ -31,17 +31,23 @@ radius = 0.75
 height = 3.0
 radius = 5.0
 
-[node name="BasicBulletSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "CooldownTimer", "intruderDetector")]
+[node name="BasicBulletSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "RayCastSightLine", "LignOfSightRay", "CooldownTimer", "intruderDetector")]
 script = ExtResource("1_sd40w")
 TurretHead = NodePath("RotatingBody/barrel")
 TurnTable = NodePath("RotatingBody")
 BulletSpawnPoint = NodePath("RotatingBody/barrel/BulletSpawnPoint")
 IdleTarget = NodePath("IdlePointTarget")
+RayCastSightLine = NodePath("RotatingBody/barrel/TargetSight")
+LignOfSightRay = NodePath("LignOfSight")
 rotationSpeed = 60.0
 barrelSpeed = 200.0
 CooldownTimer = NodePath("CoolDown_Timer")
 Bullet_Info = ExtResource("2_5j6xr")
 intruderDetector = NodePath("IntruderArea")
+
+[node name="LignOfSight" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, -5)
 
 [node name="CoolDown_Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -64,6 +70,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 [node name="headcolliderShape" type="CollisionShape3D" parent="RotatingBody/barrel/headHitbox"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_dj3cg")
+
+[node name="TargetSight" type="RayCast3D" parent="RotatingBody/barrel"]
+target_position = Vector3(0, 0, -5)
+collision_mask = 3
 
 [node name="Neck" type="Node3D" parent="RotatingBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

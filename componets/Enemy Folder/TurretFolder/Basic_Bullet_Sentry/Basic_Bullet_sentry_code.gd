@@ -11,6 +11,8 @@ extends Node3D
 @export var BulletSpawnPoint : Node3D
 var Target : Node3D = IdleTarget
 @export var IdleTarget : Node3D
+@export var RayCastSightLine : RayCast3D	## raycast that tells turret it can shoot player
+@export var LignOfSightRay : RayCast3D		## detects if there is wall blockng turret, Should not detect glass? Should be attached to root
 
 #####################
 ## Speeds
@@ -74,6 +76,8 @@ func _ready():
 func _process(delta):
 	Verify_Target() ##sees if target is still alive, if not then remove from array
 	healthCheck()
+	#if current_Target != null:
+	has_line_of_Sight()
 	match state:
 		IDLE:
 			Target = IdleTarget
@@ -125,7 +129,7 @@ func Verify_Target():		### MOVE ME
 		state = ACTIVE
 		return true
 	else:
-		print("error")
+		print("basic bullet sentry verify target error")
 	##### NOTE,, REWRITE NEEDED, VERYIFY WHEN TARGET HAS DIED TO CODE, use is_instance_valid(Target)
 
 ########################################## TURRET POINT AT TARGET ############################################
@@ -174,19 +178,9 @@ func get_global_x():
 ###############################################################################################################
 
 
-########################################## SHOOTING ############################################
-func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
-	instanceHealth = instanceHealth - damage
-	report_damage(damage, false, false)
-	#print(instanceHealth)
-	
-func healthCheck(): ##kill sentry if health drops below zero
-	if instanceHealth <= 0:
-		#print ("goodby world")
-		queue_free() #delete self, litterally 
-
+########################################## SHOOTING and Siht ############################################
 func fire_if_able(): #when attack state decides to fire the gun
-	if (CooldownTimer.is_stopped()):
+	if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider().is_in_group("player")):
 		#$SentryHead/BulletSentryHead/ReloadAnimation.play("BulletTurret/animation_model_SlideReload")
 	#do not need to specify root
 	#the bullet object file is in components_>bullets->nutbullet->nut_projectile.tscn file
@@ -199,6 +193,13 @@ func fire_if_able(): #when attack state decides to fire the gun
 	#place the bullet in the world, activates when placed.
 		CooldownTimer.start()
 	pass
+
+func has_line_of_Sight():
+	LignOfSightRay.look_at(Target.position, Vector3.UP)
+	if (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider().is_in_group("player")):
+		return true
+	else:
+		return false
 ##############################################################################################
 
 
@@ -215,6 +216,17 @@ func _on_intruder_area_body_exited(body):
 	pass # Replace with function body.
 ###########################################################################################################################
 
-##### damage display feedback to player
-func report_damage(damage: int , weakspot : bool, kill : int):
+###################################  Health Handeling + DMG Reporting  ###########################
+func report_damage(damage: int , weakspot : bool, kill : int): ####  damage display feedback to player
 	playerhud._Display_Damage_dealt(damage, weakspot, kill)
+
+func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
+	instanceHealth = instanceHealth - damage
+	report_damage(damage, false, false)
+	#print(instanceHealth)
+
+func healthCheck(): ##kill sentry if health drops below zero
+	if instanceHealth <= 0:
+		#print ("goodby world")
+		queue_free() #delete self, litterally 
+#####################################################################

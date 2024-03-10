@@ -210,7 +210,7 @@ func fire_if_able(): #when attack state decides to fire the gun
 	#place the bullet in the world, activates when placed.
 		CooldownTimer.start()
 	pass
-	##############################################################################################
+##############################################################################################
 
 ########################################## INTRUDER MANAGEMENT ################################################################
 func _on_intruder_area_body_entered(body):
@@ -225,6 +225,9 @@ func _on_intruder_area_body_exited(body):
 	pass # Replace with function body.
 ###########################################################################################################################
 
+############## DAMAGE AND HEALTH ##########################################
 ##### damage display feedback to player
 func report_damage(damage: int , weakspot : bool, kill : int):
 	playerhud._Display_Damage_dealt(damage, weakspot, kill)
+
+##################################################################################
