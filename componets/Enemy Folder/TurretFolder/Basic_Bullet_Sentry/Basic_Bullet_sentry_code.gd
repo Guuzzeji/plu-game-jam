@@ -1,5 +1,5 @@
 extends Node3D
-
+##### IDEA: MAKE RAILGUN TURRET, VERY SLOW BUT CANT DODGE IF FIRED (ALMOST INSTANT)
 ###### SPECIAL NOTES
 # the base node is for non-moving parts of the turret. The turret rim and ammo/mana storages should be attached to this
 # due to all my weird ideas the turret code will not be generalzed as that might be a nightmare. I will work on making it modular however
@@ -76,20 +76,24 @@ func _ready():
 func _process(delta):
 	Verify_Target() ##sees if target is still alive, if not then remove from array
 	healthCheck()
+	#print("t1: ", Target, " state: ", state)
 	#if current_Target != null:
-	has_line_of_Sight()
 	match state:
 		IDLE:
+			#print("currentStateBranch: idle")
 			Target = IdleTarget
 			Update_Target_Location()
 			RotateTurret(delta)
 			ChangeElevation(delta)
+			print("statidele -> ", state)
 		ACTIVE:
+			#print("currentStateBranch: active")
 			if Target != null:
 				Update_Target_Location()
 				RotateTurret(delta)
 				ChangeElevation(delta)
 				fire_if_able()
+				#print("state active -> ", state)
 			else: 
 				return
 			pass
@@ -99,15 +103,15 @@ func _process(delta):
 			pass
 		DESPAWNING:
 			queue_free()
-	if Target != null:	## check if there still is a target
-		state = ACTIVE
-	else:
-		state = null
-	if active:
-		pass
-	else:
-		return
-	pass
+	#if Target != null:	## check if there still is a target
+		#state = ACTIVE
+	#else:
+		#state = null
+	#if active:
+		#pass
+	#else:
+		#return
+	#pass
 
 func Verify_Target():		### MOVE ME
 	if intruders.is_empty():		##check if there are targets
@@ -116,18 +120,33 @@ func Verify_Target():		### MOVE ME
 		return false
 	#elif intruders.is_empty() && Target == null: 	##no stored targets amd no current target = do nothing
 		#return false
-	elif !intruders.is_empty() && Target == IdleTarget:	##add first target
+	elif !intruders.is_empty() && Target == IdleTarget:	##add first target, overwrite idle target
 		Target = intruders[0]
-		state = ACTIVE
+		if has_line_of_Sight():
+			state = ACTIVE
+		else:
+			state = IDLE		### this is messy and horrible but I am done with it 
 		return true
-	elif intruders.has(Target):	## basically, current target is valid, do nothing
+	elif intruders.has(Target) && has_line_of_Sight():	## basically, current target is valid, do nothing
 		Target = Target
 		state = ACTIVE
+		#print("target -> target")
 		return true
+	elif intruders.has(Target) && !has_line_of_Sight():
+		Target = IdleTarget
+		state = IDLE	############## AAAAAAAAAAAA I PUT == INSTEAD OF = AAAA TWO HOURS WASTED
+		#print("should idle as it has no sight, state returned: ", state, " idle state: ", IDLE, " active: ", ACTIVE)
+		return false
 	elif !intruders.has(Target):	## potential targets active but current target died/left and must be updated
 		Target = intruders[0]
-		state = ACTIVE
-		return true
+		if has_line_of_Sight():   ## check if the sentry has los to the NEW!!!! target. fix for annoying glitch
+			state = ACTIVE
+			#print("new target seen, set to active")
+			return true
+		else:
+			state = IDLE
+			#print("new target no LOS, going idle")
+			return false
 	else:
 		print("basic bullet sentry verify target error")
 	##### NOTE,, REWRITE NEEDED, VERYIFY WHEN TARGET HAS DIED TO CODE, use is_instance_valid(Target)
@@ -180,7 +199,8 @@ func get_global_x():
 
 ########################################## SHOOTING and Siht ############################################
 func fire_if_able(): #when attack state decides to fire the gun
-	if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider().is_in_group("player")):
+	#print("fired")
+	if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() == Target):
 		#$SentryHead/BulletSentryHead/ReloadAnimation.play("BulletTurret/animation_model_SlideReload")
 	#do not need to specify root
 	#the bullet object file is in components_>bullets->nutbullet->nut_projectile.tscn file
@@ -196,9 +216,11 @@ func fire_if_able(): #when attack state decides to fire the gun
 
 func has_line_of_Sight():
 	LignOfSightRay.look_at(Target.position, Vector3.UP)
-	if (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider().is_in_group("player")):
+	if (LignOfSightRay.is_colliding() && LignOfSightRay.get_collider() == Target):
+		#print("Can see target, current target:  ", LignOfSightRay.get_collider())
 		return true
 	else:
+		#print("no LOS, blocker: ", LignOfSightRay.get_collider())
 		return false
 ##############################################################################################
 

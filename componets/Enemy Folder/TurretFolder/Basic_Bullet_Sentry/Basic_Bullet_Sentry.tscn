@@ -48,6 +48,7 @@ intruderDetector = NodePath("IntruderArea")
 [node name="LignOfSight" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0, -5)
+collision_mask = 3
 
 [node name="CoolDown_Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -73,7 +74,7 @@ shape = SubResource("CapsuleShape3D_dj3cg")
 
 [node name="TargetSight" type="RayCast3D" parent="RotatingBody/barrel"]
 target_position = Vector3(0, 0, -5)
-collision_mask = 3
+collision_mask = 2
 
 [node name="Neck" type="Node3D" parent="RotatingBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

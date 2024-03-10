@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c856cl5nd1e4x"]
+[gd_scene load_steps=18 format=3 uid="uid://c856cl5nd1e4x"]
 
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_7scvg"]
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="2_yle1n"]
@@ -19,6 +19,10 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8o3"]
 albedo_color = Color(0.321569, 0, 0, 1)
 metallic = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5utn"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.231373)
 
 [node name="ToolTesting" type="Node3D"]
 
@@ -115,3 +119,9 @@ One_Way_TeleChannel = 1
 [node name="One_Way_Exit2" parent="one-way-teleporters" instance=ExtResource("15_pwcin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
 One_Way_TeleChannel = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.704832, -0.709374, 0, 0.709374, 0.704832, 0, 0, 0, 1, 6.02845, 0.817161, -7.47724)
+material_override = SubResource("StandardMaterial3D_j5utn")
+use_collision = true
+size = Vector3(13.028, 1.5, 0.5)

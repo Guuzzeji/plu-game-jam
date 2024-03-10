@@ -230,7 +230,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.9727
 One_Way_TeleChannel = 4
 
 [node name="PROTOLEVELWOO" parent="teleporter nonsense" instance=ExtResource("7_hx76k")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.227043, 0, -1.63604)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.18015, 0, -4.96546)
 One_Way_TeleChannel = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="teleporter nonsense/PROTOLEVELWOO"]
