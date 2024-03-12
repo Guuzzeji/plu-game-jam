@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://csk7u3eefut6j"
+path="res://.godot/imported/BBS_Base.obj-b892ed8a1254cd360c2c765e9e647e0b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BBS_Base.obj-b892ed8a1254cd360c2c765e9e647e0b.mesh"]
+
+source_file="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Base/BBS_Base.obj"
+dest_files=["res://.godot/imported/BBS_Base.obj-b892ed8a1254cd360c2c765e9e647e0b.mesh", "res://.godot/imported/BBS_Base.obj-b892ed8a1254cd360c2c765e9e647e0b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c856cl5nd1e4x"]
+[gd_scene load_steps=19 format=3 uid="uid://c856cl5nd1e4x"]
 
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_7scvg"]
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="2_yle1n"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bfawoadi2j77r" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn" id="12_u886x"]
 [ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="14_ux25i"]
 [ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="15_pwcin"]
+[ext_resource type="ArrayMesh" uid="uid://bysiv6rhievo3" path="res://TempFilesDELETE_AFTER_USE/test1bsentry/test1bsentry.obj" id="16_uyant"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8o3"]
 albedo_color = Color(0.321569, 0, 0, 1)
@@ -125,3 +126,7 @@ transform = Transform3D(0.704832, -0.709374, 0, 0.709374, 0.704832, 0, 0, 0, 1, 
 material_override = SubResource("StandardMaterial3D_j5utn")
 use_collision = true
 size = Vector3(13.028, 1.5, 0.5)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.739, 0, 3.587)
+mesh = ExtResource("16_uyant")

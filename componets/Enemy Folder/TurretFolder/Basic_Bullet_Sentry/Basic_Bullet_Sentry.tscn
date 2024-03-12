@@ -1,7 +1,76 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfawoadi2j77r"]
+[gd_scene load_steps=23 format=3 uid="uid://bfawoadi2j77r"]
 
 [ext_resource type="Script" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentry_code.gd" id="1_sd40w"]
 [ext_resource type="Resource" uid="uid://nj6a23nrn624" path="res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres" id="2_5j6xr"]
+[ext_resource type="ArrayMesh" uid="uid://dj3s5fdmuvrl1" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Barrel/BBS_Barrel.obj" id="3_4cj7d"]
+[ext_resource type="ArrayMesh" uid="uid://d2lq5pbs53vpm" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Mount/BBS_Mount.obj" id="3_eaumy"]
+[ext_resource type="ArrayMesh" uid="uid://csk7u3eefut6j" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Base/BBS_Base.obj" id="4_cgddq"]
+[ext_resource type="ArrayMesh" uid="uid://pdn6rmepvtq" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Front_Gear/BBS_Front_Gear.obj" id="4_t3btn"]
+[ext_resource type="ArrayMesh" uid="uid://mnuhrbv8c58m" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Mana/BBS_Mana.obj" id="5_44xin"]
+[ext_resource type="ArrayMesh" uid="uid://dph6k7flqfjq0" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Glass_Cap/BBS_Glass_Cap.obj" id="6_huaxy"]
+[ext_resource type="ArrayMesh" uid="uid://dns4ggjusm4la" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Bottem_Gear/BBS_Bot_Gear.obj" id="7_f0s7u"]
+
+[sub_resource type="Animation" id="Animation_d2kmj"]
+resource_name = "SpinningGears"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Base/Bot-Gear_Container:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.0472, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RotatingBody/Neck/Gear_Anim_Container:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.0472, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d7bns"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Base/Bot-Gear_Container:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RotatingBody/Neck/Gear_Anim_Container:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ikpj"]
+_data = {
+"RESET": SubResource("Animation_d7bns"),
+"SpinningGears": SubResource("Animation_d2kmj")
+}
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_sf62p"]
 top_radius = 0.15
@@ -9,27 +78,40 @@ bottom_radius = 0.05
 height = 1.0
 radial_segments = 5
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dj3cg"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rhd6k"]
+height = 0.6
 radius = 0.125
-height = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pk75l"]
-size = Vector3(0.6, 0.8, 0.2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_sn7ce"]
-size = Vector3(0.6, 0.8, 0.2)
+size = Vector3(0.6, 0.4, 0.4)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wgfbe"]
 bottom_radius = 0.75
 height = 0.25
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_oxkfh"]
+height = 0.2
+radius = 0.38
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b28wf"]
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wchv4"]
 height = 0.25
-radius = 0.75
+radius = 0.145
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2chm"]
+transparency = 1
+albedo_color = Color(0.341176, 0.513726, 0, 0.772549)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4tcgp"]
 height = 3.0
 radius = 5.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ayg4p"]
+height = 0.75
+radius = 0.45
 
 [node name="BasicBulletSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "RayCastSightLine", "LignOfSightRay", "CooldownTimer", "intruderDetector")]
 script = ExtResource("1_sd40w")
@@ -45,6 +127,12 @@ CooldownTimer = NodePath("CoolDown_Timer")
 Bullet_Info = ExtResource("2_5j6xr")
 intruderDetector = NodePath("IntruderArea")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6ikpj")
+}
+autoplay = "SpinningGears"
+
 [node name="LignOfSight" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0, -5)
@@ -57,10 +145,11 @@ one_shot = true
 [node name="RotatingBody" type="Node3D" parent="."]
 
 [node name="barrel" type="Node3D" parent="RotatingBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RotatingBody/barrel"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_sf62p")
 
 [node name="BulletSpawnPoint" type="Node3D" parent="RotatingBody/barrel"]
@@ -69,23 +158,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 [node name="headHitbox" type="StaticBody3D" parent="RotatingBody/barrel"]
 
 [node name="headcolliderShape" type="CollisionShape3D" parent="RotatingBody/barrel/headHitbox"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_dj3cg")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.1)
+shape = SubResource("CylinderShape3D_rhd6k")
 
 [node name="TargetSight" type="RayCast3D" parent="RotatingBody/barrel"]
 target_position = Vector3(0, 0, -5)
 collision_mask = 2
 
+[node name="Barrel" type="MeshInstance3D" parent="RotatingBody/barrel"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+mesh = ExtResource("3_4cj7d")
+
 [node name="Neck" type="Node3D" parent="RotatingBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="NeckHitBox" type="StaticBody3D" parent="RotatingBody/Neck"]
+[node name="NeckHitBox" type="AnimatableBody3D" parent="RotatingBody/Neck"]
 
 [node name="NeckColliderShape" type="CollisionShape3D" parent="RotatingBody/Neck/NeckHitBox"]
 shape = SubResource("BoxShape3D_pk75l")
 
-[node name="NeckMesh" type="MeshInstance3D" parent="RotatingBody/Neck"]
-mesh = SubResource("BoxMesh_sn7ce")
+[node name="Gear_Anim_Container" type="Node3D" parent="RotatingBody/Neck"]
+
+[node name="BBS_Side_Gear" type="MeshInstance3D" parent="RotatingBody/Neck/Gear_Anim_Container"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("4_t3btn")
+
+[node name="BBS_Mount" type="MeshInstance3D" parent="RotatingBody"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("3_eaumy")
 
 [node name="IdlePointTarget" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
@@ -93,7 +194,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 [node name="Base" type="Node3D" parent="."]
 
 [node name="mountingBase" type="MeshInstance3D" parent="Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.125, 0)
+visible = false
 mesh = SubResource("CylinderMesh_wgfbe")
 
 [node name="ManaContainer" type="Node3D" parent="Base"]
@@ -109,11 +211,50 @@ mesh = SubResource("CylinderMesh_wgfbe")
 [node name="BaseHitBox" type="StaticBody3D" parent="Base"]
 
 [node name="BaseHitBoxMesh" type="CollisionShape3D" parent="Base/BaseHitBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("CylinderShape3D_oxkfh")
+
+[node name="BBS_Base" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("4_cgddq")
+skeleton = NodePath("../..")
+
+[node name="BBS_mana" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_b28wf")
+mesh = ExtResource("5_44xin")
+skeleton = NodePath("../..")
+
+[node name="ManaWeakSpot" type="StaticBody3D" parent="Base"]
+
+[node name="ManaMeshHitbox" type="CollisionShape3D" parent="Base/ManaWeakSpot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0.483)
+shape = SubResource("CylinderShape3D_wchv4")
+
+[node name="Bot-Gear_Container" type="Node3D" parent="Base"]
+
+[node name="Bottem_Gear" type="MeshInstance3D" parent="Base/Bot-Gear_Container"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("7_f0s7u")
+
+[node name="Mana_animation_Container" type="Node3D" parent="Base"]
+
+[node name="Glass_Cap" type="MeshInstance3D" parent="Base/Mana_animation_Container"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_g2chm")
+mesh = ExtResource("6_huaxy")
+skeleton = NodePath("../..")
 
 [node name="IntruderArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IntruderArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CylinderShape3D_4tcgp")
+
+[node name="Movement_Hitbox" type="StaticBody3D" parent="."]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Movement_Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+shape = SubResource("CylinderShape3D_ayg4p")

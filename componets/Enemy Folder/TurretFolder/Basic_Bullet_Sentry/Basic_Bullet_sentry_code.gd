@@ -103,6 +103,7 @@ func _process(delta):
 			pass
 		DESPAWNING:
 			queue_free()
+	##### dumbest thing yet
 	#if Target != null:	## check if there still is a target
 		#state = ACTIVE
 	#else:
@@ -164,6 +165,9 @@ func RotateTurret(delta: float):
 	var final_y = sign(y_targetRotation) * min(rotation_speed * delta, abs(y_targetRotation))
 	# rotate body
 	TurnTable.rotate_y(final_y)
+	#### decoration code for the gear, only for this specific turret
+	var miscGear = final_y
+	rotate_gear(miscGear)
 	pass
 			
 func ChangeElevation(delta: float):
@@ -252,3 +256,13 @@ func healthCheck(): ##kill sentry if health drops below zero
 		#print ("goodby world")
 		queue_free() #delete self, litterally 
 #####################################################################
+
+############ MISC ##############
+func rotate_gear(miscGear):
+	#print(miscGear)
+	### works but only for certian angles
+	#$RotatingBody/Neck/Gear_Anim_Container.transform.basis = Basis(Vector3(1,0,0), TurnTable.transform.basis.x.angle_to(self.basis.x))
+	$RotatingBody/Neck/Gear_Anim_Container/BBS_Side_Gear.rotate_x(miscGear) #.transform.basis = transform.basis.rotated(Vector3(1,0,0), miscGear)
+	#transform.basis.y.set_angle_to = TurnTable.transform.basis.x.angle_to(self.basis.x)
+	#print (TurnTable.transform.basis.x.angle_to(self.basis.x))
+	pass
