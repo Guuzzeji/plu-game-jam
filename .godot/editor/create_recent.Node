@@ -1,8 +1,8 @@
+AnimationPlayer
+MeshInstance3D
 CollisionShape3D
 StaticBody3D
 AnimatableBody3D
-AnimationPlayer
-MeshInstance3D
 Node3D
 MultiMeshInstance3D
 CSGMesh3D

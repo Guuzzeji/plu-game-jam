@@ -85,7 +85,7 @@ func _process(delta):
 			Update_Target_Location()
 			RotateTurret(delta)
 			ChangeElevation(delta)
-			print("statidele -> ", state)
+			#print("statidele -> ", state)
 		ACTIVE:
 			#print("currentStateBranch: active")
 			if Target != null:
@@ -214,6 +214,7 @@ func fire_if_able(): #when attack state decides to fire the gun
 		firedBullet.orginator = self	#cant hit self!
 		firedBullet.Bullet_Info.Enemy_Bullet = true	#can now damage player
 		BulletSpawnPoint.add_child(firedBullet) #places into word, launches when placed
+		$BoltAnimation.play("Bolt_Animation")	##should prob make a function
 	#place the bullet in the world, activates when placed.
 		CooldownTimer.start()
 	pass
@@ -260,7 +261,7 @@ func healthCheck(): ##kill sentry if health drops below zero
 ############ MISC ##############
 func rotate_gear(miscGear):
 	#print(miscGear)
-	### works but only for certian angles
+	#works but only for certian angles
 	#$RotatingBody/Neck/Gear_Anim_Container.transform.basis = Basis(Vector3(1,0,0), TurnTable.transform.basis.x.angle_to(self.basis.x))
 	$RotatingBody/Neck/Gear_Anim_Container/BBS_Side_Gear.rotate_x(miscGear) #.transform.basis = transform.basis.rotated(Vector3(1,0,0), miscGear)
 	#transform.basis.y.set_angle_to = TurnTable.transform.basis.x.angle_to(self.basis.x)
