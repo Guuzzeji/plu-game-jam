@@ -13,11 +13,11 @@ var kill : bool = false
 func _ready():
 	###### handle damage type color
 	if weakspot && kill:		## weakpoint kill
-		textNode.label_settings.font_color = Color.DARK_RED
+		textNode.label_settings.font_color = Color.TOMATO
 	elif weakspot:				## weakpoint
-		textNode.label_settings.font_color = Color.RED
+		textNode.label_settings.font_color = Color.DARK_RED
 	elif kill: 					## kill
-		textNode.label_settings.font_color = Color.DARK_ORANGE
+		textNode.label_settings.font_color = Color.LIGHT_SALMON
 	else:						## hit
 		textNode.label_settings.font_color = Color.ORANGE
 		##textNode.add_color_override("font_color", Color("fcff00"))

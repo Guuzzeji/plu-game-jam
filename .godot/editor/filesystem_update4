@@ -26,3 +26,6 @@ res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn
 res://levels/Light_Testing.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn
 res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentry_code.gd
+res://componets/player/damage_numbers.tscn
+res://componets/player/damage_numbers.gd
+res://componets/player/player_hud.tscn

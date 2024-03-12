@@ -96,6 +96,9 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_ati5u"]
 font_size = 30
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, -1)
 
 [node name="DamageNumbers" type="Node2D"]
 position = Vector2(610, 320)
