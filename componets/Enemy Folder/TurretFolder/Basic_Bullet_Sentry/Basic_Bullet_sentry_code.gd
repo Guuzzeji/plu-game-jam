@@ -248,8 +248,16 @@ func report_damage(damage: int , weakspot : bool, kill : int): ####  damage disp
 	playerhud._Display_Damage_dealt(damage, weakspot, kill)
 
 func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
+	var HitWeakspot = false
+	if (hitspot == $Base/ManaWeakSpot):		##double damage for weakspots and uinform player they hit it
+		HitWeakspot = true
+		damage = damage * 2
 	instanceHealth = instanceHealth - damage
-	report_damage(damage, false, false)
+
+	if instanceHealth <= 0:     ## change text color to something to indicate kill
+		report_damage(damage, HitWeakspot, true)
+	else:
+		report_damage(damage, HitWeakspot, false)
 	#print(instanceHealth)
 
 func healthCheck(): ##kill sentry if health drops below zero
