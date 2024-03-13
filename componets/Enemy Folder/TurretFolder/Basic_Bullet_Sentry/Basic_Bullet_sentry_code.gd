@@ -334,5 +334,5 @@ func deathfunction():			#ON DEATH: set mode to destroyed to stop processes, stop
 	$LignOfSight.queue_free()
 	$DeathAnimation.play("DeathAnimationBBS")
 	Died.emit(self)
-	print("sent signsal")
+	#print("sent signsal")
 	

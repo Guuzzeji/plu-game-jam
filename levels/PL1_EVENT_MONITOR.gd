@@ -56,7 +56,7 @@ func _on_pg_hallway_activation_body_entered(body):
 func remove_entity_from_group(entity, group):	## when something dies it can still exist but is dead to rest of code
 	entity.remove_from_group(group)
 	entity.add_to_group("dead_Objects")
-	print("reallocated entity")
+	#print("reallocated entity")
 
 func clear_level():	## to delete level when player leaves/dies
 	pass

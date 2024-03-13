@@ -52,12 +52,10 @@ func spawn_entity():
 	add_child(entity)
 	if entity.has_signal("Died") && owner.has_method("remove_entity_from_group"):
 		entity.Died.connect(child_destroyed)	## swanedv thing dies, tells spawn node it died, tells level that it lost a guy.
-		print("conneected_Signal")
 	
 	if add_to_group_name:
 		entity.add_to_group(add_to_group_name)	## group up enemies to see if player killed them all.
 	if entity.has_method("update_navmesh_layer"):
-		print("update")
 		entity.update_navmesh_layer(navmesh_Layer)
 
 		#print(get_tree().get_nodes_in_group(add_to_group_name).size())
