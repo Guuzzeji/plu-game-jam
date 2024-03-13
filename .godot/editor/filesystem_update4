@@ -29,3 +29,4 @@ res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentr
 res://componets/player/damage_numbers.tscn
 res://componets/player/damage_numbers.gd
 res://componets/player/player_hud.tscn
+res://componets/player/bullet_inventory.tscn

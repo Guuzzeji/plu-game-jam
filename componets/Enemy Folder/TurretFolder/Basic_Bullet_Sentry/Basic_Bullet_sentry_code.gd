@@ -39,6 +39,7 @@ var active = true  			## current turret state
 var current_Target : Vector3 	##position of target
 @export var instanceHealth : int = 200
 @export var Mana : int = 400
+@export var MaxMana : int = 400
 @onready var playerhud = load("res://componets/player/player_info.tres").Player_Hud
 
 
@@ -205,6 +206,8 @@ func get_global_x():
 func fire_if_able(): #when attack state decides to fire the gun
 	#print("fired")
 	if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() == Target):
+		spend_mana(Bullet_Info.Cost)
+		mana_tank_level()
 		#$SentryHead/BulletSentryHead/ReloadAnimation.play("BulletTurret/animation_model_SlideReload")
 	#do not need to specify root
 	#the bullet object file is in components_>bullets->nutbullet->nut_projectile.tscn file
@@ -275,3 +278,10 @@ func rotate_gear(miscGear):
 	#transform.basis.y.set_angle_to = TurnTable.transform.basis.x.angle_to(self.basis.x)
 	#print (TurnTable.transform.basis.x.angle_to(self.basis.x))
 	pass
+
+func mana_tank_level():
+	$Base/BBS_mana.transform.origin = Vector3(0 , -0.19 + (Mana / MaxMana) , 0) # = Vector3(0 , -0.05, 0)
+	# -= -0.02 ## mmin levefl will  be -0.19
+
+func spend_mana(ManaSpent):
+	Mana -= ManaSpent

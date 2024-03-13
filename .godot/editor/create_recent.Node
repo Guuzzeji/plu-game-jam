@@ -1,3 +1,4 @@
+Node2D
 AnimationPlayer
 MeshInstance3D
 CollisionShape3D
@@ -9,6 +10,5 @@ CSGMesh3D
 CSGBox3D
 RayCast3D
 Label
-Node2D
 NavigationRegion3D
 CollisionPolygon3D
