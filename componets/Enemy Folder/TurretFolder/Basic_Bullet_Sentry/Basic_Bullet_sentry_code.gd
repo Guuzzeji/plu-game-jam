@@ -45,6 +45,8 @@ var current_Target : Vector3 	##position of target
 @export var MaxMana : int = 400
 @onready var playerhud = load("res://componets/player/player_info.tres").Player_Hud
 
+signal Died
+
 
 #####@@@@@@@ STATE MACHINE
 enum {				## states for state machine
@@ -328,5 +330,9 @@ func deathfunction():			#ON DEATH: set mode to destroyed to stop processes, stop
 	$GearSpin.stop()
 	ManaRegenTimer.stop()
 	CooldownTimer.stop()
+	$RotatingBody/barrel/TargetSight.queue_free()
+	$LignOfSight.queue_free()
 	$DeathAnimation.play("DeathAnimationBBS")
+	Died.emit(self)
+	print("sent signsal")
 	

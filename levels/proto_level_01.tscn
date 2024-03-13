@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b1w6fftdidred"]
+[gd_scene load_steps=33 format=3 uid="uid://b1w6fftdidred"]
 
 [ext_resource type="Script" path="res://levels/PL1_EVENT_MONITOR.gd" id="1_f2hsq"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_gcr0a"]
@@ -17,9 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="15_rb14f"]
 [ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="16_insel"]
 [ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="16_qbgqj"]
-[ext_resource type="PackedScene" uid="uid://p08shaauj6w6" path="res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn" id="16_u2ih5"]
-[ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="17_bu0ak"]
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="17_r0qei"]
+[ext_resource type="PackedScene" uid="uid://bfawoadi2j77r" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn" id="18_13mf0"]
 [ext_resource type="PackedScene" uid="uid://bw0uu5umnt8vn" path="res://componets/Enemy Folder/Evil Cube/evil_cube.tscn" id="21_t5yca"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oo6bs"]
@@ -179,21 +178,21 @@ polygon = PackedVector2Array(6.03444, -17.6141, -7.5584, -17.6844, -7.56556, 10.
 
 [node name="StartSpawnPoint" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
 transform = Transform3D(0.912948, 0, -0.408076, 0, 1, 0, 0.408076, 0, 0.912948, 9.29025, 9.53674e-07, 0.120331)
-spawnBlueprint = ExtResource("16_u2ih5")
+spawnBlueprint = ExtResource("18_13mf0")
 SpawnOnStart = false
 SpawnOnLevelStart = true
 add_to_group_name = "CourtYardE"
 
 [node name="StartSpawnPoint2" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
 transform = Transform3D(0.404806, 0, 0.914402, 0, 1, 0, -0.914402, 0, 0.404806, 21.4958, 0, -13.627)
-spawnBlueprint = ExtResource("17_bu0ak")
+spawnBlueprint = ExtResource("18_13mf0")
 SpawnOnStart = false
 SpawnOnLevelStart = true
 add_to_group_name = "CourtYardE"
 
 [node name="StartSpawnPoint3" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
 transform = Transform3D(-0.629225, 0, -0.777223, 0, 1, 0, 0.777223, 0, -0.629225, 3.39197, 1.90735e-06, -28.3849)
-spawnBlueprint = ExtResource("16_u2ih5")
+spawnBlueprint = ExtResource("18_13mf0")
 SpawnOnStart = false
 SpawnOnLevelStart = true
 add_to_group_name = "CourtYardE"

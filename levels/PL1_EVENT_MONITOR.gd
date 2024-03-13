@@ -52,3 +52,14 @@ func _on_pg_hallway_activation_body_entered(body):
 		emit_signal("Deploy_Cubes")
 		flagC = true
 	pass # Replace with function body.
+
+func remove_entity_from_group(entity, group):	## when something dies it can still exist but is dead to rest of code
+	entity.remove_from_group(group)
+	entity.add_to_group("dead_Objects")
+	print("reallocated entity")
+
+func clear_level():	## to delete level when player leaves/dies
+	pass
+
+func reset_level():
+	pass

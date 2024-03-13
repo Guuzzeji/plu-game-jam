@@ -50,6 +50,10 @@ func spawn_entity():
 	#spawned.rotate_y(PI)
 	entity.transform = entity.transform.translated(Vector3(x_offset,y_offset,z_offset))
 	add_child(entity)
+	if entity.has_signal("Died") && owner.has_method("remove_entity_from_group"):
+		entity.Died.connect(child_destroyed)	## swanedv thing dies, tells spawn node it died, tells level that it lost a guy.
+		print("conneected_Signal")
+	
 	if add_to_group_name:
 		entity.add_to_group(add_to_group_name)	## group up enemies to see if player killed them all.
 	if entity.has_method("update_navmesh_layer"):
@@ -65,5 +69,7 @@ func _process(_delta):
 func _spawn_signal_recieved():
 	spawn_entity()
 
+func child_destroyed(specific_entity):
+	owner.remove_entity_from_group(specific_entity, add_to_group_name)
 
 

@@ -23,3 +23,5 @@ res://levels/proto_level_01.tscn
 res://componets/player/player.tscn
 res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn
 res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentry_code.gd
+res://levels/PL1_EVENT_MONITOR.gd
+res://componets/SpawnStuffs/SpawnPoint.gd
