@@ -1,3 +1,5 @@
+CSGBox3D
+Timer
 Node2D
 AnimationPlayer
 MeshInstance3D
@@ -7,8 +9,6 @@ AnimatableBody3D
 Node3D
 MultiMeshInstance3D
 CSGMesh3D
-CSGBox3D
 RayCast3D
 Label
 NavigationRegion3D
-CollisionPolygon3D

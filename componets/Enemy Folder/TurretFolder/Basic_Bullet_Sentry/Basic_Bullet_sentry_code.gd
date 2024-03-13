@@ -13,6 +13,9 @@ var Target : Node3D = IdleTarget
 @export var IdleTarget : Node3D
 @export var RayCastSightLine : RayCast3D	## raycast that tells turret it can shoot player
 @export var LignOfSightRay : RayCast3D		## detects if there is wall blockng turret, Should not detect glass? Should be attached to root
+@export var ManaRegenTimer : Timer
+@export var TimePerManaRegen : float = 1.0 		## time between each addition of mana
+@export var ManaRegenAmount : int = 5			## mana regained per mana timer timeout
 
 #####################
 ## Speeds
@@ -31,7 +34,7 @@ var Target : Node3D = IdleTarget
 @export var intruderDetector : Area3D
 
 ##################### TARGETING MODES
-@export var shootfirstorclosest : bool = false	##temp, does nothing, remake with selectable options
+#@export var shootfirstorclosest : bool = false	##temp, does nothing, remake with selectable options
 
 #######################utility variables
 var complete = true 			##if a turret component is missing,
@@ -60,6 +63,9 @@ var intruders : Array		##this is so turrets can have multiple targets
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Enemy")
+	ManaRegenTimer.timeout.connect(_ManaRegenTimer_timeout)		## for mana regeneration, only tick when needed
+	ManaRegenTimer.wait_time = TimePerManaRegen
+	
 	if !intruderDetector.body_entered.is_connected(_on_intruder_area_body_entered):
 		intruderDetector.body_entered.connect(_on_intruder_area_body_entered)	##connect up the area node to functions
 	if !intruderDetector.body_exited.is_connected(_on_intruder_area_body_exited):
@@ -77,8 +83,6 @@ func _ready():
 func _process(delta):
 	Verify_Target() ##sees if target is still alive, if not then remove from array
 	healthCheck()
-	#print("t1: ", Target, " state: ", state)
-	#if current_Target != null:
 	match state:
 		IDLE:
 			#print("currentStateBranch: idle")
@@ -156,8 +160,10 @@ func Verify_Target():		### MOVE ME
 ########################################## TURRET POINT AT TARGET ############################################
 ## TURRET MOVEMENT CONTROL FUNCTIONS
 func Update_Target_Location():
-	current_Target = Target.position
-	pass
+	if Target == IdleTarget:
+		current_Target = Target.global_position
+	else:
+		current_Target = Target.position
 
 func RotateTurret(delta: float):
 	#displacement (ammount turret needs to rotate?)
@@ -205,7 +211,7 @@ func get_global_x():
 ########################################## SHOOTING and Siht ############################################
 func fire_if_able(): #when attack state decides to fire the gun
 	#print("fired")
-	if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() == Target):
+	if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() == Target && Mana >= Bullet_Info.Cost):
 		spend_mana(Bullet_Info.Cost)
 		mana_tank_level()
 		#$SentryHead/BulletSentryHead/ReloadAnimation.play("BulletTurret/animation_model_SlideReload")
@@ -279,9 +285,27 @@ func rotate_gear(miscGear):
 	#print (TurnTable.transform.basis.x.angle_to(self.basis.x))
 	pass
 
+#################### MANA HANDELING #################################
 func mana_tank_level():
-	$Base/BBS_mana.transform.origin = Vector3(0 , -0.19 + (Mana / MaxMana) , 0) # = Vector3(0 , -0.05, 0)
+
+	$Base/BBS_mana.transform.origin = Vector3(0 , (-0.19 + (0.19 * (Mana*1.0 / MaxMana))), 0) # = Vector3(0 , -0.05, 0)
 	# -= -0.02 ## mmin levefl will  be -0.19
 
 func spend_mana(ManaSpent):
-	Mana -= ManaSpent
+	if (Mana - ManaSpent) < 0:
+		Mana = 0
+	else:
+		Mana -= ManaSpent
+	if ManaRegenTimer.is_stopped():
+		ManaRegenTimer.start()
+#	lets have the timer restart itself but can be stopped and must be started
+
+func _ManaRegenTimer_timeout():
+	Mana += ManaRegenAmount
+	if Mana > MaxMana:
+		Mana = MaxMana
+		ManaRegenTimer.stop()
+#	every timeout regen mana
+#	on mana full disable timer, restart timer in 
+	pass
+######################################################################

@@ -141,7 +141,7 @@ radius = 5.0
 height = 0.75
 radius = 0.45
 
-[node name="BasicBulletSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "RayCastSightLine", "LignOfSightRay", "CooldownTimer", "intruderDetector")]
+[node name="BasicBulletSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "RayCastSightLine", "LignOfSightRay", "ManaRegenTimer", "CooldownTimer", "intruderDetector")]
 script = ExtResource("1_sd40w")
 TurretHead = NodePath("RotatingBody/barrel")
 TurnTable = NodePath("RotatingBody")
@@ -149,11 +149,16 @@ BulletSpawnPoint = NodePath("RotatingBody/barrel/BulletSpawnPoint")
 IdleTarget = NodePath("IdlePointTarget")
 RayCastSightLine = NodePath("RotatingBody/barrel/TargetSight")
 LignOfSightRay = NodePath("LignOfSight")
+ManaRegenTimer = NodePath("ManaRegen")
+TimePerManaRegen = 5.0
+ManaRegenAmount = 50
 rotationSpeed = 60.0
 barrelSpeed = 200.0
 CooldownTimer = NodePath("CoolDown_Timer")
 Bullet_Info = ExtResource("2_5j6xr")
 intruderDetector = NodePath("IntruderArea")
+Mana = 100
+MaxMana = 100
 
 [node name="BoltAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -171,9 +176,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0, -5)
 collision_mask = 3
 
+[node name="ManaRegen" type="Timer" parent="."]
+
 [node name="CoolDown_Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="IdlePointTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+
+[node name="IdlePoitVisualizer" type="CSGBox3D" parent="IdlePointTarget"]
+visible = false
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="RotatingBody" type="Node3D" parent="."]
 
@@ -218,9 +232,6 @@ mesh = ExtResource("4_t3btn")
 [node name="BBS_Mount" type="MeshInstance3D" parent="RotatingBody"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = ExtResource("3_eaumy")
-
-[node name="IdlePointTarget" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 
 [node name="Base" type="Node3D" parent="."]
 
