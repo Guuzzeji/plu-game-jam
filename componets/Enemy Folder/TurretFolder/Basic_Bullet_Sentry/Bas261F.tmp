@@ -307,6 +307,8 @@ IdleTarget = NodePath("IdlePointTarget")
 RayCastSightLine = NodePath("RotatingBody/barrel/TargetSight")
 LignOfSightRay = NodePath("LignOfSight")
 ManaRegenTimer = NodePath("ManaRegen")
+TimePerManaRegen = 5.0
+ManaRegenAmount = 50
 rotationSpeed = 60.0
 barrelSpeed = 200.0
 CooldownTimer = NodePath("CoolDown_Timer")
@@ -397,6 +399,14 @@ mesh = ExtResource("3_eaumy")
 [node name="Base" type="Node3D" parent="."]
 
 [node name="ManaContainer" type="Node3D" parent="Base"]
+
+[node name="ManaCasing" type="Node3D" parent="Base/ManaContainer"]
+
+[node name="ManaCasingMesh" type="MeshInstance3D" parent="Base/ManaContainer/ManaCasing"]
+
+[node name="ManaGlowFluid" type="Node3D" parent="Base/ManaContainer"]
+
+[node name="ManaGlowFluidMesh" type="MeshInstance3D" parent="Base/ManaContainer/ManaGlowFluid"]
 
 [node name="BaseHitBox" type="StaticBody3D" parent="Base"]
 

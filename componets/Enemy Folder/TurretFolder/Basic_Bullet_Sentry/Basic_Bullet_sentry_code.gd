@@ -65,6 +65,7 @@ func _ready():
 	add_to_group("Enemy")
 	ManaRegenTimer.timeout.connect(_ManaRegenTimer_timeout)		## for mana regeneration, only tick when needed
 	ManaRegenTimer.wait_time = TimePerManaRegen
+	ManaRegenTimer.one_shot = true
 	
 	if !intruderDetector.body_entered.is_connected(_on_intruder_area_body_entered):
 		intruderDetector.body_entered.connect(_on_intruder_area_body_entered)	##connect up the area node to functions
@@ -81,8 +82,9 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	Verify_Target() ##sees if target is still alive, if not then remove from array
-	healthCheck()
+	if state != DESTROYED:
+		Verify_Target() ##sees if target is still alive, if not then remove from array
+		healthCheck()
 	match state:
 		IDLE:
 			#print("currentStateBranch: idle")
@@ -107,7 +109,8 @@ func _process(delta):
 		DESTROYED:
 			pass
 		DESPAWNING:
-			queue_free()
+			pass #deathfunction()
+			########queue_free()
 	##### dumbest thing yet
 	#if Target != null:	## check if there still is a target
 		#state = ACTIVE
@@ -213,7 +216,6 @@ func fire_if_able(): #when attack state decides to fire the gun
 	#print("fired")
 	if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() == Target && Mana >= Bullet_Info.Cost):
 		spend_mana(Bullet_Info.Cost)
-		mana_tank_level()
 		#$SentryHead/BulletSentryHead/ReloadAnimation.play("BulletTurret/animation_model_SlideReload")
 	#do not need to specify root
 	#the bullet object file is in components_>bullets->nutbullet->nut_projectile.tscn file
@@ -272,7 +274,7 @@ func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use t
 func healthCheck(): ##kill sentry if health drops below zero
 	if instanceHealth <= 0:
 		#print ("goodby world")
-		queue_free() #delete self, litterally 
+		deathfunction()#queue_free() #delete self, litterally 
 #####################################################################
 
 ############ MISC ##############
@@ -296,16 +298,35 @@ func spend_mana(ManaSpent):
 		Mana = 0
 	else:
 		Mana -= ManaSpent
-	if ManaRegenTimer.is_stopped():
+	if ManaRegenTimer.is_stopped():	#mana will always need to be regenerated if spent!
 		ManaRegenTimer.start()
+	mana_tank_level()
 #	lets have the timer restart itself but can be stopped and must be started
 
 func _ManaRegenTimer_timeout():
 	Mana += ManaRegenAmount
-	if Mana > MaxMana:
+	if Mana >= MaxMana:
 		Mana = MaxMana
-		ManaRegenTimer.stop()
+	else:
+		ManaRegenTimer.start()	# if mana not max then start the timer again
+	mana_tank_level()
 #	every timeout regen mana
 #	on mana full disable timer, restart timer in 
-	pass
 ######################################################################
+
+########## Death Handeling ######################
+func deathfunction():			#ON DEATH: set mode to destroyed to stop processes, stop animations, play dying animation. disable area node
+	state = DESTROYED
+	intruderDetector.queue_free() ## area no longer needed, stops area detection from functioning, save memory
+	$RotatingBody/barrel/headHitbox.queue_free()
+	$RotatingBody/Neck/NeckHitBox.queue_free()
+	$Base/ManaWeakSpot.queue_free()
+	$Base/BaseHitBox.queue_free()
+	#$Base/BBS_mana.queue_free()
+	$Base/Glass_Cap.queue_free()
+	$BoltAnimation.stop()
+	$GearSpin.stop()
+	ManaRegenTimer.stop()
+	CooldownTimer.stop()
+	$DeathAnimation.play("DeathAnimationBBS")
+	

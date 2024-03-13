@@ -1,7 +1,8 @@
+AnimationTree
+AnimationPlayer
 CSGBox3D
 Timer
 Node2D
-AnimationPlayer
 MeshInstance3D
 CollisionShape3D
 StaticBody3D
