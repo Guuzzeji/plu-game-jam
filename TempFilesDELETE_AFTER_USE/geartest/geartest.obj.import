@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dk67ytqesdm5n"
+path="res://.godot/imported/geartest.obj-14321fe64b514d1b7116d52c0d63a6fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/geartest.obj-14321fe64b514d1b7116d52c0d63a6fb.mesh"]
+
+source_file="res://TempFilesDELETE_AFTER_USE/geartest/geartest.obj"
+dest_files=["res://.godot/imported/geartest.obj-14321fe64b514d1b7116d52c0d63a6fb.mesh", "res://.godot/imported/geartest.obj-14321fe64b514d1b7116d52c0d63a6fb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

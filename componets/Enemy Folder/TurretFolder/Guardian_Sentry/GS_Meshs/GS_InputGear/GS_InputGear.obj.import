@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://klv8hf22rapp"
+path="res://.godot/imported/GS_InputGear.obj-f7b5f09fb620ec54ccc3668040f68384.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GS_InputGear.obj-f7b5f09fb620ec54ccc3668040f68384.mesh"]
+
+source_file="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_InputGear/GS_InputGear.obj"
+dest_files=["res://.godot/imported/GS_InputGear.obj-f7b5f09fb620ec54ccc3668040f68384.mesh", "res://.godot/imported/GS_InputGear.obj-f7b5f09fb620ec54ccc3668040f68384.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

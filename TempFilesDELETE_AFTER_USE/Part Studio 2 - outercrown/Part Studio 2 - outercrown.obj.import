@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://djyjtli0tribw"
+path="res://.godot/imported/Part Studio 2 - outercrown.obj-1ad5df8f2af91cc51e485d0df82e7366.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Part Studio 2 - outercrown.obj-1ad5df8f2af91cc51e485d0df82e7366.mesh"]
+
+source_file="res://TempFilesDELETE_AFTER_USE/Part Studio 2 - outercrown/Part Studio 2 - outercrown.obj"
+dest_files=["res://.godot/imported/Part Studio 2 - outercrown.obj-1ad5df8f2af91cc51e485d0df82e7366.mesh", "res://.godot/imported/Part Studio 2 - outercrown.obj-1ad5df8f2af91cc51e485d0df82e7366.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

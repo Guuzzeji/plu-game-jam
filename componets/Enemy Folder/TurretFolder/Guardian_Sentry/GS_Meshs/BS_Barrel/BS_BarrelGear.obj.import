@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dg2khertjjlyk"
+path="res://.godot/imported/BS_BarrelGear.obj-f3e384bac9ec7960270510e3341484eb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BS_BarrelGear.obj-f3e384bac9ec7960270510e3341484eb.mesh"]
+
+source_file="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/BS_Barrel/BS_BarrelGear.obj"
+dest_files=["res://.godot/imported/BS_BarrelGear.obj-f3e384bac9ec7960270510e3341484eb.mesh", "res://.godot/imported/BS_BarrelGear.obj-f3e384bac9ec7960270510e3341484eb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

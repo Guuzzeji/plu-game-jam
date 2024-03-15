@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=31 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
@@ -11,6 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="12_8mt6k"]
 [ext_resource type="PackedScene" uid="uid://b1w6fftdidred" path="res://levels/proto_level_01.tscn" id="12_vie5u"]
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="13_i76f7"]
+[ext_resource type="PackedScene" uid="uid://cadckrkdpc2w4" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn" id="13_yuu7n"]
+[ext_resource type="ArrayMesh" uid="uid://cyp1hnuvhvh4k" path="res://TempFilesDELETE_AFTER_USE/Part Studio 2 - CannonGear/Part Studio 2 - CannonGear.obj" id="14_7n0ab"]
+[ext_resource type="ArrayMesh" uid="uid://bctfb3wob7mmk" path="res://TempFilesDELETE_AFTER_USE/Part Studio 2 - input gear/Part Studio 2 - input gear.obj" id="15_o2xr1"]
+[ext_resource type="ArrayMesh" uid="uid://djyjtli0tribw" path="res://TempFilesDELETE_AFTER_USE/Part Studio 2 - outercrown/Part Studio 2 - outercrown.obj" id="16_4wntg"]
+[ext_resource type="ArrayMesh" uid="uid://b07tvvucudpn3" path="res://TempFilesDELETE_AFTER_USE/outcrown.obj" id="17_bhhan"]
 [ext_resource type="PackedScene" uid="uid://bsjl70sugaxhg" path="res://levels/PathFindingTestArera.tscn" id="18_tnolj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
@@ -257,3 +262,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, 30)
 
 [node name="Proto_Level_01" parent="SubLevels" instance=ExtResource("12_vie5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173, 0, -44)
+
+[node name="GuardianSentry" parent="." instance=ExtResource("13_yuu7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90481, 0, 1.64645)
+
+[node name="PartStudio2-CannonGear" type="MeshInstance3D" parent="."]
+mesh = ExtResource("14_7n0ab")
+
+[node name="PartStudio2-InputGear" type="MeshInstance3D" parent="."]
+mesh = ExtResource("15_o2xr1")
+
+[node name="PartStudio2-Outercrown" type="MeshInstance3D" parent="."]
+mesh = ExtResource("16_4wntg")
+
+[node name="Outcrown" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43575, 0, 0)
+mesh = ExtResource("17_bhhan")

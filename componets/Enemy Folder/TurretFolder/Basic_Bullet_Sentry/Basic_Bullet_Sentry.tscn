@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://bfawoadi2j77r"]
 
 [ext_resource type="Script" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentry_code.gd" id="1_sd40w"]
-[ext_resource type="Resource" uid="uid://nj6a23nrn624" path="res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres" id="2_5j6xr"]
+[ext_resource type="Resource" uid="uid://36q7iyoov45" path="res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletResource.tres" id="2_q5ohy"]
 [ext_resource type="ArrayMesh" uid="uid://dj3s5fdmuvrl1" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Barrel/BBS_Barrel.obj" id="3_4cj7d"]
 [ext_resource type="ArrayMesh" uid="uid://d2lq5pbs53vpm" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Mount/BBS_Mount.obj" id="3_eaumy"]
 [ext_resource type="ArrayMesh" uid="uid://csk7u3eefut6j" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Base/BBS_Base.obj" id="4_cgddq"]
@@ -310,7 +310,7 @@ ManaRegenTimer = NodePath("ManaRegen")
 rotationSpeed = 60.0
 barrelSpeed = 200.0
 CooldownTimer = NodePath("CoolDown_Timer")
-Bullet_Info = ExtResource("2_5j6xr")
+Bullet_Info = ExtResource("2_q5ohy")
 intruderDetector = NodePath("IntruderArea")
 Mana = 100
 MaxMana = 100
@@ -369,11 +369,11 @@ target_position = Vector3(0, 0, -5)
 collision_mask = 2
 
 [node name="Barrel" type="MeshInstance3D" parent="RotatingBody/barrel"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0, 0, 0)
 mesh = ExtResource("3_4cj7d")
 
 [node name="BBS_Bolt" type="MeshInstance3D" parent="RotatingBody/barrel"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0, 0, 0)
 mesh = ExtResource("4_wgsa3")
 
 [node name="Neck" type="Node3D" parent="RotatingBody"]
@@ -387,7 +387,7 @@ shape = SubResource("BoxShape3D_pk75l")
 [node name="Gear_Anim_Container" type="Node3D" parent="RotatingBody/Neck"]
 
 [node name="BBS_Side_Gear" type="MeshInstance3D" parent="RotatingBody/Neck/Gear_Anim_Container"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0, 0)
 mesh = ExtResource("4_t3btn")
 
 [node name="BBS_Mount" type="MeshInstance3D" parent="RotatingBody"]

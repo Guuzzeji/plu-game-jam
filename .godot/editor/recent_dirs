@@ -1,3 +1,4 @@
+res://componets/bullets/BasicBullets/Blunt_Bullet
 res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry
 res://componets/bullets/classicbullet
 res://componets/player
@@ -19,4 +20,3 @@ res://assets/EnemyAssets/BulletSentry
 res://componets/bullets/nutbullet
 res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations
 res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadMaterials
-res://misc_Testing_Scenes/Spawn_TesterStuffs

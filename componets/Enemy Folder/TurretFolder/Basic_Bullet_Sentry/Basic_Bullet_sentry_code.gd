@@ -260,7 +260,7 @@ func _on_intruder_area_body_exited(body):
 func report_damage(damage: int , weakspot : bool, kill : int): ####  damage display feedback to player
 	playerhud._Display_Damage_dealt(damage, weakspot, kill)
 
-func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
+func inflictDamage(damage, hitspot, _bulletInstance): #entities that damage use this
 	var HitWeakspot = false
 	if (hitspot == $Base/ManaWeakSpot):		##double damage for weakspots and uinform player they hit it
 		HitWeakspot = true
