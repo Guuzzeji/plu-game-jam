@@ -7,6 +7,8 @@ extends Node3D
 @export var x_offset = 0.0
 @export var y_offset = 0.0
 @export var z_offset = 0.0
+@export var y_rotation = 0.0
+
 #var spawnBlueprint = preload("res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn")
 var spawned
 #stateEngine
@@ -173,7 +175,9 @@ func spawn_entity():
 	#spawned.position = self.global_position #tell turret to spawn in center ring
 	spawned = spawnBlueprint.instantiate() #spawned is now a copy of what you want to spawn
 	#spawned.rotate_y(PI)
+	spawned.rotate_y(y_rotation)
 	spawned.transform = spawned.transform.translated(Vector3(x_offset,y_offset,z_offset))
+	 ##rad_to_deg(y_rotation)
 	add_child(spawned)
 func kill_entity():
 	if is_instance_valid(spawned): #soo google says this works,

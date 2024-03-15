@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="7_vu514"]
 [ext_resource type="PackedScene" uid="uid://booitd2lx3oqi" path="res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn" id="8_sgwl5"]
 [ext_resource type="PackedScene" uid="uid://ctv1pdtxhu54x" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn" id="9_pqssm"]
-[ext_resource type="PackedScene" uid="uid://p08shaauj6w6" path="res://componets/Enemy Folder/PhysSentry/ModSentry_X1.tscn" id="10_6gfki"]
 [ext_resource type="PackedScene" uid="uid://ddbhncfoo12wf" path="res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletAmmo.tscn" id="10_hwcpp"]
 [ext_resource type="PackedScene" uid="uid://dqt4i2pqa6m30" path="res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn" id="12_bbas6"]
+[ext_resource type="PackedScene" uid="uid://cadckrkdpc2w4" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn" id="12_eqxht"]
 [ext_resource type="PackedScene" uid="uid://bfawoadi2j77r" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn" id="12_u886x"]
 [ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="14_ux25i"]
 [ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="15_pwcin"]
@@ -89,7 +89,8 @@ y_offset = 0.5
 
 [node name="SpawnTesterRandos" parent="SpawnPads" instance=ExtResource("9_pqssm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-spawnBlueprint = ExtResource("10_6gfki")
+spawnBlueprint = ExtResource("12_eqxht")
+y_rotation = 180.0
 
 [node name="SpawnTesterRandos2" parent="SpawnPads" instance=ExtResource("9_pqssm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41394, 0, -6)
