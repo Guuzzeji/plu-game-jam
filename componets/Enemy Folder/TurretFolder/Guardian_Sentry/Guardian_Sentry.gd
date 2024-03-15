@@ -194,6 +194,8 @@ func ChangeElevation(delta: float):
 		TurretHead.rotation_degrees.x,
 		min_elevation, max_elevation
 	)
+	var barrelGearRotation = final_x
+	rotate_gear_small(barrelGearRotation)
 	pass
 
 ###############################
@@ -285,13 +287,18 @@ func rotate_gear(miscGear):
 	#works but only for certian angles
 	#$RotatingBody/Neck/Gear_Anim_Container.transform.basis = Basis(Vector3(1,0,0), TurnTable.transform.basis.x.angle_to(self.basis.x))
 	####----> $RotatingBody/Neck/Gear_Anim_Container/BBS_Side_Gear.rotate_x(miscGear) #.transform.basis = transform.basis.rotated(Vector3(1,0,0), miscGear)
+	$input_gear_container.rotate_z(miscGear*(34.0/24.0))
 	#transform.basis.y.set_angle_to = TurnTable.transform.basis.x.angle_to(self.basis.x)
 	#print (TurnTable.transform.basis.x.angle_to(self.basis.x))
 	pass
 
+func rotate_gear_small(barrelGearRotation):
+	$Foundation/TurretBody/GsBarrelUnderGear.rotate_y(-barrelGearRotation*(16.0/12.0))
+
 #################### MANA HANDELING #################################
 func mana_tank_level():
-
+	$Foundation/manaPositionContainer/GsMana.transform.origin = Vector3(0 , (-0.42 + (0.42 * (Mana*1.0 / MaxMana))), 0) # = Vector3(0 , -0.05, 0)
+	$Foundation/manaPositionContainer2/GsMana.transform.origin = Vector3(0 , (-0.42 + (0.42 * (Mana*1.0 / MaxMana))), 0) # = Vector3(0 , -0.05, 0)
 	####----> $Base/BBS_mana.transform.origin = Vector3(0 , (-0.19 + (0.19 * (Mana*1.0 / MaxMana))), 0) # = Vector3(0 , -0.05, 0)
 	# -= -0.02 ## mmin levefl will  be -0.19
 	pass
