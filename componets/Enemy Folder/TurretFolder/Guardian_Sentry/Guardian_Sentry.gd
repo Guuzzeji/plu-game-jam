@@ -56,7 +56,7 @@ var Burst_Total_Cost : int
 @export var Burst_Shot_Amount : int = 10
 @export var Burst_Duration : float = 1.5
 #@export var override_burst_cost_calculation : bool = false ## overwrites the calculated cost of burst
-var shots_fired : int = 0
+#var shots_fired : int = 0
 var shots_remaining = Burst_Shot_Amount
 @export var Time_Between_Bursts : float = 1.0
 
@@ -268,23 +268,24 @@ func fire_if_able(): #when attack state decides to fire the gun
 	#### IGHT NEW FIRING MODE!!!
 	#### lets say this "fires burst" then then hand it off to another function
 		shots_remaining = Burst_Shot_Amount ## resset fired shots
-		shots_fired = 0
 	
 		Burst_Interval_Timer_Timeout()   ## start the burst
 		CooldownTimer.start()     ## time between each burst, keep in mind that the burst happens over top it, so each interval is really (cooldown - burst duration)
-		
+		$BarrelRotation.play("BarrelRotation")
 	pass
 
 func Burst_Interval_Timer_Timeout():     ## this repeats for n - 1 shots
 	spend_mana(Burst_Mana_Cost)
-	shots_fired += 1    #fired shot so remove from counter
+	#fired shot so remove from counter
 	var firedBullet = load(Bullet_Info.Path_Projectile).instantiate() #creates the bullet with info
 	firedBullet.orginator = self	#cant hit self!
 	firedBullet.Bullet_Info.Enemy_Bullet = true	#can now damage player
 	BulletSpawnPoint.add_child(firedBullet) #places into word, launches when placed
-	shots_remaining = shots_remaining - shots_fired
+	shots_remaining = shots_remaining - 1
 	if (shots_remaining > 0):
 		Burst_Interval_Timer.start()
+	else:
+		$BarrelRotation.pause()
 
 func has_line_of_Sight():
 	LignOfSightRay.look_at(Target.position, Vector3.UP)

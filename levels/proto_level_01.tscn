@@ -1,7 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://b1w6fftdidred"]
+[gd_scene load_steps=32 format=3 uid="uid://b1w6fftdidred"]
 
 [ext_resource type="Script" path="res://levels/PL1_EVENT_MONITOR.gd" id="1_f2hsq"]
-[ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_gcr0a"]
 [ext_resource type="ArrayMesh" uid="uid://r4prtbwg7ncy" path="res://assets/ProtoLevel1Assets/Courtyard.obj" id="2_5ukvn"]
 [ext_resource type="ArrayMesh" uid="uid://dybgnak72k66i" path="res://assets/ProtoLevel1Assets/Chamber1Door.obj" id="2_jhv02"]
 [ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="2_unqjl"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="16_qbgqj"]
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="17_r0qei"]
 [ext_resource type="PackedScene" uid="uid://bfawoadi2j77r" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn" id="18_13mf0"]
+[ext_resource type="PackedScene" uid="uid://cadckrkdpc2w4" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn" id="19_5n4b3"]
 [ext_resource type="PackedScene" uid="uid://bw0uu5umnt8vn" path="res://componets/Enemy Folder/Evil Cube/evil_cube.tscn" id="21_t5yca"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oo6bs"]
@@ -56,9 +56,6 @@ albedo_color = Color(0.113725, 0.14902, 0.180392, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tdji4"]
 size = Vector3(100, 20, 100)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbyrj"]
-albedo_texture = ExtResource("1_gcr0a")
 
 [node name="Proto_Level_01" type="Node3D"]
 script = ExtResource("1_f2hsq")
@@ -183,9 +180,9 @@ SpawnOnStart = false
 SpawnOnLevelStart = true
 add_to_group_name = "CourtYardE"
 
-[node name="StartSpawnPoint2" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
-transform = Transform3D(0.404806, 0, 0.914402, 0, 1, 0, -0.914402, 0, 0.404806, 21.4958, 0, -13.627)
-spawnBlueprint = ExtResource("18_13mf0")
+[node name="BackWallCourtyardSpawner" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(-4.37114e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37114e-08, 27.9068, 0, -13.627)
+spawnBlueprint = ExtResource("19_5n4b3")
 SpawnOnStart = false
 SpawnOnLevelStart = true
 add_to_group_name = "CourtYardE"
@@ -217,85 +214,6 @@ spawnBlueprint = ExtResource("21_t5yca")
 SpawnOnStart = false
 add_to_group_name = "PgEnemies"
 navmesh_Layer = 2
-
-[node name="ChamberA-delete?" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.6348, 0, -1.57404)
-visible = false
-
-[node name="Wall1" type="CSGBox3D" parent="ChamberA-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3, -5)
-use_collision = true
-size = Vector3(0.5, 6, 5)
-
-[node name="Wall3" type="CSGBox3D" parent="ChamberA-delete?"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 3, -7.75)
-use_collision = true
-size = Vector3(0.5, 6, 5)
-
-[node name="Wall2" type="CSGBox3D" parent="ChamberA-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 3, -10)
-use_collision = true
-size = Vector3(0.5, 6, 15)
-
-[node name="Wall5" type="CSGBox3D" parent="ChamberA-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, 3, -10)
-use_collision = true
-size = Vector3(0.5, 6, 15)
-
-[node name="Wall4" type="CSGBox3D" parent="ChamberA-delete?"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 3, -17.75)
-use_collision = true
-size = Vector3(0.5, 6, 15)
-
-[node name="Wall6" type="CSGBox3D" parent="ChamberA-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, 3, 0)
-use_collision = true
-size = Vector3(0.5, 6, 5)
-
-[node name="Wall7" type="CSGBox3D" parent="ChamberA-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 3, 0)
-use_collision = true
-size = Vector3(0.5, 6, 5)
-
-[node name="Wall8" type="CSGBox3D" parent="ChamberA-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5.5, -2.25)
-use_collision = true
-size = Vector3(4, 1, 0.5)
-
-[node name="Enterance-delete?" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.6348, 0, -1.57404)
-visible = false
-
-[node name="SlabFloor" type="CSGBox3D" parent="Enterance-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-use_collision = true
-size = Vector3(5, 0.5, 5)
-
-[node name="Wall1" type="CSGBox3D" parent="Enterance-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 3, 0)
-use_collision = true
-size = Vector3(0.5, 6, 5)
-
-[node name="Wall2" type="CSGBox3D" parent="Enterance-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 3, 0)
-use_collision = true
-size = Vector3(0.5, 6, 5)
-
-[node name="Wall3" type="CSGBox3D" parent="Enterance-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2.25)
-use_collision = true
-size = Vector3(5, 6, 0.5)
-
-[node name="Wall4" type="CSGBox3D" parent="Enterance-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -2.25)
-use_collision = true
-size = Vector3(4, 1, 0.5)
-
-[node name="floor" type="CSGBox3D" parent="Enterance-delete?"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.6348, -3.84756, 1.57404)
-material_override = SubResource("StandardMaterial3D_dbyrj")
-use_collision = true
-size = Vector3(100, 0.1, 100)
 
 [connection signal="Deploy_Cubes" from="." to="SpawnPoints/CrawlerSpawnPoint" method="_spawn_signal_recieved"]
 [connection signal="Deploy_Cubes" from="." to="SpawnPoints/CrawlerSpawnPoint2" method="_spawn_signal_recieved"]

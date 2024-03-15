@@ -292,7 +292,7 @@ albedo_color = Color(0.341176, 0.513726, 0, 0.772549)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4tcgp"]
 height = 3.0
-radius = 5.0
+radius = 10.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ayg4p"]
 height = 0.75
@@ -333,7 +333,7 @@ libraries = {
 
 [node name="LignOfSight" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-target_position = Vector3(0, 0, -5)
+target_position = Vector3(0, 0, -10)
 collision_mask = 3
 
 [node name="ManaRegen" type="Timer" parent="."]
@@ -365,7 +365,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("CylinderShape3D_rhd6k")
 
 [node name="TargetSight" type="RayCast3D" parent="RotatingBody/barrel"]
-target_position = Vector3(0, 0, -5)
+target_position = Vector3(0, 0, -10)
 collision_mask = 2
 
 [node name="Barrel" type="MeshInstance3D" parent="RotatingBody/barrel"]
