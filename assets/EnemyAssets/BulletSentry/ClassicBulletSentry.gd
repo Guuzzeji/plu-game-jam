@@ -148,7 +148,7 @@ func _on_area_3d_body_exited(body): #when player leaves go idle
 		state = PASSIVE
 		#print("exitedNew:  ", body)
 
-func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
+func inflictDamage(damage, _hitspot, _bulletInstance): #entities that damage use this
 	instanceHealth = instanceHealth - damage
 	
 func healthCheck(): ##kill sentry if health drops below zero

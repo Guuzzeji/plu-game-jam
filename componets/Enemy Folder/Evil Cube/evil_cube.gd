@@ -47,7 +47,7 @@ func _physics_process(_delta):
 	if !inRange:	##when close enough, stop chasing
 		move_and_slide()
 
-func inflictDamage(damage, hitspot, bulletInstance): #entities that damage use this
+func inflictDamage(damage, _hitspot, _bulletInstance): #entities that damage use this
 	health = health - damage
 	report_damage(damage, false, false)
 

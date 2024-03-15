@@ -1,8 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://c856cl5nd1e4x"]
+[gd_scene load_steps=18 format=3 uid="uid://c856cl5nd1e4x"]
 
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_7scvg"]
-[ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="2_yle1n"]
-[ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="3_0ie17"]
 [ext_resource type="PackedScene" uid="uid://bw01ihem7k5ta" path="res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn" id="5_rqwjy"]
 [ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="5_ugqed"]
 [ext_resource type="PackedScene" uid="uid://d4j4h8r8f6on" path="res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn" id="6_62v3s"]
@@ -50,10 +48,6 @@ size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_fp8o3")
 
 [node name="SpawnPoints" type="Node3D" parent="."]
-
-[node name="SpawnPoint" parent="SpawnPoints" instance=ExtResource("2_yle1n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 14)
-spawnBlueprint = ExtResource("3_0ie17")
 
 [node name="SpawnPads" type="Node3D" parent="."]
 

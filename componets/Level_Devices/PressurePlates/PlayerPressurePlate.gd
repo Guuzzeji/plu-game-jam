@@ -18,11 +18,12 @@ func _on_area_3d_body_entered(body):
 
 
 func _on_area_3d_body_exited(body):	##allow button to be pressed again, two hitboxes to avoid JANK
-	if !single_use:
-		if !cooldown:
-			activated = false
-		elif $CoolDownTimer.is_stopped():
-			activated = false
+	if body.is_in_group("player"):
+		if !single_use:
+			if !cooldown:
+				activated = false
+			elif $CoolDownTimer.is_stopped():
+				activated = false
 
 
 func _on_cool_down_timer_timeout():	## should ONLY activate if single_use if false
