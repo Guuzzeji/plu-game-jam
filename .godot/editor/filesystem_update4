@@ -26,3 +26,4 @@ res://componets/player/player.tscn
 res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn
 res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBullet.tscn
 res://componets/bullets/classicbullet/ClassicBullet.tscn
+res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentry_code.gd

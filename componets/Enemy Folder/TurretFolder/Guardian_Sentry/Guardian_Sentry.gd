@@ -49,6 +49,17 @@ var current_Target : Vector3 	##position of target
 
 signal Died
 
+@export var Burst_Interval_Timer : Timer
+##@export var Burst_Mana_Cost : int = 10  ## cost per bullet of burst. For custom costs. Total cost =
+var Burst_Mana_Cost  : int
+var Burst_Total_Cost : int
+@export var Burst_Shot_Amount : int = 10
+@export var Burst_Duration : float = 1.5
+#@export var override_burst_cost_calculation : bool = false ## overwrites the calculated cost of burst
+var shots_fired : int = 0
+var shots_remaining = Burst_Shot_Amount
+@export var Time_Between_Bursts : float = 1.0
+
 
 #####@@@@@@@ STATE MACHINE
 enum {				## states for state machine
@@ -82,7 +93,22 @@ func _ready():
 		complete = false
 	#if Target ==  null:	##temp code from souce, will modify target aquesition 
 		#complete = false
-	pass # Replace with function body.
+
+	## prep burst timer, this is activated between bursts
+	Burst_Interval_Timer.timeout.connect(Burst_Interval_Timer_Timeout)
+	Burst_Interval_Timer.one_shot = true
+	Burst_Interval_Timer.wait_time = Burst_Duration/Burst_Shot_Amount
+	
+	CooldownTimer.wait_time = Time_Between_Bursts + Burst_Duration
+	if Burst_Duration >= CooldownTimer.get_wait_time():
+		print("WARNING: cooldown must be longer than burst or weirdness occures")
+	
+	####### BURST COST HANDELING #####
+	## really just to check if the turret can afford the burst.
+	Burst_Mana_Cost = Bullet_Info.Cost
+	Burst_Total_Cost = Burst_Mana_Cost * Burst_Shot_Amount
+		
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -218,23 +244,47 @@ func get_global_x():
 
 
 ########################################## SHOOTING and Siht ############################################
+#func fire_if_able(): #when attack state decides to fire the gun
+	##print("fired")
+	#if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() == Target && Mana >= Bullet_Info.Cost):
+		#spend_mana(Bullet_Info.Cost)
+		##$SentryHead/BulletSentryHead/ReloadAnimation.play("BulletTurret/animation_model_SlideReload")
+	##do not need to specify root
+	##the bullet object file is in components_>bullets->nutbullet->nut_projectile.tscn file
+		#var firedBullet = load(Bullet_Info.Path_Projectile).instantiate() #creates the bullet with info
+	##uses the info in bullet_Info to fabricate a functional bullet in firedBullet
+		##firedBullet.transform = $SentryHead/BulletSpawnPoint.transform
+		#firedBullet.orginator = self	#cant hit self!
+		#firedBullet.Bullet_Info.Enemy_Bullet = true	#can now damage player
+		#BulletSpawnPoint.add_child(firedBullet) #places into word, launches when placed
+		######$BoltAnimation.play("Bolt_Animation")	##should prob make a function
+	##place the bullet in the world, activates when placed.
+		#CooldownTimer.start()
+	#pass
+
 func fire_if_able(): #when attack state decides to fire the gun
 	#print("fired")
-	if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() == Target && Mana >= Bullet_Info.Cost):
-		spend_mana(Bullet_Info.Cost)
-		#$SentryHead/BulletSentryHead/ReloadAnimation.play("BulletTurret/animation_model_SlideReload")
-	#do not need to specify root
-	#the bullet object file is in components_>bullets->nutbullet->nut_projectile.tscn file
-		var firedBullet = load(Bullet_Info.Path_Projectile).instantiate() #creates the bullet with info
-	#uses the info in bullet_Info to fabricate a functional bullet in firedBullet
-		#firedBullet.transform = $SentryHead/BulletSpawnPoint.transform
-		firedBullet.orginator = self	#cant hit self!
-		firedBullet.Bullet_Info.Enemy_Bullet = true	#can now damage player
-		BulletSpawnPoint.add_child(firedBullet) #places into word, launches when placed
-		#####$BoltAnimation.play("Bolt_Animation")	##should prob make a function
-	#place the bullet in the world, activates when placed.
-		CooldownTimer.start()
+	if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() == Target && (Mana >= Burst_Total_Cost)):
+	#### IGHT NEW FIRING MODE!!!
+	#### lets say this "fires burst" then then hand it off to another function
+		shots_remaining = Burst_Shot_Amount ## resset fired shots
+		shots_fired = 0
+	
+		Burst_Interval_Timer_Timeout()   ## start the burst
+		CooldownTimer.start()     ## time between each burst, keep in mind that the burst happens over top it, so each interval is really (cooldown - burst duration)
+		
 	pass
+
+func Burst_Interval_Timer_Timeout():     ## this repeats for n - 1 shots
+	spend_mana(Burst_Mana_Cost)
+	shots_fired += 1    #fired shot so remove from counter
+	var firedBullet = load(Bullet_Info.Path_Projectile).instantiate() #creates the bullet with info
+	firedBullet.orginator = self	#cant hit self!
+	firedBullet.Bullet_Info.Enemy_Bullet = true	#can now damage player
+	BulletSpawnPoint.add_child(firedBullet) #places into word, launches when placed
+	shots_remaining = shots_remaining - shots_fired
+	if (shots_remaining > 0):
+		Burst_Interval_Timer.start()
 
 func has_line_of_Sight():
 	LignOfSightRay.look_at(Target.position, Vector3.UP)
