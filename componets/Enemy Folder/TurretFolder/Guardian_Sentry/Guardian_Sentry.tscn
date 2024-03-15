@@ -13,7 +13,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bk1c7"]
 height = 3.0
-radius = 5.0
+radius = 8.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvg78"]
 transparency = 1
@@ -73,7 +73,7 @@ ManaRegenTimer = NodePath("ManaRegenTimer")
 weakspot1 = NodePath("Foundation/manaPositionContainer/ManaWeakSpot1")
 weakspot2 = NodePath("Foundation/manaPositionContainer2/ManaWeakSpot2")
 rotationSpeed = 70.0
-barrelSpeed = 45.0
+barrelSpeed = 60.0
 min_elevation = -45.0
 CooldownTimer = NodePath("CooldownTimer")
 Bullet_Info = ExtResource("2_v2156")
@@ -82,6 +82,7 @@ instanceHealth = 500
 Mana = 200
 MaxMana = 200
 Burst_Interval_Timer = NodePath("Burst Interval Timer")
+Time_Between_Bursts = 2.0
 
 [node name="IntruderArea" type="Area3D" parent="."]
 
@@ -99,7 +100,7 @@ one_shot = true
 
 [node name="DetectionLOS" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-target_position = Vector3(0, 0, -5)
+target_position = Vector3(0, 0, -8)
 collision_mask = 3
 
 [node name="Foundation" type="Node3D" parent="."]
