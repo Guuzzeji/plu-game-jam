@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cadckrkdpc2w4"]
+[gd_scene load_steps=22 format=3 uid="uid://cadckrkdpc2w4"]
 
 [ext_resource type="ArrayMesh" uid="uid://pouaa0hsg1jq" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_CrownGear/GS_CrownGear.obj" id="1_5ie1f"]
 [ext_resource type="Script" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.gd" id="1_8tms1"]
@@ -33,13 +33,27 @@ albedo_color = Color(1, 0.717647, 0.101961, 0.607843)
 metallic = 1.0
 roughness = 0.68
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wyrqt"]
+size = Vector3(0.878845, 0.577087, 0.403687)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ecb3"]
 shading_mode = 0
 albedo_color = Color(0, 1, 1, 1)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m3wu7"]
+radius = 0.126525
+height = 0.602659
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sfmf"]
 transparency = 1
 albedo_color = Color(0.341176, 0.513726, 0, 0.772549)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_37fni"]
+height = 0.503306
+radius = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a3u83"]
+size = Vector3(1, 1.25385, 0.324402)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcqxg"]
 transparency = 1
@@ -47,7 +61,7 @@ albedo_color = Color(1, 0.717647, 0.101961, 0.52549)
 metallic = 1.0
 roughness = 0.24
 
-[node name="GuardianSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "RayCastSightLine", "LignOfSightRay", "ManaRegenTimer", "CooldownTimer", "intruderDetector")]
+[node name="GuardianSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "RayCastSightLine", "LignOfSightRay", "ManaRegenTimer", "weakspot1", "weakspot2", "CooldownTimer", "intruderDetector")]
 script = ExtResource("1_8tms1")
 TurretHead = NodePath("Foundation/TurretBody/Barrel")
 TurnTable = NodePath("Foundation/TurretBody")
@@ -56,13 +70,15 @@ IdleTarget = NodePath("IdleTarget")
 RayCastSightLine = NodePath("Foundation/TurretBody/Barrel/BarrelLOS")
 LignOfSightRay = NodePath("DetectionLOS")
 ManaRegenTimer = NodePath("ManaRegenTimer")
+weakspot1 = NodePath("Foundation/manaPositionContainer/ManaWeakSpot1")
+weakspot2 = NodePath("Foundation/manaPositionContainer2/ManaWeakSpot2")
 rotationSpeed = 30.0
 barrelSpeed = 45.0
 min_elevation = -45.0
 CooldownTimer = NodePath("CooldownTimer")
 Bullet_Info = ExtResource("2_v2156")
 intruderDetector = NodePath("IntruderArea")
-instanceHealth = 400
+instanceHealth = 800
 Mana = 50
 MaxMana = 50
 
@@ -117,6 +133,13 @@ material_overlay = SubResource("StandardMaterial3D_yvg78")
 mesh = ExtResource("5_nd30x")
 skeleton = NodePath("../../..")
 
+[node name="TurretHitbox" type="StaticBody3D" parent="Foundation/TurretBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679011, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/TurretBody/TurretHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00790405, 0.0882874, 0.0128784)
+shape = SubResource("BoxShape3D_wyrqt")
+
 [node name="manaPositionContainer" type="Node3D" parent="Foundation"]
 transform = Transform3D(0.92388, 0.382683, 0, -0.382683, 0.92388, 0, 0, 0, 1, 0.67, 0.123, 0)
 
@@ -125,6 +148,12 @@ material_override = SubResource("StandardMaterial3D_8ecb3")
 mesh = ExtResource("4_bok0b")
 skeleton = NodePath("../../..")
 
+[node name="ManaWeakSpot1" type="StaticBody3D" parent="Foundation/manaPositionContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/manaPositionContainer/ManaWeakSpot1"]
+shape = SubResource("CapsuleShape3D_m3wu7")
+
 [node name="manaPositionContainer2" type="Node3D" parent="Foundation"]
 transform = Transform3D(0.92388, -0.382683, 0, 0.382683, 0.92388, 0, 0, 0, 1, -0.67, 0.123, 0)
 
@@ -132,6 +161,12 @@ transform = Transform3D(0.92388, -0.382683, 0, 0.382683, 0.92388, 0, 0, 0, 1, -0
 material_override = SubResource("StandardMaterial3D_8ecb3")
 mesh = ExtResource("4_bok0b")
 skeleton = NodePath("../../..")
+
+[node name="ManaWeakSpot2" type="StaticBody3D" parent="Foundation/manaPositionContainer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/manaPositionContainer2/ManaWeakSpot2"]
+shape = SubResource("CapsuleShape3D_m3wu7")
 
 [node name="GsManaGlass" type="MeshInstance3D" parent="Foundation"]
 transform = Transform3D(0.92388, 0.382683, 0, -0.382683, 0.92388, 0, 0, 0, 1, 0.67, 0.123, 0)
@@ -144,6 +179,19 @@ transform = Transform3D(0.92388, -0.382683, 0, 0.382683, 0.92388, 0, 0, 0, 1, -0
 material_override = SubResource("StandardMaterial3D_2sfmf")
 mesh = ExtResource("5_d04pe")
 skeleton = NodePath("../..")
+
+[node name="BaseHitbox" type="StaticBody3D" parent="Foundation"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/BaseHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242843, 0)
+shape = SubResource("CylinderShape3D_37fni")
+
+[node name="BaseHitboxBack" type="StaticBody3D" parent="Foundation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.301972, 0.344268)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/BaseHitboxBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.310135, 0.354279)
+shape = SubResource("BoxShape3D_a3u83")
 
 [node name="GsBase" type="MeshInstance3D" parent="."]
 material_overlay = SubResource("StandardMaterial3D_kcqxg")

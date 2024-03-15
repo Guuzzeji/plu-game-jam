@@ -16,6 +16,8 @@ var Target : Node3D = IdleTarget
 @export var ManaRegenTimer : Timer
 @export var TimePerManaRegen : float = 1.0 		## time between each addition of mana
 @export var ManaRegenAmount : int = 5			## mana regained per mana timer timeout
+@export var weakspot1 : StaticBody3D
+@export var weakspot2 : StaticBody3D
 
 #####################
 ## Speeds
@@ -264,7 +266,8 @@ func report_damage(damage: int , weakspot : bool, kill : int): ####  damage disp
 
 func inflictDamage(damage, hitspot, _bulletInstance): #entities that damage use this
 	var HitWeakspot = false
-	if (hitspot == $Base/ManaWeakSpot):		##double damage for weakspots and uinform player they hit it
+	if ((hitspot == weakspot1) or (hitspot == weakspot2)):		##double damage for weakspots and uinform player they hit it
+				### hitspot == weakspot1 or weakspot2 THIS DOES NOT WORK, WHY???? nvm it is doing the null thingy
 		HitWeakspot = true
 		damage = damage * 2
 	instanceHealth = instanceHealth - damage

@@ -1,5 +1,6 @@
-Timer
 CollisionShape3D
+StaticBody3D
+Timer
 Area3D
 RayCast3D
 CSGBox3D
@@ -11,4 +12,3 @@ MeshInstance3D
 AnimationTree
 AnimationPlayer
 Node2D
-StaticBody3D
