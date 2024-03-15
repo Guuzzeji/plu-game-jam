@@ -53,7 +53,7 @@ height = 0.503306
 radius = 0.6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a3u83"]
-size = Vector3(1, 1.25385, 0.324402)
+size = Vector3(1, 1.25385, 0.191208)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcqxg"]
 transparency = 1
@@ -61,7 +61,7 @@ albedo_color = Color(1, 0.717647, 0.101961, 0.52549)
 metallic = 1.0
 roughness = 0.24
 
-[node name="GuardianSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "RayCastSightLine", "LignOfSightRay", "ManaRegenTimer", "weakspot1", "weakspot2", "CooldownTimer", "intruderDetector")]
+[node name="GuardianSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "RayCastSightLine", "LignOfSightRay", "ManaRegenTimer", "weakspot1", "weakspot2", "CooldownTimer", "intruderDetector", "Burst_Interval_Timer")]
 script = ExtResource("1_8tms1")
 TurretHead = NodePath("Foundation/TurretBody/Barrel")
 TurnTable = NodePath("Foundation/TurretBody")
@@ -72,15 +72,16 @@ LignOfSightRay = NodePath("DetectionLOS")
 ManaRegenTimer = NodePath("ManaRegenTimer")
 weakspot1 = NodePath("Foundation/manaPositionContainer/ManaWeakSpot1")
 weakspot2 = NodePath("Foundation/manaPositionContainer2/ManaWeakSpot2")
-rotationSpeed = 30.0
+rotationSpeed = 70.0
 barrelSpeed = 45.0
 min_elevation = -45.0
 CooldownTimer = NodePath("CooldownTimer")
 Bullet_Info = ExtResource("2_v2156")
 intruderDetector = NodePath("IntruderArea")
-instanceHealth = 800
-Mana = 50
-MaxMana = 50
+instanceHealth = 500
+Mana = 200
+MaxMana = 200
+Burst_Interval_Timer = NodePath("Burst Interval Timer")
 
 [node name="IntruderArea" type="Area3D" parent="."]
 
@@ -192,7 +193,7 @@ shape = SubResource("CylinderShape3D_37fni")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.301972, 0.344268)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/BaseHitboxBack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.310135, 0.354279)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.310135, 0.420876)
 shape = SubResource("BoxShape3D_a3u83")
 
 [node name="GsBase" type="MeshInstance3D" parent="."]
