@@ -382,19 +382,13 @@ func _ManaRegenTimer_timeout():
 func deathfunction():			#ON DEATH: set mode to destroyed to stop processes, stop animations, play dying animation. disable area node
 	state = DESTROYED
 	intruderDetector.queue_free() ## area no longer needed, stops area detection from functioning, save memory
-	$RotatingBody/barrel/headHitbox.queue_free()
-	$RotatingBody/Neck/NeckHitBox.queue_free()
-	$Base/ManaWeakSpot.queue_free()
-	$Base/BaseHitBox.queue_free()
-	#$Base/BBS_mana.queue_free()
-	$Base/Glass_Cap.queue_free()
-	$BoltAnimation.stop()
-	$GearSpin.stop()
 	ManaRegenTimer.stop()
 	CooldownTimer.stop()
-	$RotatingBody/barrel/TargetSight.queue_free()
-	$LignOfSight.queue_free()
-	$DeathAnimation.play("DeathAnimationBBS")
+	Burst_Interval_Timer.stop()
+	remove_from_group("Enemy")
+	$DetectionLOS.queue_free()
+	$Foundation/TurretBody/Barrel/BarrelLOS.queue_free()
+	$GS_DeathAnimation.play("GS_DeathAnimation")
 	Died.emit(self)
 	#print("sent signsal")
 	
