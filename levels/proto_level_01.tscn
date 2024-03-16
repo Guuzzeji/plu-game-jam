@@ -13,8 +13,8 @@
 [ext_resource type="ArrayMesh" uid="uid://dj60m6xs52nf4" path="res://assets/ProtoLevel1Assets/windowPane.obj" id="9_2upj5"]
 [ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="10_v1ha5"]
 [ext_resource type="PackedScene" uid="uid://vp6sfilokglx" path="res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.tscn" id="13_uwlmh"]
+[ext_resource type="PackedScene" uid="uid://ddbhncfoo12wf" path="res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletAmmo.tscn" id="15_lj4hp"]
 [ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="15_rb14f"]
-[ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="16_insel"]
 [ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="16_qbgqj"]
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="17_r0qei"]
 [ext_resource type="PackedScene" uid="uid://bfawoadi2j77r" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn" id="18_13mf0"]
@@ -148,7 +148,7 @@ cooldownTime = 5.0
 
 [node name="AmmoBait" parent="Utilities" instance=ExtResource("15_rb14f")]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 5.179, 0.632224, -10.873)
-spawnBlueprint = ExtResource("16_insel")
+spawnBlueprint = ExtResource("15_lj4hp")
 
 [node name="teleporter" type="Node3D" parent="Utilities"]
 
