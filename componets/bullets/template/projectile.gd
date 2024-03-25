@@ -33,6 +33,7 @@ func _ready():
 		Life_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
 	Life_Timer.one_shot = true
 	Life_Timer.start(Bullet_Info.Life_Time)
+	self.add_to_group("bullet")
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,8 +51,11 @@ func _on_body_entered(body):
 	#print("Body: ", body)
 	#print("body owner: ", body.owner)
 	if (orginator == body or orginator == body.owner):
+		print(body)
 		pass ##dont hit selfs
-	elif (body.is_in_group("Enemy") or body.owner.is_in_group("Enemy") ):	## CAUTION this can cause issues if a non hitbox part of enemy is hit and not "caught"
+	elif (body == null) or (body.is_in_group("bullet")):
+		pass
+	elif (body!= null) and (body.is_in_group("Enemy") or body.owner.is_in_group("Enemy") ):	## CAUTION this can cause issues if a non hitbox part of enemy is hit and not "caught"
 		damage(body)
 	elif body.is_in_group("player") && Bullet_Info.Enemy_Bullet:
 		damage(body)

@@ -37,7 +37,8 @@ func _ready():
 	#print(Player_Info.Pbody," ", orginator)
 	set_as_top_level(true) # Sets node to root level of the node tree (basically at sets parent to level/world node)
 	position += -global_transform.basis.z * Bullet_Info.offset	#stops bullet froom colliding with player
-	Life_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
+	if !Life_Timer.timeout.is_connected(_on_life_timer_timeout):
+		Life_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
 	Life_Timer.one_shot = true
 	Life_Timer.start(Bullet_Info.Life_Time)
 	self.set_contact_monitor(true) #activates collision detection for doing damage
@@ -46,13 +47,12 @@ func _ready():
 	#Collision_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
 	#Collision_Timer.one_shot = true
 	#Collision_Timer.start(Bullet_Info.ActivateCollision)
-	
-
 	self.apply_central_impulse(-global_transform.basis.z * Bullet_Info.InitialForce)
+	self.add_to_group("bullet") ## prevent bullet collisions, sounds fun but causes nightmare "null bullet" issue
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	# Update bullet to fly through world at speed define in bullet_info
 	# Note: global_transform.basis.z gives us the front and back of a node and its rolation / scale, docs explain in more detail
 	
@@ -61,25 +61,43 @@ func _process(delta):
 # **About**
 # Use when ever enemy node goes into body
 func _on_body_entered(body):
-	if (orginator == body):
-		if (!Bullet_Info.friendlyFire):
-			pass
-		else:
-			damage(body)
-	elif (body.is_in_group("Enemy")):
+	
+	if (orginator == body or orginator == body.owner):
+		pass ##dont hit selfs
+	elif body == null:
+		pass
+	elif (body == null) or (body.is_in_group("bullet")):
+		pass
+	elif (body!= null) and (body.is_in_group("Enemy") or body.owner.is_in_group("Enemy") ):	## CAUTION this can cause issues if a non hitbox part of enemy is hit and not "caught"
 		damage(body)
 	elif body.is_in_group("player") && Bullet_Info.Enemy_Bullet:
 		damage(body)
-	elif (!Bullet_Info.CanBounce):	## bounces or despawns
-		queue_free()
+	#else:	## hits something not self
+		#queue_free()
 	pass
+	#if (orginator == body):
+		#if (!Bullet_Info.friendlyFire):
+			#pass
+		#else:
+			#damage(body)
+	#elif (body.is_in_group("Enemy")):
+		#damage(body)
+	#elif body.is_in_group("player") && Bullet_Info.Enemy_Bullet:
+		#damage(body)
+	#elif (!Bullet_Info.CanBounce):	## bounces or despawns
+		#queue_free()
+	#pass
 
 func damage(body):		##if an enemy (say evil rock) cannot be damaged, best not crash!
 	#print(Bullet_Info.Damage)
+	#if body.has_method("inflictDamage"):	##if can inflict damage, damage it
+		#body.inflictDamage(Bullet_Info.Damage, body, self)
+	#queue_free()
 	if body.has_method("inflictDamage"):	##if can inflict damage, damage it
 		body.inflictDamage(Bullet_Info.Damage, body, self)
+	elif body.owner.has_method("inflictDamage"):	## Inflict damage to hitbox's owner, CAUTION: potential damage contamination if hitbox IS owner,
+		body.owner.inflictDamage(Bullet_Info.Damage, body, self)
 	queue_free()
-	
 # == Signal Code == 
 
 # **About**

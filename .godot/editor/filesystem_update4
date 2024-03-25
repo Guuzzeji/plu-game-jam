@@ -18,7 +18,5 @@ res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.gdshader
 res://levels/level_test.tscn
 res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
 res://levels/ToolTesting.tscn
-res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn
-res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
 res://levels/proto_level_01.tscn
 res://componets/player/player.tscn
