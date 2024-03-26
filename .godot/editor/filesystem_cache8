@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1711399226
+::res://::1711418400
 icon.svg::CompressedTexture2D::8899725720172608093::1703560598::1703560598::1::::<><>::
 node_3d.tscn::PackedScene::8038631834678722283::1705646616::0::1::::<><>::res://TurretHead.gd
 README.md::TextFile::-1::1703558906::0::1::::<><>::
@@ -8,8 +8,8 @@ sentry.tscn::PackedScene::2494542437616407809::1706234779::0::1::::<><>::res://s
 TurretHead.gd::GDScript::-1::1705646615::0::1::::<>CharacterBody3D<>::
 ::res://assets/::1708735122
 ::res://assets/EnemyAssets/::1705647036
-::res://assets/EnemyAssets/BulletSentry/::1710558278
-ClassicBulletSentry.gd::GDScript::-1::1710558278::0::1::::<>Node3D<>::
+::res://assets/EnemyAssets/BulletSentry/::1711400764
+ClassicBulletSentry.gd::GDScript::-1::1711400764::0::1::::<>Node3D<>::
 ClassicBulletSentry.tscn::PackedScene::8392096375224683114::1710292387::0::1::::<><>::uid://evaf4ox1obtl::::res://componets/Enemy Folder/Bullet Sentry/BulletSentryHead.gltf<>res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd<>uid://nj6a23nrn624::::res://componets/bullets/classicbullet/Classic_Bullet_Resource.tres<>uid://d7dves1fuvqx::::res://componets/Enemy Folder/Bullet Sentry/animation_model_SlideReload.res<>res://src/sentry_resource.gd<>uid://cvo6sah7eq1ku::::res://componets/Enemy Folder/Bullet Sentry/BulletSentryBase.obj
 ::res://assets/images/::1705728497
 bullet_nut.jpg::CompressedTexture2D::2575064893286597217::1703558909::1703558909::1::::<><>::
@@ -1354,10 +1354,10 @@ BluntBulletResource.tres::Resource/Resource::59715070807286812::1710378441::0::1
 ::res://componets/bullets/BeamAndLasers/::1706219550
 ::res://componets/bullets/BeamAndLasers/ConstantBeam/::1706219666
 ConstantBeamResource.tres::Resource/Resource::2416503955079891913::1706219666::0::1::::<><>::res://src/bullet_resource.gd
-::res://componets/bullets/BeamAndLasers/InstantBeam/::1710651208
+::res://componets/bullets/BeamAndLasers/InstantBeam/::1711418157
 InstantBeamResource.tres::Resource/Resource::1051604528702195998::1706234833::0::1::::<><>::res://src/bullet_resource.gd
 InstantBeam_ammo.tscn::PackedScene::3398485649020128336::1707353526::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://o8n1jr5csigc::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-InstantBeam_bullet.gdshader::Shader::-1::1710651208::0::1::::<><>::
+InstantBeam_bullet.gdshader::Shader::-1::1711418157::0::1::::<><>::
 InstantBeam_bullet.tres::StandardMaterial3D::1874021401480000368::1708729565::0::1::::<><>::
 InstantBeam_bullet.tscn::PackedScene::8552182151670766117::1708813380::0::1::::<><>::res://componets/bullets/template/Beam.gd<>uid://o8n1jr5csigc::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://1x14gvy52p65::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres
 ::res://componets/bullets/CannonBallTester/::1708640932
@@ -1372,45 +1372,49 @@ Classic_Bullet_Resource.tres::Resource/Resource::932918055855622855::1706138429:
 Gernade_Ammo.tscn::PackedScene::271032146198701693::1705795139::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://b1hoyyy45o251::::res://componets/bullets/Gernade_Bullet/Gernade_Bullet.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
 Gernade_Bullet.tres::Resource/Resource::4226675458506818802::1705794743::0::1::::<><>::res://src/bullet_resource.gd
 Gernade_Bullet.tscn::PackedScene::5608549981632670201::1705795139::0::1::::<><>::res://componets/bullets/template/projectile.gd<>uid://b1hoyyy45o251::::res://componets/bullets/Gernade_Bullet/Gernade_Bullet.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-::res://componets/bullets/nutbullet/::1710558278
+::res://componets/bullets/nutbullet/::1711400764
 nut_ammo.tscn::PackedScene::6814682869582603429::1708640932::0::1::::<><>::res://componets/bullets/template/ammo.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://bcxm7bu2hi8nt::::res://assets/images/bullet_nut.jpg<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-nut_bullet_info.tres::Resource/Bullet_Type::7780518432706895735::1710558278::0::1::::<><>::res://src/bullet_resource.gd
+nut_bullet_info.tres::Resource/Bullet_Type::7780518432706895735::1711400764::0::1::::<><>::res://src/bullet_resource.gd
 nut_projectile.tscn::PackedScene::7678963035880674685::1707353525::0::1::::<><>::res://componets/bullets/template/projectile.gd<>uid://di37acejeygq6::::res://componets/bullets/nutbullet/nut_bullet_info.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-::res://componets/bullets/PhysicsBullet/::1710558278
+::res://componets/bullets/PhysicsBullet/::1711400764
 PhysBullet.tscn::PackedScene::2883665252396186486::1708811493::0::1::::<><>::uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>res://componets/bullets/template/arc_projectile.gd<>uid://ck6g2u2e738j2::::res://componets/bullets/PhysicsBullet/PhysBulletResource.tres<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-PhysBulletResource.tres::Resource/Bullet_Type::5539139124936775537::1710558278::0::1::::<><>::res://src/bullet_resource.gd
+PhysBulletResource.tres::Resource/Bullet_Type::5539139124936775537::1711400764::0::1::::<><>::res://src/bullet_resource.gd
 PhysicsBullet_Ammo.tscn::PackedScene::6393910905011049360::1705873320::0::1::::<><>::uid://1imh0crjifi4::::res://assets/models/ClassicBulletTexture.png<>res://componets/bullets/template/ammo.gd<>uid://dq8jn1cyxei00::::res://assets/models/ClassicBullet.obj<>uid://ck6g2u2e738j2::::res://componets/bullets/PhysicsBullet/PhysBulletResource.tres<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres
-::res://componets/bullets/template/::1710558278
-ammo.gd::GDScript::-1::1710558278::0::1::::<>Area3D<>::
-arc_projectile.gd::GDScript::-1::1710558278::0::1::::<>RigidBody3D<>::
+::res://componets/bullets/template/::1711402953
+ammo.gd::GDScript::-1::1711400764::0::1::::<>Area3D<>::
+arc_projectile.gd::GDScript::-1::1711402953::0::1::::<>RigidBody3D<>::
 Beam.gd::GDScript::-1::1708817530::0::1::::<>RayCast3D<>::
-projectile.gd::GDScript::-1::1710558278::0::1::::<>Area3D<>::
-::res://componets/Enemy Folder/::1709937959
+projectile.gd::GDScript::-1::1711402551::0::1::::<>Area3D<>::
+::res://componets/Enemy Folder/::1711411074
 ::res://componets/Enemy Folder/Bullet Sentry/::1705647037
 animation_model_SlideReload.res::Animation::276846510783005883::1705646616::0::1::::<><>::
 Base texture.png::CompressedTexture2D::1791976182234655840::1705646615::1705646615::1::::<><>::
 BulletSentryBase.obj::Mesh::6277622755681336656::1705646616::1705646616::1::::<><>::
 BulletSentryHead.gltf::PackedScene::324117782241636869::1705646616::1705646616::1::::<><>::
 bullet_sentry.tscn::PackedScene::233994156239869429::1705646616::0::1::::<><>::uid://bbr0w62ju4wsu::::res://componets/Enemy Folder/Bullet Sentry/Sentry bullet.gltf
-::res://componets/Enemy Folder/Evil Cube/::1710558356
-evil_cube.gd::GDScript::-1::1710558278::0::1::::<>CharacterBody3D<>::
-evil_cube.tscn::PackedScene::3983436350474710851::1710558356::0::1::::<><>::res://componets/Enemy Folder/Evil Cube/evil_cube.gd
+::res://componets/Enemy Folder/Evil Cube/::1711402956
+evil_cube.gd::GDScript::-1::1711400764::0::1::::<>CharacterBody3D<>::
+evil_cube.tscn::PackedScene::3983436350474710851::1711402956::0::1::::<><>::res://componets/Enemy Folder/Evil Cube/evil_cube.gd
 ::res://componets/Enemy Folder/EvilCubes/::1706254932
-::res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/::1710558278
+::res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/::1711400764
 CubeCralwerEnemy.tscn::PackedScene::8323283247787143865::1707353581::0::1::::<><>::uid://bl25w4ymafyt3::::res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCubeCrawlerExport.glb<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCrawlerIKScript.gd<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/EvilCubeCrawl_AI.gd<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/IKTargetScript.gd<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/TargetRaycasts.gd<>res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd
-EvilCrawlerIKScript.gd::GDScript::-1::1710558278::0::1::::<>SkeletonIK3D<>::
+EvilCrawlerIKScript.gd::GDScript::-1::1711400764::0::1::::<>SkeletonIK3D<>::
 EvilCubeCrawlerExport.glb::PackedScene::3216098521117883050::1706314732::1706314756::1::::<><>::
 EvilCubeCrawl_AI.gd::GDScript::-1::1707353067::0::1::::<>Node3D<>::
 IKTargetScript.gd::GDScript::-1::1708812687::0::1::::<>Marker3D<>::
 StepContainerScript.gd::GDScript::-1::1708814769::0::1::::<>Node3D<>::
 TargetRaycasts.gd::GDScript::-1::1708812687::0::1::::<>RayCast3D<>::
-::res://componets/Enemy Folder/PhysSentry/::1710558278
+::res://componets/Enemy Folder/GunEnemies/::1711411099
+::res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/::1711416491
+Shooty_Crawler.gd::GDScript::-1::1711416491::0::1::::<>CharacterBody3D<>::
+Shooty_Crawler.tscn::PackedScene::3843782459881420667::1711416491::0::1::::<><>::res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.gd
+::res://componets/Enemy Folder/PhysSentry/::1711400764
 ModSentry_X1.tscn::PackedScene::1106478271164129679::1710288973::0::1::::<><>::res://componets/Enemy Folder/PhysSentry/sentryGenericCode.gd<>uid://o8n1jr5csigc::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres
 PhysicSentryHead.tscn::PackedScene::8698607962074758137::1706318229::0::1::::<><>::
 PhysicSentryHeadScript.gd::GDScript::-1::1705965984::0::1::::<>RigidBody3D<>::
 PhysSentry.gd::GDScript::-1::1705978062::0::1::::<>Node3D<>::
 PhysSentry.tscn::PackedScene::2441426221174972309::1706218317::0::1::::<><>::res://componets/Enemy Folder/PhysSentry/PhysSentry.gd<>uid://dv6w2jn0mcqaj::::res://componets/Enemy Folder/PhysSentry/PhysicSentryHead.tscn<>uid://y1kgcoem27dm::::res://misc_Testing_Scenes/radom dohikies/interpolationTests/PointA.tscn<>uid://cqxwhigyuarg8::::res://misc_Testing_Scenes/radom dohikies/interpolationTests/PointB.tscn
-sentryGenericCode.gd::GDScript::-1::1710558278::0::1::::<>Node3D<>::
+sentryGenericCode.gd::GDScript::-1::1711400764::0::1::::<>Node3D<>::
 ::res://componets/Enemy Folder/TurretFolder/::1710380124
 ::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/::1710544089
 Basic_Bullet_Sentry.tscn::PackedScene::2738725681873163273::1710544089::0::1::::<><>::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_sentry_code.gd<>uid://36q7iyoov45::::res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletResource.tres<>uid://dj3s5fdmuvrl1::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Barrel/BBS_Barrel.obj<>uid://d2lq5pbs53vpm::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Mount/BBS_Mount.obj<>uid://csk7u3eefut6j::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Base/BBS_Base.obj<>uid://pdn6rmepvtq::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Front_Gear/BBS_Front_Gear.obj<>uid://cut0p36nd50rh::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Bolt/BBS_Bolt.obj<>uid://mnuhrbv8c58m::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Mana/BBS_Mana.obj<>uid://dph6k7flqfjq0::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Glass_Cap/BBS_Glass_Cap.obj<>uid://dns4ggjusm4la::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Bottem_Gear/BBS_Bot_Gear.obj
@@ -1432,9 +1436,9 @@ BBS_Glass_Cap.obj::Mesh::8228447123635621925::1710220703::1710271482::1::::<><>:
 BBS_Mana.obj::Mesh::870330770311943526::1710220699::1710220719::1::::<><>::
 ::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/BBS_Meshes/BBS_Mount/::1710220720
 BBS_Mount.obj::Mesh::9078094820556354974::1710220709::1710220720::1::::<><>::
-::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/::1710558573
+::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/::1711402957
 Guardian_Sentry.gd::GDScript::-1::1710557361::0::1::::<>Node3D<>::
-Guardian_Sentry.tscn::PackedScene::4779174701074421845::1710558573::0::1::::<><>::uid://pouaa0hsg1jq::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_CrownGear/GS_CrownGear.obj<>res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.gd<>uid://dg2khertjjlyk::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/BS_Barrel/BS_BarrelGear.obj<>uid://36q7iyoov45::::res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletResource.tres<>uid://doerj7ntxrebs::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/BS_BarrelGear/BS_Barrel.obj<>uid://dgu14u3ug8jp4::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_mana/GS_mana.obj<>uid://cjrv4evdf4f4t::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_ManaGlass/GS_ManaGlass.obj<>uid://ja00024t61kl::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_BarrelUnderGear/GS_BarrelUnderGear.obj<>uid://crxm25mdr48jj::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_Base/GS_Base.obj<>uid://klv8hf22rapp::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_InputGear/GS_InputGear.obj
+Guardian_Sentry.tscn::PackedScene::4779174701074421845::1711402957::0::1::::<><>::uid://pouaa0hsg1jq::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_CrownGear/GS_CrownGear.obj<>res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.gd<>uid://dg2khertjjlyk::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/BS_Barrel/BS_BarrelGear.obj<>uid://36q7iyoov45::::res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletResource.tres<>uid://doerj7ntxrebs::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/BS_BarrelGear/BS_Barrel.obj<>uid://dgu14u3ug8jp4::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_mana/GS_mana.obj<>uid://cjrv4evdf4f4t::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_ManaGlass/GS_ManaGlass.obj<>uid://ja00024t61kl::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_BarrelUnderGear/GS_BarrelUnderGear.obj<>uid://crxm25mdr48jj::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_Base/GS_Base.obj<>uid://klv8hf22rapp::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_InputGear/GS_InputGear.obj
 ::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/::1710482712
 ::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/BS_Barrel/::1710478401
 BS_BarrelGear.obj::Mesh::7636753219982853342::1710477728::1710478401::1::::<><>::
@@ -1457,33 +1461,33 @@ InteractTest.gd::GDScript::-1::1705646616::0::1::::Interactable<>Node<>::
 Interact_SpawnMe.gd::GDScript::-1::1705646616::0::1::::<>Interactable<>::
 ::res://componets/Level_Devices/::1708762656
 ::res://componets/Level_Devices/buttons/::1708760156
-::res://componets/Level_Devices/Doors/::1710558278
-GenericDoorCode.gd::GDScript::-1::1710558278::0::1::::<>CSGMesh3D<>::
+::res://componets/Level_Devices/Doors/::1711400764
+GenericDoorCode.gd::GDScript::-1::1711400764::0::1::::<>CSGMesh3D<>::
 ::res://componets/Level_Devices/One_Way_Teleporter/::1710558356
 One_Way_Enter.gd::GDScript::-1::1708812708::0::1::::<>Node3D<>::
 One_Way_Enter.tscn::PackedScene::6137574568884409189::1710558356::0::1::::<><>::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.gd
 one_way_exit.gd::GDScript::-1::1708733935::0::1::::<>Node3D<>::
 one_way_exit.tscn::PackedScene::2132264638891308957::1710558356::0::1::::<><>::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.gd
 One_Way_Teleporter.tscn::PackedScene::2712109423641001318::1708544895::0::1::::<><>::
-::res://componets/Level_Devices/PressurePlates/::1710558278
-PlayerPressurePlate.gd::GDScript::-1::1710558278::0::1::::<>Node3D<>::
+::res://componets/Level_Devices/PressurePlates/::1711400764
+PlayerPressurePlate.gd::GDScript::-1::1711400764::0::1::::<>Node3D<>::
 PlayerPressurePlate.tscn::PackedScene::1506846029269710005::1708824167::0::1::::<><>::res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.gd
 ::res://componets/Level_Devices/telepad/::1709943039
 TelePad.gd::GDScript::-1::1708814830::0::1::::<>Node3D<>::
 tele_pad.tscn::PackedScene::6679308285955523332::1709943039::0::1::::<><>::res://componets/Level_Devices/telepad/TelePad.gd
-::res://componets/player/::1710558357
+::res://componets/player/::1711402957
 bullet_inv.gd::GDScript::-1::1708812718::0::1::::<>Control<>::
 bullet_inventory.tscn::PackedScene::8161897701949397233::1710292387::0::1::::<><>::res://componets/player/bullet_inv.gd
 damage_numbers.gd::GDScript::-1::1710286330::0::1::::<>Node2D<>::
 damage_numbers.tscn::PackedScene::5756911881689817778::1710288512::0::1::::<><>::res://componets/player/damage_numbers.gd
-InteractionRay.gd::GDScript::-1::1710558278::0::1::::<>RayCast3D<>::
-player.gd::GDScript::-1::1710558278::0::1::::<>CharacterBody3D<>::
-player.tscn::PackedScene::5863084854890047613::1710558357::0::1::::<><>::res://componets/player/player.gd<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dla44yymmgqa1::::res://componets/player/player_gun_prop.tscn<>uid://bmx53al0wfbgl::::res://componets/player/player_hud.tscn<>res://componets/player/InteractionRay.gd
+InteractionRay.gd::GDScript::-1::1711400764::0::1::::<>RayCast3D<>::
+player.gd::GDScript::-1::1711400764::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::5863084854890047613::1711402957::0::1::::<><>::res://componets/player/player.gd<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dla44yymmgqa1::::res://componets/player/player_gun_prop.tscn<>uid://bmx53al0wfbgl::::res://componets/player/player_hud.tscn<>res://componets/player/InteractionRay.gd
 player_gun_prop.gd::GDScript::-1::1708636360::0::1::::<>Node3D<>::
 player_gun_prop.tscn::PackedScene::7933153210108353738::1705789259::0::1::::<><>::res://componets/player/player_gun_prop.gd<>uid://bk01mifklj8ii::::res://assets/models/Shotgun_SawedOff.fbx<>uid://dms3rq5efnyd2::::res://assets/sfx/dsshotgn.wav<>uid://dsacww882pcnk::::res://assets/images/firetexture.jpg
 player_hud.gd::GDScript::-1::1708993821::0::1::::<>Control<>::
 player_hud.tscn::PackedScene::3278039025863526979::1710288791::0::1::::<><>::res://componets/player/player_hud.gd<>uid://ce2n6cf4dqt8m::::res://componets/player/player_info.tres<>uid://dojxi6wqwicjx::::res://componets/player/bullet_inventory.tscn<>uid://coaxq6hrs3lmo::::res://componets/player/damage_numbers.tscn<>uid://cklmx5w7d33nv::::res://assets/images/kenney_crosshairPack/PNG/White/crosshair100.png
-player_info.tres::Resource/Player_Data::5110179735907972042::1710558278::0::1::::<><>::res://src/player_resource.gd
+player_info.tres::Resource/Player_Data::5110179735907972042::1711400764::0::1::::<><>::res://src/player_resource.gd
 ::res://componets/SpawnStuffs/::1710543364
 SpawnPoint.gd::GDScript::-1::1710543364::0::1::::<>Node3D<>::
 SpawnPoint.tscn::PackedScene::8700897515919064888::1708824167::0::1::::<><>::res://componets/SpawnStuffs/SpawnPoint.gd
@@ -1495,13 +1499,13 @@ design.md::TextFile::-1::1703558912::0::1::::<><>::
 git-help.md::TextFile::-1::1703558912::0::1::::<><>::
 godot-help.md::TextFile::-1::1703558912::0::1::::<><>::
 project.md::TextFile::-1::1703558912::0::1::::<><>::
-::res://levels/::1710558356
-level_test.tscn::PackedScene::437080268328329291::1710558356::0::1::::<><>::uid://cpseferbomb0h::::res://componets/player/player.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://1jfql6svsg7h::::res://assets/images/test-surface-texture/Purple/texture_01.png<>res://src/bullet_resource.gd<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>uid://c856cl5nd1e4x::::res://levels/ToolTesting.tscn<>uid://p7gx7g31d32g::::res://levels/Light_Testing.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://b1w6fftdidred::::res://levels/proto_level_01.tscn<>uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://bsjl70sugaxhg::::res://levels/PathFindingTestArera.tscn
+::res://levels/::1711411972
+level_test.tscn::PackedScene::437080268328329291::1711402956::0::1::::<><>::uid://cpseferbomb0h::::res://componets/player/player.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://1jfql6svsg7h::::res://assets/images/test-surface-texture/Purple/texture_01.png<>res://src/bullet_resource.gd<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>uid://c856cl5nd1e4x::::res://levels/ToolTesting.tscn<>uid://p7gx7g31d32g::::res://levels/Light_Testing.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://b1w6fftdidred::::res://levels/proto_level_01.tscn<>uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://bsjl70sugaxhg::::res://levels/PathFindingTestArera.tscn
 Light_Testing.tscn::PackedScene::1119299809239928900::1710292387::0::1::::<><>::uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn
-PathFindingTestArera.tscn::PackedScene::3669125643096596144::1708824167::0::1::::<><>::uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://bw0uu5umnt8vn::::res://componets/Enemy Folder/Evil Cube/evil_cube.tscn<>uid://drtguo8ski4ig::::res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
+PathFindingTestArera.tscn::PackedScene::3669125643096596144::1711411972::0::1::::<><>::uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://3xonlltnk7pi::::res://assets/images/test-surface-texture/Dark/texture_01.png<>uid://bw0uu5umnt8vn::::res://componets/Enemy Folder/Evil Cube/evil_cube.tscn<>uid://drtguo8ski4ig::::res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn
 PL1_EVENT_MONITOR.gd::GDScript::-1::1710372225::0::1::::<>Node<>::
-proto_level_01.tscn::PackedScene::4258638376731712263::1710558356::0::1::::<><>::res://levels/PL1_EVENT_MONITOR.gd<>uid://r4prtbwg7ncy::::res://assets/ProtoLevel1Assets/Courtyard.obj<>uid://dybgnak72k66i::::res://assets/ProtoLevel1Assets/Chamber1Door.obj<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>res://componets/Level_Devices/Doors/GenericDoorCode.gd<>uid://87b21bunftc8::::res://assets/ProtoLevel1Assets/ChamberCenter.obj<>uid://50ykuvnuwjwp::::res://assets/ProtoLevel1Assets/ExitDoor.obj<>uid://mhq3aunlnknv::::res://assets/ProtoLevel1Assets/Courtyard Cover.obj<>uid://uh4d622js5hs::::res://assets/ProtoLevel1Assets/PathfindGuarden.obj<>uid://6ufimfqrwnce::::res://assets/ProtoLevel1Assets/PGDoor.obj<>uid://dj60m6xs52nf4::::res://assets/ProtoLevel1Assets/windowPane.obj<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://vp6sfilokglx::::res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.tscn<>uid://ddbhncfoo12wf::::res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletAmmo.tscn<>uid://dv71rmtif5x73::::res://componets/SpawnStuffs/SpawnPoint.tscn<>uid://f0k6plpv6os0::::res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn<>uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://bfawoadi2j77r::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn<>uid://cadckrkdpc2w4::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn<>uid://bw0uu5umnt8vn::::res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
-ToolTesting.tscn::PackedScene::7152890963123315361::1710558356::0::1::::<><>::uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://d4j4h8r8f6on::::res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn<>uid://cxdi1p47atdbk::::res://componets/bullets/PhysicsBullet/PhysicsBullet_Ammo.tscn<>uid://f0k6plpv6os0::::res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn<>uid://booitd2lx3oqi::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn<>uid://ctv1pdtxhu54x::::res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn<>uid://ddbhncfoo12wf::::res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletAmmo.tscn<>uid://dqt4i2pqa6m30::::res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn<>uid://cadckrkdpc2w4::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn<>uid://bfawoadi2j77r::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>uid://bysiv6rhievo3::::res://TempFilesDELETE_AFTER_USE/test1bsentry/test1bsentry.obj
+proto_level_01.tscn::PackedScene::4258638376731712263::1711402957::0::1::::<><>::res://levels/PL1_EVENT_MONITOR.gd<>uid://r4prtbwg7ncy::::res://assets/ProtoLevel1Assets/Courtyard.obj<>uid://dybgnak72k66i::::res://assets/ProtoLevel1Assets/Chamber1Door.obj<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>res://componets/Level_Devices/Doors/GenericDoorCode.gd<>uid://87b21bunftc8::::res://assets/ProtoLevel1Assets/ChamberCenter.obj<>uid://50ykuvnuwjwp::::res://assets/ProtoLevel1Assets/ExitDoor.obj<>uid://mhq3aunlnknv::::res://assets/ProtoLevel1Assets/Courtyard Cover.obj<>uid://uh4d622js5hs::::res://assets/ProtoLevel1Assets/PathfindGuarden.obj<>uid://6ufimfqrwnce::::res://assets/ProtoLevel1Assets/PGDoor.obj<>uid://dj60m6xs52nf4::::res://assets/ProtoLevel1Assets/windowPane.obj<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://vp6sfilokglx::::res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.tscn<>uid://ddbhncfoo12wf::::res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletAmmo.tscn<>uid://dv71rmtif5x73::::res://componets/SpawnStuffs/SpawnPoint.tscn<>uid://f0k6plpv6os0::::res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn<>uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://bfawoadi2j77r::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn<>uid://cadckrkdpc2w4::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn<>uid://bw0uu5umnt8vn::::res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
+ToolTesting.tscn::PackedScene::7152890963123315361::1711402957::0::1::::<><>::uid://c2frh40hq2y2w::::res://componets/Level_Devices/telepad/tele_pad.tscn<>uid://bw01ihem7k5ta::::res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn<>uid://c4dc3i5pc7pdd::::res://componets/bullets/nutbullet/nut_ammo.tscn<>uid://d4j4h8r8f6on::::res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn<>uid://cxdi1p47atdbk::::res://componets/bullets/PhysicsBullet/PhysicsBullet_Ammo.tscn<>uid://f0k6plpv6os0::::res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn<>uid://booitd2lx3oqi::::res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn<>uid://ctv1pdtxhu54x::::res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn<>uid://ddbhncfoo12wf::::res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletAmmo.tscn<>uid://dqt4i2pqa6m30::::res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn<>uid://cadckrkdpc2w4::::res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn<>uid://bfawoadi2j77r::::res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn<>uid://ctpc7rv4oavcn::::res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn<>uid://5m5c7wnfothd::::res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn<>uid://bysiv6rhievo3::::res://TempFilesDELETE_AFTER_USE/test1bsentry/test1bsentry.obj
 ::res://misc_Testing_Scenes/::1705647037
 ::res://misc_Testing_Scenes/radom dohikies/::1706217843
 ::res://misc_Testing_Scenes/radom dohikies/FancyHitboxTree/::1706224300
@@ -1517,11 +1521,11 @@ pipeVent.gd::GDScript::-1::1705739836::0::1::::<>Node3D<>::
 pipeVent.tscn::PackedScene::6961535737825818119::1705744014::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/vent/pipeVent.gd
 ventBomb.gd::GDScript::-1::1705736024::0::1::::<>RigidBody3D<>::
 ventBomb.tscn::PackedScene::2551881354265255166::1706234833::0::1::::<><>::res://misc_Testing_Scenes/radom dohikies/vent/ventBomb.gd
-::res://misc_Testing_Scenes/Spawn_TesterStuffs/::1710558278
+::res://misc_Testing_Scenes/Spawn_TesterStuffs/::1711400764
 Spawn Pad.gltf::PackedScene::6877864817892558822::1705646616::1705646616::1::::<><>::
 Spawn Pad_0.png::CompressedTexture2D::8761863956430122917::1705646616::1705646616::1::::<><>::
 Spawn Pad_1.png::CompressedTexture2D::7395290803156605439::1705646616::1705646616::1::::<><>::
-spawn_tester.gd::GDScript::-1::1710558278::0::1::::<>Node3D<>::
+spawn_tester.gd::GDScript::-1::1711400764::0::1::::<>Node3D<>::
 spawn_tester.tscn::PackedScene::6151386946041099417::1710178571::0::1::::<><>::uid://c48xots6jmqgk::::res://misc_Testing_Scenes/Spawn_TesterStuffs/Spawn Pad.gltf<>res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.gd<>uid://b0smlv7bj0go1::::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/ButtonLocking.res<>uid://cvrrm0ybj66yv::::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/ButtonPressed.res<>uid://cydb1rlwbpddb::::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/KillButtonPressed.res<>res://componets/InteractibleCode/Interact_SpawnMe.gd
 ::res://misc_Testing_Scenes/Spawn_TesterStuffs/SpawnPadAnimations/::1705647037
 ButtonLocking.res::Animation::4179049974345684870::1705646616::0::1::::<><>::

@@ -105,6 +105,9 @@ radius = 8.26283
 [node name="EvilCubeCrawlerExport" parent="." instance=ExtResource("12_bbas6")]
 transform = Transform3D(0.3343, 0, -0.942467, 0, 1, 0, 0.942467, 0, 0.3343, -10.7177, 0.369209, -7.17887)
 
+[node name="EvilCubeCrawlerExport2" parent="." instance=ExtResource("12_bbas6")]
+transform = Transform3D(0.03343, 0, -0.0942467, 0, 0.1, 0, 0.0942467, 0, 0.03343, 5.2823, 0.369209, -0.17887)
+
 [node name="one-way-teleporters" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
