@@ -1,4 +1,4 @@
-res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.tscn
+res://levels/level_test.tscn
 res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.gd
 res://componets/bullets/template/ammo.gd
 res://componets/bullets/template/arc_projectile.gd
@@ -15,13 +15,12 @@ res://componets/player/player_info.tres
 res://componets/bullets/nutbullet/nut_bullet_info.tres
 res://componets/bullets/PhysicsBullet/PhysBulletResource.tres
 res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.gdshader
-res://levels/level_test.tscn
 res://componets/Enemy Folder/Evil Cube/evil_cube.tscn
 res://levels/ToolTesting.tscn
 res://levels/proto_level_01.tscn
 res://componets/player/player.tscn
 res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn
+res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.tscn
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn
 res://levels/PathFindingTestArera.tscn
-res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.gd
 res://levels/Light_Testing.tscn
