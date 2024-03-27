@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 
 var target = null ##the target the cube seeks
-const SPEED = 3.0
+#const SPEED = 3.0
 var creator
 @export var nav_agent: NavigationAgent3D ##so code can use navmesh.
 
@@ -14,9 +14,10 @@ var health = 100.0 ##does what it says on tin
 var inRange = false ##if player is in range, stop chasing. 
 
 ############### LEG VARIABLES #####################
-@export var move_speed: float = 5.0
+@export var move_speed: float = 3.0
+
 @export var turn_speed: float = 1.0
-@export var ground_offset: float = 1.0
+#@export var ground_offset: float = 1.0
 
 @onready var fl_leg = $targets/FL_Target_IK
 @onready var fr_leg = $targets/FR_Target_IK
@@ -48,7 +49,7 @@ func _physics_process(delta):
 	var current_agent_position: Vector3 = global_position
 	var next_path_position: Vector3 = nav_agent.get_next_path_position()
 	
-	velocity = current_agent_position.direction_to(next_path_position) * SPEED
+	velocity = current_agent_position.direction_to(next_path_position) * move_speed
 	move_and_slide()
 	
 	RotateTurret(delta)
@@ -68,10 +69,10 @@ func leg_process(delta):
 	## lerp for smoothness according to video
 	
 	##code for main body ground offset or "height"
-	var avg = (fl_leg.position + fr_leg.position + bl_leg.position + br_leg.position) / 4	###avg height where feet are at
-	var target_pos = avg + transform.basis.y * ground_offset
-	var distance = transform.basis.y.dot(target_pos - position)
-	position = lerp(position, position + transform.basis.y * distance, move_speed * delta)
+	#var avg = (fl_leg.position + fr_leg.position + bl_leg.position + br_leg.position) / 4	###avg height where feet are at
+	#var target_pos = avg + transform.basis.y * ground_offset
+	#var distance = transform.basis.y.dot(target_pos - position)
+	#position = lerp(position, position + transform.basis.y * distance, move_speed * delta)
 	
 	##_handle_movement(delta)	## SHOULD NOT DO ANYTHING, REPLACE WITH PATHFINDING
 	pass
@@ -113,7 +114,8 @@ func RotateTurret(delta: float):
 	# calculate step size and direction <- source quote
 	var final_y = sign(y_targetRotation) * min(turn_speed * delta, abs(y_targetRotation))
 	# rotate body
-	self.rotate_y(final_y)	#########
+	rotate_object_local(Vector3.UP, final_y ) # a_direction * turn_speed * delta)
+	#self.rotate_y(final_y)	#########
 
 func get_local_y():
 	var current_Target = target.position
