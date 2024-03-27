@@ -72,7 +72,7 @@ spawnBlueprint = ExtResource("3_xlot8")
 [node name="PressureSpawnPad" parent="." instance=ExtResource("5_yw8i2")]
 transform = Transform3D(0.772312, 0, -0.635243, 0, 1, 0, 0.635243, 0, 0.772312, 0.127609, 0, 7.21433)
 spawnBlueprint = ExtResource("6_lljhi")
-y_offset = 10.0
+y_offset = 5.0
 
 [node name="PressureSpawnPad2" parent="." instance=ExtResource("5_yw8i2")]
 transform = Transform3D(0.772312, 0, -0.635243, 0, 1, 0, 0.635243, 0, 0.772312, 1.12761, 0, 10.2143)

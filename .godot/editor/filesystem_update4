@@ -20,7 +20,9 @@ res://levels/ToolTesting.tscn
 res://levels/proto_level_01.tscn
 res://componets/player/player.tscn
 res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn
-res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.tscn
-res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn
 res://levels/PathFindingTestArera.tscn
 res://levels/Light_Testing.tscn
+res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.tscn
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn
+res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.gd
+res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd

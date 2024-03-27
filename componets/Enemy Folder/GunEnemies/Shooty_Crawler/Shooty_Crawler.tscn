@@ -875,6 +875,7 @@ bone_name = "FootA"
 bone_idx = 5
 
 [node name="FootA" type="MeshInstance3D" parent="Armature/Skeleton3D/FootA"]
+visible = false
 mesh = SubResource("ArrayMesh_khsvy")
 skeleton = NodePath("")
 
@@ -1031,7 +1032,7 @@ root_bone = &"BoneHipA"
 tip_bone = &"BoneToeA"
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../../FL_Target_IK")
+target_node = NodePath("../../../targets/FL_Target_IK")
 script = ExtResource("2_w3c4q")
 
 [node name="FrontRight" type="SkeletonIK3D" parent="Armature/Skeleton3D"]
@@ -1040,7 +1041,7 @@ root_bone = &"BoneHipB"
 tip_bone = &"BoneToeB"
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../../FR_Target_IK")
+target_node = NodePath("../../../targets/FR_Target_IK")
 script = ExtResource("2_w3c4q")
 
 [node name="BackRight" type="SkeletonIK3D" parent="Armature/Skeleton3D"]
@@ -1049,7 +1050,7 @@ root_bone = &"BoneHipC"
 tip_bone = &"BoneToeC"
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../../BR_Target_IK")
+target_node = NodePath("../../../targets/BR_Target_IK")
 script = ExtResource("2_w3c4q")
 
 [node name="BackLeft" type="SkeletonIK3D" parent="Armature/Skeleton3D"]
@@ -1058,7 +1059,7 @@ root_bone = &"BoneHipD"
 tip_bone = &"BoneToeD"
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../../BL_Target_IK")
+target_node = NodePath("../../../targets/BL_Target_IK")
 script = ExtResource("2_w3c4q")
 
 [node name="targets" type="Node3D" parent="."]
@@ -1067,7 +1068,7 @@ script = ExtResource("2_w3c4q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, -3)
 top_level = true
 script = ExtResource("3_vkkta")
-step_target = NodePath(".")
+step_target = NodePath("../../Step_Target_Container/FR_Raycast/FR_Target")
 adjacent_leg = NodePath("../FL_Target_IK")
 opposite_leg = NodePath("../BL_Target_IK")
 
@@ -1078,7 +1079,7 @@ radius = 0.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2, -3)
 top_level = true
 script = ExtResource("3_vkkta")
-step_target = NodePath(".")
+step_target = NodePath("../../Step_Target_Container/FL_Raycast/FL_Target")
 adjacent_leg = NodePath("../FR_Target_IK")
 opposite_leg = NodePath("../BR_Target_IK")
 
@@ -1089,7 +1090,7 @@ radius = 0.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, 3)
 top_level = true
 script = ExtResource("3_vkkta")
-step_target = NodePath(".")
+step_target = NodePath("../../Step_Target_Container/BR_Raycast/BR_Target")
 adjacent_leg = NodePath("../BL_Target_IK")
 opposite_leg = NodePath("../FL_Target_IK")
 
@@ -1100,15 +1101,16 @@ radius = 0.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2, 3)
 top_level = true
 script = ExtResource("3_vkkta")
-step_target = NodePath(".")
+step_target = NodePath("../../Step_Target_Container/BL_Raycast/BL_Target")
 adjacent_leg = NodePath("../BR_Target_IK")
 opposite_leg = NodePath("../FR_Target_IK")
 
 [node name="tempMarker" type="CSGSphere3D" parent="targets/BL_Target_IK"]
 radius = 0.25
 
-[node name="Step_Target_Container" type="Node3D" parent="."]
+[node name="Step_Target_Container" type="Node3D" parent="." node_paths=PackedStringArray("parent")]
 script = ExtResource("4_qww55")
+parent = NodePath("..")
 
 [node name="FR_Raycast" type="RayCast3D" parent="Step_Target_Container" node_paths=PackedStringArray("step_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4.447, -3)

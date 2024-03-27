@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=27 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://p7gx7g31d32g" path="res://levels/Light_Testing.tscn" id="9_3brnu"]
 [ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="12_8mt6k"]
 [ext_resource type="PackedScene" uid="uid://b1w6fftdidred" path="res://levels/proto_level_01.tscn" id="12_vie5u"]
+[ext_resource type="PackedScene" uid="uid://bu07shcq266rv" path="res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.tscn" id="13_gqjay"]
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="13_i76f7"]
 [ext_resource type="PackedScene" uid="uid://bsjl70sugaxhg" path="res://levels/PathFindingTestArera.tscn" id="18_tnolj"]
 
@@ -257,3 +258,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, 30)
 
 [node name="Proto_Level_01" parent="SubLevels" instance=ExtResource("12_vie5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173, 0, -44)
+
+[node name="ShootyCrawler" parent="." instance=ExtResource("13_gqjay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)

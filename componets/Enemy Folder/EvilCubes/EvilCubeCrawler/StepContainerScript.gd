@@ -2,7 +2,7 @@ extends Node3D
 ## so far, used to stop legs fron lagging behind
 
 @export var offset : float = 20.0
-@onready var parent = get_parent_node_3d()
+@export var parent : Node3D # root node?
 @onready var previous_position = parent.global_position
 
 
