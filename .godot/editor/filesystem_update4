@@ -26,3 +26,4 @@ res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.tscn
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn
 res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.gd
 res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/StepContainerScript.gd
+res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.gd

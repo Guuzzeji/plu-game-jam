@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsjl70sugaxhg"]
+[gd_scene load_steps=8 format=3 uid="uid://bsjl70sugaxhg"]
 
 [ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_fnqm2"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="2_kk017"]
 [ext_resource type="PackedScene" uid="uid://bw0uu5umnt8vn" path="res://componets/Enemy Folder/Evil Cube/evil_cube.tscn" id="2_u6p4o"]
-[ext_resource type="PackedScene" uid="uid://drtguo8ski4ig" path="res://assets/EnemyAssets/BulletSentry/ClassicBulletSentry.tscn" id="3_xlot8"]
 [ext_resource type="PackedScene" uid="uid://bw01ihem7k5ta" path="res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn" id="5_yw8i2"]
 [ext_resource type="PackedScene" uid="uid://bu07shcq266rv" path="res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.tscn" id="6_lljhi"]
 
@@ -64,10 +63,6 @@ inner_radius = 1.43819
 outer_radius = 3.20048
 sides = 16
 ring_sides = 24
-
-[node name="EvilCube" parent="." instance=ExtResource("2_u6p4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.818, 0, 0)
-spawnBlueprint = ExtResource("3_xlot8")
 
 [node name="PressureSpawnPad" parent="." instance=ExtResource("5_yw8i2")]
 transform = Transform3D(0.772312, 0, -0.635243, 0, 1, 0, 0.635243, 0, 0.772312, 0.127609, 0, 7.21433)

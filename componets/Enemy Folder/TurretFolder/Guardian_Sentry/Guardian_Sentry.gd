@@ -243,7 +243,7 @@ func get_global_x():
 ###############################################################################################################
 
 
-########################################## SHOOTING and Siht ############################################
+########################################## SHOOTING and Sight ############################################
 #func fire_if_able(): #when attack state decides to fire the gun
 	##print("fired")
 	#if (CooldownTimer.is_stopped()) && (RayCastSightLine.is_colliding() && RayCastSightLine.get_collider() == Target && Mana >= Bullet_Info.Cost):

@@ -588,6 +588,7 @@ script = ExtResource("1_fcrdr")
 nav_agent = NodePath("NavigationAgent3D")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 5.0
 path_height_offset = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -1122,6 +1123,7 @@ step_target = NodePath("FR_Target")
 transform = Transform3D(1, 0, 0, 0, 0.998104, 0.0615537, 0, -0.0615537, 0.998104, 0, -6.45662, 0.0433526)
 
 [node name="tempMarker" type="CSGSphere3D" parent="Step_Target_Container/FR_Raycast/FR_Target"]
+visible = false
 radius = 0.125
 material = SubResource("StandardMaterial3D_4vlp3")
 
@@ -1135,6 +1137,7 @@ step_target = NodePath("FL_Target")
 transform = Transform3D(1, 0, 0, 0, 0.998104, 0.0615537, 0, -0.0615537, 0.998104, 0, -6.45662, 0.0433526)
 
 [node name="tempMarker" type="CSGSphere3D" parent="Step_Target_Container/FL_Raycast/FL_Target"]
+visible = false
 radius = 0.125
 material = SubResource("StandardMaterial3D_4vlp3")
 
@@ -1148,6 +1151,7 @@ step_target = NodePath("BR_Target")
 transform = Transform3D(1, 0, 0, 0, 0.998104, 0.0615537, 0, -0.0615537, 0.998104, 0, -6.0873, 0.0319753)
 
 [node name="tempMarker" type="CSGSphere3D" parent="Step_Target_Container/BR_Raycast/BR_Target"]
+visible = false
 radius = 0.125
 material = SubResource("StandardMaterial3D_4vlp3")
 
@@ -1161,5 +1165,6 @@ step_target = NodePath("BL_Target")
 transform = Transform3D(1, 0, 0, 0, 0.998104, 0.0615537, 0, -0.0615537, 0.998104, 0, -6.0873, 0.0319753)
 
 [node name="tempMarker" type="CSGSphere3D" parent="Step_Target_Container/BL_Raycast/BL_Target"]
+visible = false
 radius = 0.125
 material = SubResource("StandardMaterial3D_4vlp3")

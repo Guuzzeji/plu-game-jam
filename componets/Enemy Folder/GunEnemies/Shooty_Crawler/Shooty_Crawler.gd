@@ -51,6 +51,7 @@ func _physics_process(delta):
 	velocity = current_agent_position.direction_to(next_path_position) * SPEED
 	move_and_slide()
 	
+	RotateTurret(delta)
 	leg_process(delta)	## code from the crawler example, all for the legs
 
 ############################ LEG FUNCTIONS ########################
@@ -101,4 +102,21 @@ func _basis_from_normal(normal: Vector3) -> Basis:	# I..wa.. just watch video
 	result.z *= scale.z
 	
 	return result
-	
+
+############################ ROTATION HANDELING ############################3
+# based on turret code
+
+
+func RotateTurret(delta: float):
+	#displacement (ammount turret needs to rotate?)
+	var y_targetRotation = get_local_y() 
+	# calculate step size and direction <- source quote
+	var final_y = sign(y_targetRotation) * min(turn_speed * delta, abs(y_targetRotation))
+	# rotate body
+	self.rotate_y(final_y)	#########
+
+func get_local_y():
+	var current_Target = target.position
+	var local_Target = self.to_local(current_Target)	####
+	var y_angle = Vector3.FORWARD.angle_to(local_Target + Vector3(1, 0, 1))
+	return y_angle * -sign(local_Target.x)
