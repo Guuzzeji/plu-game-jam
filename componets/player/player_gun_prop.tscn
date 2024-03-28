@@ -47,7 +47,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("GunFireSound:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -188,7 +188,6 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ev2i2"]
-albedo_color = Color(1, 1, 1, 0.733333)
 albedo_texture = ExtResource("4_qjdo5")
 albedo_texture_force_srgb = true
 metallic = 0.46
@@ -210,7 +209,7 @@ target_position = Vector3(0, 0, -1)
 transform = Transform3D(0.00134958, -0.0154382, 0.299599, -0.0261118, 0.298459, 0.0154971, -0.298858, -0.0261466, -1.08455e-06, -2.1684e-19, 2.08165e-12, 0.0460532)
 
 [node name="Shotgun_SawedOff" parent="." instance=ExtResource("1_vvl1l")]
-transform = Transform3D(-1.08186e-06, -9.46508e-08, 0.3, -0.0261467, 0.298858, 0, -0.298858, -0.0261467, -1.086e-06, 1.73471e-12, 2.08165e-12, 0.382676)
+transform = Transform3D(-1.08186e-06, -9.46508e-08, 0.3, -0.0261467, 0.298858, 0, -0.298858, -0.0261467, -1.086e-06, -2.1684e-19, 2.08165e-12, 0.0460532)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -220,9 +219,11 @@ libraries = {
 
 [node name="GunFireSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_abblw")
+volume_db = -24.0
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="."]
-transform = Transform3D(1.84866e-16, 3.57639e-09, 0.0818182, 0.0818182, -3.57639e-09, -2.85371e-17, 3.57639e-09, 0.0818182, -3.57639e-09, 2.08165e-12, 2.08165e-12, -0.930491)
+transform = Transform3D(3.3892e-16, 6.55671e-09, 0.15, 0.15, -6.55671e-09, -5.23176e-17, 6.55671e-09, 0.15, -6.55671e-09, 2.08165e-12, 2.08165e-12, -0.930491)
+visible = false
 material_override = SubResource("StandardMaterial3D_ev2i2")
 inner_radius = 0.011
 outer_radius = 1.306
@@ -230,7 +231,7 @@ outer_radius = 1.306
 [node name="SpotLight3D" type="SpotLight3D" parent="CSGTorus3D"]
 transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 0, 0, 0)
 light_color = Color(1, 0, 0.352941, 1)
-light_energy = 6.318
+light_energy = 0.0
 light_indirect_energy = 2.495
 light_size = 0.379
 spot_range = 3.12316

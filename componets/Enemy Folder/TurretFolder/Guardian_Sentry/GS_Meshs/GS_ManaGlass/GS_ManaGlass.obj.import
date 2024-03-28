@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cjrv4evdf4f4t"
+path="res://.godot/imported/GS_ManaGlass.obj-e316414cdcf7011062b786820ceaf52b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GS_ManaGlass.obj-e316414cdcf7011062b786820ceaf52b.mesh"]
+
+source_file="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_ManaGlass/GS_ManaGlass.obj"
+dest_files=["res://.godot/imported/GS_ManaGlass.obj-e316414cdcf7011062b786820ceaf52b.mesh", "res://.godot/imported/GS_ManaGlass.obj-e316414cdcf7011062b786820ceaf52b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

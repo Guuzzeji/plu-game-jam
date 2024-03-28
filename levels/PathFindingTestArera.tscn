@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsjl70sugaxhg"]
+
+[ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_fnqm2"]
+[ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="2_kk017"]
+[ext_resource type="PackedScene" uid="uid://bw0uu5umnt8vn" path="res://componets/Enemy Folder/Evil Cube/evil_cube.tscn" id="2_u6p4o"]
+[ext_resource type="PackedScene" uid="uid://bw01ihem7k5ta" path="res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn" id="5_yw8i2"]
+[ext_resource type="PackedScene" uid="uid://bu07shcq266rv" path="res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.tscn" id="6_lljhi"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_1e54v"]
+vertices = PackedVector3Array(60.326, 0.377492, -3.19, 63.826, 0.377492, -4.69, 63.826, 0.377492, -45.94, 59.326, 0.377492, -0.189999, 60.326, 0.377492, -3.19, 63.826, 0.377492, -45.94, 8.326, 0.377492, -45.94, 8.326, 0.377492, -0.189999, 54.3024, 0.877492, -5.94318, 54.312, 0.377492, -7.41674, 54.3236, 0.877492, -1.4225, 54.3332, 0.377492, -2.94606, 51.3132, 0.877492, -2.91804, 49.8282, 0.377492, -2.92902, 51.3036, 0.377492, -1.44448, 55.8086, 0.877492, -1.46151, 57.3436, 0.377492, -1.45053, 63.826, 0.377492, -45.94, 63.826, 0.377492, -4.69, 66.826, 0.377492, -3.69, 63.826, 0.377492, -45.94, 66.826, 0.377492, -3.69, 67.576, 0.377492, -2.94, 63.826, 0.377492, -45.94, 67.576, 0.377492, -2.94, 68.576, 0.377492, 0.0600014, 119.326, 0.377492, 0.0600014, 119.326, 0.377492, -45.94, 61.576, 1.12749, 4.06, 62.326, 0.877492, 4.81, 63.076, 1.37749, 3.56, 61.576, 1.37749, 2.81, 67.326, 1.37749, -0.689999, 66.326, 1.37749, -2.69, 63.326, 1.37749, -3.44, 60.326, 1.37749, 0.310001, 61.576, 1.37749, 2.81, 64.826, 1.37749, 3.31, 61.576, 1.37749, 2.81, 63.076, 1.37749, 3.56, 64.826, 1.37749, 3.31, 64.826, 1.37749, 3.31, 66.576, 1.37749, 2.31, 67.326, 1.37749, -0.689999, 63.326, 1.37749, -3.44, 61.326, 1.37749, -2.69, 60.326, 1.37749, 0.310001, 60.326, 0.377492, 4.31, 60.576, 0.377492, 3.31, 59.576, 0.377492, 1.56, 8.326, 0.377492, 4.31, 59.326, 0.377492, -0.189999, 8.326, 0.377492, -0.189999, 8.326, 0.377492, 4.31, 59.576, 0.377492, 1.56, 67.076, 0.377492, 3.56, 63.576, 0.377492, 4.56, 63.326, 0.377492, 5.31, 62.826, 0.377492, 46.06, 63.326, 0.377492, 5.31, 62.826, 0.627492, 5.31, 62.826, 0.377492, 46.06, 68.576, 0.377492, 0.0600014, 67.076, 0.377492, 3.56, 62.826, 0.377492, 46.06, 119.326, 0.377492, 46.06, 119.326, 0.377492, 0.0600014, 62.326, 0.877492, 4.81, 61.576, 1.12749, 4.06, 61.326, 0.877492, 4.56, 62.326, 0.627492, 5.31, 62.826, 0.377492, 46.06, 62.826, 0.627492, 5.31, 62.326, 0.627492, 5.31, 62.326, 0.627492, 5.31, 61.326, 0.877492, 4.56, 60.326, 0.377492, 4.31, 8.326, 0.377492, 4.31, 8.326, 0.377492, 46.06, 62.826, 0.377492, 46.06, 55.8364, 0.877492, 6.0756, 54.3268, 0.377492, 7.54916, 52.8163, 0.377492, 6.05363, 57.3214, 0.377492, 6.03659)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(6, 13, 7), PackedInt32Array(7, 14, 3), PackedInt32Array(3, 16, 4), PackedInt32Array(4, 9, 5), PackedInt32Array(5, 9, 6), PackedInt32Array(13, 14, 7), PackedInt32Array(6, 9, 13), PackedInt32Array(14, 10, 3), PackedInt32Array(16, 8, 4), PackedInt32Array(3, 15, 16), PackedInt32Array(4, 8, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(9, 8, 13), PackedInt32Array(10, 15, 3), PackedInt32Array(14, 12, 10), PackedInt32Array(16, 11, 8), PackedInt32Array(15, 11, 16), PackedInt32Array(13, 8, 12), PackedInt32Array(10, 11, 15), PackedInt32Array(12, 11, 10), PackedInt32Array(11, 12, 8), PackedInt32Array(19, 18, 17), PackedInt32Array(22, 21, 20), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 26), PackedInt32Array(26, 23, 27), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 31), PackedInt32Array(33, 32, 34), PackedInt32Array(34, 32, 37), PackedInt32Array(34, 37, 36), PackedInt32Array(34, 36, 35), PackedInt32Array(40, 39, 38), PackedInt32Array(43, 42, 41), PackedInt32Array(46, 45, 44), PackedInt32Array(48, 47, 49), PackedInt32Array(49, 47, 50), PackedInt32Array(51, 54, 52), PackedInt32Array(52, 54, 53), PackedInt32Array(56, 55, 57), PackedInt32Array(57, 55, 58), PackedInt32Array(61, 60, 59), PackedInt32Array(63, 62, 64), PackedInt32Array(64, 62, 66), PackedInt32Array(64, 66, 65), PackedInt32Array(68, 67, 69), PackedInt32Array(69, 67, 70), PackedInt32Array(73, 72, 71), PackedInt32Array(78, 81, 79), PackedInt32Array(79, 81, 74), PackedInt32Array(74, 76, 75), PackedInt32Array(76, 82, 77), PackedInt32Array(77, 82, 78), PackedInt32Array(78, 82, 81), PackedInt32Array(81, 83, 74), PackedInt32Array(74, 83, 76), PackedInt32Array(76, 80, 82), PackedInt32Array(82, 80, 81), PackedInt32Array(81, 80, 83), PackedInt32Array(83, 80, 76)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xe1yo"]
+albedo_texture = ExtResource("2_kk017")
+
+[node name="PathFindingTestArera" type="Node3D"]
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="TelePad" parent="Teleporters" instance=ExtResource("1_fnqm2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+TeleChannel = 5
+
+[node name="TelePad2" parent="Teleporters" instance=ExtResource("1_fnqm2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.443, 0, 5.92)
+TeleChannel = 6
+
+[node name="TelePad3" parent="Teleporters" instance=ExtResource("1_fnqm2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75886, 1, -7.94924)
+TeleChannel = 6
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.863, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_1e54v")
+
+[node name="WorldGemoetry" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.863, 0, 0)
+
+[node name="floor" type="CSGBox3D" parent="NavigationRegion3D/WorldGemoetry"]
+material_override = SubResource("StandardMaterial3D_xe1yo")
+use_collision = true
+size = Vector3(112.074, 0, 92.88)
+
+[node name="TelePlatform" type="CSGCylinder3D" parent="NavigationRegion3D/WorldGemoetry"]
+use_collision = true
+radius = 4.0
+
+[node name="Ramp" type="CSGPolygon3D" parent="NavigationRegion3D/WorldGemoetry"]
+transform = Transform3D(-0.397052, 0, -0.917796, 0, 1, 0, 0.917796, 0, -0.397052, -2.437, 0, 3.00733)
+use_collision = true
+polygon = PackedVector2Array(0, 0, -0.0107827, 1.02292, 1.15658, 0.493898, 2, 0)
+depth = 2.0
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="NavigationRegion3D/WorldGemoetry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.18465, -2.16309, 5.84237)
+radius = 2.70942
+radial_segments = 20
+rings = 10
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="NavigationRegion3D/WorldGemoetry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.52448, -0.363574, -3.01207)
+inner_radius = 1.43819
+outer_radius = 3.20048
+sides = 16
+ring_sides = 24
+
+[node name="PressureSpawnPad" parent="." instance=ExtResource("5_yw8i2")]
+transform = Transform3D(0.772312, 0, -0.635243, 0, 1, 0, 0.635243, 0, 0.772312, 0.127609, 0, 7.21433)
+spawnBlueprint = ExtResource("6_lljhi")
+y_offset = 5.0
+
+[node name="PressureSpawnPad2" parent="." instance=ExtResource("5_yw8i2")]
+transform = Transform3D(0.772312, 0, -0.635243, 0, 1, 0, 0.635243, 0, 0.772312, 1.12761, 0, 10.2143)
+spawnBlueprint = ExtResource("2_u6p4o")
+
+[node name="PressureSpawnPad3" parent="." instance=ExtResource("5_yw8i2")]
+transform = Transform3D(0.772312, 0, -0.635243, 0, 1, 0, 0.635243, 0, 0.772312, -2.87239, 0, 9.21433)
+spawnBlueprint = ExtResource("2_u6p4o")

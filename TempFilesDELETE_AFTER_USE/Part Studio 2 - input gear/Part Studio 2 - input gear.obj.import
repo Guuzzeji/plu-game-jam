@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bctfb3wob7mmk"
+path="res://.godot/imported/Part Studio 2 - input gear.obj-51e8016c87d6943ae25ae6d8a5f9b002.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Part Studio 2 - input gear.obj-51e8016c87d6943ae25ae6d8a5f9b002.mesh"]
+
+source_file="res://TempFilesDELETE_AFTER_USE/Part Studio 2 - input gear/Part Studio 2 - input gear.obj"
+dest_files=["res://.godot/imported/Part Studio 2 - input gear.obj-51e8016c87d6943ae25ae6d8a5f9b002.mesh", "res://.godot/imported/Part Studio 2 - input gear.obj-51e8016c87d6943ae25ae6d8a5f9b002.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Bullet_Type" load_steps=2 format=3 uid="uid://nj6a23nrn624"]
+
+[ext_resource type="Script" path="res://src/bullet_resource.gd" id="1_ssmrc"]
+
+[resource]
+script = ExtResource("1_ssmrc")
+Name = "Classic_Bullet"
+ID = 0
+Path_Projectile = "res://componets/bullets/classicbullet/ClassicBullet.tscn"
+Path_Ammo = "res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn"
+Damage = 25
+Speed = 5
+Cost = 10
+Life_Time = 5.0
+Enemy_Bullet = false
+Other_Info = {}
+InitialForce = 5
+ActivateCollisionDelay = 0.5
+offset = 1.0
+CanBounce = false
+friendlyFire = false
+Explosive = false
+ExplodeDelay = 0.0
+safetyDelay = 0.5

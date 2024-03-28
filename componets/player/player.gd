@@ -24,6 +24,8 @@ var move_dir = Vector2.ZERO # Keeping track of player movement
 # **About**
 # On Load into world
 func _ready():
+	PlayerInfo.Pbody = self ##player resource now knows the player's body
+	PlayerInfo.Player_Hud = $PlayerHud
 	$AnimationPlayer.play("RESET")
 	PlayerInfo.Current_BarrelState = PlayerInfo.BarrelState.IDLE
 	PlayerInfo.Curret_MovementState = PlayerInfo.MovementState.IDLE
@@ -46,7 +48,7 @@ func _input(event):
 
 # **About**
 # General Update
-func _process(delta):
+func _process(_delta):
 	barrel_bullet_switch("Inv_Index_Right_Barrel", "Right_barrel_type", PlayerInfo.BarrelState.SWITCHING_BULLETS_RIGHT)
 	barrel_bullet_switch("Inv_Index_Left_Barrel", "Left_barrel_type", PlayerInfo.BarrelState.SWITCHING_BULLETS_LEFT)
 	pass
@@ -57,7 +59,10 @@ func _physics_process(delta):
 	update_move_state()
 	update_mana_state()
 	update_health_state()
-	debug_logs()
+	##debug_logs()
+	
+	##debug delte me
+	#print(PlayerInfo.Bullet_Inventory)
 	
 	mana_check()
 	barrel_fire(PlayerInfo.Inv_Index_Right_Barrel, "Right_Fire")
@@ -125,6 +130,14 @@ func player_movement(delta):
 	pass
 
 # **About**
+# damage player when hit, can modify incoming damage
+func inflictDamage(damage, _hitspot, _bulletInstance): #entities that damage use this
+	var armorMod = 1.0
+	PlayerInfo.Health = PlayerInfo.Health - damage * armorMod
+	## if hitspot == head:
+	## PlayerInfo.Health = PlayerInfo.Health - (damage * 2) * armorMod
+
+# **About**
 # Update mana if player isn't full
 func mana_check():
 	if (PlayerInfo.Mana != PlayerInfo.Max_Mana and $Mana_Inc.is_stopped()):
@@ -144,6 +157,8 @@ func barrel_fire(barrel: int, input_trigger: String):
 		return
 	
 	var bullet = PlayerInfo.Bullet_Inventory[barrel]
+	
+
 		
 	if Input.is_action_just_pressed(input_trigger):
 		if can_shoot_barrel and PlayerInfo.Mana >= bullet.Cost:
@@ -157,6 +172,7 @@ func barrel_fire(barrel: int, input_trigger: String):
 			
 			# Adding bullet to the world
 			var bullet_node = load(bullet.Path_Projectile).instantiate()
+			bullet_node.orginator = self #tell bullet who fired it.
 			$CameraNeck/ShotingHole.add_child(bullet_node)
 			$CameraNeck/PlayerGunProp.fire_anim()
 		

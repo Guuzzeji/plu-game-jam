@@ -1,0 +1,136 @@
+[gd_scene load_steps=18 format=3 uid="uid://c856cl5nd1e4x"]
+
+[ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="1_7scvg"]
+[ext_resource type="PackedScene" uid="uid://bw01ihem7k5ta" path="res://componets/SpawnStuffs/pressure_spawn_pad/pressure_spawn_pad.tscn" id="5_rqwjy"]
+[ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="5_ugqed"]
+[ext_resource type="PackedScene" uid="uid://d4j4h8r8f6on" path="res://componets/bullets/Gernade_Bullet/Gernade_Ammo.tscn" id="6_62v3s"]
+[ext_resource type="PackedScene" uid="uid://cxdi1p47atdbk" path="res://componets/bullets/PhysicsBullet/PhysicsBullet_Ammo.tscn" id="7_7cwd2"]
+[ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="7_vu514"]
+[ext_resource type="PackedScene" uid="uid://booitd2lx3oqi" path="res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_ammo.tscn" id="8_sgwl5"]
+[ext_resource type="PackedScene" uid="uid://ctv1pdtxhu54x" path="res://misc_Testing_Scenes/Spawn_TesterStuffs/spawn_tester.tscn" id="9_pqssm"]
+[ext_resource type="PackedScene" uid="uid://ddbhncfoo12wf" path="res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletAmmo.tscn" id="10_hwcpp"]
+[ext_resource type="PackedScene" uid="uid://dqt4i2pqa6m30" path="res://componets/Enemy Folder/EvilCubes/EvilCubeCrawler/CubeCralwerEnemy.tscn" id="12_bbas6"]
+[ext_resource type="PackedScene" uid="uid://cadckrkdpc2w4" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn" id="12_eqxht"]
+[ext_resource type="PackedScene" uid="uid://bfawoadi2j77r" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn" id="12_u886x"]
+[ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="14_ux25i"]
+[ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="15_pwcin"]
+[ext_resource type="ArrayMesh" uid="uid://bysiv6rhievo3" path="res://TempFilesDELETE_AFTER_USE/test1bsentry/test1bsentry.obj" id="16_uyant"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8o3"]
+albedo_color = Color(0.321569, 0, 0, 1)
+metallic = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5utn"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.231373)
+
+[node name="ToolTesting" type="Node3D"]
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="HomeTele" parent="Teleporters" instance=ExtResource("1_7scvg")]
+TeleChannel = 4
+
+[node name="TelePad" parent="Teleporters" instance=ExtResource("1_7scvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38241, -4.76837e-07, -3.68135)
+TeleChannel = 8
+
+[node name="TelePad2" parent="Teleporters" instance=ExtResource("1_7scvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.54318, -4.76837e-07, 3.69549)
+TeleChannel = 8
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Platform" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(50, 1, 50)
+material = SubResource("StandardMaterial3D_fp8o3")
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="SpawnPads" type="Node3D" parent="."]
+
+[node name="nut_ammo" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+spawnBlueprint = ExtResource("5_ugqed")
+y_offset = 0.5
+
+[node name="Gernade Ammo" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 4)
+spawnBlueprint = ExtResource("6_62v3s")
+y_offset = 0.5
+
+[node name="Physics Ammo" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -4)
+spawnBlueprint = ExtResource("7_7cwd2")
+y_offset = 0.5
+
+[node name="InstaBeamAmmo" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -8)
+spawnBlueprint = ExtResource("8_sgwl5")
+y_offset = 0.5
+
+[node name="PressureSpawnPad3" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 8)
+spawnBlueprint = ExtResource("7_vu514")
+y_offset = 0.5
+
+[node name="BluntBulletSpawner" parent="SpawnPads" instance=ExtResource("5_rqwjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 12)
+spawnBlueprint = ExtResource("10_hwcpp")
+y_offset = 0.5
+
+[node name="SpawnTesterRandos" parent="SpawnPads" instance=ExtResource("9_pqssm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+spawnBlueprint = ExtResource("12_eqxht")
+y_rotation = 180.0
+
+[node name="SpawnTesterRandos2" parent="SpawnPads" instance=ExtResource("9_pqssm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41394, 0, -6)
+spawnBlueprint = ExtResource("12_u886x")
+
+[node name="misc" type="Node3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="misc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81236, -2.48721, -20.6798)
+use_collision = true
+radius = 8.26283
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="misc/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.56608, 9.47098, -3.57627)
+use_collision = true
+radius = 8.26283
+
+[node name="EvilCubeCrawlerExport" parent="." instance=ExtResource("12_bbas6")]
+transform = Transform3D(0.3343, 0, -0.942467, 0, 1, 0, 0.942467, 0, 0.3343, -10.7177, 0.369209, -7.17887)
+
+[node name="EvilCubeCrawlerExport2" parent="." instance=ExtResource("12_bbas6")]
+transform = Transform3D(0.03343, 0, -0.0942467, 0, 0.1, 0, 0.0942467, 0, 0.03343, 5.2823, 0.369209, -0.17887)
+
+[node name="one-way-teleporters" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="One_Way_Enter" parent="one-way-teleporters" instance=ExtResource("14_ux25i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="One_Way_Exit" parent="one-way-teleporters" instance=ExtResource("15_pwcin")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -3, 0, 0)
+
+[node name="One_Way_Enter2" parent="one-way-teleporters" instance=ExtResource("14_ux25i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)
+One_Way_TeleChannel = 1
+
+[node name="One_Way_Exit2" parent="one-way-teleporters" instance=ExtResource("15_pwcin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+One_Way_TeleChannel = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.704832, -0.709374, 0, 0.709374, 0.704832, 0, 0, 0, 1, 6.02845, 0.817161, -7.47724)
+material_override = SubResource("StandardMaterial3D_j5utn")
+use_collision = true
+size = Vector3(13.028, 1.5, 0.5)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.739, 0, 3.587)
+mesh = ExtResource("16_uyant")

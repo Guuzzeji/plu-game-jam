@@ -16,6 +16,8 @@ extends Resource
 
 class_name Bullet_Type
 
+@export_category("Basics")
+
 @export var Name: String
 @export var ID: int = 0
 
@@ -30,3 +32,15 @@ class_name Bullet_Type
 @export var Life_Time: float = 5 # This is how long the bullet will live, until self deletes itself
 @export var Enemy_Bullet: bool = false
 @export var Other_Info: Dictionary # Use this to add additional infomation for the bullet
+
+@export_group("Physics Bullet Only")
+@export var InitialForce: int = 5
+@export var ActivateCollisionDelay: float = 0.5
+@export var offset: float = 1.0 #dont spawn physics bullet where it imedatly collides with player and bounces
+@export var CanBounce: bool = false	#the bullet either bounces or deletes self on contact
+@export var friendlyFire: bool = false	## if you want explosives to be risky
+
+@export_group("explosive")
+@export var Explosive: bool = false
+@export var ExplodeDelay: float = 0.0
+@export var safetyDelay: float = 0.5

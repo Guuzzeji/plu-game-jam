@@ -1,13 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://ghywbjlcjgx4"]
+[gd_scene load_steps=27 format=3 uid="uid://ghywbjlcjgx4"]
 
 [ext_resource type="PackedScene" uid="uid://cpseferbomb0h" path="res://componets/player/player.tscn" id="1_vfy7f"]
 [ext_resource type="Texture2D" uid="uid://3xonlltnk7pi" path="res://assets/images/test-surface-texture/Dark/texture_01.png" id="1_xviyp"]
-[ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="2_6ywks"]
 [ext_resource type="Texture2D" uid="uid://1jfql6svsg7h" path="res://assets/images/test-surface-texture/Purple/texture_01.png" id="2_dchu1"]
-[ext_resource type="PackedScene" uid="uid://dhn0nttyfjrr6" path="res://componets/bullets/nutbullet/nut_projectile.tscn" id="6_b68bf"]
-[ext_resource type="PackedScene" uid="uid://ccyso7geclxnd" path="res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn" id="6_k4xsk"]
-[ext_resource type="Script" path="res://src/bullet_resource.gd" id="6_sye2w"]
-[ext_resource type="PackedScene" uid="uid://b6nknrq732uax" path="res://componets/bullets/CannonBallTester/CannonBallTester_Projectile.tscn" id="7_58ro0"]
+[ext_resource type="Script" path="res://src/bullet_resource.gd" id="3_5ds71"]
+[ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="7_hx76k"]
+[ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="8_bfqpk"]
+[ext_resource type="PackedScene" uid="uid://c856cl5nd1e4x" path="res://levels/ToolTesting.tscn" id="8_dol5p"]
+[ext_resource type="PackedScene" uid="uid://p7gx7g31d32g" path="res://levels/Light_Testing.tscn" id="9_3brnu"]
+[ext_resource type="PackedScene" uid="uid://c4dc3i5pc7pdd" path="res://componets/bullets/nutbullet/nut_ammo.tscn" id="12_8mt6k"]
+[ext_resource type="PackedScene" uid="uid://b1w6fftdidred" path="res://levels/proto_level_01.tscn" id="12_vie5u"]
+[ext_resource type="PackedScene" uid="uid://bu07shcq266rv" path="res://componets/Enemy Folder/GunEnemies/Shooty_Crawler/Shooty_Crawler.tscn" id="13_gqjay"]
+[ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="13_i76f7"]
+[ext_resource type="PackedScene" uid="uid://bsjl70sugaxhg" path="res://levels/PathFindingTestArera.tscn" id="18_tnolj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
 
@@ -17,6 +22,7 @@ sky_material = SubResource("ProceduralSkyMaterial_pnspk")
 [sub_resource type="Environment" id="Environment_d0ypc"]
 background_mode = 2
 sky = SubResource("Sky_by5k1")
+glow_hdr_threshold = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbocp"]
 albedo_texture = ExtResource("2_dchu1")
@@ -33,9 +39,9 @@ albedo_texture = ExtResource("2_dchu1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkh6p"]
 albedo_texture = ExtResource("2_dchu1")
 
-[sub_resource type="Resource" id="Resource_xtgo0"]
+[sub_resource type="Resource" id="Resource_m6hhp"]
 resource_local_to_scene = true
-script = ExtResource("6_sye2w")
+script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
 ID = 0
 Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
@@ -46,38 +52,18 @@ Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
+InitialForce = 5
+ActivateCollisionDelay = 0.5
+offset = 1.0
+CanBounce = false
+friendlyFire = false
+Explosive = false
+ExplodeDelay = 0.0
+safetyDelay = 0.5
 
-[sub_resource type="Resource" id="Resource_g0mg8"]
+[sub_resource type="Resource" id="Resource_q1fpd"]
 resource_local_to_scene = true
-script = ExtResource("6_sye2w")
-Name = "CannonBallTester"
-ID = 0
-Path_Projectile = "res://componets/bullets/CannonBallTester/CannonBallTester_Projectile.tscn"
-Path_Ammo = "res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn"
-Damage = 10000
-Speed = 10
-Cost = 50
-Life_Time = 10.0
-Enemy_Bullet = false
-Other_Info = {}
-
-[sub_resource type="Resource" id="Resource_npge2"]
-resource_local_to_scene = true
-script = ExtResource("6_sye2w")
-Name = "CannonBallTester"
-ID = 0
-Path_Projectile = "res://componets/bullets/CannonBallTester/CannonBallTester_projectile.tscn"
-Path_Ammo = "res://componets/bullets/CannonBallTester/CannonBallTester_ammo.tscn"
-Damage = 10000
-Speed = 10
-Cost = 50
-Life_Time = 10.0
-Enemy_Bullet = false
-Other_Info = {}
-
-[sub_resource type="Resource" id="Resource_1rqnp"]
-resource_local_to_scene = true
-script = ExtResource("6_sye2w")
+script = ExtResource("3_5ds71")
 Name = "Nut Bullet"
 ID = 0
 Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
@@ -88,6 +74,61 @@ Cost = 5
 Life_Time = 5.0
 Enemy_Bullet = false
 Other_Info = {}
+InitialForce = 5
+ActivateCollisionDelay = 0.5
+offset = 1.0
+CanBounce = false
+friendlyFire = false
+Explosive = false
+ExplodeDelay = 0.0
+safetyDelay = 0.5
+
+[sub_resource type="Resource" id="Resource_70tvy"]
+resource_local_to_scene = true
+script = ExtResource("3_5ds71")
+Name = "Nut Bullet"
+ID = 0
+Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
+Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
+Damage = 100
+Speed = 100
+Cost = 5
+Life_Time = 5.0
+Enemy_Bullet = false
+Other_Info = {}
+InitialForce = 5
+ActivateCollisionDelay = 0.5
+offset = 1.0
+CanBounce = false
+friendlyFire = false
+Explosive = false
+ExplodeDelay = 0.0
+safetyDelay = 0.5
+
+[sub_resource type="Resource" id="Resource_0sri5"]
+resource_local_to_scene = true
+script = ExtResource("3_5ds71")
+Name = "Nut Bullet"
+ID = 0
+Path_Projectile = "res://componets/bullets/nutbullet/nut_projectile.tscn"
+Path_Ammo = "res://componets/bullets/nutbullet/nut_ammo.tscn"
+Damage = 100
+Speed = 100
+Cost = 5
+Life_Time = 5.0
+Enemy_Bullet = false
+Other_Info = {}
+InitialForce = 5
+ActivateCollisionDelay = 0.5
+offset = 1.0
+CanBounce = false
+friendlyFire = false
+Explosive = false
+ExplodeDelay = 0.0
+safetyDelay = 0.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qsasb"]
+radius = 0.25
 
 [node name="LevelTest" type="Node3D"]
 
@@ -114,7 +155,7 @@ radius = 13.1168
 [node name="floor" type="CSGBox3D" parent="World"]
 material_override = SubResource("StandardMaterial3D_kn2tl")
 use_collision = true
-size = Vector3(112.074, 0.148753, 92.8801)
+size = Vector3(112.074, 0, 92.88)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="World"]
 transform = Transform3D(1, -2.52648e-16, 3.35275e-16, 3.35275e-16, 0.961262, -0.275637, -2.52648e-16, 0.275637, 0.961262, 0, 0.290469, -13.3511)
@@ -140,63 +181,83 @@ material_override = SubResource("StandardMaterial3D_jkh6p")
 use_collision = true
 size = Vector3(26.077, 1, 39.0945)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5168, 0.488618, 16.9797)
-material_override = SubResource("StandardMaterial3D_jkh6p")
-use_collision = true
-size = Vector3(7.16219, 1, 28.2828)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5168, 2.5766, 3.43332)
-material_override = SubResource("StandardMaterial3D_jkh6p")
-use_collision = true
-size = Vector3(7.16219, 1, 6.73482)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.149, 3.61894, 6.91771)
-material_override = SubResource("StandardMaterial3D_jkh6p")
-use_collision = true
-size = Vector3(2.72053, 1, 6.73482)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6248, 4.6689, 14.1504)
-material_override = SubResource("StandardMaterial3D_jkh6p")
-use_collision = true
-size = Vector3(2.72053, 1, 6.73482)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6248, 5.9262, 18.7785)
-material_override = SubResource("StandardMaterial3D_jkh6p")
-use_collision = true
-size = Vector3(2.72053, 1, 6.73482)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 0.979764, 0.200155, 0, -0.200155, 0.979764, 15.6248, 6.97785, 22.9783)
-material_override = SubResource("StandardMaterial3D_jkh6p")
-use_collision = true
-size = Vector3(2.72053, 1, 6.73482)
-
 [node name="CSGBox3D5" type="CSGBox3D" parent="World"]
 transform = Transform3D(-4.37114e-08, 1, 3.48787e-16, -1, -4.37114e-08, -3.48787e-16, -3.48787e-16, -3.48787e-16, 1, 41.7825, 1.71489, -2.55345)
 material_override = SubResource("StandardMaterial3D_jkh6p")
 use_collision = true
 size = Vector3(17.7864, 1, 44.0941)
 
+[node name="CSGBox3D6" type="CSGBox3D" parent="World"]
+transform = Transform3D(0.871342, 0, -0.490676, 0, 1, 0, 0.490676, 0, 0.871342, -11.2488, 0.646645, -9.73042)
+use_collision = true
+size = Vector3(0.204726, 0.969065, 2.65941)
+
 [node name="Bullet_Pickup" type="Node" parent="."]
 
-[node name="nut_ammo" parent="Bullet_Pickup" instance=ExtResource("2_6ywks")]
+[node name="nut_ammo" parent="Bullet_Pickup" instance=ExtResource("12_8mt6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65442, 8.7293)
-Bullet_Info = SubResource("Resource_xtgo0")
+Bullet_Info = SubResource("Resource_m6hhp")
 
-[node name="CannonBallTester" parent="Bullet_Pickup" instance=ExtResource("6_k4xsk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.11758, 0.688253, 8.70695)
-Bullet_Info = SubResource("Resource_g0mg8")
+[node name="nut_ammo2" parent="Bullet_Pickup" instance=ExtResource("12_8mt6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81657, 0.65442, 8.7293)
+Bullet_Info = SubResource("Resource_q1fpd")
 
-[node name="PreLoader" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 154.347, 0)
+[node name="nut_ammo3" parent="Bullet_Pickup" instance=ExtResource("12_8mt6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58655, 0.65442, 8.7293)
+Bullet_Info = SubResource("Resource_70tvy")
 
-[node name="CannonBallTester_Projectile" parent="PreLoader" instance=ExtResource("7_58ro0")]
-Bullet_Info = SubResource("Resource_npge2")
+[node name="nut_ammo4" parent="Bullet_Pickup" instance=ExtResource("12_8mt6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71694, 0.65442, 8.7293)
+Bullet_Info = SubResource("Resource_0sri5")
 
-[node name="Nut_Projectile" parent="PreLoader" instance=ExtResource("6_b68bf")]
-Bullet_Info = SubResource("Resource_1rqnp")
+[node name="teleporter nonsense" type="Node" parent="."]
+
+[node name="TelePad" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22369, 2.38419e-07, -0.77078)
+TeleChannel = 5
+
+[node name="TelePad2" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25073, 1.19209e-06, -2.66482)
+TeleChannel = 4
+
+[node name="TelePad3" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.56271, 0, 0)
+
+[node name="TelePad4" parent="teleporter nonsense" instance=ExtResource("13_i76f7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.609, 17.049)
+
+[node name="One_Way_Enter" parent="teleporter nonsense" instance=ExtResource("7_hx76k")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.97272, 0, -1.63604)
+One_Way_TeleChannel = 4
+
+[node name="PROTOLEVELWOO" parent="teleporter nonsense" instance=ExtResource("7_hx76k")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.18015, 0, -4.96546)
+One_Way_TeleChannel = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="teleporter nonsense/PROTOLEVELWOO"]
+mesh = SubResource("CapsuleMesh_qsasb")
+
+[node name="One_Way_Exit" parent="teleporter nonsense" instance=ExtResource("8_bfqpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97272, 0, -4.63604)
+One_Way_TeleChannel = 3
+
+[node name="One_Way_Exit2" parent="teleporter nonsense" instance=ExtResource("8_bfqpk")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0272832, 0, -4.63604)
+One_Way_TeleChannel = 6
+
+[node name="SubLevels" type="Node" parent="."]
+
+[node name="PathFindingTestArera" parent="SubLevels" instance=ExtResource("18_tnolj")]
+transform = Transform3D(0.865178, 0, -0.501465, 0, 1, 0, 0.501465, 0, 0.865178, 45.6951, -22.5781, 117.343)
+
+[node name="ToolTesting" parent="SubLevels" instance=ExtResource("8_dol5p")]
+transform = Transform3D(0.989784, 0, -0.142577, 0, 1, 0, 0.142577, 0, 0.989784, 95.6482, -11, 37.6916)
+
+[node name="Light_Testing" parent="SubLevels" instance=ExtResource("9_3brnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, 30)
+
+[node name="Proto_Level_01" parent="SubLevels" instance=ExtResource("12_vie5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173, 0, -44)
+
+[node name="ShootyCrawler" parent="." instance=ExtResource("13_gqjay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)

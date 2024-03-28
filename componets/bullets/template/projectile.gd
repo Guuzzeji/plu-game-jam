@@ -15,16 +15,25 @@ extends Area3D
 @export var Life_Timer : Timer
 
 # **About**
+# variable to stre what fired the projectile
+# stops shooter from hitting self, requires projectile.orginator = self inside shooter code
+# Also should add the curret character's speed to the bullet speed
+var orginator = Node3D
+
+# **About**
 # Signal for when bullet hits something 
 # returns the body of what it hits
 signal hit_body(body)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#print(Player_Info.Pbody," ", orginator)
 	set_as_top_level(true) # Sets node to root level of the node tree (basically at sets parent to level/world node)
-	Life_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
+	if !Life_Timer.timeout.is_connected(_on_life_timer_timeout):
+		Life_Timer.timeout.connect(_on_life_timer_timeout) # Connecting singal (time out) to func
 	Life_Timer.one_shot = true
 	Life_Timer.start(Bullet_Info.Life_Time)
+	self.add_to_group("bullet")
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,14 +46,33 @@ func _process(delta):
 # **About**
 # Use when ever enemy node goes into body
 func _on_body_entered(body):
-	if (!body.is_in_group("player")):
+	##print("body: ", body, " body owner: ", body.owner) ##test the .owner tag
+	#print("Orginator: ", orginator)
+	#print("Body: ", body)
+	#print("body owner: ", body.owner)
+	if (orginator == body or orginator == body.owner):
+		print(body)
+		pass ##dont hit selfs
+	elif (body == null) or (body.is_in_group("bullet")):
+		pass
+	elif (body!= null) and (body.is_in_group("Enemy") or body.owner.is_in_group("Enemy") ):	## CAUTION this can cause issues if a non hitbox part of enemy is hit and not "caught"
+		damage(body)
+	elif body.is_in_group("player") && Bullet_Info.Enemy_Bullet:
+		damage(body)
+	else:	## hits something not self
 		queue_free()
-		hit_body.emit(body)
-		print(body.get_groups())
-		hit_body.emit(body)
 	pass
 
-
+func damage(body):		##if an enemy (say evil rock) cannot be damaged, best not crash!
+	#print(Bullet_Info.Damage)
+	if body.has_method("inflictDamage"):	##if can inflict damage, damage it
+		body.inflictDamage(Bullet_Info.Damage, body, self)
+	elif body.owner.has_method("inflictDamage"):	## Inflict damage to hitbox's owner, CAUTION: potential damage contamination if hitbox IS owner,
+		body.owner.inflictDamage(Bullet_Info.Damage, body, self)
+## sending body is for hitting armor / weakpoints
+## self is to check if the bullet hit multiple weakpoint hitboxes at once, shouldn't count same bullet twice!
+	queue_free()
+	
 # == Signal Code == 
 
 # **About**

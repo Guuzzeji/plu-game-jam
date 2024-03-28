@@ -39,8 +39,10 @@ func _ready():
 # Use when ever enemy node goes into body
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		print("hit")
+		#print("ammo pickup hit")
 		player_pickup.emit(body)
+		#print(Bullet_Info)
+		#print(Player_Info)
 		Player_Info.Bullet_Inventory.push_front(Bullet_Info)
 		queue_free()
 	pass

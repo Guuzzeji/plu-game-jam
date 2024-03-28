@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://mhutow3ewifp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0apu"]
+
+[node name="FancyHitboxTree" type="Node3D"]
+
+[node name="trunk" type="Node3D" parent="."]
+
+[node name="trunkHitbox" type="StaticBody3D" parent="trunk"]
+
+[node name="trunkShape" type="CollisionShape3D" parent="trunk/trunkHitbox"]
+shape = SubResource("CapsuleShape3D_r0apu")
+
+[node name="branchA" type="Node3D" parent="trunk"]
+transform = Transform3D(1, 0, 0, 0, 0.788569, 0.614946, 0, -0.614946, 0.788569, 0, 1.10638, -0.698569)
+
+[node name="BranchHitbox_A" type="StaticBody3D" parent="trunk/branchA"]
+
+[node name="BranchShape_A" type="CollisionShape3D" parent="trunk/branchA/BranchHitbox_A"]
+shape = SubResource("CapsuleShape3D_r0apu")
+
+[node name="branchB" type="Node3D" parent="trunk/branchA"]
+transform = Transform3D(1, 0, 0, 0, 0.788569, 0.614946, 0, -0.614946, 0.788569, 0, 1.10638, -0.698569)
+
+[node name="BranchHitbox_B" type="StaticBody3D" parent="trunk/branchA/branchB"]
+
+[node name="BranchShape_B" type="CollisionShape3D" parent="trunk/branchA/branchB/BranchHitbox_B"]
+shape = SubResource("CapsuleShape3D_r0apu")

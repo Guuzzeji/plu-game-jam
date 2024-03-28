@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ja00024t61kl"
+path="res://.godot/imported/GS_BarrelUnderGear.obj-eaccd6f0b55ab266c1d1765942ecf579.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GS_BarrelUnderGear.obj-eaccd6f0b55ab266c1d1765942ecf579.mesh"]
+
+source_file="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_BarrelUnderGear/GS_BarrelUnderGear.obj"
+dest_files=["res://.godot/imported/GS_BarrelUnderGear.obj-eaccd6f0b55ab266c1d1765942ecf579.mesh", "res://.godot/imported/GS_BarrelUnderGear.obj-eaccd6f0b55ab266c1d1765942ecf579.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

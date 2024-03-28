@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba1v6y0fhdfp2"]
+
+[ext_resource type="Script" path="res://componets/Enemy Folder/PhysSentry/PhysSentry.gd" id="1_ik3rg"]
+[ext_resource type="PackedScene" uid="uid://dv6w2jn0mcqaj" path="res://componets/Enemy Folder/PhysSentry/PhysicSentryHead.tscn" id="1_qamgx"]
+[ext_resource type="PackedScene" uid="uid://y1kgcoem27dm" path="res://misc_Testing_Scenes/radom dohikies/interpolationTests/PointA.tscn" id="2_2qjyk"]
+[ext_resource type="PackedScene" uid="uid://cqxwhigyuarg8" path="res://misc_Testing_Scenes/radom dohikies/interpolationTests/PointB.tscn" id="3_kobcg"]
+
+[node name="PhysSentry" type="Node3D"]
+script = ExtResource("1_ik3rg")
+
+[node name="PointA" parent="." instance=ExtResource("2_2qjyk")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -4.22575, 1.7388, 0)
+
+[node name="PointB" parent="." instance=ExtResource("3_kobcg")]
+transform = Transform3D(0.5, -0.707107, -0.5, 0.5, 0.707107, -0.5, 0.707107, 0, 0.707107, 2.84164, 1.94158, 0)
+
+[node name="PhysicSentryHead" parent="." instance=ExtResource("1_qamgx")]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
+visible = false
+cone = true

@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxdi1p47atdbk"]
+
+[ext_resource type="Texture2D" uid="uid://1imh0crjifi4" path="res://assets/models/ClassicBulletTexture.png" id="1_b41pu"]
+[ext_resource type="Script" path="res://componets/bullets/template/ammo.gd" id="1_ho1wr"]
+[ext_resource type="ArrayMesh" uid="uid://dq8jn1cyxei00" path="res://assets/models/ClassicBullet.obj" id="2_227lj"]
+[ext_resource type="Resource" uid="uid://ck6g2u2e738j2" path="res://componets/bullets/PhysicsBullet/PhysBulletResource.tres" id="2_q4y53"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_ulpm8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo8bi"]
+albedo_color = Color(1, 0, 1, 1)
+albedo_texture = ExtResource("1_b41pu")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s6x61"]
+radius = 0.419863
+
+[node name="PhysicsBulletAmmo" type="Area3D"]
+script = ExtResource("1_ho1wr")
+Bullet_Info = ExtResource("2_q4y53")
+Player_Info = ExtResource("2_ulpm8")
+
+[node name="ClassicBullet" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+material_override = SubResource("StandardMaterial3D_jo8bi")
+mesh = ExtResource("2_227lj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_s6x61")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

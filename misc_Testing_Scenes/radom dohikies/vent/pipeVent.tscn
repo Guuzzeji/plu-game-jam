@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6ghqg3x8rc5l"]
+
+[ext_resource type="Script" path="res://misc_Testing_Scenes/radom dohikies/vent/pipeVent.gd" id="1_o1d0g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v06h"]
+albedo_color = Color(0, 0.709804, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_llihi"]
+top_radius = 1.0
+bottom_radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wm54"]
+albedo_color = Color(0.101961, 0.721569, 0.109804, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qeekc"]
+albedo_color = Color(0.0784314, 0.541176, 0.0784314, 1)
+
+[node name="PipeVent" type="Node3D"]
+script = ExtResource("1_o1d0g")
+
+[node name="pipeBody" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pipeBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41837, 0)
+material_override = SubResource("StandardMaterial3D_6v06h")
+mesh = SubResource("CylinderMesh_llihi")
+skeleton = NodePath("../..")
+
+[node name="outerc lip" type="CSGTorus3D" parent="pipeBody"]
+material_override = SubResource("StandardMaterial3D_8wm54")
+inner_radius = 1.0
+outer_radius = 1.5
+sides = 16
+
+[node name="pipe" type="CSGTorus3D" parent="pipeBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275372, 0)
+material_override = SubResource("StandardMaterial3D_qeekc")
+inner_radius = 0.75
+outer_radius = 1.25
+
+[node name="make button system" type="Node" parent="."]
+
+[node name="spawnPoint" type="Node3D" parent="."]

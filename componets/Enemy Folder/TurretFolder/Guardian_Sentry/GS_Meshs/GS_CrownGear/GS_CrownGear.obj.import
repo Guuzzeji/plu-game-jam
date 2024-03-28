@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://pouaa0hsg1jq"
+path="res://.godot/imported/GS_CrownGear.obj-41b217f1b897d58093ffe38a47bf316d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GS_CrownGear.obj-41b217f1b897d58093ffe38a47bf316d.mesh"]
+
+source_file="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_CrownGear/GS_CrownGear.obj"
+dest_files=["res://.godot/imported/GS_CrownGear.obj-41b217f1b897d58093ffe38a47bf316d.mesh", "res://.godot/imported/GS_CrownGear.obj-41b217f1b897d58093ffe38a47bf316d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

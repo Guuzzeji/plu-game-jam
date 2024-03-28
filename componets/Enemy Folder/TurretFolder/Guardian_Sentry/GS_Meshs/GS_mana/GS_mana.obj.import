@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dgu14u3ug8jp4"
+path="res://.godot/imported/GS_mana.obj-33528bac40c6a5ff0c78592e06b5989b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GS_mana.obj-33528bac40c6a5ff0c78592e06b5989b.mesh"]
+
+source_file="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_mana/GS_mana.obj"
+dest_files=["res://.godot/imported/GS_mana.obj-33528bac40c6a5ff0c78592e06b5989b.mesh", "res://.godot/imported/GS_mana.obj-33528bac40c6a5ff0c78592e06b5989b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

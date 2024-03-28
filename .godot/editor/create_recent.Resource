@@ -1,0 +1,2 @@
+Bullet_Type
+Resource

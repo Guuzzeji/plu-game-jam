@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpseferbomb0h"]
+[gd_scene load_steps=17 format=3 uid="uid://cpseferbomb0h"]
 
 [ext_resource type="Script" path="res://componets/player/player.gd" id="1_gtsp0"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_tjgyl"]
 [ext_resource type="PackedScene" uid="uid://dla44yymmgqa1" path="res://componets/player/player_gun_prop.tscn" id="3_1vktc"]
 [ext_resource type="PackedScene" uid="uid://bmx53al0wfbgl" path="res://componets/player/player_hud.tscn" id="4_6vgwf"]
+[ext_resource type="Script" path="res://componets/player/InteractionRay.gd" id="4_g3sv8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pnspk"]
 
@@ -88,6 +89,8 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_43juc")
 blend_point_1/pos = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 16387
+collision_mask = 16385
 script = ExtResource("1_gtsp0")
 PlayerInfo = ExtResource("2_tjgyl")
 
@@ -103,6 +106,13 @@ environment = SubResource("Environment_d0ypc")
 current = true
 fov = 90.0
 
+[node name="InteractionRay" type="RayCast3D" parent="CameraNeck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
+target_position = Vector3(0, 1.5, 0)
+collision_mask = 4
+script = ExtResource("4_g3sv8")
+
 [node name="PlayerGunProp" parent="CameraNeck" instance=ExtResource("3_1vktc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412829, 0)
 
@@ -114,6 +124,7 @@ shape = SubResource("CapsuleShape3D_0pf0p")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(3.1238e-15, 8.74228e-08, -2, 2, -8.74228e-08, -6.97574e-16, -8.74228e-08, -2, -8.74228e-08, 0, 0.562428, -0.912269)
+visible = false
 target_position = Vector3(2.08165e-12, 10, 2.08165e-12)
 
 [node name="Barrel_Timer" type="Timer" parent="."]
@@ -135,9 +146,11 @@ next/Walking = &"RESET"
 blend_times = [&"RESET", &"Walking", 0.5, &"Walking", &"Walking", 0.15]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6ivk8")
+}
 tree_root = SubResource("AnimationNodeBlendSpace1D_n2x4h")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/blend_position = -0.0011099
 
 [connection signal="timeout" from="Barrel_Timer" to="." method="_on_barrel_timer_timeout"]

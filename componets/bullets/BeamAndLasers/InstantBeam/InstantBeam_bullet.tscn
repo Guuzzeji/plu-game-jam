@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt30gqjk578u0"]
+
+[ext_resource type="Script" path="res://componets/bullets/template/Beam.gd" id="1_eujhb"]
+[ext_resource type="Resource" uid="uid://o8n1jr5csigc" path="res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres" id="2_efe3y"]
+[ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_ri312"]
+[ext_resource type="Material" uid="uid://1x14gvy52p65" path="res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeam_bullet.tres" id="4_pgch2"]
+
+[node name="InstantBeamBullet" type="RayCast3D" node_paths=PackedStringArray("Life_Timer", "linepolygon")]
+target_position = Vector3(0, 0, -10)
+script = ExtResource("1_eujhb")
+Bullet_Info = ExtResource("2_efe3y")
+Player_Info = ExtResource("2_ri312")
+Life_Timer = NodePath("Life_Timer")
+linepolygon = NodePath("beam")
+radius = 0.01
+
+[node name="Life_Timer" type="Timer" parent="."]
+
+[node name="beam" type="CSGPolygon3D" parent="."]
+polygon = PackedVector2Array()
+depth = 0.01
+material = ExtResource("4_pgch2")

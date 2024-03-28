@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://p08shaauj6w6"]
+
+[ext_resource type="Script" path="res://componets/Enemy Folder/PhysSentry/sentryGenericCode.gd" id="1_8mfsi"]
+[ext_resource type="Resource" uid="uid://o8n1jr5csigc" path="res://componets/bullets/BeamAndLasers/InstantBeam/InstantBeamResource.tres" id="2_nxpnd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q6wdc"]
+top_radius = 0.15
+bottom_radius = 0.05
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sof04"]
+radius = 0.125
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jnhq4"]
+radius = 0.125
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gqcmx"]
+radius = 0.1
+height = 0.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ex24i"]
+radius = 0.125
+height = 1.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_t8tf8"]
+inner_radius = 0.4
+outer_radius = 0.75
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kwvpo"]
+radius = 5.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qonys"]
+height = 0.25
+radius = 0.75
+
+[node name="ModSentryX1" type="StaticBody3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "CooldownTimer", "intruderDetector")]
+script = ExtResource("1_8mfsi")
+TurretHead = NodePath("body/barrel")
+TurnTable = NodePath("body")
+BulletSpawnPoint = NodePath("body/barrel/BulletSpawnPoint")
+IdleTarget = NodePath("IdlePointTarget")
+rotationSpeed = 89.72
+barrelSpeed = 200.0
+CooldownTimer = NodePath("CoolDown_Timer")
+Bullet_Info = ExtResource("2_nxpnd")
+intruderDetector = NodePath("IntruderArea")
+
+[node name="body" type="Node3D" parent="."]
+
+[node name="barrel" type="Node3D" parent="body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/barrel"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_q6wdc")
+
+[node name="BulletSpawnPoint" type="Node3D" parent="body/barrel"]
+
+[node name="headHitbox" type="StaticBody3D" parent="body/barrel"]
+
+[node name="headcolliderShape" type="CollisionShape3D" parent="body/barrel/headHitbox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_sof04")
+
+[node name="neck" type="MeshInstance3D" parent="body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_jnhq4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.345, -0.125)
+mesh = SubResource("CapsuleMesh_gqcmx")
+
+[node name="bodyHitbox" type="StaticBody3D" parent="body"]
+
+[node name="body_neck Hitbox" type="CollisionShape3D" parent="body/bodyHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_ex24i")
+
+[node name="base" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_t8tf8")
+
+[node name="CoolDown_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="IntruderArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IntruderArea"]
+shape = SubResource("SphereShape3D_kwvpo")
+
+[node name="IdlePointTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+
+[node name="BaseHitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_qonys")
+
+[connection signal="body_entered" from="IntruderArea" to="." method="_on_intruder_area_body_entered"]
+[connection signal="body_exited" from="IntruderArea" to="." method="_on_intruder_area_body_exited"]

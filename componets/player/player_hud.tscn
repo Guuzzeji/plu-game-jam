@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmx53al0wfbgl"]
+[gd_scene load_steps=6 format=3 uid="uid://bmx53al0wfbgl"]
 
 [ext_resource type="Script" path="res://componets/player/player_hud.gd" id="1_825m1"]
 [ext_resource type="Resource" uid="uid://ce2n6cf4dqt8m" path="res://componets/player/player_info.tres" id="2_1yhfq"]
 [ext_resource type="PackedScene" uid="uid://dojxi6wqwicjx" path="res://componets/player/bullet_inventory.tscn" id="3_6fq6f"]
+[ext_resource type="PackedScene" uid="uid://coaxq6hrs3lmo" path="res://componets/player/damage_numbers.tscn" id="3_jm24d"]
 [ext_resource type="Texture2D" uid="uid://cklmx5w7d33nv" path="res://assets/images/kenney_crosshairPack/PNG/White/crosshair100.png" id="4_5o8bf"]
 
 [node name="PlayerHud" type="Control"]
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_825m1")
 PlayerInfo = ExtResource("2_1yhfq")
+DamageTextFall = ExtResource("3_jm24d")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
@@ -84,8 +86,6 @@ offset_bottom = -184.16
 PlayerInfo = ExtResource("2_1yhfq")
 ActionTrigger = "Left_barrel_type"
 Select_Bullet_Index = "Inv_Index_Left_Barrel"
-Gun_Barrel = "Left_Barrel"
-Barrel_Label_State = "SWITCHING_BULLETS_LEFT"
 
 [node name="BulletInventory2" parent="." instance=ExtResource("3_6fq6f")]
 layout_mode = 1
@@ -98,8 +98,6 @@ offset_bottom = -184.16
 PlayerInfo = ExtResource("2_1yhfq")
 ActionTrigger = "Right_barrel_type"
 Select_Bullet_Index = "Inv_Index_Right_Barrel"
-Gun_Barrel = "Right_Barrel"
-Barrel_Label_State = "SWITCHING_BULLETS_RIGHT"
 
 [node name="CrossHair" type="TextureRect" parent="."]
 layout_mode = 1
@@ -115,3 +113,11 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_5o8bf")
+
+[node name="InteractText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 121.0
+offset_right = 1144.0
+offset_bottom = 156.0
+text = "testing"

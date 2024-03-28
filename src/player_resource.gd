@@ -43,6 +43,11 @@ var Current_BarrelState
 var Current_HealthState
 var Current_ManaState
 
+# Player Body
+var Pbody = Node3D
+var Player_Hud
+#Allows if hitbody = playerBody in the bullet code, make static?
+
 # **About**
 # Used for taking damge off of player and updating player state
 # Note: may need to make changes to this later down the road

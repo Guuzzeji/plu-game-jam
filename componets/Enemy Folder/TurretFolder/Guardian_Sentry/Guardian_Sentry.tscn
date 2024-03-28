@@ -1,0 +1,565 @@
+[gd_scene load_steps=28 format=3 uid="uid://cadckrkdpc2w4"]
+
+[ext_resource type="ArrayMesh" uid="uid://pouaa0hsg1jq" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_CrownGear/GS_CrownGear.obj" id="1_5ie1f"]
+[ext_resource type="Script" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.gd" id="1_8tms1"]
+[ext_resource type="ArrayMesh" uid="uid://dg2khertjjlyk" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/BS_Barrel/BS_BarrelGear.obj" id="2_t1yma"]
+[ext_resource type="Resource" uid="uid://36q7iyoov45" path="res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletResource.tres" id="2_v2156"]
+[ext_resource type="ArrayMesh" uid="uid://doerj7ntxrebs" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/BS_BarrelGear/BS_Barrel.obj" id="3_7p6pe"]
+[ext_resource type="ArrayMesh" uid="uid://dgu14u3ug8jp4" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_mana/GS_mana.obj" id="4_bok0b"]
+[ext_resource type="ArrayMesh" uid="uid://cjrv4evdf4f4t" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_ManaGlass/GS_ManaGlass.obj" id="5_d04pe"]
+[ext_resource type="ArrayMesh" uid="uid://ja00024t61kl" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_BarrelUnderGear/GS_BarrelUnderGear.obj" id="5_nd30x"]
+[ext_resource type="ArrayMesh" uid="uid://crxm25mdr48jj" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_Base/GS_Base.obj" id="6_yob6x"]
+[ext_resource type="ArrayMesh" uid="uid://klv8hf22rapp" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/GS_Meshs/GS_InputGear/GS_InputGear.obj" id="7_wy4a7"]
+
+[sub_resource type="Animation" id="Animation_w5v64"]
+resource_name = "BarrelRotation"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foundation/TurretBody/Barrel/BsBarrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
+}
+
+[sub_resource type="Animation" id="Animation_wmfuf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foundation/TurretBody/Barrel/BsBarrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iedjt"]
+_data = {
+"BarrelRotation": SubResource("Animation_w5v64"),
+"RESET": SubResource("Animation_wmfuf")
+}
+
+[sub_resource type="Animation" id="Animation_5ktl6"]
+resource_name = "GS_DeathAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foundation/TurretBody/Barrel/BsBarrelGear:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.190199, 0, 0), Vector3(-0.167782, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foundation/TurretBody/Barrel/BsBarrelGear:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.047565, 0.0972526), Vector3(0, -0.0397826, -0.0815049)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Foundation/TurretBody/Barrel/BsBarrel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0228923, -0.00934033), Vector3(0, -0.147052, -0.163507), Vector3(0, -0.41897, -0.203197)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Foundation/TurretBody/Barrel/BsBarrel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.300637, 0, 0), Vector3(-0.303136, 0, 0), Vector3(-0.0860797, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Foundation/TurretBody/GsCrownGear:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0529768, 0), Vector3(0, -0.036745, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Foundation/TurretBody/GsCrownGear:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.118229, 0, 0), Vector3(-0.0953473, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Foundation/TurretBody/GsBarrelUnderGear:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0413144, 0), Vector3(0, 0.0458524, -0.0388818), Vector3(0, 0.0227537, 0.0986608), Vector3(0.00179505, -0.0355767, 0.0607853)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Foundation/TurretBody/GsBarrelUnderGear:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.141599, 0, 0), Vector3(0.227899, 0, 0), Vector3(-0.0159174, 0, 0), Vector3(0.155666, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Foundation/GsManaGlass2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Foundation/GsManaGlass:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("input_gear_container:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.902, 0), Vector3(0, 0.837682, -0.0098428), Vector3(0, 0.801474, -0.0422395), Vector3(0, 0.74789, -0.108664), Vector3(0, 0.677198, -0.184691)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("input_gear_container:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.0930435, 0, 0), Vector3(-0.0930435, 0, 0), Vector3(-0.105976, 0, 0), Vector3(-0.136589, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2esxj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foundation/TurretBody/Barrel/BsBarrelGear:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foundation/TurretBody/Barrel/BsBarrelGear:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Foundation/TurretBody/Barrel/BsBarrel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Foundation/TurretBody/Barrel/BsBarrel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Foundation/TurretBody/GsCrownGear:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Foundation/TurretBody/GsCrownGear:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Foundation/TurretBody/GsBarrelUnderGear:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Foundation/TurretBody/GsBarrelUnderGear:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Foundation/GsManaGlass2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Foundation/GsManaGlass:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("input_gear_container:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.902, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("input_gear_container:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ota0"]
+_data = {
+"GS_DeathAnimation": SubResource("Animation_5ktl6"),
+"RESET": SubResource("Animation_2esxj")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bk1c7"]
+height = 3.0
+radius = 8.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvg78"]
+transparency = 1
+albedo_color = Color(0.2, 0.670588, 1, 0.698039)
+metallic = 0.95
+roughness = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4b4m"]
+transparency = 1
+albedo_color = Color(1, 0.709804, 0.101961, 0.603922)
+metallic = 1.0
+roughness = 0.24
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bvsh"]
+transparency = 1
+albedo_color = Color(1, 0.717647, 0.101961, 0.607843)
+metallic = 1.0
+roughness = 0.68
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wyrqt"]
+size = Vector3(0.878845, 0.577087, 0.403687)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ecb3"]
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m3wu7"]
+radius = 0.126525
+height = 0.602659
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sfmf"]
+transparency = 1
+albedo_color = Color(0.341176, 0.513726, 0, 0.772549)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_37fni"]
+height = 0.503306
+radius = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a3u83"]
+size = Vector3(1, 1.25385, 0.191208)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcqxg"]
+transparency = 1
+albedo_color = Color(1, 0.717647, 0.101961, 0.52549)
+metallic = 1.0
+roughness = 0.24
+
+[node name="GuardianSentry" type="Node3D" node_paths=PackedStringArray("TurretHead", "TurnTable", "BulletSpawnPoint", "IdleTarget", "RayCastSightLine", "LignOfSightRay", "ManaRegenTimer", "weakspot1", "weakspot2", "CooldownTimer", "intruderDetector", "Burst_Interval_Timer")]
+script = ExtResource("1_8tms1")
+TurretHead = NodePath("Foundation/TurretBody/Barrel")
+TurnTable = NodePath("Foundation/TurretBody")
+BulletSpawnPoint = NodePath("Foundation/TurretBody/Barrel/bulletSpawnPoint")
+IdleTarget = NodePath("IdleTarget")
+RayCastSightLine = NodePath("Foundation/TurretBody/Barrel/BarrelLOS")
+LignOfSightRay = NodePath("DetectionLOS")
+ManaRegenTimer = NodePath("ManaRegenTimer")
+ManaRegenAmount = 6
+weakspot1 = NodePath("Foundation/manaPositionContainer/ManaWeakSpot1")
+weakspot2 = NodePath("Foundation/manaPositionContainer2/ManaWeakSpot2")
+rotationSpeed = 70.0
+barrelSpeed = 60.0
+min_elevation = -45.0
+CooldownTimer = NodePath("CooldownTimer")
+Bullet_Info = ExtResource("2_v2156")
+intruderDetector = NodePath("IntruderArea")
+instanceHealth = 500
+Mana = 140
+MaxMana = 140
+Burst_Interval_Timer = NodePath("Burst Interval Timer")
+
+[node name="BarrelRotation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iedjt")
+}
+
+[node name="GS_DeathAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2ota0")
+}
+
+[node name="IntruderArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IntruderArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_bk1c7")
+
+[node name="ManaRegenTimer" type="Timer" parent="."]
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Burst Interval Timer" type="Timer" parent="."]
+
+[node name="DetectionLOS" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, -8)
+collision_mask = 3
+
+[node name="Foundation" type="Node3D" parent="."]
+
+[node name="TurretBody" type="Node3D" parent="Foundation"]
+
+[node name="GsCrownGear" type="MeshInstance3D" parent="Foundation/TurretBody"]
+material_overlay = SubResource("StandardMaterial3D_yvg78")
+mesh = ExtResource("1_5ie1f")
+skeleton = NodePath("../../..")
+
+[node name="Barrel" type="Node3D" parent="Foundation/TurretBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863, 0)
+
+[node name="BsBarrelGear" type="MeshInstance3D" parent="Foundation/TurretBody/Barrel"]
+material_overlay = SubResource("StandardMaterial3D_w4b4m")
+mesh = ExtResource("2_t1yma")
+skeleton = NodePath("../../../..")
+
+[node name="BsBarrel" type="MeshInstance3D" parent="Foundation/TurretBody/Barrel"]
+material_overlay = SubResource("StandardMaterial3D_6bvsh")
+mesh = ExtResource("3_7p6pe")
+skeleton = NodePath("../../../..")
+
+[node name="bulletSpawnPoint" type="Node3D" parent="Foundation/TurretBody/Barrel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7)
+
+[node name="BarrelLOS" type="RayCast3D" parent="Foundation/TurretBody/Barrel"]
+target_position = Vector3(0, 0, -7)
+collision_mask = 2
+
+[node name="GsBarrelUnderGear" type="MeshInstance3D" parent="Foundation/TurretBody"]
+material_overlay = SubResource("StandardMaterial3D_yvg78")
+mesh = ExtResource("5_nd30x")
+skeleton = NodePath("../../..")
+
+[node name="TurretHitbox" type="StaticBody3D" parent="Foundation/TurretBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679011, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/TurretBody/TurretHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00790405, 0.0882874, 0.0128784)
+shape = SubResource("BoxShape3D_wyrqt")
+
+[node name="manaPositionContainer" type="Node3D" parent="Foundation"]
+transform = Transform3D(0.92388, 0.382683, 0, -0.382683, 0.92388, 0, 0, 0, 1, 0.67, 0.123, 0)
+
+[node name="GsMana" type="MeshInstance3D" parent="Foundation/manaPositionContainer"]
+material_override = SubResource("StandardMaterial3D_8ecb3")
+mesh = ExtResource("4_bok0b")
+skeleton = NodePath("../../..")
+
+[node name="ManaWeakSpot1" type="StaticBody3D" parent="Foundation/manaPositionContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/manaPositionContainer/ManaWeakSpot1"]
+shape = SubResource("CapsuleShape3D_m3wu7")
+
+[node name="manaPositionContainer2" type="Node3D" parent="Foundation"]
+transform = Transform3D(0.92388, -0.382683, 0, 0.382683, 0.92388, 0, 0, 0, 1, -0.67, 0.123, 0)
+
+[node name="GsMana" type="MeshInstance3D" parent="Foundation/manaPositionContainer2"]
+material_override = SubResource("StandardMaterial3D_8ecb3")
+mesh = ExtResource("4_bok0b")
+skeleton = NodePath("../../..")
+
+[node name="ManaWeakSpot2" type="StaticBody3D" parent="Foundation/manaPositionContainer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/manaPositionContainer2/ManaWeakSpot2"]
+shape = SubResource("CapsuleShape3D_m3wu7")
+
+[node name="GsManaGlass" type="MeshInstance3D" parent="Foundation"]
+transform = Transform3D(0.92388, 0.382683, 0, -0.382683, 0.92388, 0, 0, 0, 1, 0.67, 0.123, 0)
+material_override = SubResource("StandardMaterial3D_2sfmf")
+mesh = ExtResource("5_d04pe")
+skeleton = NodePath("../..")
+
+[node name="GsManaGlass2" type="MeshInstance3D" parent="Foundation"]
+transform = Transform3D(0.92388, -0.382683, 0, 0.382683, 0.92388, 0, 0, 0, 1, -0.67, 0.123, 0)
+material_override = SubResource("StandardMaterial3D_2sfmf")
+mesh = ExtResource("5_d04pe")
+skeleton = NodePath("../..")
+
+[node name="BaseHitbox" type="StaticBody3D" parent="Foundation"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/BaseHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242843, 0)
+shape = SubResource("CylinderShape3D_37fni")
+
+[node name="BaseHitboxBack" type="StaticBody3D" parent="Foundation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.301972, 0.344268)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foundation/BaseHitboxBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.310135, 0.420876)
+shape = SubResource("BoxShape3D_a3u83")
+
+[node name="GsBase" type="MeshInstance3D" parent="."]
+material_overlay = SubResource("StandardMaterial3D_kcqxg")
+mesh = ExtResource("6_yob6x")
+
+[node name="input_gear_container" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.902, 0)
+
+[node name="GsInputGear" type="MeshInstance3D" parent="input_gear_container"]
+material_overlay = SubResource("StandardMaterial3D_yvg78")
+mesh = ExtResource("7_wy4a7")
+skeleton = NodePath("../..")
+
+[node name="IdleTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.863, -0.767505)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="IdleTarget"]
+visible = false
+size = Vector3(0.1, 0.1, 0.1)

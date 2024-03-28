@@ -1,0 +1,225 @@
+[gd_scene load_steps=32 format=3 uid="uid://b1w6fftdidred"]
+
+[ext_resource type="Script" path="res://levels/PL1_EVENT_MONITOR.gd" id="1_f2hsq"]
+[ext_resource type="ArrayMesh" uid="uid://r4prtbwg7ncy" path="res://assets/ProtoLevel1Assets/Courtyard.obj" id="2_5ukvn"]
+[ext_resource type="ArrayMesh" uid="uid://dybgnak72k66i" path="res://assets/ProtoLevel1Assets/Chamber1Door.obj" id="2_jhv02"]
+[ext_resource type="PackedScene" uid="uid://5m5c7wnfothd" path="res://componets/Level_Devices/One_Way_Teleporter/one_way_exit.tscn" id="2_unqjl"]
+[ext_resource type="Script" path="res://componets/Level_Devices/Doors/GenericDoorCode.gd" id="3_tg16j"]
+[ext_resource type="ArrayMesh" uid="uid://87b21bunftc8" path="res://assets/ProtoLevel1Assets/ChamberCenter.obj" id="4_b78xd"]
+[ext_resource type="ArrayMesh" uid="uid://50ykuvnuwjwp" path="res://assets/ProtoLevel1Assets/ExitDoor.obj" id="5_xpsoi"]
+[ext_resource type="ArrayMesh" uid="uid://mhq3aunlnknv" path="res://assets/ProtoLevel1Assets/Courtyard Cover.obj" id="6_t0eih"]
+[ext_resource type="ArrayMesh" uid="uid://uh4d622js5hs" path="res://assets/ProtoLevel1Assets/PathfindGuarden.obj" id="7_72cc3"]
+[ext_resource type="ArrayMesh" uid="uid://6ufimfqrwnce" path="res://assets/ProtoLevel1Assets/PGDoor.obj" id="8_3fm4i"]
+[ext_resource type="ArrayMesh" uid="uid://dj60m6xs52nf4" path="res://assets/ProtoLevel1Assets/windowPane.obj" id="9_2upj5"]
+[ext_resource type="PackedScene" uid="uid://ctpc7rv4oavcn" path="res://componets/Level_Devices/One_Way_Teleporter/One_Way_Enter.tscn" id="10_v1ha5"]
+[ext_resource type="PackedScene" uid="uid://vp6sfilokglx" path="res://componets/Level_Devices/PressurePlates/PlayerPressurePlate.tscn" id="13_uwlmh"]
+[ext_resource type="PackedScene" uid="uid://ddbhncfoo12wf" path="res://componets/bullets/BasicBullets/Blunt_Bullet/BluntBulletAmmo.tscn" id="15_lj4hp"]
+[ext_resource type="PackedScene" uid="uid://dv71rmtif5x73" path="res://componets/SpawnStuffs/SpawnPoint.tscn" id="15_rb14f"]
+[ext_resource type="PackedScene" uid="uid://f0k6plpv6os0" path="res://componets/bullets/classicbullet/ClassicBulletAmmo.tscn" id="16_qbgqj"]
+[ext_resource type="PackedScene" uid="uid://c2frh40hq2y2w" path="res://componets/Level_Devices/telepad/tele_pad.tscn" id="17_r0qei"]
+[ext_resource type="PackedScene" uid="uid://bfawoadi2j77r" path="res://componets/Enemy Folder/TurretFolder/Basic_Bullet_Sentry/Basic_Bullet_Sentry.tscn" id="18_13mf0"]
+[ext_resource type="PackedScene" uid="uid://cadckrkdpc2w4" path="res://componets/Enemy Folder/TurretFolder/Guardian_Sentry/Guardian_Sentry.tscn" id="19_5n4b3"]
+[ext_resource type="PackedScene" uid="uid://bw0uu5umnt8vn" path="res://componets/Enemy Folder/Evil Cube/evil_cube.tscn" id="21_t5yca"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oo6bs"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ljt0m"]
+vertices = PackedVector3Array(-0.0991001, 0.345071, -23.2856, 1.6509, 0.345071, -21.0356, 2.6509, 0.345071, -21.0356, -1.3491, 0.345071, -24.7856, -0.0991001, 0.345071, -23.2856, 2.6509, 0.345071, -21.0356, 5.4009, 0.345071, -24.2856, -1.3491, 0.345071, -34.0356, 5.4009, 0.345071, -24.2856, 12.6509, 0.345071, -23.5356, 13.1509, 0.345071, -34.0356, -1.3491, 0.345071, -34.0356, 16.1509, 0.345071, -23.2856, 16.4009, 0.345071, -22.7856, 23.6509, 0.345071, -30.7856, 23.6509, 0.345071, -30.7856, 19.9009, 0.345071, -34.0356, 13.1509, 0.345071, -34.0356, 12.6509, 0.345071, -23.5356, 16.1509, 0.345071, -23.2856, 28.9009, 0.345071, -22.2856, 28.9009, 0.345071, -26.7856, 23.6509, 0.345071, -30.7856, 16.4009, 0.345071, -22.7856, 16.4009, 0.345071, -22.2856, 1.6509, 0.345071, -21.0356, -0.0991001, 0.345071, -23.2856, -1.0991, 0.345071, -22.0356, 0.6509, 0.345071, -20.2856, 1.4009, 0.345071, -18.5356, 0.6509, 0.345071, -19.2856, -2.8491, 0.345071, -22.5356, -9.3491, 0.345071, -15.7856, -3.5991, 0.345071, -13.5356, 0.6509, 0.345071, -19.2856, 0.6509, 0.345071, -20.2856, -1.0991, 0.345071, -22.0356, -2.8491, 0.345071, -22.5356, 7.9009, 0.345071, -10.5356, 6.9009, 0.345071, -8.0356, 7.4009, 0.345071, -8.0356, 8.4009, 0.345071, -14.2856, 7.4009, 0.345071, -13.5356, 7.9009, 0.345071, -10.5356, 5.9009, 0.345071, -22.2856, 3.9009, 0.345071, -19.7856, 4.1509, 0.345071, -18.5356, 6.4009, 0.345071, -16.0356, 7.6509, 0.345071, -16.0356, 7.9009, 0.345071, -10.5356, 7.4009, 0.345071, -8.0356, 13.1509, 0.345071, -2.0356, 18.4009, 0.345071, -2.7856, 18.4009, 0.345071, -2.7856, 18.6509, 0.345071, -1.5356, 21.9009, 0.345071, 2.2144, 28.9009, 0.345071, -3.2856, 16.1509, 0.345071, -21.5356, 8.4009, 0.345071, -14.2856, 7.9009, 0.345071, -10.5356, 18.4009, 0.345071, -2.7856, 28.9009, 0.345071, -3.2856, 28.9009, 0.345071, -22.2856, 5.9009, 0.345071, -22.2856, 7.6509, 0.345071, -16.0356, 8.4009, 0.345071, -15.2856, 13.9009, 0.345071, -21.5356, 28.9009, 0.345071, -22.2856, 16.4009, 0.345071, -22.2856, 16.1509, 0.345071, -21.5356, 13.9009, 0.345071, -21.5356, 8.4009, 0.345071, -15.2856, 8.4009, 0.345071, -14.2856, 16.1509, 0.345071, -21.5356, 4.9009, 0.595071, -9.5356, 5.4009, 0.595071, -11.5356, 4.9009, 0.595071, -12.2856, 2.6509, 0.345071, -8.7856, 4.9009, 0.345071, -14.5356, 6.4009, 0.345071, -16.0356, 4.1509, 0.345071, -18.5356, -1.8491, 0.345071, -12.7856, -1.8491, 0.345071, -3.7856, 1.9009, 0.345071, -8.0356, 4.9009, 0.595071, -12.2856, 4.9009, 0.345071, -14.5356, 4.1509, 0.345071, -18.5356, 1.9009, 0.345071, -8.0356, 2.6509, 0.345071, -8.7856, 4.9009, 0.595071, -12.2856, -1.8491, 0.345071, -3.7856, 1.9009, 0.345071, -3.7856, 1.9009, 0.345071, -8.0356, -3.5991, 0.345071, -13.5356, -9.3491, 0.345071, -15.7856, -15.3491, 0.345071, -10.0356, -15.3491, 0.345071, 16.9644, -3.5991, 0.345071, 16.9644, 13.4009, 0.345071, 4.2144, 13.4009, 0.345071, -0.0355988, 12.4009, 0.345071, -0.0355988, 4.1509, 0.345071, 4.2144, 13.4009, 0.345071, 4.2144, 12.4009, 0.345071, -0.0355988, 5.6509, 0.345071, -7.0356, 4.1509, 0.345071, -6.7856, -1.8491, 1.34507, -2.0356, -1.8491, 1.34507, 1.9644, 1.9009, 1.34507, 1.9644, 1.9009, 1.34507, -2.0356, 21.9009, 0.345071, 2.2144, 18.6509, 0.345071, -1.5356, 18.4009, 0.345071, -1.0356, 19.6509, 0.345071, 4.2144, 21.9009, 0.345071, 2.2144, 18.4009, 0.345071, -1.0356, 13.4009, 0.345071, -0.0355988, 13.4009, 0.345071, 4.2144, -1.8491, 2.34507, 4.2144, -1.8491, 0.345071, 16.9644, 1.9009, 0.345071, 16.9644, 1.9009, 2.34507, 4.2144, -1.8491, 2.34507, 8.4644, -1.8491, 0.345071, 11.2977, 1.9009, 0.345071, 11.2977, 1.9009, 2.34507, 8.4644, -0.119064, 1.09507, 9.72236)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(6, 3, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(14, 13, 12), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 19), PackedInt32Array(17, 19, 18), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(23, 20, 24), PackedInt32Array(28, 27, 25), PackedInt32Array(25, 27, 26), PackedInt32Array(30, 29, 31), PackedInt32Array(31, 29, 33), PackedInt32Array(31, 33, 32), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(40, 39, 38), PackedInt32Array(43, 42, 41), PackedInt32Array(45, 44, 46), PackedInt32Array(46, 44, 47), PackedInt32Array(47, 44, 48), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(54, 53, 55), PackedInt32Array(55, 53, 56), PackedInt32Array(58, 57, 59), PackedInt32Array(59, 57, 60), PackedInt32Array(60, 57, 61), PackedInt32Array(61, 57, 62), PackedInt32Array(64, 63, 65), PackedInt32Array(65, 63, 66), PackedInt32Array(69, 68, 67), PackedInt32Array(71, 70, 72), PackedInt32Array(72, 70, 73), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(78, 80, 79), PackedInt32Array(85, 84, 86), PackedInt32Array(86, 84, 81), PackedInt32Array(81, 84, 83), PackedInt32Array(81, 83, 82), PackedInt32Array(89, 88, 87), PackedInt32Array(92, 91, 90), PackedInt32Array(94, 93, 95), PackedInt32Array(95, 93, 96), PackedInt32Array(96, 93, 97), PackedInt32Array(100, 99, 98), PackedInt32Array(104, 103, 105), PackedInt32Array(105, 103, 102), PackedInt32Array(105, 102, 101), PackedInt32Array(109, 108, 106), PackedInt32Array(106, 108, 107), PackedInt32Array(112, 111, 110), PackedInt32Array(114, 113, 115), PackedInt32Array(115, 113, 116), PackedInt32Array(116, 113, 117), PackedInt32Array(125, 122, 121), PackedInt32Array(121, 122, 118), PackedInt32Array(122, 126, 123), PackedInt32Array(123, 124, 119), PackedInt32Array(119, 124, 120), PackedInt32Array(124, 126, 125), PackedInt32Array(125, 126, 122), PackedInt32Array(126, 124, 123)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ek0fo"]
+albedo_color = Color(0.235294, 0.52549, 0.360784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sqgn"]
+albedo_color = Color(0.211765, 0.262745, 0.313726, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_072as"]
+albedo_color = Color(0.211765, 0.262745, 0.313726, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1bfi"]
+transparency = 1
+albedo_color = Color(0.223529, 0.4, 0.196078, 0.537255)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nv8sp"]
+albedo_color = Color(0.211765, 0.262745, 0.313726, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enfew"]
+transparency = 1
+depth_draw_mode = 2
+albedo_color = Color(0.556863, 0.721569, 0.313726, 0.478431)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54dc7"]
+albedo_color = Color(0.290196, 0.356863, 0.419608, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78bgl"]
+albedo_color = Color(0.113725, 0.14902, 0.180392, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdji4"]
+size = Vector3(100, 20, 100)
+
+[node name="Proto_Level_01" type="Node3D"]
+script = ExtResource("1_f2hsq")
+courtyard_Enemy_group = "CourtYardE"
+
+[node name="player_reference_shape" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.021, 1.16406, -38.5125)
+mesh = SubResource("CapsuleMesh_oo6bs")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ljt0m")
+
+[node name="Geography" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="OnshapeImports" type="Node3D" parent="NavigationRegion3D/Geography"]
+
+[node name="Courtyard" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
+use_collision = true
+mesh = ExtResource("2_5ukvn")
+material = SubResource("StandardMaterial3D_ek0fo")
+
+[node name="ChamberCenter" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
+use_collision = true
+mesh = ExtResource("4_b78xd")
+material = SubResource("StandardMaterial3D_3sqgn")
+
+[node name="ExitDoor" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
+use_collision = true
+mesh = ExtResource("5_xpsoi")
+material = SubResource("StandardMaterial3D_072as")
+script = ExtResource("3_tg16j")
+
+[node name="CourtYardCover" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
+transform = Transform3D(0.961175, 0, 0.275939, 0, 1, 0, -0.275939, 0, 0.961175, 1.16944, 0, 3.1742)
+use_collision = true
+mesh = ExtResource("6_t0eih")
+material = SubResource("StandardMaterial3D_n1bfi")
+
+[node name="CourtYardCover2" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
+transform = Transform3D(-0.5709, 0, -0.82102, 0, 1, 0, 0.82102, 0, -0.5709, 12.348, -0.654929, -34.0055)
+use_collision = true
+mesh = ExtResource("6_t0eih")
+material = SubResource("StandardMaterial3D_n1bfi")
+
+[node name="PathfindGuarden" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
+use_collision = true
+mesh = ExtResource("7_72cc3")
+material = SubResource("StandardMaterial3D_nv8sp")
+
+[node name="WindowPane" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
+mesh = ExtResource("9_2upj5")
+material = SubResource("StandardMaterial3D_enfew")
+
+[node name="PgDoor" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
+use_collision = true
+mesh = ExtResource("8_3fm4i")
+material = SubResource("StandardMaterial3D_54dc7")
+script = ExtResource("3_tg16j")
+
+[node name="Chamber1Door" type="CSGMesh3D" parent="NavigationRegion3D/Geography/OnshapeImports"]
+use_collision = true
+mesh = ExtResource("2_jhv02")
+material = SubResource("StandardMaterial3D_78bgl")
+script = ExtResource("3_tg16j")
+
+[node name="Utilities" type="Node3D" parent="."]
+
+[node name="Activtation_Area" type="Area3D" parent="Utilities"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Utilities/Activtation_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+shape = SubResource("BoxShape3D_tdji4")
+
+[node name="level_exit" parent="Utilities" instance=ExtResource("10_v1ha5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27988, 6.543)
+One_Way_TeleChannel = 6
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Utilities/level_exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.302203, 0)
+size = Vector3(0.6, 0.125, 0.6)
+
+[node name="One_Way_Exit" parent="Utilities" instance=ExtResource("2_unqjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+One_Way_TeleChannel = 5
+
+[node name="DoorPressurePlate" parent="Utilities" instance=ExtResource("13_uwlmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.179, 0.25, -10.873)
+single_use = false
+cooldownTime = 5.0
+
+[node name="AmmoBait" parent="Utilities" instance=ExtResource("15_rb14f")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 5.179, 0.632224, -10.873)
+spawnBlueprint = ExtResource("15_lj4hp")
+
+[node name="teleporter" type="Node3D" parent="Utilities"]
+
+[node name="baitTelepad" parent="Utilities/teleporter" instance=ExtResource("17_r0qei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13)
+TeleChannel = 7
+
+[node name="ClassicBulletAmmo" parent="Utilities/teleporter/baitTelepad" instance=ExtResource("16_qbgqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62551, 0)
+
+[node name="surpriseTelepad" parent="Utilities/teleporter" instance=ExtResource("17_r0qei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8419, 0, 14.3984)
+TeleChannel = 7
+
+[node name="pgHallwayActivation" type="Area3D" parent="Utilities"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.76826, 0, 0)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Utilities/pgHallwayActivation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.45384e-07, 3.326)
+depth = 7.0
+polygon = PackedVector2Array(6.03444, -17.6141, -7.5584, -17.6844, -7.56556, 10.2198, 6.05853, 23.8438, 11.4594, 18.7566, 6.02368, 13.2164)
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="StartSpawnPoint" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(0.912948, 0, -0.408076, 0, 1, 0, 0.408076, 0, 0.912948, 9.29025, 9.53674e-07, 0.120331)
+spawnBlueprint = ExtResource("18_13mf0")
+SpawnOnStart = false
+SpawnOnLevelStart = true
+add_to_group_name = "CourtYardE"
+
+[node name="BackWallCourtyardSpawner" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(-4.37114e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37114e-08, 27.9068, 0, -13.627)
+spawnBlueprint = ExtResource("19_5n4b3")
+SpawnOnStart = false
+SpawnOnLevelStart = true
+add_to_group_name = "CourtYardE"
+
+[node name="StartSpawnPoint3" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(-0.629225, 0, -0.777223, 0, 1, 0, 0.777223, 0, -0.629225, 3.39197, 1.90735e-06, -28.3849)
+spawnBlueprint = ExtResource("18_13mf0")
+SpawnOnStart = false
+SpawnOnLevelStart = true
+add_to_group_name = "CourtYardE"
+
+[node name="CrawlerSpawnPoint" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 10)
+spawnBlueprint = ExtResource("21_t5yca")
+SpawnOnStart = false
+add_to_group_name = "PgEnemies"
+navmesh_Layer = 2
+
+[node name="CrawlerSpawnPoint2" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+spawnBlueprint = ExtResource("21_t5yca")
+SpawnOnStart = false
+add_to_group_name = "PgEnemies"
+navmesh_Layer = 2
+
+[node name="CrawlerSpawnPoint3" parent="SpawnPoints" instance=ExtResource("15_rb14f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 10)
+spawnBlueprint = ExtResource("21_t5yca")
+SpawnOnStart = false
+add_to_group_name = "PgEnemies"
+navmesh_Layer = 2
+
+[connection signal="Deploy_Cubes" from="." to="SpawnPoints/CrawlerSpawnPoint" method="_spawn_signal_recieved"]
+[connection signal="Deploy_Cubes" from="." to="SpawnPoints/CrawlerSpawnPoint2" method="_spawn_signal_recieved"]
+[connection signal="Deploy_Cubes" from="." to="SpawnPoints/CrawlerSpawnPoint3" method="_spawn_signal_recieved"]
+[connection signal="open_door2" from="." to="NavigationRegion3D/Geography/OnshapeImports/PgDoor" method="_open_door"]
+[connection signal="open_exit" from="." to="NavigationRegion3D/Geography/OnshapeImports/ExitDoor" method="_open_door"]
+[connection signal="body_entered" from="Utilities/Activtation_Area" to="." method="_on_activtation_area_body_entered"]
+[connection signal="PlayerPadActivated" from="Utilities/DoorPressurePlate" to="NavigationRegion3D/Geography/OnshapeImports/Chamber1Door" method="_toggle_door"]
+[connection signal="body_entered" from="Utilities/pgHallwayActivation" to="." method="_on_pg_hallway_activation_body_entered"]

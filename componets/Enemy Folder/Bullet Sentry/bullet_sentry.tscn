@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dll35dma5vov"]
+
+[ext_resource type="PackedScene" uid="uid://bbr0w62ju4wsu" path="res://componets/Enemy Folder/Bullet Sentry/Sentry bullet.gltf" id="1_pykju"]
+
+[node name="Bullet Sentry" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29)
+
+[node name="Sentry bullet" parent="." instance=ExtResource("1_pykju")]
