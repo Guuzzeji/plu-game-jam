@@ -1,7 +1,9 @@
+CSGBox3D
+BoneAttachment3D
+MeshInstance3D
 CharacterBody3D
 Node3D
 Skeleton3D
-MeshInstance3D
 CollisionShape3D
 CSGTorus3D
 CSGSphere3D
@@ -10,5 +12,3 @@ Timer
 StaticBody3D
 Area3D
 RayCast3D
-CSGBox3D
-Node
